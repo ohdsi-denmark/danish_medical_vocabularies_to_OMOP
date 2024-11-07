@@ -22,6 +22,7 @@ We invite the public to comment on our mappings via the issue system, and sugges
 ## Medication - ATC + local codes
 
 ## Lab Tests - NPU
+**add description of NPU, LOINC and UCUM and of the mapping principles from our paper**
 
 ## Vaccines - ATC
 
