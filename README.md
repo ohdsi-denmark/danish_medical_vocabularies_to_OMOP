@@ -42,6 +42,8 @@ Drugs are classified in groups at five different levels:
    Chemical substance
    
 ## Lab Tests - NPU
+https://sundhedsdatastyrelsen.dk/da/rammer-og-retningslinjer/om-terminologi/npu/sogevejledning-labterm-npu
+
 **Description of NPU, LOINC and UCUM and of the mapping principles from our paper**
 
 The Nomenclature, Properties, and Units (NPU) terminology is used in Danish healthcare for coding lab tests and results.The full NPU terminology contains 9035 codes as of August 2024. This offers a structured approach to standardizing laboratory data, ensuring that properties and units are consistently represented across the registry. Mapping the entire codes set to an OMOP standard vocabulary is a daunting task, we therefore chose to map the top 528 codes by usage frequency, representing 99% of Danish lab orders, which were mapped to LOINC (Logical Observation Identifiers Names and Codes), an international standard for laboratory and clinical observations. The mapping was performed by us and reviewed by a clinical biochemist. We identified a direct equivalent in the LOINC vocabulary for X codes, for Y codes, we found a broader concept in LOINC vocabulary, and for Z codes we found a narrower one. However, no equivalent LOINC code was available for the remaining Z codes.
