@@ -30,8 +30,17 @@ The Anatomical Therapeutic Chemical (ATC) classification system organizes active
 
 Drugs are classified in groups at five different levels:
 1. ATC 1st level
-2. ATC 2nd level
-3. 
+   The system has fourteen main anatomical or pharmacological groups.
+   
+3. ATC 2nd level
+   Pharmacological or Therapeutic subgroup.
+   
+5. ATC 3rd& 4th levels
+   Chemical, Pharmacological or Therapeutic subgroup
+
+4. ATC 5th level
+   Chemical substance
+   
 ## Lab Tests - NPU
 **Description of NPU, LOINC and UCUM and of the mapping principles from our paper**
 
