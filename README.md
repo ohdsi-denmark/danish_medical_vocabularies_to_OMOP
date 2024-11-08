@@ -56,5 +56,11 @@ The mapping principles:
 4.	Undocumented or Obsolete Codes: For some retired or undocumented NPU codes, mapping was challenging due to limited information, and these codes were flagged accordingly.
 
 ## Vaccines - ATC
+https://atcddd.fhi.no/atc_ddd_index/?showdescription=yes&code=J07
+
+In the ATC (Anatomical Therapeutic Chemical) classification system, vaccines fall under the code "J07." This group is divided into bacterial vaccines (J07A), viral vaccines (J07B), combined bacterial and viral vaccines (J07C), and other vaccines (J07X). These classifications allow vaccines to be grouped by the type of pathogen they target, with further divisions by indication at the fourth level.
 
 ## Procedures - SKS
+https://sundhedsdatastyrelsen.dk/da/rammer-og-retningslinjer/om-klassifikationer/sks-klassifikationer/klassifikation-operationer
+
+The SKS (Sundheds Klassifikations System) is the Danish health classification system used for coding various medical and administrative aspects within healthcare, helping in organization, documentation, and statistical reporting.
