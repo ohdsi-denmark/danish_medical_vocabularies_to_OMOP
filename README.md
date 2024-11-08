@@ -9,8 +9,10 @@ We invite the public to comment on our mappings via the issue system, and sugges
 **add links**
 * Danish Medicine Agency
 * [INCEPT project](https://github.com/INCEPTdk)
-* DARWIN EU project 
+* DARWIN EU project
+* [https://www.darwin-eu.org](https://www.darwin-eu.org/)
 * ARISTOTELES EU project
+* [https://aristoteles-horizon.eu/the-project](https://aristoteles-horizon.eu/the-project/)
 
 ## How to contribute
 
