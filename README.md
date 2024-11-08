@@ -20,7 +20,29 @@ We invite the public to comment on our mappings via the issue system, and sugges
 **Insert tutorial here**
 
 # Vocabularies
-**add explanations and links**
+**Explanations and links**
+In medical informatics, vocabularies refer to structured sets of terms and codes used to represent clinical data in a standardized way, ensuring consistency and interoperability across healthcare systems. Here are some prominent vocabularies often used in healthcare, including in OMOP and related databases:
+1. LOINC (Logical Observation Identifiers Names and Codes): A vocabulary for laboratory and clinical observations. LOINC codes standardize terms for tests, measurements, and observations, allowing accurate data exchange between systems.
+   https://loinc.org/
+   
+3. NPU (Nomenclature for Properties and Units): A vocabulary often used in laboratory sciences to define and standardize units and properties for measurements. NPU codes are commonly adopted in Europe for clinical laboratory reporting.
+   https://npu-terminology.org/
+   
+5. UCUM (Unified Code for Units of Measure): This vocabulary provides standardized codes for units of measure. UCUM ensures that units (e.g., mg, mL, mmHg) are consistent and interpretable across systems, especially critical in international and multisite data sharing.
+   https://ucum.org/
+   
+7. ATC (Anatomical Therapeutic Chemical Classification code): A unique code assigned to a medicine according to the organ or system it works on and how it works. The classification system is maintained by the World Health Organization (WHO).
+   https://www.ema.europa.eu/en/glossary-terms/atc-code
+   
+9. SNOMED CT (Systematized Nomenclature of Medicine - Clinical Terms): A comprehensive clinical terminology that covers diseases, clinical findings, procedures, and other healthcare-related concepts. SNOMED CT enhances electronic health records by providing detailed clinical information.
+    https://www.snomed.org/
+   
+11. ICD (International Classification of Diseases): A vocabulary for diagnosing and coding diseases, health conditions, and causes of death. ICD codes help track disease trends and health statistics globally.
+    https://www.who.int/standards/classifications/classification-of-diseases
+    
+13. CPT (Current Procedural Terminology): A code set for medical, surgical, and diagnostic procedures. CPT codes are widely used in billing and electronic health records to document healthcare services.
+    https://mmshub.cms.gov/measure-lifecycle/measure-specification/specify-code/CPT
+
 ## Medication - ATC + local codes
 Anatomical Therapeutic Chemical (ATC)
 
