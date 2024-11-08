@@ -22,7 +22,13 @@ We invite the public to comment on our mappings via the issue system, and sugges
 # Vocabularies
 **add explanations and links**
 ## Medication - ATC + local codes
-
+Anatomical Therapeutic Chemical (ATC)
+https://www.who.int/tools/atc-ddd-toolkit/atc-classification
+The Anatomical Therapeutic Chemical (ATC) classification system organizes active substances into groups based on the organ or system they target, as well as their therapeutic, pharmacological, and chemical characteristics.
+Drugs are classified in groups at five different levels:
+1. ATC 1st level
+2. ATC 2nd level
+3. 
 ## Lab Tests - NPU
 **Description of NPU, LOINC and UCUM and of the mapping principles from our paper**
 
