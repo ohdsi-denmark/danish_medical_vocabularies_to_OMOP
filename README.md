@@ -24,8 +24,8 @@ The Danish National Repository system uses the following vocabularies for coding
 
 Anatomical Therapeutic Chemical (ATC)
    
-7. ATC (Anatomical Therapeutic Chemical Classification code): A unique code assigned to a medicine according to the organ or system it works on and how it works. The classification system is maintained by the World Health Organization (WHO).
-   https://www.ema.europa.eu/en/glossary-terms/atc-code
+7. [ATC]( https://www.ema.europa.eu/en/glossary-terms/atc-code) (Anatomical Therapeutic Chemical Classification code): A unique code assigned to a medicine according to the organ or system it works on and how it works. The classification system is maintained by the World Health Organization (WHO).
+  
 
 https://www.who.int/tools/atc-ddd-toolkit/atc-classification
 
