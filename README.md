@@ -10,8 +10,7 @@ We invite the public to comment on our mappings via the issue system, and sugges
 * [Danish Medicine Agency](https://laegemiddelstyrelsen.dk/)
 * [INCEPT project](https://github.com/INCEPTdk)
 * [DARWIN EU project](https://www.darwin-eu.org)
-* ARISTOTELES EU project
-* [https://aristoteles-horizon.eu/the-project](https://aristoteles-horizon.eu/the-project/)
+* [ARISTOTELES EU project](https://aristoteles-horizon.eu/the-project/)
 
 ## How to contribute
 
