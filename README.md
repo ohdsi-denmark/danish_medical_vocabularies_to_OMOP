@@ -24,24 +24,9 @@ The Danish National Repository system uses the following vocabularies for coding
 
 Anatomical Therapeutic Chemical (ATC)
    
-7. [ATC]( https://www.ema.europa.eu/en/glossary-terms/atc-code) (Anatomical Therapeutic Chemical Classification code): A unique code assigned to a medicine according to the organ or system it works on and how it works. The classification system is maintained by the World Health Organization (WHO).
-  
+[ATC]( https://www.ema.europa.eu/en/glossary-terms/atc-code) (Anatomical Therapeutic Chemical Classification code): A unique code assigned to a medicine according to the organ or system it works on and how it works. The classification system is maintained by the World Health Organization (WHO).
 
-The [ATC classification system](https://www.who.int/tools/atc-ddd-toolkit/atc-classification) organizes active substances into groups based on the organ or system they target, as well as their therapeutic, pharmacological, and chemical characteristics.
-
-Drugs are classified in groups at five different levels:
-1. ATC 1st level
-   The system has fourteen main anatomical or pharmacological groups.
-   
-3. ATC 2nd level
-   Pharmacological or Therapeutic subgroup.
-   
-5. ATC 3rd& 4th levels
-   Chemical, Pharmacological or Therapeutic subgroup
-
-4. ATC 5th level
-   Chemical substance
-   
+     
 ## Lab Tests - NPU
 https://sundhedsdatastyrelsen.dk/da/rammer-og-retningslinjer/om-terminologi/npu/sogevejledning-labterm-npu
 
@@ -60,14 +45,26 @@ The mapping principles:
 4.	Undocumented or Obsolete Codes: For some retired or undocumented NPU codes, mapping was challenging due to limited information, and these codes were flagged accordingly.
 
 ## Vaccines - ATC
-https://atcddd.fhi.no/atc_ddd_index/?showdescription=yes&code=J07
 
-In the ATC (Anatomical Therapeutic Chemical) classification system, vaccines fall under the code "J07." This group is divided into bacterial vaccines (J07A), viral vaccines (J07B), combined bacterial and viral vaccines (J07C), and other vaccines (J07X). These classifications allow vaccines to be grouped by the type of pathogen they target, with further divisions by indication at the fourth level.
+The [ATC classification system](https://www.who.int/tools/atc-ddd-toolkit/atc-classification) organizes active substances into groups based on the organ or system they target, as well as their therapeutic, pharmacological, and chemical characteristics.
+
+Drugs are classified in groups at five different levels:
+1. ATC 1st level
+   The system has fourteen main anatomical or pharmacological groups.
+   
+3. ATC 2nd level
+   Pharmacological or Therapeutic subgroup.
+   
+5. ATC 3rd& 4th levels
+   Chemical, Pharmacological or Therapeutic subgroup
+
+4. ATC 5th level
+  
+In the ATC classification system, [vaccines]( Chemical substancehttps://atcddd.fhi.no/atc_ddd_index/?showdescription=yes&code=J07) fall under the code "J07." This group is divided into bacterial vaccines (J07A), viral vaccines (J07B), combined bacterial and viral vaccines (J07C), and other vaccines (J07X). These classifications allow vaccines to be grouped by the type of pathogen they target, with further divisions by indication at the fourth level.
 
 ## Procedures - SKS
-https://sundhedsdatastyrelsen.dk/da/rammer-og-retningslinjer/om-klassifikationer/sks-klassifikationer/klassifikation-operationer
 
-The SKS (Sundheds Klassifikations System) is the Danish health classification system used for coding various medical and administrative aspects within healthcare, helping in organization, documentation, and statistical reporting.
+The [SKS](https://sundhedsdatastyrelsen.dk/da/rammer-og-retningslinjer/om-klassifikationer/sks-klassifikationer/klassifikation-operationer) (Sundheds Klassifikations System) is the Danish health classification system used for coding various medical and administrative aspects within healthcare, helping in organization, documentation, and statistical reporting.
 11. ICD (International Classification of Diseases): A vocabulary for diagnosing and coding diseases, health conditions, and causes of death. ICD codes help track disease trends and health statistics globally.
     https://www.who.int/standards/classifications/classification-of-diseases
     
