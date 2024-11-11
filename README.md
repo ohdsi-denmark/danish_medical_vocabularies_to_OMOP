@@ -60,7 +60,7 @@ Drugs are classified in groups at five different levels:
 
 4. ATC 5th level
   
-In the ATC classification system, [vaccines]( Chemical substancehttps://atcddd.fhi.no/atc_ddd_index/?showdescription=yes&code=J07) fall under the code "J07." This group is divided into bacterial vaccines (J07A), viral vaccines (J07B), combined bacterial and viral vaccines (J07C), and other vaccines (J07X). These classifications allow vaccines to be grouped by the type of pathogen they target, with further divisions by indication at the fourth level.
+In the ATC classification system, [vaccines](Chemical substancehttps://atcddd.fhi.no/atc_ddd_index/?showdescription=yes&code=J07) fall under the code "J07." This group is divided into bacterial vaccines (J07A), viral vaccines (J07B), combined bacterial and viral vaccines (J07C), and other vaccines (J07X). These classifications allow vaccines to be grouped by the type of pathogen they target, with further divisions by indication at the fourth level.
 
 ## Procedures - SKS
 
