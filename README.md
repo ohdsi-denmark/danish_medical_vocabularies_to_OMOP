@@ -65,8 +65,9 @@ In the ATC classification system, [vaccines]( Chemical substancehttps://atcddd.f
 ## Procedures - SKS
 
 The [SKS](https://sundhedsdatastyrelsen.dk/da/rammer-og-retningslinjer/om-klassifikationer/sks-klassifikationer/klassifikation-operationer) (Sundheds Klassifikations System) is the Danish health classification system used for coding various medical and administrative aspects within healthcare, helping in organization, documentation, and statistical reporting.
-11. ICD (International Classification of Diseases): A vocabulary for diagnosing and coding diseases, health conditions, and causes of death. ICD codes help track disease trends and health statistics globally.
-    https://www.who.int/standards/classifications/classification-of-diseases
+
+[ICD](https://www.who.int/standards/classifications/classification-of-diseases) (International Classification of Diseases): A vocabulary for diagnosing and coding diseases, health conditions, and causes of death. ICD codes help track disease trends and health statistics globally.
+   
     
-13. CPT (Current Procedural Terminology): A code set for medical, surgical, and diagnostic procedures. CPT codes are widely used in billing and electronic health records to document healthcare services.
-    https://mmshub.cms.gov/measure-lifecycle/measure-specification/specify-code/CPT
+[CPT](https://mmshub.cms.gov/measure-lifecycle/measure-specification/specify-code/CPT) (Current Procedural Terminology): A code set for medical, surgical, and diagnostic procedures. CPT codes are widely used in billing and electronic health records to document healthcare services.
+   
