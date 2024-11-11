@@ -27,9 +27,7 @@ Anatomical Therapeutic Chemical (ATC)
 7. [ATC]( https://www.ema.europa.eu/en/glossary-terms/atc-code) (Anatomical Therapeutic Chemical Classification code): A unique code assigned to a medicine according to the organ or system it works on and how it works. The classification system is maintained by the World Health Organization (WHO).
   
 
-https://www.who.int/tools/atc-ddd-toolkit/atc-classification
-
-The Anatomical Therapeutic Chemical (ATC) classification system organizes active substances into groups based on the organ or system they target, as well as their therapeutic, pharmacological, and chemical characteristics.
+The [ATC classification system](https://www.who.int/tools/atc-ddd-toolkit/atc-classification) classification system organizes active substances into groups based on the organ or system they target, as well as their therapeutic, pharmacological, and chemical characteristics.
 
 Drugs are classified in groups at five different levels:
 1. ATC 1st level
