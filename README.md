@@ -7,10 +7,9 @@ We invite the public to comment on our mappings via the issue system, and sugges
 
 ## Acknowledgments
 **add links**
-* Danish Medicine Agency
+* [Danish Medicine Agency](https://laegemiddelstyrelsen.dk/)
 * [INCEPT project](https://github.com/INCEPTdk)
-* DARWIN EU project
-* [https://www.darwin-eu.org](https://www.darwin-eu.org/)
+* [DARWIN EU project](https://www.darwin-eu.org)
 * ARISTOTELES EU project
 * [https://aristoteles-horizon.eu/the-project](https://aristoteles-horizon.eu/the-project/)
 
@@ -19,32 +18,15 @@ We invite the public to comment on our mappings via the issue system, and sugges
 ### Suggesting a correction
 **Insert tutorial here**
 
-# Vocabularies
-**Explanations and links**
-In medical informatics, vocabularies refer to structured sets of terms and codes used to represent clinical data in a standardized way, ensuring consistency and interoperability across healthcare systems. Here are some prominent vocabularies often used in healthcare, including in OMOP and related databases:
-1. LOINC (Logical Observation Identifiers Names and Codes): A vocabulary for laboratory and clinical observations. LOINC codes standardize terms for tests, measurements, and observations, allowing accurate data exchange between systems.
-   https://loinc.org/
-   
-3. NPU (Nomenclature for Properties and Units): A vocabulary often used in laboratory sciences to define and standardize units and properties for measurements. NPU codes are commonly adopted in Europe for clinical laboratory reporting.
-   https://npu-terminology.org/
-   
-5. UCUM (Unified Code for Units of Measure): This vocabulary provides standardized codes for units of measure. UCUM ensures that units (e.g., mg, mL, mmHg) are consistent and interpretable across systems, especially critical in international and multisite data sharing.
-   https://ucum.org/
+### Source Vocabularies
+The Danish National Repository system uses the following vocabularies for coding medical concepts:
+
+## Medication - ATC + local codes
+
+Anatomical Therapeutic Chemical (ATC)
    
 7. ATC (Anatomical Therapeutic Chemical Classification code): A unique code assigned to a medicine according to the organ or system it works on and how it works. The classification system is maintained by the World Health Organization (WHO).
    https://www.ema.europa.eu/en/glossary-terms/atc-code
-   
-9. SNOMED CT (Systematized Nomenclature of Medicine - Clinical Terms): A comprehensive clinical terminology that covers diseases, clinical findings, procedures, and other healthcare-related concepts. SNOMED CT enhances electronic health records by providing detailed clinical information.
-    https://www.snomed.org/
-   
-11. ICD (International Classification of Diseases): A vocabulary for diagnosing and coding diseases, health conditions, and causes of death. ICD codes help track disease trends and health statistics globally.
-    https://www.who.int/standards/classifications/classification-of-diseases
-    
-13. CPT (Current Procedural Terminology): A code set for medical, surgical, and diagnostic procedures. CPT codes are widely used in billing and electronic health records to document healthcare services.
-    https://mmshub.cms.gov/measure-lifecycle/measure-specification/specify-code/CPT
-
-## Medication - ATC + local codes
-Anatomical Therapeutic Chemical (ATC)
 
 https://www.who.int/tools/atc-ddd-toolkit/atc-classification
 
@@ -66,7 +48,10 @@ Drugs are classified in groups at five different levels:
 ## Lab Tests - NPU
 https://sundhedsdatastyrelsen.dk/da/rammer-og-retningslinjer/om-terminologi/npu/sogevejledning-labterm-npu
 
-**Description of NPU, LOINC and UCUM and of the mapping principles from our paper**
+[NPU](https://npu-terminology.org/) (Nomenclature for Properties and Units): A vocabulary often used in laboratory sciences to define and standardize units and properties for measurements. NPU codes are commonly adopted in Europe for clinical laboratory reporting.
+    . Here, we provide a mapping of the top 528 NPU codes to LOINC and UCUM vocabularies: LOINC (Logical Observation Identifiers Names and Codes): A vocabulary for laboratory and clinical observations. LOINC codes standardize terms for tests, measurements, and observations, allowing accurate data exchange between systems.
+   https://loinc.org/. UCUM (Unified Code for Units of Measure): This vocabulary provides standardized codes for units of measure. UCUM ensures that units (e.g., mg, mL, mmHg) are consistent and interpretable across systems, especially critical in international and multisite data sharing.
+   https://ucum.org/
 
 The Nomenclature, Properties, and Units (NPU) terminology is used in Danish healthcare for coding lab tests and results.The full NPU terminology contains 9035 codes as of August 2024. This offers a structured approach to standardizing laboratory data, ensuring that properties and units are consistently represented across the registry. Mapping the entire codes set to an OMOP standard vocabulary is a daunting task, we therefore chose to map the top 528 codes by usage frequency, representing 99% of Danish lab orders, which were mapped to LOINC (Logical Observation Identifiers Names and Codes), an international standard for laboratory and clinical observations. The mapping was performed by us and reviewed by a clinical biochemist. We identified a direct equivalent in the LOINC vocabulary for X = 30% of the codes, for Y = 63% codes, we found a broader concept in LOINC vocabulary, and for Z = 10% codes we found a narrower one. However, no equivalent LOINC code was available for the remaining Z = 2% codes.
 The NPU codes often specify exact measurement units, (e.g., millimoles per gram), while LOINC codes often only specify the type of measurements (e.g. moles/volume)., requiring additional mappings to Unified Code for Units of Measure (UCUM). UCUM is the standard used by OMOP for representing units in a consistent way, ensuring precise interpretations across different datasets.
@@ -86,3 +71,8 @@ In the ATC (Anatomical Therapeutic Chemical) classification system, vaccines fal
 https://sundhedsdatastyrelsen.dk/da/rammer-og-retningslinjer/om-klassifikationer/sks-klassifikationer/klassifikation-operationer
 
 The SKS (Sundheds Klassifikations System) is the Danish health classification system used for coding various medical and administrative aspects within healthcare, helping in organization, documentation, and statistical reporting.
+11. ICD (International Classification of Diseases): A vocabulary for diagnosing and coding diseases, health conditions, and causes of death. ICD codes help track disease trends and health statistics globally.
+    https://www.who.int/standards/classifications/classification-of-diseases
+    
+13. CPT (Current Procedural Terminology): A code set for medical, surgical, and diagnostic procedures. CPT codes are widely used in billing and electronic health records to document healthcare services.
+    https://mmshub.cms.gov/measure-lifecycle/measure-specification/specify-code/CPT
