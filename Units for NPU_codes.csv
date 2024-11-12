@@ -194,7 +194,7 @@ Column1	npu	freq	description	kind_of_property	unit	americanized	omop	omop label	
 193	NPU17053	417728	Leukocytes in Blood 	number concentration	10<sup>9</sup> per litre	billion cells per liter	44777588	10*9.{cellls}/L		
 194	NPU21725	416007	Pregnancy-associated plasma protein A in Plasma 	arbitrary substance concentration	international unit per litre	international unit per liter	9254	/L		
 195	NPU57691	412646	Inhalation antigen antibody in Plasma 	arbitrary substance concentration	(procedure defined unit)	(procedure defined unit)	8810	10*3.[U]/L		https://www.analysefortegnelsen.dk/AnalyselisteZoom.asp?Type=&Lok=HEM&ID=NPU57691
-196	NPU03611	409727	Treponema pallidum antibody in Plasma 	arbitrary concentration		0	45884084	positive		The unit for the test result is reported as either "positive" or "negative, :https://www.analysefortegnelsen.dk/AnalyselisteZoom.asp?Type=&Lok=HEM&ID=NPU03611 
+196	NPU03611	409727	Treponema pallidum antibody in Plasma 	arbitrary concentration		0	45884084	positive		The unit for the test result is reported as either positive or "negative, :https://www.analysefortegnelsen.dk/AnalyselisteZoom.asp?Type=&Lok=HEM&ID=NPU03611 
 197	NPU02482	399494	Immunoglobulin E in Plasma 	arbitrary substance concentration	10Â³ international unit per litre	10Â³ international unit per liter	8923	kiU/L		
 198	NPU08753	398607	Deoxyhaemoglobin in Haemoglobin total, arterial Blood	substance fraction		0	720868	{fraction}	moller fraction	{fraction}: https://labportal.rh.dk/Labkaoversigt.asp?Id=3978
 199	NPU12500	394868	Oxygen in Plasma capillary Blood	gas tension	kilopascal	kilopascal	44777602	kPa		
