@@ -48,7 +48,7 @@ Column1,npu,freq,description,kind_of_property,unit,americanized,omop,omop label,
 47,NPU02320,8680192,Haemoglobin in Erythrocytes Blood,entitic amount-of-substance,femtomole,femtomole,9498,fmol,,
 48,NPU01470,8586685,Carbon dioxide in Plasma arterial Blood,gas tension,kilopascal,kilopascal,44777602,kPa,,
 49,NPU12474,8565701,Hydrogen ion in Plasma arterial Blood,pH,,0,8482,pH,,pH in the blood. According to:https://www.analysefortegnelsen.dk/analyselistezoom.asp?Type=Andre&Lok=AUH&ID=NPU12474
-50,NPU03011,8555157,Oxygen in Haemoglobin Fe; O<sub>2</sub>-binding; arterial Blood,saturation,,0,8581,,{hb},,Hb(aB)-Oxygen (O2) saturation: according to: https://www.analysefortegnelsen.dk/analyselistezoom.asp?Type=Andre&Lok=AUH&ID=NPU03011
+50,NPU03011,8555157,Oxygen in Haemoglobin Fe; O<sub>2</sub>-binding; arterial Blood,saturation,,0,8581,{hb},,Hb(aB)-Oxygen (O2) saturation: according to: https://www.analysefortegnelsen.dk/analyselistezoom.asp?Type=Andre&Lok=AUH&ID=NPU03011
 51,NPU08977,8554712,Oxygen in Plasma arterial Blood,gas tension,kilopascal,kilopascal,44777602,kPa,,
 52,NPU02508,8341048,Iron in Plasma ,substance concentration,micromole per litre,micromole per liter,8749,umol/L,,
 53,NPU03688,8080769,Urate in Plasma ,substance concentration,millimole per litre,millimole per liter,8753,mmol/L,,
