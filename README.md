@@ -15,7 +15,20 @@ We invite the public to comment on our mappings via the issue system, and sugges
 ## How to contribute
 
 ### Suggesting a correction
-**Insert tutorial here**
+ 
+* If you have a general comment about the mappings you are welcome to open an issue in the [issue system](https://github.com/ohdsi-denmark/danish_medical_vocabularies_to_OMOP/issues). 
+* If you want to change a specific code mapping you can edit the relevant table and submit a pull request. For example, here I suggest a change to the DNK code unit mapping:
+![image](https://github.com/user-attachments/assets/a6b2d39b-9e1e-4f5e-9494-515ddda1d162)
+1. Press edit (the small pencil on the right).
+2. Make the change you want to make.
+3. Press commit changes (green button on the top right)
+4. In the window that opens write a justification for your changes and then choose the bottom option (Create a new branch)
+![image](https://github.com/user-attachments/assets/52aa8f06-f7f2-4a07-b8fe-8416436623c1)
+5. press "Propose change" (green bottom at the bottom).
+6. In the window that opens press "Create pull request" (green button in the middle)
+![image](https://github.com/user-attachments/assets/f48bd26c-af33-4167-9af0-82ef574fdf5c)
+
+
 
 ### Source Vocabularies
 The Danish National Repository system uses the following vocabularies for coding medical concepts:
