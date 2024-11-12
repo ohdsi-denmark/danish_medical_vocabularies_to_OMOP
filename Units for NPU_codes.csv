@@ -6,7 +6,7 @@ Column1	npu	freq	description	kind_of_property	unit	americanized	omop	omop label	
 5	DNK35302	59994505	Glomerular filtration; in Kidney	flow rate(SA.=1.73 m²)	millilitre per minute	milliliter per minute	8795	mL/min		
 6	NPU19651	56816507	Alanine transaminase in Plasma 	catalytic-activity concentration	Unit per litre	Unit per liter	8645	[U]/L		
 7	NPU03568	55398587	Thrombocytes in Blood 	number concentration	10<sup>9</sup> per litre	billion cells per liter	44777588	10*9.{cellls}/L		
-8	DNK35312	54541927	Severe acute respiratory syndrome coronavirus 2; in RNA	arbitrary concentration 		0	45884084	positive		See under "Svar" in https://www.ssi.dk/produkter-og-ydelser/diagnostik/diagnostiskhaandbog/s/2070
+8	DNK35312	54541927	Severe acute respiratory syndrome coronavirus 2; in RNA	arbitrary concentration 		0	45884084	positive		See under Svar in https://www.ssi.dk/produkter-og-ydelser/diagnostik/diagnostiskhaandbog/s/2070
 9	NPU19748	53579794	C-reactive protein in Plasma 	mass concentration	milligram per litre	milligram per liter	8751	mg/L		
 10	NPU18016	50587246	Creatininium in Plasma 	substance concentration	micromole per litre (umol/L)	micromole per liter	8749	umol/L		https://athena.ohdsi.org/search-terms/terms/8749
 11	NPU19673	48130251	 Albumin in Plasma	mass concentration	gram per litre (g/L)	gram per liter	8636	g/L		https://athena.ohdsi.org/search-terms/terms/8636
