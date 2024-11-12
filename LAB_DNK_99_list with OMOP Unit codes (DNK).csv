@@ -1,6 +1,6 @@
 Column1,npu,freq,description,kind_of_property,unit,americanized,omop,omop label,additional computations,justification
 5,DNK35302,59994505,Glomerular filtration; in Kidney,flow rate(SA.=1.73 m?),millilitre per minute,milliliter per minute,8795,mL/min,,
-30,DNK35131,21259063, Glomerular filtration, in Kidney ,flow rate(SA.=1.73 m?),millilitre per minute,milliliter per minute,8795,mL/min,,
+30,DNK35131,21259063, Glomerular filtration; in Kidney ,flow rate(SA.=1.73 m?),millilitre per minute,milliliter per minute,8795,mL/min,,
 71,DNK35308,5281686, Cholesterol+ester, in LDL in Plasma  ,substance concentration,millimole per litre,millimole per liter,8753,mmol/L,,
 144,DNK35842,888262, Glucose in Plasma, venous blood fasting pt  ,substance concentration,millimole per litre,millimole per liter,8753,mmol/L,,
 149,DNK35895,809759, Triiodothyronine reaction, in plasma ,arbitrary saturation,,0,9260,[arb'U],,See https://www.analysefortegnelsen.dk/AnalyselisteZoom.asp?Id=DNK35895
