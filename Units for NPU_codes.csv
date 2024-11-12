@@ -350,7 +350,7 @@ Column1	npu	freq	description	kind_of_property	unit	americanized	omop	omop label	
 349	NPU28829	116774	Oxygen in Plasma central venous blood	gas tension	kilopascal	kilopascal	44777602	kPa		
 350	NPU28824	116763	Hydrogen ion in Plasma central venous blood	pH		0	8482	pH		pH according to:https://www.analysefortegnelsen.dk/AnalyselisteZoom.asp?Type=&Lok=HEM&Id=NPU28824 
 351	NPU28706	116763	Nuclear antigen antibody in Plasma 	arbitrary concentration		0	8525	{titer}		{titer} according to: https://synlab.se/provtagningsanvisningar/ANA-S-
-352	NPU12584	116088	Proliferating cell nuclear antigen antibody in Plasma 	arbitrary substance concentration	(procedure defined unit)	(procedure defined unit)	45878583	negative	"convert to positive/negative/inconclusive by Negativ: < 7 kU/L
+352	NPU12584	116088	Proliferating cell nuclear antigen antibody in Plasma 	arbitrary substance concentration	(procedure defined unit)	(procedure defined unit)	45878583	negative	convert to positive/negative/inconclusive by Negativ: < 7 kU/L
 Inkonklusiv: 7-10 kU/L
 Positiv: > 10 kU/L"	kU/L by https://www.gentoftehospital.dk/afdelinger-og-klinikker/klinisk-biokemisk-afdeling/metodeblade/P/Prolifererende%20nucleus-antistof%20(Plasma).pdf
 353	NPU28828	115969	Oxygen in Haemoglobin Fe, O<sub>2</sub>-binding, central venous blood	saturation		0	8554	%		% according to: https://www.analysefortegnelsen.dk/AnalyselisteZoom.asp?Type=&Lok=HEM&Id=NPU28828
