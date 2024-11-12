@@ -6,7 +6,8 @@ This repository is maintained by the Danish OHDSI Node. The mappings are contrib
 We invite the public to comment on our mappings via the issue system, and suggest corrections using the pull request system. 
 
 ## Acknowledgments
-**add links**
+We thank the following projects  that have provided substantial parts of the mappings in this repository or other material assistance to this work. 
+
 * [Danish Medicine Agency](https://laegemiddelstyrelsen.dk/)
 * [INCEPT project](https://github.com/INCEPTdk)
 * [DARWIN EU project](https://www.darwin-eu.org)
