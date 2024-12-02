@@ -29,19 +29,21 @@ We thank the following projects  that have provided substantial parts of the map
 6. In the window that opens press "Create pull request" (green button in the middle)
 ![image](https://github.com/user-attachments/assets/f48bd26c-af33-4167-9af0-82ef574fdf5c)
 
+### Adding mappings
+Some of the vocabularies have been mapped to the extent that covers 99% of the lines in the Danish Repositories. However, there is a long tail of codes that have not been mapped.
+We invite contributors to map these and add them to the existing mapping files. For example, in the Measurements folder one can find a report listing unmapped codes in descending order of the number of rows using this code in the lab_dm_forsker repository.  
 
-
-### Source Vocabularies
+## Source Vocabularies
 The Danish National Repository system uses the following vocabularies for coding medical concepts:
 
-## Medication - ATC + local codes
+### Medication - ATC + local codes
 
 Anatomical Therapeutic Chemical (ATC)
    
 [ATC]( https://www.ema.europa.eu/en/glossary-terms/atc-code) (Anatomical Therapeutic Chemical Classification code): A unique code assigned to a medicine according to the organ or system it works on and how it works. The classification system is maintained by the World Health Organization (WHO).
 
      
-## Lab Tests - NPU
+### Lab Tests - NPU
 
 [NPU](https://npu-terminology.org/) (Nomenclature for Properties and Units): A vocabulary often used in laboratory sciences to define and standardize units and properties for measurements. NPU codes are commonly adopted in Europe for clinical laboratory reporting.
 Here, we provide a mapping of the top 528 NPU codes to LOINC and UCUM vocabularies: [LOINC]( https://loinc.org/) (Logical Observation Identifiers Names and Codes): A vocabulary for laboratory and clinical observations. [UCUM](https://ucum.org/) (Unified Code for Units of Measure): This vocabulary provides standardized codes for units of measure. UCUM ensures that units (e.g., mg, mL, mmHg) are consistent and interpretable across systems, especially critical in international and multisite data sharing.
@@ -55,7 +57,7 @@ The mapping principles:
 3.	Categorical Data: In Z cases the procedure contains a table or other description mapping arbitrary numbers into result categories. The median is given for categories where a range is defined, the next integer under the reference value for open ended lower range and the next integer above the reference value for open-ended upper ranges.
 4.	Undocumented or Obsolete Codes: For some retired or undocumented NPU codes, mapping was challenging due to limited information, and these codes were flagged accordingly.
 
-## Vaccines - ATC
+### Vaccines - ATC
 
 The [ATC classification system](https://www.who.int/tools/atc-ddd-toolkit/atc-classification) organizes active substances into groups based on the organ or system they target, as well as their therapeutic, pharmacological, and chemical characteristics.
 
@@ -73,7 +75,7 @@ Drugs are classified in groups at five different levels:
   
 In the ATC classification system, [vaccines](https://atcddd.fhi.no/atc_ddd_index/?showdescription=yes&code=J07#:~:text=The%20vaccines%20are%20divided%20in,included%20in%20the%20level%20names.) are divided in bacterial, viral and combinations of bacterial and viral at separate ATC 3rd levels. This group is codede as "J07." and subdevided into bacterial vaccines (J07A), viral vaccines (J07B), combined bacterial and viral vaccines (J07C), and other vaccines (J07X). These classifications allow vaccines to be grouped by the type of pathogen they target, with further divisions by indication at the fourth level.
 
-## Procedures - SKS
+### Procedures - SKS
 
 The [SKS](https://sundhedsdatastyrelsen.dk/da/rammer-og-retningslinjer/om-klassifikationer/sks-klassifikationer/klassifikation-operationer) (Sundheds Klassifikations System) is the Danish health classification system used for coding various medical and administrative aspects within healthcare, helping in organization, documentation, and statistical reporting.
 
