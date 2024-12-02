@@ -1,0 +1,7 @@
+location_id;region_text;concept_id;country_concept_id
+8;Nationalt;41930999;41930999
+84;Region Hovedstaden;41931000;41930999
+82;Region Midtjylland;41931001;41930999
+81;Region Nordjylland;41931002;41930999
+85;Region Sjælland;41931004;41930999
+83;Region Syddanmark;41931003;41930999
