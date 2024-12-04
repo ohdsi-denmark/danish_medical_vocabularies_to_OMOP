@@ -56,6 +56,8 @@ The mapping principles:
 2.	Presence Tests: For tests where results are 0/1, positive/negative or any other boolean form, the mapping incorporated standardized LOINC codes, is recorded in OMOP as a value_as_concept_id.
 3.	Categorical Data: In Z cases the procedure contains a table or other description mapping arbitrary numbers into result categories. The median is given for categories where a range is defined, the next integer under the reference value for open ended lower range and the next integer above the reference value for open-ended upper ranges.
 4.	Undocumented or Obsolete Codes: For some retired or undocumented NPU codes, mapping was challenging due to limited information, and these codes were flagged accordingly.
+5.	The `specialization_mapping.csv` file provides mappings between medical specialization terms and corresponding target concept IDs i.e., IMMUNOLOGI (38003875). Additionally, the term UKENDT is used to denote an unknown or unclassified specialization, which may require special handling. This mapping should be referenced when integrating specialization data with other systems, ensuring consistency and proper classification. Any unknown entries should be mapped appropriately, and further clarifications can be found in the full documentation.
+
 
 ### Vaccines - ATC
 
