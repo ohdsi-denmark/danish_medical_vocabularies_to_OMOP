@@ -1,0 +1,1238 @@
+afd,code,from,updated,to,location_id,location_verification,name,speciale1,speciale2,speciale4,speciale4,sks,,valid
+sgh,1301,01-04-1976,27-06-2002,01-01-2500,84,Region Hovedstaden,Rigshospitalet,101,1,,,SKS,,3
+sgh,1302,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KØBENHAVN, FINSENINSTITUTET",102,3,,,,,
+sgh,1302,01-01-1978,01-01-1978,31-12-1984,84,Region Hovedstaden,"KØBENHAVN, FINSENINSTITUTET",101,3,,,,,
+sgh,1303,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KØBENHAVN, KOMMUNEHOSPITALET",101,1,,,,,
+sgh,1303,01-01-1978,31-03-2003,31-12-2003,84,Region Hovedstaden,"Kommunehospitalet, København",111,1,,,SKS,,3
+sgh,1304,01-04-1976,01-04-1976,31-12-1982,84,Region Hovedstaden,"KØBENHAVN, ØRESUNDSHOSPITALET",106,1,,,,,
+sgh,1304,01-01-1983,01-01-1983,31-12-1983,84,Region Hovedstaden,"KØBENHAVN, ØRESUNDSHOSPITALET",121,1,,,,,
+sgh,1304,01-01-1984,01-01-1984,30-12-1987,84,Region Hovedstaden,"KØBENHAVN, ØRESUNDSHOSPITALET",122,1,,,,,
+sgh,1306,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KØBENHAVN, RUDOLPH BERGHS HOSP",119,1,,,,,
+sgh,1306,01-01-1978,01-01-1978,31-12-1982,84,Region Hovedstaden,"KØBENHAVN, RUDOLPH BERGHS HOSP",106,1,,,,,
+sgh,1307,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KØBENHAVN, SUNDBY HOSPITAL",102,1,,,,,
+sgh,1307,01-01-1978,31-03-2003,31-12-2003,84,Region Hovedstaden,Sundby Hospital,103,1,,,SKS,,3
+sgh,1308,01-01-2014,03-03-2014,01-01-2500,84,Region Hovedstaden,Den Præhospitale Virksomhed,141,1,,,SKS,,1
+sgh,1309,01-04-1976,22-11-2013,30-11-2013,84,Region Hovedstaden,Bispebjerg Hospital,102,1,,,SKS,,3
+sgh,1309,01-12-2013,22-03-2024,31-03-2024,84,Region Hovedstaden,Bispebjerg og Frederiksberg Hospitaler,102,1,,,SKS,,3
+sgh,1309,01-04-2024,22-03-2024,01-01-2500,84,Region Hovedstaden,Bispebjerg og Frederiksberg Hospital,102,1,,,SKS,,1
+sgh,1310,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KØBENHAVN, SØNDERBRO HOSPITAL",103,1,,,,,
+sgh,1310,01-01-1978,01-01-1978,31-12-1983,84,Region Hovedstaden,"KØBENHAVN, SØNDERBRO HOSPITAL",111,1,,,,,
+sgh,1311,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KØBENHAVN, BØRNEHOSPITALET PÅ",119,1,,,,,
+sgh,1311,01-01-1978,01-01-1978,31-12-1983,84,Region Hovedstaden,"KØBENHAVN, BØRNEHOSPITALET PÅ",111,1,,,,,
+sgh,1312,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KØBENHAVN, VINTERSBØLLE HOSPIT",111,2,,,,,
+sgh,1312,01-01-1978,01-01-1978,31-12-1982,84,Region Hovedstaden,"KØBENHAVN, VINTERSBØLLE HOSPIT",106,2,,,,,
+sgh,1313,01-04-1976,01-04-1976,31-12-1976,82,Region Midtjylland,"JUELSMINDE, KYSTHOSPITALET",,,,,,,
+sgh,1314,01-04-1976,15-02-2008,31-07-2008,85,Region Sjælland,Sct. Hans Hospital,121,1,,,SKS,,3
+sgh,1315,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KØBENHAVN, PSYK. PLEJEHOSP. BR",123,1,,,,,
+sgh,1315,01-01-1978,01-01-1978,30-12-1987,84,Region Hovedstaden,"KØBENHAVN, PSYK. PLEJEHOSP. BR",121,1,,,,,
+sgh,1315,31-12-1987,31-12-1987,31-12-1991,84,Region Hovedstaden,"KØBENHAVN, BRØNDBYLUND",450,1,,,,,
+sgh,1316,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KØBENHAVN, PSYK. PLEJEHOSP. RI",123,1,,,,,
+sgh,1316,01-01-1978,01-01-1978,30-12-1987,84,Region Hovedstaden,"KØBENHAVN, PSYK. PLEJEHOSP. RI",121,1,,,,,
+sgh,1316,31-12-1987,31-12-1987,31-12-1991,84,Region Hovedstaden,"KØBENHAVN, RINGBO",450,1,,,,,
+sgh,1317,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KØBENHAVN, PSYK. PLEJEHOSP. SU",123,1,,,,,
+sgh,1317,01-01-1978,01-01-1978,30-12-1987,84,Region Hovedstaden,"KØBENHAVN, PSYK. PLEJEHOSP. SU",121,1,,,,,
+sgh,1317,31-12-1987,31-12-1987,31-12-1991,84,Region Hovedstaden,"KØBENHAVN, SUNDBYGÅRD",450,1,,,,,
+sgh,1318,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KØBENHAVN, PSYK. PLEJEHOSP. HE",123,1,,,,,
+sgh,1318,01-01-1978,01-01-1978,30-12-1987,84,Region Hovedstaden,"KØBENHAVN, PSYK. PLEJEHOSP. HE",121,1,,,,,
+sgh,1318,31-12-1987,31-12-1987,31-12-1991,84,Region Hovedstaden,"KØBENHAVN, HEDELUND",450,1,,,,,
+sgh,1324,01-04-1976,01-04-1976,31-12-1982,84,Region Hovedstaden,"KØBENHAVN, DE GAMLES BY",450,1,,,,,
+sgh,1325,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KØBENHAVN, NØRRE HOSPITAL",,,,,,,
+sgh,1326,01-04-1976,01-04-1976,31-12-1982,84,Region Hovedstaden,"KØBENHAVN, SUNDHOLMS SYGEAFDEL",139,1,,,,,
+sgh,1327,01-04-1976,01-04-1976,31-12-1978,84,Region Hovedstaden,"KØBENHAVN, SCT. JOSEPHS HOSPIT",102,2,,,,,
+sgh,1327,01-01-1979,01-01-1979,31-12-1979,84,Region Hovedstaden,"KØBENHAVN, SCT. JOSEPHS HOSPIT",119,1,,,,,
+sgh,1327,01-01-1980,01-01-1980,31-12-1982,84,Region Hovedstaden,"KØBENHAVN, SCT. JOSEPHS HOSPIT",119,1,,,,,
+sgh,1328,01-04-1976,01-04-1976,31-12-1978,84,Region Hovedstaden,KØBENHAVN ORTOPÆDISK HOSPITAL,119,2,,,,,
+sgh,1329,01-04-1976,01-04-1976,12-08-1994,84,Region Hovedstaden,"KØBENHAVN, VESTRE HOSPITAL",139,1,,,,,
+sgh,1330,01-04-1976,02-11-2015,04-12-2015,84,Region Hovedstaden,Hvidovre Hospital,101,1,,,SKS,,3
+sgh,1330,05-12-2015,02-11-2015,01-01-2500,84,Region Hovedstaden,Amager og Hvidovre Hospital,101,1,,,SKS,,1
+sgh,1331,01-04-1976,01-04-1976,31-12-1982,84,Region Hovedstaden,"KØBENHAVN, ALKO-AMB. FORCHHAMM",133,2,,,,,
+sgh,1331,01-01-1983,01-01-1983,31-12-1985,84,Region Hovedstaden,"KØBENHAVN,ALKO-AMB.FORCHAMMERS",133,1,,,,,
+sgh,1332,01-01-1979,29-10-2004,31-10-2004,81,Region Nordjylland,"Statens Øjenklinik, Rymarksvej",138,3,,,SKS,,3
+sgh,1333,01-01-1983,01-01-1983,12-08-1994,82,Region Midtjylland,STRANDBJERG REKONVALESCENTHJEM,141,1,,,,,
+sgh,1334,18-11-1986,18-11-1986,23-11-1986,84,Region Hovedstaden,"DIAKONISSESTIFTELSEN, KBH.KOM.",450,1,,,,,
+sgh,1334,24-11-1986,24-11-1986,12-08-1994,84,Region Hovedstaden,"DIAKONISSESTIFTELSEN, KBH.KOM",450,1,,,,,
+sgh,1334,10-10-1995,10-10-1995,14-11-1995,84,Region Hovedstaden,CENTER FOR HJERNESKADE,139,2,,,,,
+sgh,1335,18-11-1986,18-11-1986,23-11-1986,81,Region Nordjylland,SKODSBORG BAD KBH. KOM.,450,1,,,,,
+sgh,1335,24-11-1986,24-11-1986,12-08-1994,81,Region Nordjylland,"SKODSBORG BAD, KBH.KOM",450,1,,,,,
+sgh,1336,15-11-1995,17-10-2005,01-01-2500,85,Region Sjælland,Center for Hjerneskade,161,2,,,SKS,,3
+sgh,1337,01-01-2000,17-10-2005,01-01-2500,84,Region Hovedstaden,Diakonissestiftelsens Hospice,170,2,,,SKS,,3
+sgh,1338,01-01-2001,17-09-2018,30-09-2018,84,Region Hovedstaden,Ambulatoriet Stæren,180,2,,,SKS,,3
+sgh,1339,01-01-2002,16-09-2005,30-09-2005,84,Region Hovedstaden,Åreknudeklinikken,161,2,,,SKS,,3
+sgh,1339,01-10-2005,21-02-2012,29-02-2012,84,Region Hovedstaden,Kirurgisk Center & Åreknudeklinikken,161,2,,,SKS,,3
+sgh,1339,01-03-2012,26-02-2020,05-03-2020,84,Region Hovedstaden,"Aareknudeklinikken, København",161,2,,,SKS,,3
+sgh,1340,01-01-2002,17-01-2008,31-01-2008,82,Region Midtjylland,Dansk Synskirurgi,161,2,,,SKS,,3
+sgh,1340,01-02-2008,20-10-2008,01-01-2500,82,Region Midtjylland,Memira ApS,161,2,,,SKS,,3
+sgh,1341,01-01-2002,21-02-2020,29-02-2020,84,Region Hovedstaden,City Eye Clinic,161,2,,,SKS,,3
+sgh,1342,01-01-2002,11-10-2013,31-10-2013,84,Region Hovedstaden,Parkens Privathospital,161,2,,,SKS,,3
+sgh,1342,01-11-2013,06-09-2016,14-09-2016,84,Region Hovedstaden,Teres Hospitalet Parken,161,2,,,SKS,,3
+sgh,1343,01-01-2002,23-10-2014,31-10-2014,84,Region Hovedstaden,"ScanSleep A/S, Søvnmedicinsk Klinik, Københvn",161,2,,,SKS,,3
+sgh,1344,01-01-2002,20-02-2015,28-02-2015,8,Nationalt,Urologisk Speciallæge Klinik,161,2,,,SKS,,3
+sgh,1345,01-01-2002,21-02-2020,29-02-2020,84,Region Hovedstaden,Christianshavns Kirurgiske Klinik,161,2,,,SKS,,3
+sgh,1346,01-01-2003,27-11-2016,05-12-2016,84,Region Hovedstaden,Øjenlæge Kim Julian,161,2,,,SKS,,3
+sgh,1347,01-01-2004,23-12-2011,31-12-2011,84,Region Hovedstaden,Copenhagen Gastroclinic,161,2,,,SKS,,3
+sgh,1348,01-01-2004,06-04-2017,24-04-2017,84,Region Hovedstaden,Øjenlægernes Hus ApS,161,2,,,SKS,,3
+sgh,1348,25-04-2017,06-04-2017,01-01-2500,84,Region Hovedstaden,Øjenlægernes Hus Privathospital,161,2,,,SKS,,1
+sgh,1349,01-01-2004,21-02-2020,29-02-2020,82,Region Midtjylland,Ørelægerne på Banegårdspladsen,161,2,,,SKS,,3
+sgh,1350,01-01-2004,17-11-2005,31-12-2004,84,Region Hovedstaden,"Klinik for Medicinsk Genetik, Københavns Universitet",160,2,,,SKS,,1
+sgh,1350,01-01-2005,18-07-2019,31-07-2019,84,Region Hovedstaden,"Klinik for Medicinsk Genetik, Københavns Universitet",161,3,,,SKS,,3
+sgh,1351,01-01-1998,16-09-2005,01-01-2500,84,Region Hovedstaden,Amager Hospital,103,1,,,SKS,,3
+sgh,1352,01-01-2005,18-08-2005,31-08-2005,84,Region Hovedstaden,Røntgen & Ultralyd,161,2,,,SKS,,3
+sgh,1353,01-09-2005,25-01-2012,01-01-2500,84,Region Hovedstaden,Copenhagen Fertility Center,161,2,,,SKS,,3
+sgh,1354,01-10-2005,17-11-2005,01-01-2500,84,Region Hovedstaden,Dansk Fertilitetsklinik v. Hans Krog,161,2,,,SKS,,1
+sgh,1355,01-01-2007,28-02-2023,08-03-2023,84,Region Hovedstaden,N'age København,161,2,,,SKS,,3
+sgh,1356,01-11-2010,21-02-2020,29-02-2020,84,Region Hovedstaden,Privatøjenlægen,161,2,,,SKS,,3
+sgh,1357,01-10-2010,16-03-2016,31-03-2016,84,Region Hovedstaden,Speciallægeklinik v.Dennis Raahave,161,2,,,SKS,,3
+sgh,1358,01-01-2011,21-02-2020,29-02-2020,84,Region Hovedstaden,Amagerbro Øjenklinik,161,2,,,SKS,,3
+sgh,1359,01-05-2011,24-05-2019,01-06-2019,84,Region Hovedstaden,Lægeklinik Belén Redal,161,2,,,SKS,,3
+sgh,1360,01-01-2000,17-10-2005,01-01-2500,84,Region Hovedstaden,"Retsmedicinsk Institut, København",139,3,,,SKS,,3
+sgh,1361,01-01-2000,11-12-2017,31-12-2017,84,Region Hovedstaden,"Tandlægehøjskolen, København",139,3,,,SKS,,3
+sgh,1361,01-01-2018,11-12-2017,01-01-2500,84,Region Hovedstaden,Odontologisk Institut - Tandlægehøjskolen,139,3,,,SKS,,1
+sgh,1362,01-01-2004,19-12-2003,01-01-2500,84,Region Hovedstaden,Røntgen-Ultralydsklinikken,161,2,,,SKS,,1
+sgh,1363,01-01-2004,21-02-2020,29-02-2020,84,Region Hovedstaden,Osteoporoseklinikken Christianshavn,161,2,,,SKS,,3
+sgh,1364,01-01-2005,31-01-2005,01-01-2500,84,Region Hovedstaden,Røntgen & Ultralyd v/spec.lægerne T. Lorentsen og C. Nolsøe,161,2,,,SKS,,1
+sgh,1365,01-11-2004,08-02-2024,16-02-2024,84,Region Hovedstaden,Angelica Lauritzen's Speciallægeklinik,161,2,,,SKS,,3
+sgh,1366,01-01-2005,18-07-2019,31-07-2019,84,Region Hovedstaden,Øjenpatologisk Institut,139,3,,,SKS,,3
+sgh,1367,01-01-2005,17-03-2005,01-01-2500,84,Region Hovedstaden,OASIS Behandling og Rådgivning for flygtninge,161,2,,,SKS,,1
+sgh,1368,01-09-2005,16-09-2005,01-01-2500,84,Region Hovedstaden,Fertilitetsklinikken Trianglen,161,2,,,SKS,,1
+sgh,1369,01-10-2005,20-01-2010,28-01-2010,84,Region Hovedstaden,Kirurgisk speciallægeklinik,161,2,,,SKS,,3
+sgh,1370,01-01-2006,19-12-2012,31-12-2012,84,Region Hovedstaden,Rehabiliterings- og Forskningscentret for Torturofre,161,2,,,SKS,,3
+sgh,1370,01-01-2013,19-12-2012,01-01-2500,84,Region Hovedstaden,Dignity - Dansk Institut Mod Tortur,161,2,,,SKS,,1
+sgh,1371,01-04-2006,05-02-2024,13-02-2024,84,Region Hovedstaden,Den private Smerteklinik(Tværfagligt SmerteTeam,161,2,,,SKS,,3
+sgh,1372,01-10-2006,18-03-2011,26-03-2011,84,Region Hovedstaden,Cosmeticon ApS,161,2,,,SKS,,3
+sgh,1373,01-01-2006,17-11-2006,01-01-2500,84,Region Hovedstaden,Storkklinik,161,2,,,SKS,,1
+sgh,1374,01-10-2006,21-02-2020,29-02-2020,84,Region Hovedstaden,"Snorkeklinikken og Øre-,Næse-og Halsklinikken",161,2,,,SKS,,3
+sgh,1375,01-01-2006,18-12-2006,01-01-2500,85,Region Sjælland,Vitanova,161,2,,,SKS,,1
+sgh,1376,01-02-2007,21-03-2007,01-01-2500,84,Region Hovedstaden,"Amager Øre-, Næse- og Halsklinik",161,2,,,SKS,,1
+sgh,1377,01-01-2007,21-03-2007,01-01-2500,84,Region Hovedstaden,Røntgenklinikken Nørrevold,161,2,,,SKS,,1
+sgh,1378,01-01-2007,14-01-2010,22-01-2010,84,Region Hovedstaden,Røntgenklinikken,161,2,,,SKS,,3
+sgh,1379,01-06-2007,22-12-2016,31-12-2016,84,Region Hovedstaden,Hovedstadens Plastikkirurgi,161,2,,,SKS,,3
+sgh,1380,01-01-2008,21-02-2020,29-02-2020,84,Region Hovedstaden,Vein Care Clinic,161,2,,,SKS,,3
+sgh,1381,01-05-2007,07-04-2017,30-04-2017,84,Region Hovedstaden,Øjenklinikken Bellahøj,161,2,,,SKS,,3
+sgh,1382,01-02-2008,21-02-2020,29-02-2020,84,Region Hovedstaden,"Pilestræde Røntgen, Unilabs a.s",161,2,,,SKS,,3
+sgh,1383,01-01-2008,20-09-2012,30-09-2012,84,Region Hovedstaden,City Privathospital ApS,161,2,,,SKS,,3
+sgh,1384,01-01-2008,17-11-2008,01-01-2500,84,Region Hovedstaden,Lasik-klinikken ApS,161,2,,,SKS,,3
+sgh,1385,01-06-2008,20-08-2008,01-01-2500,84,Region Hovedstaden,Frederiksstadens Røntgen og Ultralydsklinik ApS,161,2,,,SKS,,1
+sgh,1386,01-01-2007,21-02-2020,29-02-2020,84,Region Hovedstaden,Hårklinikken ApS,161,2,,,SKS,,3
+sgh,1387,01-07-2008,10-06-2014,23-06-2014,84,Region Hovedstaden,Øjenlæge Henrik Bom Olesen,161,2,,,SKS,,3
+sgh,1387,24-06-2014,10-06-2014,01-01-2500,84,Region Hovedstaden,Privatklinik Hørsholm I/S,161,2,,,SKS,,1
+sgh,1388,01-01-2000,18-12-2008,31-12-2008,85,Region Sjælland,"Anden rekvirent, H:S-området",140,9,,,SKS,,3
+sgh,1389,01-12-2008,13-01-2010,21-01-2010,84,Region Hovedstaden,"Curato AS, Esplanaden",161,2,,,SKS,,3
+sgh,1390,01-01-2009,07-02-2011,01-01-2500,85,Region Sjælland,Ellitsgaards Privatklinik,161,2,,,SKS,,3
+sgh,1391,01-01-2009,21-02-2020,29-02-2020,84,Region Hovedstaden,Præventions- og Rådgivningsklinikken,161,2,,,SKS,,3
+sgh,1392,01-05-2009,13-06-2023,21-06-2023,84,Region Hovedstaden,Hudklinikken Trianglen,161,2,,,SKS,,3
+sgh,1393,01-07-2009,21-02-2020,29-02-2020,84,Region Hovedstaden,Tørholms Ortopædiske Klinik,161,2,,,SKS,,3
+sgh,1394,25-01-2010,26-01-2010,01-01-2500,84,Region Hovedstaden,Center for Psykiatri og Eksistens,162,2,,,SKS,,1
+sgh,1395,04-03-2010,04-03-2010,01-01-2500,84,Region Hovedstaden,"Ulrichsens Klinik, Psykiatri&Psykologi",162,2,,,SKS,,1
+sgh,1396,06-04-2010,26-03-2010,01-01-2500,84,Region Hovedstaden,Speciallæge Juergen Schwarzenburg,162,2,,,SKS,,3
+sgh,1397,10-02-2010,20-04-2010,01-01-2500,84,Region Hovedstaden,Sellmer Klinik,161,2,,,SKS,,1
+sgh,1398,01-01-2010,21-02-2020,29-02-2020,84,Region Hovedstaden,Exoro ApS,161,2,,,SKS,,3
+sgh,1399,01-05-2010,30-06-2010,01-01-2500,84,Region Hovedstaden,Østerbrogade Øjenklinik,161,2,,,SKS,,1
+sgh,1401,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,FREDERIKSBERG HOSPITAL,101,1,,,,,
+sgh,1401,01-01-1978,22-09-2014,30-09-2014,84,Region Hovedstaden,Frederiksberg Hospital,102,1,,,SKS,,3
+sgh,1402,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"FREDERIKSBERG, DIAKONISSESTIFT",102,2,,,,,
+sgh,1402,01-01-1978,01-01-1978,31-12-1985,84,Region Hovedstaden,"FREDERIKSBERG, DIAKONISSESTIFT",103,2,,,,,
+sgh,1402,01-01-1986,01-01-1986,31-12-1988,84,Region Hovedstaden,"FR.BERG, DIAKONISSESTIFTELSEN",450,2,,,,,
+sgh,1410,18-01-1990,18-02-2009,28-02-2009,84,Region Hovedstaden,"Bloddonorerne, Storkøbenhavn",119,2,,,SKS,,3
+sgh,1411,01-01-1994,21-02-2012,29-02-2012,84,Region Hovedstaden,Privathospitalet Hamlet,161,2,,,SKS,,3
+sgh,1411,01-03-2012,29-11-2022,07-12-2022,84,Region Hovedstaden,Aleris-Hamlet Hospitaler,163,2,,,SKS,,3
+sgh,1411,08-12-2022,29-11-2022,01-01-2500,84,Region Hovedstaden,Aleris Hospitaler,163,2,,,SKS,,1
+sgh,1412,01-01-2002,24-08-2011,01-09-2011,84,Region Hovedstaden,Den Private Høreklinik,161,2,,,SKS,,3
+sgh,1413,01-01-2002,07-04-2017,30-04-2017,84,Region Hovedstaden,Øjenklinikken på Speciallægecentret ved Diakonissestiftelsen,161,2,,,SKS,,3
+sgh,1414,01-01-2003,23-10-2014,31-10-2014,84,Region Hovedstaden,Øjenklinikken i haven v. Hans Alrø Jørgensen,161,2,,,SKS,,3
+sgh,1414,01-11-2014,10-07-2015,19-07-2015,84,Region Hovedstaden,Øjenklinikken Diakonissestiftelsen,161,2,,,SKS,,3
+sgh,1415,01-01-2004,20-08-2008,01-01-2500,84,Region Hovedstaden,Øjenlæge Richardt Hansen,161,2,,,SKS,,3
+sgh,1416,01-11-2004,30-11-2004,01-01-2500,85,Region Sjælland,"Klinik for øre-,næse- og halssygdomme",161,2,,,SKS,,1
+sgh,1417,01-01-2006,19-12-2023,31-12-2023,84,Region Hovedstaden,Raskovs Kirurgiske Klinik,161,2,,,SKS,,3
+sgh,1418,01-01-2006,26-02-2020,05-03-2020,8,Nationalt,Sygehusvalg Hamburg GmbH,161,2,,,SKS,,3
+sgh,1419,01-01-2006,29-11-2010,31-12-2010,84,Region Hovedstaden,Thava Hamlet,161,2,,,SKS,,3
+sgh,1420,01-01-2006,16-04-2010,01-01-2500,84,Region Hovedstaden,"Ultralyd- og Røntgenklinikken ApS, v/Ajay Chauhan",161,2,,,SKS,,3
+sgh,1421,01-01-2008,17-01-2008,01-01-2500,84,Region Hovedstaden,Røntgen- Ultralyds klinikken,161,2,,,SKS,,1
+sgh,1422,01-10-2005,07-04-2017,30-04-2017,84,Region Hovedstaden,Frederiksberg Sundhedscenter,161,2,,,SKS,,3
+sgh,1423,01-01-2008,26-02-2020,05-03-2020,84,Region Hovedstaden,Speciallæge i medicinske hormonsygdomme Klaus Kølendorf,161,2,,,SKS,,3
+sgh,1424,01-05-2008,18-12-2008,31-12-2008,84,Region Hovedstaden,"Ellitsgaards Privatklinik, plastik-og rekonstruktionskirurgi",161,2,,,SKS,,3
+sgh,1425,01-07-2008,20-01-2010,28-01-2010,84,Region Hovedstaden,Kardiologisk Klinik København,161,2,,,SKS,,3
+sgh,1426,01-07-2008,20-08-2008,01-01-2500,84,Region Hovedstaden,Solbjerg Klinik Frederiksberg I/S,161,2,,,SKS,,1
+sgh,1427,01-08-2008,22-02-2010,01-03-2010,84,Region Hovedstaden,Skadestuen.nu,161,2,,,SKS,,3
+sgh,1427,02-03-2010,24-06-2011,02-07-2011,84,Region Hovedstaden,Kirurgisk Klinik Frederiksberg-Skadestuen.nu,161,2,,,SKS,,3
+sgh,1428,01-01-2007,20-08-2008,01-01-2500,84,Region Hovedstaden,Speciallæge Thomas Kjær Uhlig,161,2,,,SKS,,1
+sgh,1429,01-07-2008,02-09-2010,10-09-2010,84,Region Hovedstaden,Rungbyklinikken,161,2,,,SKS,,3
+sgh,1430,01-01-2007,24-05-2019,01-01-2500,83,Region Syddanmark,Hejmdal Privathospital,162,2,,,SKS,,3
+sgh,1431,01-01-2008,25-05-2012,01-06-2012,84,Region Hovedstaden,Klinik for endoskopi og kirurgi v. Michael Rolff,161,2,,,SKS,,3
+sgh,1431,02-06-2012,25-05-2012,01-01-2500,84,Region Hovedstaden,Speciallæge Michael Rolff,161,2,,,SKS,,1
+sgh,1432,01-07-2009,28-10-2010,05-11-2010,83,Region Syddanmark,"Pain-Team, Tværfaglig Smerteklinik",161,2,,,SKS,,3
+sgh,1433,01-03-2010,23-10-2018,31-10-2018,84,Region Hovedstaden,Frederiksberg Centeret A/S,162,2,,,SKS,,3
+sgh,1434,01-01-2011,26-02-2020,05-03-2020,84,Region Hovedstaden,Nordic Health Chlinic I/S,161,2,,,SKS,,3
+sgh,1435,01-01-2011,14-10-2011,01-01-2500,84,Region Hovedstaden,EuroEyes Øjenlaser Center,161,2,,,SKS,,3
+sgh,1436,01-10-2015,20-11-2015,01-01-2500,84,Region Hovedstaden,Øjenlægecentret Frederiksberg,161,2,,,SKS,,1
+sgh,1437,01-09-2017,20-09-2017,01-01-2500,84,Region Hovedstaden,Rhinoklinikken ApS,161,2,,,SKS,,1
+sgh,1438,01-03-2018,26-04-2018,01-01-2500,84,Region Hovedstaden,Kirurgisk Klinik /v Kenneth Højsgaard Jensen ApS,161,2,,,SKS,,1
+sgh,1439,01-10-2018,17-12-2018,01-01-2500,84,Region Hovedstaden,Medicinsk Svedcenter,161,2,,,SKS,,1
+sgh,1500,01-01-2006,17-06-2008,01-01-2500,84,Region Hovedstaden,Region Hovedstadens Psykiatri,121,1,,,SKS,,3
+sgh,1501,01-04-1976,20-02-2007,31-01-2007,84,Region Hovedstaden,Kbh. Amts Sygehus i Gentofte,102,1,,,SKS,,3
+sgh,1501,01-02-2007,20-02-2007,01-01-2500,84,Region Hovedstaden,Gentofte Hospital,102,1,,,SKS,,1
+sgh,1502,01-04-1976,20-02-2007,31-01-2007,84,Region Hovedstaden,Kbh. Amts Sygehus i Glostrup,102,1,,,SKS,,3
+sgh,1502,01-02-2007,20-02-2007,01-01-2500,84,Region Hovedstaden,Glostrup Hospital,102,1,,,SKS,,1
+sgh,1503,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KØBENHAVNS AMTS SYGEHUS, SCT.",103,1,,,,,
+sgh,1503,01-01-1978,13-10-1999,31-12-1999,84,Region Hovedstaden,"KBH. AMT, SCT. ELISABETH",104,1,,,SKS,,3
+sgh,1504,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"LYNGBY, KØBENHAVNS AMTS SYGEHU",119,1,,,,,
+sgh,1504,01-01-1978,01-01-1978,31-12-1985,84,Region Hovedstaden,"LYNGBY, KØBENHAVNS AMTS SYGEHU",111,1,,,,,
+sgh,1505,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"GENTOFTE, SANKT LUKASSTIFTELSE",102,2,,,,,
+sgh,1505,01-01-1978,01-01-1978,31-12-1992,84,Region Hovedstaden,"GENTOFTE,SANKT LUKASSTIFTELSEN",111,2,,,,,
+sgh,1506,01-04-1976,18-02-2009,28-02-2009,84,Region Hovedstaden,"Gentofte Kommune, Tranehaven",450,1,,,SKS,,3
+sgh,1506,01-03-2009,30-09-2010,08-10-2010,84,Region Hovedstaden,"Gentofte Kommune, Tranehaven",141,1,,,SKS,,3
+sgh,1507,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"GENTOFTE, NIELS STEENSENS HOSP",119,2,,,,,
+sgh,1507,01-01-1978,22-12-2016,31-12-2016,84,Region Hovedstaden,Steno Diabetes Center,161,2,,,SKS,,3
+sgh,1507,01-01-2017,22-12-2016,01-01-2500,84,Region Hovedstaden,Steno Diabetes Center,101,1,,,SKS,,1
+sgh,1508,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"KLAMPENBORG, HVIDØRE HOSPITAL",119,2,,,,,
+sgh,1508,01-01-1978,01-01-1978,31-12-1989,84,Region Hovedstaden,"KLAMPENBORG, HVIDØRE HOSPITAL",111,2,,,,,
+sgh,1509,01-04-1976,01-04-1976,31-12-1991,84,Region Hovedstaden,KAS NORDVANG,121,1,,,,,
+sgh,1510,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"GENTOFTE, MONTEBELLO DAG- OG N",124,2,,,,,
+sgh,1510,01-01-1978,01-01-1978,31-12-1981,84,Region Hovedstaden,"GENTOFTE, MONTEBELLO DAG- OG N",121,2,,,,,
+sgh,1510,01-01-1982,18-08-2005,31-08-2005,84,Region Hovedstaden,"Gentofte, KAS, Stolpegård",121,1,,,SKS,,3
+sgh,1511,01-04-1976,01-04-1976,31-12-1984,84,Region Hovedstaden,"SØBORG, LILLEMOSEGÅRD",420,3,,,,,
+sgh,1511,01-01-1985,17-11-2008,30-11-2008,84,Region Hovedstaden,"Søborg, Lillemosegård",420,1,,,SKS,,3
+sgh,1511,01-12-2008,03-03-2010,11-03-2010,84,Region Hovedstaden,"Søborg, Lillemosegård",141,1,,,SKS,,3
+sgh,1512,01-04-1976,01-04-1976,31-12-1984,84,Region Hovedstaden,"VANGEDE, BØRNEHOSPITALET I",420,3,,,,,
+sgh,1512,01-01-1985,01-01-1985,31-12-1985,84,Region Hovedstaden,VANGEDE,420,1,,,,,
+sgh,1513,01-04-1976,01-04-1976,31-12-1982,84,Region Hovedstaden,"GLOSTRUP, JOHN F. KENNEDY-INST",420,2,,,,,
+sgh,1513,01-01-1983,29-10-2004,31-10-2004,84,Region Hovedstaden,"Glostrup, J.F.Kennedy Instituttet",420,3,,,SKS,,3
+sgh,1514,01-04-1976,01-04-1976,31-12-1985,84,Region Hovedstaden,"GENTOFTE, OVERFØRSTERGÅRDEN",133,2,,,,,
+sgh,1514,01-01-2003,17-11-2008,30-11-2008,84,Region Hovedstaden,KISØ (Kennedy Instituttet - Statens Øjenklinik),420,3,,,SKS,,3
+sgh,1514,01-12-2008,12-07-2013,31-07-2013,84,Region Hovedstaden,Kennedy Centret,141,3,,,SKS,,3
+sgh,1515,01-04-1976,06-05-1998,31-05-1998,84,Region Hovedstaden,TÅSTRUP KURHJEM,124,2,,,SKS,,3
+sgh,1516,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"HERLEV, KØBENHAVNS AMTS SYGEHU",102,1,,,,,
+sgh,1516,01-01-1978,20-02-2007,31-01-2007,84,Region Hovedstaden,Kbh. Amts Sygehus i Herlev,101,1,,,SKS,,3
+sgh,1516,01-02-2007,09-04-2015,08-05-2015,84,Region Hovedstaden,Herlev Hospital,101,1,,,SKS,,3
+sgh,1516,09-05-2015,09-04-2015,01-01-2500,84,Region Hovedstaden,Herlev og Gentofte Hospital,101,1,,,SKS,,1
+sgh,1517,01-11-2004,26-03-2015,02-04-2015,84,Region Hovedstaden,Center for Rygkirurgi A/S,161,2,,,SKS,,3
+sgh,1517,03-04-2015,23-06-2017,30-06-2017,84,Region Hovedstaden,CFR hospitaler A/S,161,2,,,SKS,,3
+sgh,1517,01-07-2017,22-03-2023,31-03-2023,84,Region Hovedstaden,Capio CFR A/S,161,2,,,SKS,,3
+sgh,1517,01-04-2023,22-03-2023,01-01-2500,84,Region Hovedstaden,Capio A/S,161,2,,,SKS,,1
+sgh,1518,01-01-1982,01-01-1982,31-12-1993,84,Region Hovedstaden,"SKODSBORG, BADESANATORIUM",139,2,,,,,
+sgh,1519,01-01-1994,01-01-1994,15-08-1996,84,Region Hovedstaden,COPENHAGEN HEART CENTER,131,2,,,,,
+sgh,1520,11-10-1995,21-05-2008,31-05-2008,84,Region Hovedstaden,Gildhøj Speciallægeklinik,161,2,,,SKS,,3
+sgh,1520,01-06-2008,21-05-2008,01-01-2500,84,Region Hovedstaden,Gildhøj Privathospital,161,2,,,SKS,,1
+sgh,1521,12-10-1995,11-07-2011,19-07-2011,84,Region Hovedstaden,Søllerød Privathospital,161,2,,,SKS,,3
+sgh,1522,12-10-1995,18-10-2011,26-10-2011,84,Region Hovedstaden,Erichsens Privathospital A/S,161,2,,,SKS,,3
+sgh,1523,12-10-1995,17-10-2005,01-01-2500,84,Region Hovedstaden,Privathospitalet Danmark,161,2,,,SKS,,3
+sgh,1524,10-10-1995,18-02-2009,28-02-2009,84,Region Hovedstaden,"Polio-, Trafik-og Ulykkessk.amb",139,2,,,SKS,,3
+sgh,1524,01-03-2009,21-09-2011,28-09-2011,84,Region Hovedstaden,"Polio-, Trafik-og Ulykkessk.amb",161,2,,,SKS,,3
+sgh,1524,29-09-2011,13-10-2011,20-10-2011,84,Region Hovedstaden,PTU' s Rehabiliteringscenter,161,2,,,SKS,,3
+sgh,1524,21-10-2011,06-04-2017,24-04-2017,84,Region Hovedstaden,PTU's Rehabiliteringscenter Rødovre,161,2,,,SKS,,3
+sgh,1524,25-04-2017,06-04-2017,01-01-2500,84,Region Hovedstaden,Specialhospitalet for Polio- og Ulykkespatienter,161,2,,,SKS,,1
+sgh,1525,01-07-1999,17-10-2005,01-01-2500,84,Region Hovedstaden,"Sankt Lukas Stiftelsen, Dr. Alexandrines hus",170,2,,,SKS,,3
+sgh,1526,01-07-2000,21-04-2016,30-04-2016,84,Region Hovedstaden,Skodsborg Lægecenter A/S,161,2,,,SKS,,3
+sgh,1527,01-01-2002,14-02-2020,22-02-2020,84,Region Hovedstaden,Copenhagen Eye Clinic,161,2,,,SKS,,3
+sgh,1528,01-01-2002,17-12-2007,31-12-2007,84,Region Hovedstaden,Øre-Staden,161,2,,,SKS,,3
+sgh,1528,01-01-2008,12-02-2020,20-02-2020,84,Region Hovedstaden,Herlev Privathospital,161,2,,,SKS,,3
+sgh,1529,01-01-2002,09-07-2020,16-07-2020,84,Region Hovedstaden,"Kysthospitalet, Skodsborg",161,2,,,SKS,,3
+sgh,1529,17-07-2020,03-05-2024,11-05-2024,84,Region Hovedstaden,Adeas Skodsborg,161,2,,,SKS,,3
+sgh,1530,01-01-2002,31-01-2005,31-01-2005,84,Region Hovedstaden,Strandvejsklinikken,161,2,,,SKS,,3
+sgh,1531,01-01-2002,18-12-2008,01-01-2500,84,Region Hovedstaden,Øjenhospitalet Danmark ApS,161,2,,,SKS,,3
+sgh,1532,01-01-2002,16-03-2016,31-03-2016,84,Region Hovedstaden,Hellerup Øjenklinik,161,2,,,SKS,,3
+sgh,1533,01-01-2002,25-08-2017,01-09-2017,84,Region Hovedstaden,Speciallæge i hudsygdomme Jørgen Esmann,161,2,,,SKS,,3
+sgh,1533,02-09-2017,25-08-2017,01-01-2500,84,Region Hovedstaden,Dr. Esmanns Klinik,161,2,,,SKS,,1
+sgh,1534,01-01-2002,10-07-2015,19-07-2015,84,Region Hovedstaden,Øjenkirurgisk Center,161,2,,,SKS,,3
+sgh,1535,01-01-2002,25-08-2004,31-08-2004,84,Region Hovedstaden,Øjenlæge Charlotte Lund-Andersen,161,2,,,SKS,,3
+sgh,1536,01-01-2002,28-11-2002,01-01-2500,84,Region Hovedstaden,Struckmanns Klinik,161,2,,,SKS,,1
+sgh,1537,01-01-2002,07-04-2017,30-04-2017,84,Region Hovedstaden,Øreklinikken i Bagsværd,161,2,,,SKS,,3
+sgh,1538,01-01-2002,21-03-2007,31-03-2007,84,Region Hovedstaden,Sportsklinikken,161,2,,,SKS,,3
+sgh,1538,01-04-2007,23-11-2015,01-12-2015,84,Region Hovedstaden,Københavns Privathospital A/S,161,2,,,SKS,,3
+sgh,1539,01-01-2002,29-09-2011,07-10-2011,84,Region Hovedstaden,Skodsborg Røntgen og Ultralyd,161,2,,,SKS,,3
+sgh,1540,01-01-2003,28-01-2003,01-01-2500,84,Region Hovedstaden,Kirurgisk Urologisk Klinik,161,2,,,SKS,,1
+sgh,1541,01-01-2003,24-10-2018,31-10-2018,84,Region Hovedstaden,Nygart Privathospital A/S,161,2,,,SKS,,3
+sgh,1541,01-11-2018,24-10-2018,01-01-2500,84,Region Hovedstaden,AK Nygart A/S,161,2,,,SKS,,1
+sgh,1542,01-01-2003,13-05-2011,21-05-2011,85,Region Sjælland,Absalon Privatklinik,161,2,,,SKS,,3
+sgh,1543,01-01-2003,24-01-2018,01-02-2018,84,Region Hovedstaden,Øjenklinikken v. Allan Berger ApS,161,2,,,SKS,,3
+sgh,1544,01-01-2003,04-02-2011,12-02-2011,84,Region Hovedstaden,Øjenlæge Jens Taarnhøj,161,2,,,SKS,,3
+sgh,1545,01-01-2003,27-04-2015,04-05-2015,84,Region Hovedstaden,Øjenlæge Johnny Johansen,161,2,,,SKS,,3
+sgh,1545,05-05-2015,27-04-2015,01-01-2500,84,Region Hovedstaden,Københavns Øjen og Skeleklinik v. Hesgaard & Johansen,161,2,,,SKS,,1
+sgh,1546,01-01-2003,28-02-2003,01-01-2500,84,Region Hovedstaden,Klinik for seksuelle dysfunktioner,161,2,,,SKS,,1
+sgh,1547,01-01-2003,18-02-2009,28-02-2009,82,Region Midtjylland,Klinik for mave- og tarmsygdomme,161,2,,,SKS,,3
+sgh,1548,01-01-2003,28-08-2014,05-09-2014,84,Region Hovedstaden,Ballerup Privatklinik v. Niels Fisker og Alice Walsted,161,2,,,SKS,,3
+sgh,1549,01-01-2003,25-07-2011,01-01-2500,84,Region Hovedstaden,"Charlottenlund Speciallægecenter, Allergi-og Lungeklinikken",161,2,,,SKS,,3
+sgh,1550,01-01-2003,26-02-2020,05-03-2020,84,Region Hovedstaden,Københavns Søvn- og Snorkeklinik,161,2,,,SKS,,3
+sgh,1551,01-01-2003,31-03-2003,01-01-2500,84,Region Hovedstaden,Øjenlæge Klaus Trier,161,2,,,SKS,,1
+sgh,1552,01-01-2003,07-04-2017,30-04-2017,84,Region Hovedstaden,Holte plastikkirurgiske Klinik,161,2,,,SKS,,3
+sgh,1553,01-01-2004,26-02-2020,05-03-2020,84,Region Hovedstaden,Ambulant Ortopædkirurgisk Klinik I/S,161,2,,,SKS,,3
+sgh,1554,01-01-2004,24-08-2011,01-09-2011,84,Region Hovedstaden,Auriclinic,161,2,,,SKS,,3
+sgh,1555,01-01-2004,15-12-2010,23-12-2010,84,Region Hovedstaden,Osteoporoseklinikken i Hellerup,161,2,,,SKS,,3
+sgh,1556,01-01-2005,28-03-2011,01-01-2500,84,Region Hovedstaden,Nørmark Privathospital,161,2,,,SKS,,3
+sgh,1557,01-01-2005,14-12-2005,01-01-2500,84,Region Hovedstaden,"Lukas Øjenhospital, Øjenlæge Jens Thygesen Hellerup",161,2,,,SKS,,3
+sgh,1558,01-10-2005,30-08-2011,07-09-2011,84,Region Hovedstaden,Gentofte Fertilitetsklinik,161,2,,,SKS,,3
+sgh,1559,01-01-2005,30-03-2011,07-04-2011,84,Region Hovedstaden,Brede Plastikkirurgi,161,2,,,SKS,,3
+sgh,1560,01-01-2006,16-03-2016,31-03-2016,84,Region Hovedstaden,MR-CT Danmark ApS,161,2,,,SKS,,3
+sgh,1561,01-09-2006,12-02-2020,20-02-2020,84,Region Hovedstaden,Herlev Privatklinik,161,2,,,SKS,,3
+sgh,1562,01-11-2006,07-11-2011,15-11-2011,84,Region Hovedstaden,Den Internationale Ortopædkirurgiske Klinik,161,2,,,SKS,,3
+sgh,1563,01-06-2006,12-02-2020,20-02-2020,84,Region Hovedstaden,Ingves Klinik,161,2,,,SKS,,3
+sgh,1564,01-03-2007,24-08-2011,01-09-2011,84,Region Hovedstaden,"Allergi og Lungeklinikken, Hellerup",161,2,,,SKS,,3
+sgh,1565,01-04-2007,19-04-2007,01-01-2500,84,Region Hovedstaden,Speciallæge Rolf Nielsen,161,2,,,SKS,,1
+sgh,1566,01-04-2007,22-10-2009,30-11-2009,82,Region Midtjylland,Bekkevold Klinikken,161,2,,,SKS,,3
+sgh,1567,01-01-2007,12-02-2020,20-02-2020,84,Region Hovedstaden,Glostrup Privathospital,161,2,,,SKS,,3
+sgh,1568,01-06-2007,18-09-2007,01-01-2500,84,Region Hovedstaden,Reumatologisk og Idrætsmedicinsk Klinik ApS,161,2,,,SKS,,1
+sgh,1569,01-02-2008,26-02-2020,05-03-2020,84,Region Hovedstaden,Amartro Privathospital og Idrætsklinik,161,2,,,SKS,,3
+sgh,1570,01-02-2008,14-03-2008,01-01-2500,84,Region Hovedstaden,Øjenlægerne Glostrup Centrum,161,2,,,SKS,,1
+sgh,1571,01-04-2008,17-09-2008,30-09-2008,84,Region Hovedstaden,Øjenklinikken i Hvidovre,161,2,,,SKS,,3
+sgh,1571,01-10-2008,06-04-2017,30-04-2017,84,Region Hovedstaden,"Speciallægeklinikken Centralen, Roskildevej 296,2610 Rødovre",161,2,,,SKS,,3
+sgh,1571,01-05-2017,06-04-2017,01-01-2500,84,Region Hovedstaden,Speciallægeklinikken Centralen,161,2,,,SKS,,1
+sgh,1572,01-04-2008,12-01-2012,01-01-2500,84,Region Hovedstaden,Klinik f. Med. & Kirurg. Øjensygdomme v/Niels Vesti Nielsen,161,2,,,SKS,,3
+sgh,1573,01-04-2008,12-01-2012,20-01-2012,84,Region Hovedstaden,Furesø Privathospital,161,2,,,SKS,,3
+sgh,1574,01-06-2008,17-06-2008,01-01-2500,84,Region Hovedstaden,Arthro(Den reumatologiske klinik v.Pierre Schydlowsky),161,2,,,SKS,,1
+sgh,1575,01-01-2007,20-08-2008,01-01-2500,84,Region Hovedstaden,Hudklinikken i Kastrup,161,2,,,SKS,,1
+sgh,1576,01-01-2007,16-06-2011,24-06-2011,84,Region Hovedstaden,Tandklinikken Holstein,161,2,,,SKS,,3
+sgh,1577,01-01-2007,26-10-2010,03-11-2010,84,Region Hovedstaden,Lene Vesterager,161,2,,,SKS,,3
+sgh,1578,01-09-2008,07-04-2017,30-04-2017,84,Region Hovedstaden,Amadeus Speciallægecenter,161,2,,,SKS,,3
+sgh,1579,01-01-2007,07-04-2017,30-04-2017,84,Region Hovedstaden,Børne- og Ungdomspsykiatrisk Klinik v/Moltke,162,2,,,SKS,,3
+sgh,1580,01-01-2007,18-12-2008,01-01-2500,84,Region Hovedstaden,Lyngby Plastikkirurgiske Klinik,161,2,,,SKS,,1
+sgh,1581,01-01-2007,07-09-2009,01-01-2500,84,Region Hovedstaden,Hudklinikken i Rødovre,161,2,,,SKS,,3
+sgh,1582,01-05-2009,08-10-2009,01-01-2500,84,Region Hovedstaden,Hudlægerne i Virum,161,2,,,SKS,,3
+sgh,1583,01-05-2009,07-05-2009,01-01-2500,84,Region Hovedstaden,Hudklinikken på Jægersborg Alle,161,2,,,SKS,,1
+sgh,1584,01-05-2009,12-05-2009,01-01-2500,84,Region Hovedstaden,Bagsværd Hudklinik,161,2,,,SKS,,1
+sgh,1585,01-07-2009,26-02-2020,05-03-2020,84,Region Hovedstaden,Scandinavian Eye Surgeons,161,2,,,SKS,,3
+sgh,1586,01-10-2009,05-10-2009,01-01-2500,84,Region Hovedstaden,PPclinic,162,2,,,SKS,,1
+sgh,1587,01-11-2009,16-04-2010,01-01-2500,84,Region Hovedstaden,SagaNordic ApS,161,2,,,SKS,,3
+sgh,1588,01-01-2000,18-12-2008,31-12-2008,84,Region Hovedstaden,"Anden rekvirent, Københavns Amt",140,9,,,SKS,,3
+sgh,1589,01-06-2010,27-08-2010,04-09-2010,84,Region Hovedstaden,Privatklinikken for børn,162,2,,,SKS,,3
+sgh,1590,01-06-2010,16-09-2010,01-01-2500,84,Region Hovedstaden,Privatklinikken for børn,162,2,,,SKS,,3
+sgh,1591,01-10-2010,08-10-2010,01-01-2500,84,Region Hovedstaden,Hospice Søndergård,170,2,,,SKS,,1
+sgh,1592,01-03-2011,07-04-2017,30-04-2017,84,Region Hovedstaden,"Gynækolog, dr. med.Suzan Lenz",161,2,,,SKS,,3
+sgh,1593,01-01-2011,17-06-2014,30-06-2014,84,Region Hovedstaden,Teres Hospitalet København,161,2,,,SKS,,3
+sgh,1594,01-01-2011,03-10-2019,11-10-2019,84,Region Hovedstaden,"Svedklinikken, Hidros Denmark ApS",161,2,,,SKS,,3
+sgh,1595,01-04-2011,20-06-2011,01-01-2500,84,Region Hovedstaden,Uroklinik,161,2,,,SKS,,1
+sgh,1596,01-08-2011,04-11-2016,30-11-2016,84,Region Hovedstaden,Øjenlægernes Lasercenter ApS,161,2,,,SKS,,3
+sgh,1596,01-12-2016,04-11-2016,01-01-2500,84,Region Hovedstaden,"Øjenlægernes Center, Charlottenlund",161,2,,,SKS,,1
+sgh,1597,01-06-2011,08-02-2013,28-02-2013,84,Region Hovedstaden,Bariatric Center,161,2,,,SKS,,3
+sgh,1597,01-03-2013,24-08-2015,31-08-2015,84,Region Hovedstaden,Bodylift Center,161,2,,,SKS,,3
+sgh,1597,01-09-2015,24-08-2015,01-01-2500,84,Region Hovedstaden,Printzlau Privathospital,161,2,,,SKS,,1
+sgh,1598,01-10-2011,04-11-2011,01-01-2500,85,Region Sjælland,Neurofysiologisk Klinik - Sjælland,161,2,,,SKS,,1
+sgh,1599,01-09-2011,17-11-2011,01-01-2500,84,Region Hovedstaden,KIApro Smerteklinik,163,2,,,SKS,,1
+sgh,1700,01-12-2011,04-08-2015,12-08-2015,84,Region Hovedstaden,Axess Medica,162,2,,,SKS,,3
+sgh,1701,01-11-2011,26-10-2017,03-11-2017,84,Region Hovedstaden,MR Scanning Parkens Privathospital,161,2,,,SKS,,3
+sgh,1702,01-08-2011,23-03-2012,01-01-2500,84,Region Hovedstaden,Øjenklinikken Kastrup,161,2,,,SKS,,1
+sgh,1703,01-05-2012,22-12-2016,31-12-2016,84,Region Hovedstaden,ASTRA Billeddiagnostik A/S,161,2,,,SKS,,3
+sgh,1704,01-05-2012,26-02-2020,05-03-2020,84,Region Hovedstaden,Amagerbro Ryghospital ApS,161,2,,,SKS,,3
+sgh,1705,01-08-2012,20-09-2012,01-01-2500,84,Region Hovedstaden,Kirurgen.dk,161,2,,,SKS,,1
+sgh,1706,01-02-2013,08-02-2013,01-01-2500,84,Region Hovedstaden,Amalieklinikken,161,2,,,SKS,,1
+sgh,1707,01-03-2013,17-06-2014,30-06-2014,84,Region Hovedstaden,Øjenlæge Stefan Klauber,161,2,,,SKS,,3
+sgh,1708,01-03-2014,21-02-2014,01-01-2500,84,Region Hovedstaden,Kalmia A/S,162,2,,,SKS,,1
+sgh,1709,01-01-2014,23-06-2014,01-07-2014,84,Region Hovedstaden,Kalmia A/S,162,2,,,SKS,,3
+sgh,1710,01-10-2015,19-11-2015,01-01-2500,84,Region Hovedstaden,Scandinavian Eye Center,161,2,,,SKS,,1
+sgh,1711,01-03-2016,16-03-2016,01-01-2500,84,Region Hovedstaden,Hellerup Øjenklinik,161,2,,,SKS,,1
+sgh,1712,01-05-2016,26-05-2016,01-01-2500,8,Nationalt,Dansk Venecenter,161,2,,,SKS,,1
+sgh,1713,01-07-2016,02-09-2020,30-09-2020,84,Region Hovedstaden,Kirurgisk Klinik Amager,161,2,,,SKS,,3
+sgh,1714,01-11-2016,27-11-2016,01-01-2500,84,#REF!,Hudklinikken Panoptikon,161,2,,,SKS,,1
+sgh,1715,01-12-2016,22-12-2016,01-01-2500,84,Region Hovedstaden,Hovedstadens Plastikkirurgi,161,2,,,SKS,,1
+sgh,1716,01-01-2017,25-02-2017,01-01-2500,84,Region Hovedstaden,Kæbekirurgisk Aftalesygehus,161,2,,,SKS,,1
+sgh,1717,01-04-2017,05-02-2024,13-02-2024,84,Region Hovedstaden,Demensudredning Danmark,163,2,,,SKS,,3
+sgh,1718,01-03-2017,14-06-2017,01-01-2500,84,Region Hovedstaden,Hovedstadens Øjenklinik,161,2,,,SKS,,1
+sgh,1719,01-05-2017,15-06-2017,01-01-2500,84,Region Hovedstaden,Holte Plastikkirurgi v/Mette Rostgaard Krag,161,2,,,SKS,,1
+sgh,1720,01-05-2017,18-07-2017,01-01-2500,84,Region Hovedstaden,Hudkræftklinikken.dk,161,2,,,SKS,,1
+sgh,1721,01-08-2017,06-10-2023,14-10-2023,84,Region Hovedstaden,Lægeklinikken i Fosgården,161,2,,,SKS,,3
+sgh,1722,01-12-2017,25-01-2018,01-01-2500,84,Region Hovedstaden,K.T.Drzewiecki Plastikkirurgisk Klinik,161,2,,,SKS,,1
+sgh,1723,01-02-2018,26-02-2020,05-03-2020,84,Region Hovedstaden,Smerteklinikkerne ApS,161,2,,,SKS,,3
+sgh,1724,01-01-2018,23-02-2018,01-01-2500,84,Region Hovedstaden,Frederiksborggade Øjenklinik,161,2,,,SKS,,1
+sgh,1725,01-02-2018,20-03-2018,01-01-2500,84,Region Hovedstaden,IN-LAB ApS,161,2,,,SKS,,1
+sgh,1726,01-04-2018,26-04-2018,01-01-2500,84,Region Hovedstaden,Øjenklinik-Amager,161,2,,,SKS,,1
+sgh,1727,01-03-2018,26-04-2018,01-01-2500,84,Region Hovedstaden,Dansk Speciallæge Center Aps,161,2,,,SKS,,1
+sgh,1728,01-03-2018,26-04-2018,01-01-2500,84,Region Hovedstaden,Øjenlægerne på Rådhuspladsen,161,2,,,SKS,,1
+sgh,1729,01-10-2017,16-01-2020,23-01-2020,84,Region Hovedstaden,Privathospital Kbh,162,2,,,SKS,,3
+sgh,1729,24-01-2020,01-06-2021,09-06-2021,84,Region Hovedstaden,Gadegaard Privathospital,162,2,,,SKS,,3
+sgh,1730,01-10-2018,04-12-2018,01-01-2500,84,Region Hovedstaden,Lunge- og Allergiklinikken København,161,2,,,SKS,,1
+sgh,1731,11-07-2019,18-07-2019,01-01-2500,84,Region Hovedstaden,CeriXClinic Hellerup,161,2,,,SKS,,1
+sgh,1732,01-09-2019,26-09-2019,01-01-2500,84,Region Hovedstaden,ABC klinik Ballerup,162,2,,,SKS,,1
+sgh,1733,01-09-2019,04-06-2020,11-06-2020,84,Region Hovedstaden,Empano,163,2,,,SKS,,3
+sgh,1733,12-06-2020,04-06-2020,01-01-2500,84,Region Hovedstaden,"Empano, Hyperhidroseklinikken",161,2,,,SKS,,1
+sgh,1734,01-09-2019,03-09-2021,11-09-2021,84,Region Hovedstaden,ScanSleep,161,2,,,SKS,,3
+sgh,1735,01-11-2019,21-11-2019,01-01-2500,84,Region Hovedstaden,AGATA Nordsjællands Privathospital,161,2,,,SKS,,1
+sgh,1736,01-03-2020,09-03-2020,01-01-2500,84,Region Hovedstaden,CPH Diagnostisk Center A/S,161,2,,,SKS,,1
+sgh,1737,01-06-2020,03-06-2020,01-01-2500,84,Region Hovedstaden,Copenhagen Cryo Center,161,2,,,SKS,,1
+sgh,1738,01-06-2020,04-06-2020,01-01-2500,84,Region Hovedstaden,"Empano, Psykiatrisk klinik",162,2,,,SKS,,1
+sgh,1739,01-07-2020,09-07-2020,01-01-2500,84,Region Hovedstaden,Adeas Parken,161,2,,,SKS,,1
+sgh,1740,01-07-2020,30-07-2020,01-01-2500,84,Region Hovedstaden,Charlottenlund Privathospital,161,2,,,SKS,,1
+sgh,1741,01-07-2020,31-07-2020,01-01-2500,84,Region Hovedstaden,FDC Fuglevads doctors consultation,161,2,,,SKS,,1
+sgh,1742,09-06-2020,02-09-2020,01-01-2500,84,Region Hovedstaden,aCure Privathospital,161,2,,,SKS,,1
+sgh,1743,01-09-2020,02-09-2020,01-01-2500,84,Region Hovedstaden,Veneklinikken v/speciallæge Lisbeth Friis Johansen,161,2,,,SKS,,1
+sgh,1744,01-08-2020,02-09-2020,01-01-2500,84,Region Hovedstaden,Kirurgisk Klinik Amager,161,2,,,SKS,,1
+sgh,1745,27-07-2020,17-09-2020,01-01-2500,84,Region Hovedstaden,Søernes Privathospital,161,2,,,SKS,,1
+sgh,1746,01-01-2021,09-01-2021,01-01-2500,84,Region Hovedstaden,Hud- og Hyperhidroseklinikken,161,2,,,SKS,,1
+sgh,1747,01-11-2022,29-11-2022,01-01-2500,84,Region Hovedstaden,Hjertediagnostik v/speciallæge i kardiologi Thomas Kjeld,161,2,,,SKS,,1
+sgh,1748,01-03-2023,24-03-2023,01-01-2500,84,Region Hovedstaden,Hjertedoktoren,161,2,,,SKS,,1
+sgh,1749,01-08-2023,31-08-2023,01-01-2500,84,Region Hovedstaden,Hyperhidroseklinikken,161,2,,,SKS,,1
+sgh,1750,01-09-2023,29-09-2023,01-01-2500,84,Region Hovedstaden,Klinik for Nerveundersøgelser,161,2,,,SKS,,1
+sgh,1751,01-11-2023,19-12-2023,01-01-2500,84,Region Hovedstaden,ATLAS Psykiatrisk Klinik København,162,2,,,SKS,,1
+sgh,1752,01-11-2023,19-12-2023,01-01-2500,84,Region Hovedstaden,Hemi Klinik,161,2,,,SKS,,1
+sgh,1753,11-01-2024,05-02-2024,01-01-2500,84,Region Hovedstaden,MaveTarm og Sundhed v/Alice Højer,161,2,,,SKS,,1
+sgh,1754,01-03-2024,22-03-2024,01-01-2500,84,Region Hovedstaden,Viva Børne- og Undomspsykiatrisk klinik,162,2,,,SKS,,1
+sgh,1755,21-03-2024,18-04-2024,01-01-2500,84,Region Hovedstaden,"Klinik for dystoni, spasticitet og anden neurologi",161,2,,,SKS,,1
+sgh,1756,01-09-2024,20-09-2024,01-01-2500,84,Region Hovedstaden,Sportslægerne,161,2,,,SKS,,1
+sgh,2000,01-01-1998,17-11-2006,31-12-2006,84,Region Hovedstaden,Frederiksborg Amts Sundhedsvæsen,102,1,,,SKS,,3
+sgh,2000,01-01-2007,17-11-2008,01-01-2500,84,Region Hovedstaden,Hospitalerne i Nordsjælland,102,1,,,SKS,,3
+sgh,2001,01-04-1976,01-04-1976,31-12-1984,84,Region Hovedstaden,"HILLERØD, FREDERIKSBORG AMTS C",102,1,,,,,
+sgh,2001,01-01-1985,30-05-2000,01-06-2000,84,Region Hovedstaden,Hillerød Sygehus,102,1,,,SKS,,3
+sgh,2002,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"ESBØNDERUP, FREDERIKSBORG AMTS",111,1,,,,,
+sgh,2002,01-01-1978,01-01-1978,31-12-1985,84,Region Hovedstaden,"ESBØNDERUP, FREDERIKSBORG AMTS",106,1,,,,,
+sgh,2002,01-01-1986,01-01-1986,31-12-1992,84,Region Hovedstaden,ESBØNDERUP SYGEHUS,111,1,,,,,
+sgh,2003,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"HØRSHOLM, FREDERIKSBORG AMTS S",103,1,,,,,
+sgh,2003,01-01-1978,01-01-1978,31-12-1985,84,Region Hovedstaden,"HØRSHOLM, FREDERIKSBORG AMTS S",104,1,,,,,
+sgh,2003,01-01-1986,01-01-1986,31-12-1992,84,Region Hovedstaden,HØRSHOLM SYGEHUS,104,1,,,,,
+sgh,2003,01-01-1993,01-01-1993,31-12-1993,84,Region Hovedstaden,HØRSHOLM SYGEHUS,104,1,,,,,
+sgh,2004,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"FREDERIKSVÆRK, FREDERIKSBORG A",104,1,,,,,
+sgh,2004,01-01-1978,01-01-1978,31-12-1983,84,Region Hovedstaden,"FREDERIKSVÆRK, FREDERIKSBORG A",105,1,,,,,
+sgh,2005,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"FREDERIKSSUND, FREDERIKSBORG A",103,1,,,,,
+sgh,2005,01-01-1978,01-01-1978,31-12-1982,84,Region Hovedstaden,"FREDERIKSSUND, FREDERIKSBORG A",104,1,,,,,
+sgh,2005,01-01-1983,01-01-1983,31-12-1985,84,Region Hovedstaden,"FREDERIKSBORG AMTS SYGEHUS,VES",104,1,,,,,
+sgh,2005,01-01-1986,01-01-1986,31-12-1993,84,Region Hovedstaden,"FREDERIKSSUND, FAS VEST",103,1,,,,,
+sgh,2005,01-01-1994,30-05-2000,01-06-2000,84,Region Hovedstaden,Frederikssund Sygehus,103,1,,,SKS,,3
+sgh,2006,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"HELSINGØR, FREDERIKSBORG AMTS",103,1,,,,,
+sgh,2006,01-01-1978,01-01-1978,31-12-1985,84,Region Hovedstaden,"HELSINGØR, FREDERIKSBORG AMTS",104,1,,,,,
+sgh,2006,01-01-1986,01-01-1986,31-12-1992,84,Region Hovedstaden,HELSINGØR SYGEHUS,104,1,,,,,
+sgh,2006,01-01-1993,01-01-1993,31-12-1993,84,Region Hovedstaden,HELSINGØR SYGEHUS,104,1,,,,,
+sgh,2007,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"HORNBÆK, FYSIURGISK HOSPITAL",111,2,,,,,
+sgh,2007,01-01-1978,01-01-1978,31-12-1981,84,Region Hovedstaden,"HORNBÆK, FYSIURGISK HOSPITAL",106,2,,,,,
+sgh,2008,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,"HELSINGØR, MONTEBELLO NEUROSEH",124,2,,,,,
+sgh,2008,01-01-1978,01-01-1978,31-12-1981,84,Region Hovedstaden,"HELSINGØR, MONTEBELLO NEUROSEH",121,2,,,,,
+sgh,2008,01-01-1982,01-01-1982,31-12-1985,84,Region Hovedstaden,"HELSINGØR, FREDERIKSBORG AMTS",121,1,,,,,
+sgh,2008,01-01-1986,01-01-1986,31-12-1990,84,Region Hovedstaden,"HELSINGØR, MONTEBELLO",121,1,,,,,
+sgh,2009,01-04-1976,01-04-1976,31-12-1982,84,Region Hovedstaden,"BIRKERØD, FORSORGSCENTRET EBBE",420,3,,,,,
+sgh,2009,01-01-1983,01-01-1983,31-12-1985,84,Region Hovedstaden,"BIRKERØD,FORSORGSC. SVANEPARKE",420,3,,,,,
+sgh,2009,01-01-1986,06-05-1998,31-05-1998,84,Region Hovedstaden,"BIRKERØD,FORSORGSC.SVANEPARKEN",420,1,,,SKS,,3
+sgh,2010,01-01-2009,16-04-2009,01-01-2500,84,Region Hovedstaden,Lungeklinikken SIP,161,2,,,SKS,,1
+sgh,2011,01-04-1976,22-04-1999,31-05-1999,84,Region Hovedstaden,"HELSINGØR, ØRSHOLT",133,2,,,SKS,,3
+sgh,2012,01-01-1993,01-01-1993,31-12-1993,84,Region Hovedstaden,"HELSINGØR, FAS ØST",103,1,,,,,
+sgh,2012,01-01-1994,30-05-2000,01-06-2000,84,Region Hovedstaden,Sygehuset Øresund,103,1,,,SKS,,3
+sgh,2013,10-10-1995,26-02-2020,05-03-2020,84,Region Hovedstaden,Institutionen Humlegården,161,2,,,SKS,,3
+sgh,2014,01-09-2004,29-10-2004,01-01-2500,84,Region Hovedstaden,"Urologisk Specialklinik, Hørsholm",161,2,,,SKS,,1
+sgh,2015,01-01-2000,18-02-2009,28-02-2009,84,Region Hovedstaden,Frederiksborg Amts Støtte- og Kontaktcenter,138,1,,,SKS,,3
+sgh,2015,01-03-2009,09-03-2010,17-03-2010,84,Region Hovedstaden,Frederiksborg Amts Støtte- og Kontaktcenter,141,1,,,SKS,,3
+sgh,2016,01-01-2002,21-03-2007,31-03-2007,84,Region Hovedstaden,Frederiksborg Klinikken,161,2,,,SKS,,3
+sgh,2017,01-01-2002,30-11-2004,30-11-2004,84,Region Hovedstaden,Øjenklinikken i Rungsted,161,2,,,SKS,,3
+sgh,2017,01-03-2007,20-02-2007,01-01-2500,84,Region Hovedstaden,"Allergi og Lungeklinikken, Helsingør",161,2,,,SKS,,1
+sgh,2018,01-01-2002,28-11-2002,01-01-2500,84,Region Hovedstaden,Øjenlæge Jens Thygesen,161,2,,,SKS,,1
+sgh,2019,01-01-2003,07-04-2017,30-04-2017,84,Region Hovedstaden,Øjenlæge Tom Christensen,161,2,,,SKS,,3
+sgh,2020,01-10-2004,26-02-2020,05-03-2020,84,Region Hovedstaden,Speciallæge i Øjensygdomme Claus Henrik Nielsen,161,2,,,SKS,,3
+sgh,2021,01-09-2004,30-11-2004,01-01-2500,84,Region Hovedstaden,Øjenlæge Claus engler,161,2,,,SKS,,1
+sgh,2022,01-11-2004,17-05-2006,31-05-2006,84,Region Hovedstaden,Tværfagligt SmerteTeam,161,2,,,SKS,,3
+sgh,2023,01-11-2004,30-11-2004,01-01-2500,84,Region Hovedstaden,Nordsjællands Snorke- og Apnøklinik,161,2,,,SKS,,1
+sgh,2024,01-01-2005,02-06-2010,20-06-2010,84,Region Hovedstaden,"Angelica Lauritzens Speciallægeklinik, Hillerød",161,2,,,SKS,,3
+sgh,2025,01-02-2005,17-05-2005,01-01-2500,84,Region Hovedstaden,Speciallæge i kvindesygdomme Henrik Skensved,161,2,,,SKS,,1
+sgh,2026,01-08-2005,10-04-2014,30-04-2014,84,Region Hovedstaden,Allerød Privathospital & Idrætsklinik,161,2,,,SKS,,3
+sgh,2027,01-09-2005,29-07-2011,06-08-2011,84,Region Hovedstaden,Arresødal Privathospital A/S,161,2,,,SKS,,3
+sgh,2028,01-11-2005,17-08-2006,01-01-2500,84,Region Hovedstaden,Arresødal Hospice,170,2,,,SKS,,3
+sgh,2029,01-01-2006,26-09-2019,31-10-2019,84,Region Hovedstaden,Plastikkirurgisk Speciallægeklinik,161,2,,,SKS,,3
+sgh,2030,01-01-2006,17-02-2006,01-01-2500,84,Region Hovedstaden,Øjenklinikken Profylax,161,2,,,SKS,,1
+sgh,2031,01-06-2007,17-08-2007,01-01-2500,84,Region Hovedstaden,Rungsted Øjenklinik,161,2,,,SKS,,1
+sgh,2032,01-11-2007,20-11-2007,01-01-2500,84,Region Hovedstaden,Hjertelægerne i Hillerød,161,2,,,SKS,,1
+sgh,2033,01-01-2008,06-09-2010,20-09-2010,84,Region Hovedstaden,Hjertelægerne i Hillerød,161,2,,,SKS,,3
+sgh,2034,01-11-2007,25-04-2018,03-05-2018,84,Region Hovedstaden,Ørenæsehalsklinikken i Hørsholm,161,2,,,SKS,,3
+sgh,2035,01-09-2008,26-05-2011,03-06-2011,84,Region Hovedstaden,Rudersdal Søvnapnøklinik,161,2,,,SKS,,3
+sgh,2036,01-09-2008,18-02-2009,01-01-2500,84,Region Hovedstaden,Kildehøj Privathospital,162,2,,,SKS,,3
+sgh,2037,01-11-2008,16-12-2011,31-12-2011,84,Region Hovedstaden,Pilonidalklinikken,161,2,,,SKS,,3
+sgh,2038,01-03-2009,18-02-2009,01-01-2500,82,Region Midtjylland,Klinik for Mave og Tarmsygdomme,161,2,,,SKS,,1
+sgh,2039,01-06-2009,20-05-2009,01-01-2500,84,Region Hovedstaden,Psykologerne i Hillerød,162,2,,,SKS,,1
+sgh,2040,01-07-2009,12-06-2009,01-01-2500,84,Region Hovedstaden,A2 Reumatologi & Idrætsmedicin A/S,161,2,,,SKS,,1
+sgh,2041,01-08-2009,26-02-2016,05-03-2016,84,Region Hovedstaden,"Speciallæge i Dermato-venerologi, Annette Wolff-Sneedorff",161,2,,,SKS,,3
+sgh,2042,01-01-2010,07-04-2017,30-04-2017,84,Region Hovedstaden,Søvn- og snorkeklinikken i Frederikssund,161,2,,,SKS,,3
+sgh,2043,01-02-2010,13-12-2012,31-12-2012,84,Region Hovedstaden,Aleris Ungplan,162,2,,,SKS,,3
+sgh,2044,01-06-2010,03-06-2010,01-01-2500,84,Region Hovedstaden,Bjerregaard Plastikkirurgisk Klinik,161,2,,,SKS,,1
+sgh,2045,01-02-2011,26-02-2020,05-03-2020,84,Region Hovedstaden,Hørsholmklinikken,161,2,,,SKS,,3
+sgh,2046,01-11-2011,14-10-2011,01-01-2500,84,Region Hovedstaden,Laser Medical ApS,161,2,,,SKS,,1
+sgh,2047,01-01-2012,09-09-2016,17-09-2016,84,Region Hovedstaden,Hudklinikken Johannes Kristensen,161,2,,,SKS,,3
+sgh,2048,01-09-2017,29-12-2017,01-01-2500,84,Region Hovedstaden,CPH Privathospital A/S,161,2,,,SKS,,1
+sgh,2049,01-12-2023,19-12-2023,01-01-2500,84,Region Hovedstaden,Øjenklinikken Syn,161,2,,,SKS,,1
+sgh,2088,01-01-2000,18-12-2008,31-12-2008,84,Region Hovedstaden,"Anden rekvirent, Frederiksborg Amt",140,9,,,SKS,,3
+sgh,2099,01-01-2009,18-12-2008,01-01-2500,84,Region Hovedstaden,"Anden rekvirent, Region Hovedstaden",140,9,,,SKS,,1
+sgh,2501,01-04-1976,31-10-2002,31-12-2002,85,Region Sjælland,Amtssygehuset i Roskilde,102,1,,,SKS,,3
+sgh,2501,01-01-2003,18-12-2006,31-12-2006,85,Region Sjælland,"Roskilde Amts Sygehus, Roskilde",102,1,,,SKS,,3
+sgh,2501,01-01-2007,18-02-2009,31-03-2009,85,Region Sjælland,Roskilde Sygehus,102,1,,,SKS,,3
+sgh,2502,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,"KØGE, AMTSSYGEHUSET I",103,1,,,,,
+sgh,2502,01-01-1978,31-10-2002,31-12-2002,85,Region Sjælland,Amtssygehuset i Køge,103,1,,,SKS,,3
+sgh,2502,01-01-2003,18-12-2006,31-12-2006,85,Region Sjælland,"Roskilde Amts Sygehus, Køge",103,1,,,SKS,,3
+sgh,2502,01-01-2007,18-02-2009,31-03-2009,85,Region Sjælland,Køge Sygehus,103,1,,,SKS,,3
+sgh,2503,01-01-1987,18-02-2009,31-03-2009,85,Region Sjælland,Amtssygehuset Fjorden,121,1,,,SKS,,3
+sgh,2510,01-01-2000,31-08-2011,08-09-2011,85,Region Sjælland,"Socialpsykiatrisk Klinik, Roskilde Misbrugsinstitution",162,2,,,SKS,,3
+sgh,2511,01-10-2004,12-05-2011,20-05-2011,85,Region Sjælland,Ortopæd. Kirurgisk Klinik,161,2,,,SKS,,3
+sgh,2512,01-06-2006,17-08-2006,01-01-2500,85,Region Sjælland,Hospice Sjælland,170,2,,,SKS,,1
+sgh,2513,01-01-2009,18-02-2009,01-01-2500,85,Region Sjælland,Køge Øjenklinik,161,2,,,SKS,,1
+sgh,2514,01-07-2011,21-02-2014,28-02-2014,85,Region Sjælland,Allergiklinikken i Roskilde,161,2,,,SKS,,3
+sgh,2514,01-03-2014,21-02-2014,01-01-2500,85,Region Sjælland,Børne- & Allergiklinikken v/ speciallæge Hans Peter Jacobsen,161,2,,,SKS,,1
+sgh,2520,01-01-2002,26-04-2010,01-01-2500,85,Region Sjælland,Kirurgisk Klinik Roskilde ApS,161,2,,,SKS,,3
+sgh,2521,01-01-2002,04-08-2015,12-08-2015,85,Region Sjælland,Greve Privathospital,161,2,,,SKS,,3
+sgh,2522,01-01-2002,26-02-2020,05-03-2020,85,Region Sjælland,Privatklinikken Nattero,161,2,,,SKS,,3
+sgh,2523,01-01-2002,04-08-2015,12-08-2015,85,Region Sjælland,Klinikken for grå stær,161,2,,,SKS,,3
+sgh,2524,01-01-2002,21-05-2008,31-05-2008,81,Region Nordjylland,Speciallægerne Jørgensen,161,2,,,SKS,,3
+sgh,2524,01-06-2008,21-05-2008,01-01-2500,85,Region Sjælland,Roskilde Privathospital,161,2,,,SKS,,1
+sgh,2525,01-01-2003,23-05-2016,31-05-2016,85,Region Sjælland,Øjenlæge Ole Baun ApS,161,2,,,SKS,,3
+sgh,2526,01-11-2006,04-08-2015,31-08-2015,85,Region Sjælland,Sydkystens Kirurgiske Klinik,161,2,,,SKS,,3
+sgh,2526,01-09-2015,04-08-2015,01-01-2500,85,Region Sjælland,Kirurgisk Klinik Solrød,161,2,,,SKS,,1
+sgh,2527,01-08-2007,17-10-2007,01-01-2500,85,Region Sjælland,Billesbølles Privatklinik,161,2,,,SKS,,1
+sgh,2528,01-05-2009,15-06-2009,01-01-2500,85,Region Sjælland,Kvindeklinikken,161,2,,,SKS,,1
+sgh,2529,01-08-2009,16-10-2012,31-10-2012,85,Region Sjælland,Roskilde Øjenklinik,161,2,,,SKS,,3
+sgh,2529,01-11-2012,20-02-2015,28-02-2015,85,Region Sjælland,Roskilde Øjenklinik v. Jesper Thulesen,161,2,,,SKS,,3
+sgh,2530,01-03-2010,04-03-2010,01-01-2500,85,Region Sjælland,Sirculus ApS,162,2,,,SKS,,3
+sgh,2531,01-04-2009,26-02-2020,05-03-2020,85,Region Sjælland,Ortopædkirurgisk Klinik Køge,161,2,,,SKS,,3
+sgh,2532,01-05-2012,25-02-2017,05-03-2017,85,Region Sjælland,Roskilde Øjenklinik v. Jair Nicolini,161,2,,,SKS,,3
+sgh,2532,06-03-2017,25-02-2017,01-01-2500,85,Region Sjælland,Øjenklinikken Hestetorvet v. Jair Nicolini,161,2,,,SKS,,1
+sgh,2533,01-01-2016,25-02-2017,05-03-2017,85,Region Sjælland,Roskilde Øjenklinik v. Jesper Thulesen,161,2,,,SKS,,3
+sgh,2533,06-03-2017,08-03-2020,16-03-2020,85,Region Sjælland,Øjenklinikken Hestetorvet v. Jesper Thulesen,161,2,,,SKS,,3
+sgh,2534,01-01-2020,05-02-2024,13-02-2024,85,Region Sjælland,Demensudredning Danmark - Sjælland,163,2,,,SKS,,3
+sgh,2588,01-01-2000,18-12-2008,31-12-2008,85,Region Sjælland,"Anden rekvirent, Roskilde Amt",140,9,,,SKS,,3
+sgh,3000,01-01-1995,19-01-2009,28-02-2009,85,Region Sjælland,Sygehus Vestsjælland,102,1,,,SKS,,3
+sgh,3001,01-04-1976,26-06-2001,30-06-2001,85,Region Sjælland,Centralsygehuset i Holbæk,102,1,,,SKS,,3
+sgh,3001,01-07-2001,27-06-2002,31-12-2002,85,Region Sjælland,Holbæk Sygehus,102,1,,,SKS,,3
+sgh,3002,01-04-1976,31-05-2001,30-04-2001,85,Region Sjælland,Centralsygehuset i Slagelse,102,1,,,SKS,,3
+sgh,3002,01-05-2001,27-06-2002,31-12-2002,85,Region Sjælland,Slagelse Sygehus,102,1,,,SKS,,3
+sgh,3003,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,KALUNDBORG SYGEHUS,103,1,,,,,
+sgh,3003,01-01-1978,27-06-2002,31-12-2002,85,Region Sjælland,Kalundborg Sygehus,104,1,,,SKS,,3
+sgh,3004,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,RINGSTED SYGEHUS,103,1,,,,,
+sgh,3004,01-01-1978,01-09-1999,31-08-1999,85,Region Sjælland,RINGSTED/HASLEV SYGEHUS,104,1,,,SKS,,3
+sgh,3004,01-09-1999,27-06-2002,31-12-2002,85,Region Sjælland,Ringsted Sygehus,104,1,,,SKS,,3
+sgh,3005,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,"SÆBY PR. HØNG, SYGEHUSET I",104,1,,,,,
+sgh,3005,01-01-1978,26-04-1999,30-04-1999,85,Region Sjælland,"SÆBY PR. HØNG, SYGEHUSET I",105,1,,,SKS,,3
+sgh,3006,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,NYKØBING SJÆLLAND SYGEHUS,104,1,,,,,
+sgh,3006,01-01-1978,15-12-1997,31-12-1998,85,Region Sjælland,NYKØBING SJÆLLAND SYGEHUS,105,1,,,SKS,,3
+sgh,3007,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,HASLEV SYGEHUS,104,1,,,,,
+sgh,3007,01-01-1978,01-01-1978,31-12-1982,85,Region Sjælland,HASLEV SYGEHUS,105,1,,,,,
+sgh,3007,01-01-1983,01-01-1983,31-12-1993,85,Region Sjælland,HASLEV SYGEHUS,104,1,,,,,
+sgh,3008,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,SKÆLSKØR SYGEHUS,104,1,,,,,
+sgh,3008,01-01-1978,01-01-1978,31-12-1983,85,Region Sjælland,SKÆLSKØR SYGEHUS,106,1,,,,,
+sgh,3009,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,"SKÆLSKØR, ANDELSFORENINGERNES",119,2,,,,,
+sgh,3009,01-01-1978,01-01-1978,31-12-1982,85,Region Sjælland,"SKÆLSKØR, ANDELSFORENINGERNES",106,2,,,,,
+sgh,3009,01-01-1983,11-06-2010,18-06-2010,85,Region Sjælland,Gigthospitalet i Skælskør,150,2,,,SKS,,3
+sgh,3009,19-06-2010,21-12-2012,31-12-2012,85,Region Sjælland,Center for sundhed og træning Skælskør,150,2,,,SKS,,3
+sgh,3009,01-01-2013,21-12-2012,01-01-2500,85,Region Sjælland,Gigtforeningen - SANO,150,2,,,SKS,,1
+sgh,3010,01-04-1976,26-06-2001,30-06-2001,85,Region Sjælland,Amtshospitalet i Nykøbing S,121,1,,,SKS,,3
+sgh,3010,01-07-2001,27-06-2002,31-12-2002,85,Region Sjælland,Psykiatrihospitalet i Nykøbing Sj.,121,1,,,SKS,,3
+sgh,3011,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,"DIANALUND, KOLONIEN FILADELFIA",119,2,,,,,
+sgh,3011,01-01-1978,01-01-1978,31-12-1984,85,Region Sjælland,"DIANALUND, KOLONIEN FILADELFIA",111,2,,,,,
+sgh,3011,01-01-1985,01-01-1985,31-12-1985,85,Region Sjælland,"DIANALUND, EPILEPSIHOSPITAL",101,2,,,,,
+sgh,3011,01-01-1986,03-11-2010,01-01-2500,85,Region Sjælland,Epilepsihospitalet Filadelfia,161,2,,,SKS,,3
+sgh,3012,01-04-1976,01-04-1976,31-12-1982,85,Region Sjælland,"SLAGELSE, FORSORGSCENTRET ANDE",420,3,,,,,
+sgh,3012,01-01-1983,06-05-1998,31-05-1998,85,Region Sjælland,"SLAGELSE,FORSORGSC.ANDERSVÆNGE",420,1,,,SKS,,3
+sgh,3013,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,"HOLBÆK, SYGEHJEMMET I",122,1,,,,,
+sgh,3013,01-01-1978,01-01-1978,30-12-1987,85,Region Sjælland,"HOLBÆK, SYGEHJEMMET I",121,1,,,,,
+sgh,3013,31-12-1987,31-12-1987,31-12-1991,85,Region Sjælland,"HOLBÆK, SYGEHJEMMET I",450,1,,,,,
+sgh,3014,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,"SORØ, SYGEHJEMMET I",122,1,,,,,
+sgh,3014,01-01-1978,01-01-1978,30-12-1987,85,Region Sjælland,"SORØ, SYGEHJEMMET I",121,1,,,,,
+sgh,3014,31-12-1987,31-12-1987,31-12-1991,85,Region Sjælland,"SORØ, SYGEHJEMMET I",450,1,,,,,
+sgh,3015,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,"SORØ, ORTOPÆD-KIRURGISK SYGEHU",119,1,,,,,
+sgh,3015,01-01-1978,01-01-1978,31-12-1988,85,Region Sjælland,"SORØ, ORTOPÆDKIRURGISK SYGEHUS",111,1,,,,,
+sgh,3016,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,KORSØR SYGEHUS,111,1,,,,,
+sgh,3016,01-01-1978,01-01-1978,31-12-1992,85,Region Sjælland,KORSØR SYGEHUS,102,1,,,,,
+sgh,3017,01-01-1985,01-01-1985,31-12-1985,85,Region Sjælland,"DIANALUND, PSYKIATRIHOSPITAL",121,1,,,,,
+sgh,3017,01-01-1986,27-06-2002,31-12-2002,85,Region Sjælland,Psykiatrihospitalet Dianalund,121,1,,,SKS,,3
+sgh,3018,01-01-1986,01-01-1986,14-08-1991,85,Region Sjælland,"BEHANDLINGSINSTITUT, HASLEV",132,3,,,,,
+sgh,3018,05-09-1991,27-02-2004,31-03-2004,85,Region Sjælland,Sclerosehospitalet i Haslev,132,2,,,SKS,,3
+sgh,3018,01-04-2004,14-10-2009,21-10-2009,85,Region Sjælland,Sclerosehospitalet i Danmark,151,2,,,SKS,,3
+sgh,3018,22-10-2009,08-07-2011,15-07-2011,85,Region Sjælland,Sclerosecentrene i Danmark,151,2,,,SKS,,3
+sgh,3018,16-07-2011,04-10-2017,31-12-2017,85,Region Sjælland,Sclerosehospitalerne i Danmark,151,2,,,SKS,,3
+sgh,3019,01-01-2002,19-08-2014,31-08-2014,85,Region Sjælland,Privathospitalet Valdemar,161,2,,,SKS,,3
+sgh,3019,01-09-2014,01-02-2018,28-02-2018,85,Region Sjælland,Hospitalet Valdemar,161,2,,,SKS,,3
+sgh,3020,01-09-2008,05-08-2015,13-08-2015,85,Region Sjælland,BUP klinik v/speciallæge i børne- & ungdomspsyk Ingrid Sindø,162,2,,,SKS,,3
+sgh,3021,01-09-2008,04-06-2013,12-06-2013,85,Region Sjælland,"Privathospitalet Sorana, Sorø",161,2,,,SKS,,3
+sgh,3022,01-01-2007,28-06-2011,05-07-2011,85,Region Sjælland,"Psykiatrihospitalet Skovhus, Granhøjen",162,2,,,SKS,,3
+sgh,3022,06-07-2011,28-06-2011,01-01-2500,85,Region Sjælland,Skovhus Privathospital,162,2,,,SKS,,1
+sgh,3023,01-01-2009,26-02-2020,05-03-2020,85,Region Sjælland,Hjertemedicinsk Klinik,161,2,,,SKS,,3
+sgh,3024,01-05-2009,28-04-2009,01-01-2500,85,Region Sjælland,Hudlægeklinikken i Slagelse,161,2,,,SKS,,1
+sgh,3025,01-11-2009,26-11-2009,01-01-2500,85,Region Sjælland,Hospicegården Filadelfia,170,2,,,SKS,,1
+sgh,3026,01-05-2011,22-08-2011,01-01-2500,85,Region Sjælland,Allergiklinikken i Slagelse,161,2,,,SKS,,1
+sgh,3027,01-01-2012,24-04-2013,01-01-2500,85,Region Sjælland,Forvandlingshuset,162,2,,,SKS,,1
+sgh,3028,01-01-2014,24-02-2014,01-01-2500,85,Region Sjælland,Hjemmefødselsordningen Sjælland,161,2,,,SKS,,1
+sgh,3029,01-03-2016,14-10-2016,31-10-2016,85,Region Sjælland,Billeddiagnostisk Selskab,161,2,,,SKS,,3
+sgh,3029,01-11-2016,12-04-2019,30-04-2019,85,Region Sjælland,Selandiaklinikken A/S,161,2,,,SKS,,3
+sgh,3030,01-05-2017,29-11-2022,07-12-2022,85,Region Sjælland,"Aleris-Hamlet, Ringsted",161,2,,,SKS,,3
+sgh,3030,08-12-2022,29-11-2022,01-01-2500,85,Region Sjælland,"Aleris Hospitaler, Ringsted",161,2,,,SKS,,1
+sgh,3031,01-11-2023,19-12-2023,01-01-2500,85,Region Sjælland,HHA Privatklinik I/S,162,2,,,SKS,,1
+sgh,3088,01-01-2000,18-12-2008,31-12-2008,85,Region Sjælland,"Anden rekvirent, Vestsjællands Amt",140,9,,,SKS,,3
+sgh,3500,01-01-2002,19-01-2009,28-02-2009,85,Region Sjælland,Storstrømmens Sygehus,102,1,,,SKS,,3
+sgh,3501,01-04-1976,15-06-2006,30-06-2006,85,Region Sjælland,Centralsygehuset i Næstved,102,1,,,SKS,,3
+sgh,3502,01-04-1976,15-06-2006,30-06-2006,85,Region Sjælland,Centralsygehuset i Nykøbing F,103,1,,,SKS,,3
+sgh,3503,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,"FAKSE, AMTSSYGEHUSET I",103,1,,,,,
+sgh,3503,01-01-1978,01-01-1978,31-12-1993,85,Region Sjælland,"FAKSE, AMTSSYGEHUSET I",104,1,,,,,
+sgh,3503,01-01-1994,15-06-2006,30-06-2006,85,Region Sjælland,Amtssygehuset i Fakse,105,1,,,SKS,,3
+sgh,3504,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,"MARIBO, AMTSSYGEHUSET I",103,1,,,,,
+sgh,3504,01-01-1978,01-01-1978,31-12-1989,85,Region Sjælland,"MARIBO, AMTSSYGEHUSET I",111,1,,,,,
+sgh,3505,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,"NAKSKOV, AMTSSYGEHUSET I",103,1,,,,,
+sgh,3505,01-01-1978,01-01-1978,31-12-1993,85,Region Sjælland,"NAKSKOV, AMTSSYGEHUSET I",104,1,,,,,
+sgh,3505,01-01-1994,15-06-2006,30-06-2006,85,Region Sjælland,Amtssygehuset i Nakskov,105,1,,,SKS,,3
+sgh,3506,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,"STEGE, AMTSSYGEHUSET I",104,1,,,,,
+sgh,3506,01-01-1978,15-06-2006,30-06-2006,85,Region Sjælland,Amtssygehuset i Stege,105,1,,,SKS,,3
+sgh,3507,01-04-1976,01-04-1976,31-12-1993,85,Region Sjælland,"VORDINGBORG, AMTSHOSPITALET I",121,1,,,,,
+sgh,3507,01-01-2001,19-01-2009,28-02-2009,85,Region Sjælland,Psykiatrien i Storstrøm Amt,121,1,,,SKS,,3
+sgh,3508,01-04-1976,01-04-1976,31-12-1977,85,Region Sjælland,PRÆSTØ FORSORGSC. EVENSØLUND,,,,,,,
+sgh,3509,01-04-1976,01-04-1976,31-12-1983,85,Region Sjælland,RØDBYGÅRD FORSORGSCENTER,420,3,,,,,
+sgh,3510,01-04-1976,01-04-1976,31-12-1983,85,Region Sjælland,"NÆSTVED, FORSORGSCENTRET I",420,3,,,,,
+sgh,3511,01-01-1977,01-01-1977,31-12-1977,85,Region Sjælland,"STEGE, AMTSPLEJEHJEMMET",122,1,,,,,
+sgh,3511,01-01-1978,01-01-1978,31-12-1986,85,Region Sjælland,"STEGE, AMTSPLEJEHJEMMET",121,1,,,,,
+sgh,3512,01-01-1977,01-01-1977,31-12-1983,85,Region Sjælland,"SAKSKØBING, BEHANDLINGSHJEMMET",122,1,,,,,
+sgh,3512,01-01-1984,01-01-1984,31-12-1988,85,Region Sjælland,SAKSKØBING BEHANDL.HJ SAXENHØJ,121,1,,,,,
+sgh,3513,01-01-2002,29-10-2004,31-10-2004,85,Region Sjælland,Øjenlæge Tommy Røder,161,2,,,SKS,,3
+sgh,3514,01-01-2002,31-08-2011,08-09-2011,85,Region Sjælland,Cataractklinikken i Næstved,161,2,,,SKS,,3
+sgh,3515,01-01-2002,29-10-2004,31-10-2004,85,Region Sjælland,Øjenlæge Kim Aaen,161,2,,,SKS,,3
+sgh,3516,01-01-2002,25-08-2004,31-08-2004,85,Region Sjælland,Øjenklinikken ved Michael Movin,161,2,,,SKS,,3
+sgh,3517,01-01-2004,07-04-2017,30-04-2017,85,Region Sjælland,Speciallæge Axel Bomholt,161,2,,,SKS,,3
+sgh,3518,01-09-2004,12-05-2011,20-05-2011,85,Region Sjælland,Ryg & Orto,161,2,,,SKS,,3
+sgh,3519,01-01-2006,26-02-2020,05-03-2020,85,Region Sjælland,Øjenlæge Jens Højbjerg,161,2,,,SKS,,3
+sgh,3520,01-01-2006,27-01-2017,03-02-2017,85,Region Sjælland,Kirurgisk Center Møn,161,2,,,SKS,,3
+sgh,3520,04-02-2017,25-08-2017,01-09-2017,85,Region Sjælland,Center for kirurgi & Åreknudecenter,161,2,,,SKS,,3
+sgh,3520,02-09-2017,25-08-2017,01-01-2500,85,Region Sjælland,Aareknudecenter,161,2,,,SKS,,1
+sgh,3521,01-05-2006,17-08-2006,01-01-2500,85,Region Sjælland,Privatklinikken Guldborgsund,161,2,,,SKS,,1
+sgh,3522,01-09-2006,17-11-2006,01-01-2500,85,Region Sjælland,Guldborgsund Øjenklinik,161,2,,,SKS,,1
+sgh,3523,01-04-2008,21-04-2008,01-01-2500,85,Region Sjælland,Privathospitalet Møn,161,2,,,SKS,,1
+sgh,3524,01-01-2007,17-09-2008,01-01-2500,85,Region Sjælland,Hudlægen i Næstved/v. Niels Bech-Thomsen,161,2,,,SKS,,1
+sgh,3525,01-08-2008,04-08-2015,01-01-2500,85,Region Sjælland,Øjenkirurgisk Center Fakse,161,2,,,SKS,,3
+sgh,3526,01-01-2010,26-11-2009,01-01-2500,85,Region Sjælland,Svanevig Hospice,170,2,,,SKS,,1
+sgh,3527,01-05-2009,26-02-2016,05-03-2016,85,Region Sjælland,Ortopædklinikken i Nykøbing F,161,2,,,SKS,,3
+sgh,3528,01-05-2010,18-05-2010,01-01-2500,85,Region Sjælland,"Børnelæge og Allergiklinik, Birgitte F. Videbæk",161,2,,,SKS,,3
+sgh,3529,01-08-2011,12-01-2012,01-01-2500,85,Region Sjælland,Speciallæge i pædiatri Jesper Brandt Andersen,161,2,,,SKS,,1
+sgh,3530,01-02-2012,24-02-2012,01-01-2500,85,Region Sjælland,"Aareknudeklinikken, Næstved",161,2,,,SKS,,1
+sgh,3531,01-11-2016,27-11-2016,01-01-2500,85,Region Sjælland,Øjencenter Maribo,161,2,,,SKS,,1
+sgh,3588,01-01-2000,18-12-2008,31-12-2008,85,Region Sjælland,"Anden rekvirent, Storstrøms Amt",140,9,,,SKS,,3
+sgh,3800,01-01-2007,17-06-2008,01-01-2500,85,Region Sjælland,Region Sjællands Sygehusvæsen,102,1,,,SKS,,1
+sgh,3899,01-01-2009,18-12-2008,01-01-2500,85,Region Sjælland,"Anden rekvirent, Region Sjælland",140,9,,,SKS,,1
+sgh,4001,01-04-1976,17-08-2007,31-08-2007,84,Region Hovedstaden,Bornholms Centralsygehus,103,1,,,SKS,,3
+sgh,4001,01-09-2007,17-08-2007,01-01-2500,84,Region Hovedstaden,Bornholms Hospital,103,1,,,SKS,,1
+sgh,4002,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,NEXØ SYGEHUS,104,1,,,,,
+sgh,4002,01-01-1978,01-01-1978,31-12-1990,84,Region Hovedstaden,NEXØ SYGEHUS,111,1,,,,,
+sgh,4003,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,ALLINGE SYGEHUS,,,,,,,
+sgh,4004,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,SVANEKE SYGEHUS,104,1,,,,,
+sgh,4004,01-01-1978,01-01-1978,31-12-1983,84,Region Hovedstaden,SVANEKE SYGEHUS,106,1,,,,,
+sgh,4005,01-04-1976,01-04-1976,31-12-1977,84,Region Hovedstaden,ÅKIRKEBY SYGEHUS,104,1,,,,,
+sgh,4005,01-01-1978,01-01-1978,31-12-1982,84,Region Hovedstaden,ÅKIRKEBY SYGEHUS,106,1,,,,,
+sgh,4010,01-06-2009,26-03-2010,06-04-2010,84,Region Hovedstaden,Speciallæge Juergen Schwarzenburg,162,2,,,SKS,,3
+sgh,4088,01-01-2000,18-12-2008,31-12-2008,84,Region Hovedstaden,"Anden rekvirent, Bornholms Amt",140,9,,,SKS,,3
+sgh,4201,01-04-1976,03-12-1998,31-12-1998,83,Region Syddanmark,SYGEHUS FYN SVENDBORG,102,1,,,SKS,,3
+sgh,4202,01-04-1976,18-12-2008,01-01-2500,83,Region Syddanmark,OUH Odense Universitetshospital,101,1,,,SKS,,3
+sgh,4203,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,NYBORG SYGEHUS,103,1,,,,,
+sgh,4203,01-01-1978,03-12-1998,31-12-1998,83,Region Syddanmark,SYGEHUS FYN NYBORG,104,1,,,SKS,,3
+sgh,4204,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,FÅBORG SYGEHUS,103,1,,,,,
+sgh,4204,01-01-1978,03-12-1998,31-12-1998,83,Region Syddanmark,SYGEHUS FYN FAABORG,104,1,,,SKS,,3
+sgh,4205,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,RINGE SYGEHUS,111,1,,,,,
+sgh,4205,01-01-1978,03-12-1998,31-12-1998,83,Region Syddanmark,SYGEHUS FYN RINGE,111,1,,,SKS,,3
+sgh,4206,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,MIDDELFART SYGEHUS,103,1,,,,,
+sgh,4206,01-01-1978,03-12-1998,31-12-1998,83,Region Syddanmark,SYGEHUS FYN MIDDELFART,103,1,,,SKS,,3
+sgh,4207,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,RUDKØBING SYGEHUS,104,1,,,,,
+sgh,4207,01-01-1978,03-12-1998,31-12-1998,83,Region Syddanmark,SYGEHUS FYN RUDKØBING,111,1,,,SKS,,3
+sgh,4208,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,ÆRØSKØBING SYGEHUS,104,1,,,,,
+sgh,4208,01-01-1978,03-12-1998,31-12-1998,83,Region Syddanmark,SYGEHUS FYN ÆRØSKØBING,105,1,,,SKS,,3
+sgh,4209,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,BOGENSE SYGEHUS,104,1,,,,,
+sgh,4209,01-01-1978,03-12-1998,31-12-1998,83,Region Syddanmark,SYGEHUS FYN BOGENSE,111,1,,,SKS,,3
+sgh,4210,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,ASSENS SYGEHUS,104,1,,,,,
+sgh,4210,01-01-1978,03-12-1998,31-12-1998,83,Region Syddanmark,SYGEHUS FYN ASSENS,111,1,,,SKS,,3
+sgh,4211,01-04-1976,01-04-1976,31-12-1983,83,Region Syddanmark,KERTEMINDE SYGEHUS,139,1,,,,,
+sgh,4212,01-04-1976,01-04-1976,31-12-1976,83,Region Syddanmark,ODENSE GERIATRISKE AFDELING,,,,,,,
+sgh,4212,01-01-1999,18-12-2008,30-11-2008,83,Region Syddanmark,Sygehus Fyn,102,1,,,SKS,,3
+sgh,4212,01-12-2008,16-03-2016,31-03-2016,83,Region Syddanmark,OUH Svendborg Sygehus,102,1,,,SKS,,3
+sgh,4212,01-04-2016,16-03-2016,01-01-2500,83,Region Syddanmark,Psykiatrien Svendborg og Middelfart,121,1,,,SKS,,1
+sgh,4213,01-04-2016,25-06-2016,01-01-2500,83,Region Syddanmark,Speciallæge Torben Norre Rasmussen,161,2,,,SKS,,1
+sgh,4214,01-04-1976,01-04-1976,31-12-1982,83,Region Syddanmark,"NYBORG, FORSORGSCENTRET",420,3,,,,,
+sgh,4214,01-01-1983,01-01-1983,31-12-1983,83,Region Syddanmark,"BEH.CENTRET 'STRANDHØJ',NYBORG",420,3,,,,,
+sgh,4215,01-04-1976,01-04-1976,31-12-1984,83,Region Syddanmark,"MIDDELFART, DR. ALEXANDRINES G",139,1,,,,,
+sgh,4215,01-01-1985,01-01-1985,31-12-1985,83,Region Syddanmark,"MIDDELFART, DR. ALEXANDRINES G",139,2,,,,,
+sgh,4215,01-01-1986,09-06-2010,16-06-2010,83,Region Syddanmark,Dr. Alexandrines Gigtsanatorium,150,2,,,SKS,,3
+sgh,4215,17-06-2010,23-06-2014,01-07-2014,83,Region Syddanmark,Center for sundhed og træning Middelfart,150,2,,,SKS,,3
+sgh,4216,01-04-1976,18-02-2009,28-02-2009,83,Region Syddanmark,"Middelfart, Ringgården",180,2,,,SKS,,3
+sgh,4216,01-03-2009,20-12-2019,31-12-2019,83,Region Syddanmark,"Middelfart, Ringgården",162,2,,,SKS,,3
+sgh,4217,01-01-1983,01-01-1983,31-12-1983,83,Region Syddanmark,"FÅBORG, HVEDHOLM PLEJEHJEM",121,1,,,,,
+sgh,4218,08-04-1994,03-12-1998,31-12-1998,83,Region Syddanmark,"SYGEHUS FYN MIDDELFART, PSYK. AFD.",121,1,,,SKS,,3
+sgh,4219,11-10-1995,22-05-1997,30-06-1997,83,Region Syddanmark,KIRURGISK KLINIK I NYBORG,138,2,,,SKS,,3
+sgh,4220,11-10-1995,16-09-2005,01-01-2500,83,Region Syddanmark,Privathospitalet H.C. Andersen Klinikken,161,2,,,SKS,,3
+sgh,4221,01-01-2002,31-07-2015,08-08-2015,83,Region Syddanmark,Øjenoperationsklinikken KAEK A/S,161,2,,,SKS,,3
+sgh,4222,01-01-2002,24-08-2017,01-09-2017,83,Region Syddanmark,Privathospitalet Mariahjemmet,161,2,,,SKS,,3
+sgh,4223,01-01-2002,04-08-2011,12-08-2011,83,Region Syddanmark,Karkirurgisk Speciallægeklinik,161,2,,,SKS,,3
+sgh,4224,01-01-2003,26-02-2020,05-03-2020,83,Region Syddanmark,Øjenklinik ved Øjenlæge Anders Hansen,161,2,,,SKS,,3
+sgh,4225,01-01-2003,14-09-2015,22-09-2015,83,Region Syddanmark,Siems Jørgen Siemssen,161,2,,,SKS,,3
+sgh,4226,01-01-2003,31-03-2003,01-01-2500,83,Region Syddanmark,"Speciallæge i plastikkirurgi, Erik Løntoft",161,2,,,SKS,,1
+sgh,4227,01-01-2003,28-05-2003,01-01-2500,83,Region Syddanmark,Øjenlæge Rune Rask,161,2,,,SKS,,1
+sgh,4228,01-01-2003,17-05-2006,01-01-2500,83,Region Syddanmark,Ortopædkirurgisk Klinik - Fyn,161,2,,,SKS,,3
+sgh,4229,01-01-2003,21-03-2007,31-03-2007,83,Region Syddanmark,Røntgenklinikken Bondovej,161,2,,,SKS,,3
+sgh,4230,01-01-2003,21-03-2007,31-03-2007,83,Region Syddanmark,Privatklinikken Ortopædisk Kirurgi,161,2,,,SKS,,3
+sgh,4230,01-04-2007,10-02-2012,19-02-2012,83,Region Syddanmark,Kragh Petersen Privatklinikken Bondovej,161,2,,,SKS,,3
+sgh,4230,20-02-2012,16-03-2018,31-03-2018,83,Region Syddanmark,Privatklinikken Bondovej,161,2,,,SKS,,3
+sgh,4231,01-01-2003,26-02-2020,05-03-2020,83,Region Syddanmark,Kirurgisk klinik Svendborg,161,2,,,SKS,,3
+sgh,4232,01-01-2004,31-08-2011,08-09-2011,83,Region Syddanmark,Privathosp. Mariahjemmet v. øjenlæge Birger Bro Christensen,161,2,,,SKS,,3
+sgh,4233,01-01-2005,17-10-2005,31-10-2005,83,Region Syddanmark,"Ortopædkirurgisk Klinik, Sydfyn",161,2,,,SKS,,3
+sgh,4234,01-08-2005,16-09-2005,01-01-2500,83,Region Syddanmark,Klinik for klinisk Neurofysiologi,161,2,,,SKS,,1
+sgh,4235,01-01-2008,31-07-2015,01-01-2500,83,Region Syddanmark,RygXperten,161,2,,,SKS,,3
+sgh,4260,01-01-2000,17-10-2005,01-01-2500,83,Region Syddanmark,"Retsmedicinsk Institut, Odense",139,3,,,SKS,,3
+sgh,4261,01-01-2004,19-12-2003,01-01-2500,83,Region Syddanmark,Ortopædkirurgisk Klinik Sydfyn,161,2,,,SKS,,1
+sgh,4262,01-01-2004,14-11-2011,22-11-2011,83,Region Syddanmark,"Hjertemedicinsk Testcenter, Odense",161,2,,,SKS,,3
+sgh,4263,01-09-2005,26-04-2012,01-01-2500,83,Region Syddanmark,Odense IVF-Klinik,161,2,,,SKS,,3
+sgh,4264,01-02-2008,15-02-2008,01-01-2500,83,Region Syddanmark,Gråbrødreklinikken,161,2,,,SKS,,1
+sgh,4265,01-01-2009,16-04-2010,01-01-2500,83,Region Syddanmark,Ortopædisk Hospital i Odense ApS,161,2,,,SKS,,3
+sgh,4270,01-10-2004,10-12-2009,01-01-2500,83,Region Syddanmark,Hospice Fyn,170,2,,,SKS,,3
+sgh,4271,01-01-2006,16-03-2018,31-03-2018,83,Region Syddanmark,Hjertelungeklinikken,161,2,,,SKS,,3
+sgh,4272,01-02-2007,21-03-2007,01-01-2500,83,Region Syddanmark,Absalonhus Øjenkirurgisk Klinik,161,2,,,SKS,,1
+sgh,4273,01-07-2007,26-02-2020,05-03-2020,83,Region Syddanmark,Speciallægeklinikken Privathospitalet Hunderup,161,2,,,SKS,,3
+sgh,4274,01-08-2007,17-10-2007,01-01-2500,83,Region Syddanmark,Ortopædisk Klinik Odense ApS,161,2,,,SKS,,1
+sgh,4275,01-06-2008,04-11-2011,01-01-2500,83,Region Syddanmark,Esbjerg Øjenkirurgisk Klinik,161,2,,,SKS,,3
+sgh,4276,01-08-2008,16-12-2011,31-12-2011,83,Region Syddanmark,Thava Middelfart,161,2,,,SKS,,3
+sgh,4277,01-03-2010,06-05-2010,01-01-2500,83,Region Syddanmark,Psykiatrisk Privatklinik v. Speciallæge Else Kretzschmar,162,2,,,SKS,,1
+sgh,4278,01-02-2012,26-02-2020,05-03-2020,83,Region Syddanmark,"Aareknudeklinikken, Odense",161,2,,,SKS,,3
+sgh,4279,01-06-2012,26-02-2020,05-03-2020,83,Region Syddanmark,Privathospitalet Medicon,161,2,,,SKS,,3
+sgh,4280,01-09-2012,24-09-2012,01-01-2500,83,Region Syddanmark,Hospice Sydfyn,170,2,,,SKS,,1
+sgh,4281,01-06-2016,24-08-2017,01-09-2017,8,Nationalt,Den Velgørende Assistent,161,2,,,SKS,,3
+sgh,4282,01-09-2017,06-10-2023,14-10-2023,83,Region Syddanmark,Verdens Kirurgisk Kosmotologisk Center,161,2,,,SKS,,3
+sgh,4283,01-03-2021,24-04-2021,01-01-2500,83,Region Syddanmark,Progardia Healthcare,161,2,,,SKS,,1
+sgh,4284,01-06-2022,02-06-2022,01-01-2500,83,Region Syddanmark,Langelinie Privathospital ApS,161,2,,,SKS,,1
+sgh,4285,01-08-2022,31-08-2022,01-01-2500,84,Region Hovedstaden,Progardia Mamma,161,2,,,SKS,,1
+sgh,4286,01-11-2022,04-11-2022,01-01-2500,83,Region Syddanmark,DemensDanmark,161,2,,,SKS,,1
+sgh,4287,01-03-2023,24-03-2023,01-01-2500,83,Region Syddanmark,Medin.dk,161,2,,,SKS,,1
+sgh,4288,01-01-2000,18-12-2008,31-12-2008,83,Region Syddanmark,"Anden rekvirent, Fyns Amt",140,9,,,SKS,,3
+sgh,4289,01-09-2024,20-09-2024,01-01-2500,8,Nationalt,Knogleklinikken,161,2,,,SKS,,1
+sgh,4298,01-06-2005,17-06-2005,01-01-2500,83,Region Syddanmark,Medcom Offentlig Testsygehus,101,1,,,SKS,,1
+sgh,4299,01-06-2005,17-10-2005,01-01-2500,83,Region Syddanmark,Medcom Privat Testsygehus,140,9,,,SKS,,3
+sgh,4500,01-01-2017,31-03-2017,01-01-2500,84,Region Hovedstaden,Det Præhospitale Område,141,1,,,SKS,,1
+sgh,5000,01-01-2011,20-09-2012,01-01-2500,83,Region Syddanmark,Sygehus Sønderjylland,101,1,,,SKS,,1
+sgh,5001,01-04-1976,19-04-2007,30-04-2007,83,Region Syddanmark,Sønderborg Sygehus,102,1,,,SKS,,3
+sgh,5001,01-05-2007,21-12-2015,31-12-2015,83,Region Syddanmark,"Sygehus Sønderjylland, Sønderborg",102,1,,,SKS,,3
+sgh,5002,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,HADERSLEV SYGEHUS,102,1,,,,,
+sgh,5002,01-01-1978,19-04-2007,30-04-2007,83,Region Syddanmark,Haderslev Sygehus,103,1,,,SKS,,3
+sgh,5002,01-05-2007,21-12-2015,31-12-2015,83,Region Syddanmark,"Sygehus Sønderjylland, Haderslev",103,1,,,SKS,,3
+sgh,5003,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,TØNDER SYGEHUS,103,1,,,,,
+sgh,5003,01-01-1978,19-04-2007,30-04-2007,83,Region Syddanmark,Tønder Sygehus,104,1,,,SKS,,3
+sgh,5003,01-05-2007,21-12-2015,31-12-2015,83,Region Syddanmark,"Sygehus Sønderjylland, Tønder",104,1,,,SKS,,3
+sgh,5004,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,ÅBENRÅ SYGEHUS,102,1,,,,,
+sgh,5004,01-01-1978,19-04-2007,30-04-2007,83,Region Syddanmark,Aabenraa Sygehus,103,1,,,SKS,,3
+sgh,5004,01-05-2007,21-12-2015,31-12-2015,83,Region Syddanmark,"Sygehus Sønderjylland, Aabenraa",103,1,,,SKS,,3
+sgh,5006,01-04-1976,01-04-1976,31-12-1976,83,Region Syddanmark,"ÅBENRÅ, SCT. ANSGAR HOSPITAL",,,,,,,
+sgh,5007,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,"GRÅSTEN, KONG CHR.X'S GIGTHOSP",119,2,,,,,
+sgh,5007,01-01-1978,18-07-2019,31-07-2019,83,Region Syddanmark,"Kong Chr. X's Gigthosp., Gråsten",150,2,,,SKS,,3
+sgh,5007,01-08-2019,18-07-2019,01-01-2500,83,Region Syddanmark,Dansk Gigthospital,150,2,,,SKS,,1
+sgh,5008,01-04-1976,30-06-2004,30-06-2004,83,Region Syddanmark,Augustenborg Sygehus,121,1,,,SKS,,3
+sgh,5008,01-07-2004,22-11-2013,30-11-2013,83,Region Syddanmark,Sygehuspsykiatrien i Sønderjylland,121,1,,,SKS,,3
+sgh,5008,01-12-2013,16-03-2016,31-03-2016,83,Region Syddanmark,PSY Psykiatrien (Aabenraa/ Augustenborg/Haderslev/Tønder),121,1,,,SKS,,3
+sgh,5008,01-04-2016,16-03-2016,01-01-2500,83,Region Syddanmark,PSY Psykiatrien (Aabenraa),121,1,,,SKS,,1
+sgh,5009,01-04-1976,20-07-2000,30-06-2000,83,Region Syddanmark,"Christiansfeld, Blåkorshjemmet",124,2,,,SKS,,3
+sgh,5010,01-02-1987,18-02-2009,28-02-2009,83,Region Syddanmark,Sydgården,180,2,,,SKS,,3
+sgh,5010,01-03-2009,26-02-2020,05-03-2020,83,Region Syddanmark,Sydgården,162,2,,,SKS,,3
+sgh,5011,01-01-2002,23-06-2011,01-07-2011,83,Region Syddanmark,Øjenlæge Hans Erik Aamand,161,2,,,SKS,,3
+sgh,5012,01-01-2002,21-05-2010,01-01-2500,83,Region Syddanmark,Kongevejsklinikken,161,2,,,SKS,,3
+sgh,5013,01-01-2003,28-02-2003,01-01-2500,83,Region Syddanmark,Privathospitalet Kollund,161,2,,,SKS,,1
+sgh,5014,01-01-2004,20-02-2012,28-02-2012,83,Region Syddanmark,"Privatsygehus Danmark, Tønder ApS",161,2,,,SKS,,3
+sgh,5015,01-11-2004,20-11-2007,31-10-2007,83,Region Syddanmark,Øjenlæge Marianne Berthelsen,161,2,,,SKS,,3
+sgh,5016,01-01-2006,21-03-2011,29-03-2011,83,Region Syddanmark,Kollund Rygklinik,161,2,,,SKS,,3
+sgh,5017,01-06-2006,16-03-2016,01-01-2500,83,Region Syddanmark,HospiceSønderjylland,170,2,,,SKS,,3
+sgh,5018,01-03-2006,21-05-2010,29-05-2010,83,Region Syddanmark,Kongevejsklinikken,161,2,,,SKS,,3
+sgh,5019,01-02-2008,26-02-2016,05-03-2016,83,Region Syddanmark,Syddansk Smerteklinik Haderslev,161,2,,,SKS,,3
+sgh,5020,01-01-2010,03-02-2012,11-02-2012,83,Region Syddanmark,Sundhed4u,161,2,,,SKS,,3
+sgh,5021,01-10-2010,23-08-2010,01-01-2500,8,Nationalt,Egelundklinikken,161,2,,,SKS,,1
+sgh,5022,01-04-2013,24-04-2013,01-01-2500,85,Region Sjælland,RCT-Jylland,161,2,,,SKS,,1
+sgh,5023,01-03-2017,31-03-2017,01-01-2500,83,Region Syddanmark,Øjenlæge Susanne Tvede Andersen,161,2,,,SKS,,1
+sgh,5024,01-01-2018,26-02-2020,05-03-2020,83,Region Syddanmark,Kirurgisk Klinik Sønderborg,161,2,,,SKS,,3
+sgh,5025,01-10-2023,19-12-2023,01-01-2500,83,Region Syddanmark,Graensepraksisdk Ug v/Michael Wendt,161,2,,,SKS,,1
+sgh,5088,01-01-2000,18-12-2008,31-12-2008,83,Region Syddanmark,"Anden rekvirent, Sønderjyllands Amt",140,9,,,SKS,,3
+sgh,5501,01-04-1976,31-01-2005,31-01-2005,83,Region Syddanmark,Esbjerg Centralsygehus,102,1,,,SKS,,3
+sgh,5501,01-02-2005,17-02-2023,24-02-2023,83,Region Syddanmark,Sydvestjysk Sygehus,102,1,,,SKS,,3
+sgh,5501,25-02-2023,17-02-2023,01-01-2500,83,Region Syddanmark,Esbjerg Sygehus Grindsted Sygehus,102,1,,,SKS,,1
+sgh,5502,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,RIBE SYGEHUS,103,1,,,,,
+sgh,5502,01-01-1978,31-01-2005,31-01-2005,83,Region Syddanmark,Ribe Sygehus,111,1,,,SKS,,3
+sgh,5503,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,VARDE SYGEHUS,102,1,,,,,
+sgh,5503,01-01-1978,31-01-2005,31-01-2005,83,Region Syddanmark,Varde Sygehus,111,1,,,SKS,,3
+sgh,5504,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,GRINDSTED SYGEHUS,103,1,,,,,
+sgh,5504,01-01-1978,31-01-2005,31-01-2005,83,Region Syddanmark,Grindsted Sygehus,104,1,,,SKS,,3
+sgh,5505,01-04-1976,31-01-2005,31-01-2005,83,Region Syddanmark,Brørup Sygehus,111,1,,,SKS,,3
+sgh,5506,01-04-1976,19-04-2007,30-04-2007,83,Region Syddanmark,Amtssygehuset (Ribe Amt),121,1,,,SKS,,3
+sgh,5506,01-05-2007,29-10-2015,05-11-2015,83,Region Syddanmark,Psykiatricenter Vest Esbjerg Ribe,121,1,,,SKS,,3
+sgh,5506,06-11-2015,29-10-2015,01-01-2500,83,Region Syddanmark,PSY Psykiatrien (Esbjerg),121,1,,,SKS,,1
+sgh,5507,01-04-1976,01-04-1976,31-12-1982,83,Region Syddanmark,"RIBE, FORSORGSCENTRET",420,3,,,,,
+sgh,5508,01-01-1980,01-01-1980,31-12-1985,83,Region Syddanmark,RIBELUND SYGEAFDELING,119,1,,,,,
+sgh,5508,01-01-1986,01-01-1986,31-12-1988,83,Region Syddanmark,"SYGEAFDELINGEN, RIBELUND",119,1,,,,,
+sgh,5509,01-10-2007,26-02-2020,05-03-2020,83,Region Syddanmark,Reumaklinik Danmark ApS,161,2,,,SKS,,3
+sgh,5510,01-01-1997,22-07-2016,31-07-2016,83,Region Syddanmark,Hjertecenter Varde,161,2,,,SKS,,3
+sgh,5510,01-08-2016,26-09-2019,04-10-2019,83,Region Syddanmark,Privathospital Varde,161,2,,,SKS,,3
+sgh,5511,01-01-2002,26-02-2020,05-03-2020,83,Region Syddanmark,"Ortopædkirurgisk Center, Varde",161,2,,,SKS,,3
+sgh,5512,01-01-2002,30-06-2004,30-06-2004,83,Region Syddanmark,Kirurgisk Klinik Esbjerg,161,2,,,SKS,,3
+sgh,5512,01-07-2004,21-03-2007,31-03-2007,83,Region Syddanmark,Esbjerg Privathospital A/S,161,2,,,SKS,,3
+sgh,5513,01-01-2002,26-02-2020,05-03-2020,8,Nationalt,Søvnapnøcentret I/S,161,2,,,SKS,,3
+sgh,5514,01-09-2003,21-05-2008,30-06-2008,83,Region Syddanmark,Falck Rehab Varde,161,2,,,SKS,,3
+sgh,5515,01-01-2004,05-10-2011,13-10-2011,8,Nationalt,Øresneglen,161,2,,,SKS,,3
+sgh,5516,01-07-2004,26-02-2020,05-03-2020,83,Region Syddanmark,Øjenklinikken Jyllandsgade,161,2,,,SKS,,3
+sgh,5517,01-12-2006,18-12-2006,01-01-2500,83,Region Syddanmark,Hospice Sydvestjylland,170,2,,,SKS,,1
+sgh,5518,01-02-2007,07-04-2017,30-04-2017,83,Region Syddanmark,"Hud- og Laserklinikken, Esbjerg",161,2,,,SKS,,3
+sgh,5519,01-01-2007,31-07-2015,08-08-2015,83,Region Syddanmark,Speciallæge Hans Ersgaard,161,2,,,SKS,,3
+sgh,5520,01-03-2007,20-11-2007,01-01-2500,83,Region Syddanmark,Øjenklinikken Vejen,161,2,,,SKS,,1
+sgh,5521,01-01-2007,20-10-2008,01-01-2500,83,Region Syddanmark,Øjenklinikken Billund,161,2,,,SKS,,1
+sgh,5522,01-10-2011,04-11-2011,12-11-2011,83,Region Syddanmark,Esbjerg Øjenkirurgisk Klinik,161,2,,,SKS,,3
+sgh,5523,10-09-2024,20-09-2024,01-01-2500,83,Region Syddanmark,Psykiatrisk Klinik Esbjerg,162,2,,,SKS,,1
+sgh,5588,01-01-2000,18-12-2008,31-12-2008,83,Region Syddanmark,"Anden rekvirent, Ribe Amt",140,9,,,SKS,,3
+sgh,6002,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,BRÆDSTRUP SYGEHUS,103,1,,,,,
+sgh,6002,01-01-1978,19-01-2009,31-01-2009,82,Region Midtjylland,Brædstrup Sygehus,104,1,,,SKS,,3
+sgh,6003,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,FREDERICIA SYGEHUS,102,1,,,,,
+sgh,6003,01-01-1978,17-11-2006,31-12-2006,83,Region Syddanmark,Fredericia Sygehus,103,1,,,SKS,,3
+sgh,6004,01-04-1976,30-08-2011,30-09-2011,83,Region Syddanmark,Give Sygehus,111,1,,,SKS,,3
+sgh,6005,01-01-2007,17-12-2007,31-12-2007,82,Region Midtjylland,Psykiatrien & BUC i Reg. Midt,121,1,,,SKS,,3
+sgh,6005,01-01-2008,26-04-2012,05-05-2012,82,Region Midtjylland,"Psykiatrien i RM, Horsens",121,1,,,SKS,,3
+sgh,6006,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,HORSENS SYGEHUS,102,1,,,,,
+sgh,6006,01-01-1978,20-02-2007,31-01-2007,82,Region Midtjylland,Horsens Sygehus,103,1,,,SKS,,3
+sgh,6006,01-02-2007,13-11-2009,20-11-2009,82,Region Midtjylland,"Regionshospitalet Horsens, Brædstrup og Odder",103,1,,,SKS,,3
+sgh,6006,21-11-2009,20-09-2012,30-09-2012,82,Region Midtjylland,Regionshospitalet Horsens og Brædstrup,103,1,,,SKS,,3
+sgh,6006,01-10-2012,25-01-2018,01-01-2500,82,Region Midtjylland,Regionshospitalet Horsens,103,1,,,SKS,,3
+sgh,6007,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,KOLDING SYGEHUS,102,1,,,,,
+sgh,6007,01-01-1978,17-11-2006,30-11-2006,83,Region Syddanmark,Kolding Sygehus,102,1,,,SKS,,3
+sgh,6007,01-12-2006,04-01-2017,11-01-2017,83,Region Syddanmark,Fredericia og Kolding Sygehuse,102,1,,,SKS,,3
+sgh,6007,12-01-2017,04-01-2017,01-01-2500,83,Region Syddanmark,Kolding Sygehus,102,1,,,SKS,,1
+sgh,6008,01-04-1976,30-05-2000,01-01-2500,83,Region Syddanmark,Vejle Sygehus,102,1,,,SKS,,3
+sgh,6009,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,"VEJLE, SCT. MARIA HOSPITAL",119,1,,,,,
+sgh,6009,01-01-1978,30-01-2004,31-12-2003,83,Region Syddanmark,"Sct. Maria Hospital, Vejle",139,1,,,SKS,,3
+sgh,6009,01-01-2004,16-10-2009,01-01-2500,83,Region Syddanmark,Sct. Maria Hospice Center,170,2,,,SKS,,3
+sgh,6010,01-04-1976,01-04-1976,31-12-1976,83,Region Syddanmark,"KOLDING, SCT. HEDVIGS HOSPITAL",,,,,,,
+sgh,6010,11-10-1995,21-06-2007,01-01-2500,83,Region Syddanmark,Privathospitalet Mølholm,161,2,,,SKS,,3
+sgh,6011,01-04-1976,01-04-1976,31-12-1977,83,Region Syddanmark,"VEJLEFJORD, JYSK NERVESANATORI",124,2,,,,,
+sgh,6011,01-01-1978,01-01-1978,31-12-1990,83,Region Syddanmark,"VEJLEFJORD, JYSK NERVESANAT",121,2,,,,,
+sgh,6011,10-10-1995,16-04-2009,23-04-2009,83,Region Syddanmark,Vejlefjord,161,2,,,SKS,,3
+sgh,6011,24-04-2009,25-06-2009,01-01-2500,83,Region Syddanmark,Vejlefjord Neurorehabilitering,162,2,,,SKS,,3
+sgh,6012,01-04-1976,04-08-1998,31-08-1998,83,Region Syddanmark,"BREJNING, FORSORGSCENTRET",420,3,,,SKS,,3
+sgh,6013,01-03-2007,30-08-2011,30-09-2011,83,Region Syddanmark,"De Vestdanske Friklinikker, Give",111,1,,,SKS,,3
+sgh,6013,01-10-2011,11-12-2017,21-12-2017,83,Region Syddanmark,Friklinikken Region Syddanmark (Give),111,1,,,SKS,,3
+sgh,6013,22-12-2017,11-12-2017,01-01-2500,83,Region Syddanmark,Friklinikken Region Syddanmark (Grindsted),111,1,,,SKS,,1
+sgh,6014,01-01-2001,26-02-2002,30-09-2001,82,Region Midtjylland,Friklinikken i Brædstrup,138,2,,,SKS,,1
+sgh,6014,01-10-2001,17-12-2007,31-12-2007,82,Region Midtjylland,Friklinikken i Brædstrup,111,1,,,SKS,,3
+sgh,6014,01-01-2008,11-11-2011,19-11-2011,82,Region Midtjylland,"De Vestdanske Friklinikker, Brædstrup",111,1,,,SKS,,3
+sgh,6015,01-01-2002,17-09-2008,30-09-2008,83,Region Syddanmark,Speciallægeklinikken i Vejle,161,2,,,SKS,,3
+sgh,6015,01-10-2008,28-10-2010,05-11-2010,83,Region Syddanmark,Dronning Sophies Hospital/Kolding Privathospital,161,2,,,SKS,,3
+sgh,6016,01-01-2003,26-02-2020,05-03-2020,82,Region Midtjylland,"Kirurgisk Klinik, Horsens",161,2,,,SKS,,3
+sgh,6017,01-01-2003,26-02-2020,05-03-2020,83,Region Syddanmark,Arffmann's Plastikkirurgiske Klinik,161,2,,,SKS,,3
+sgh,6018,01-01-2004,24-01-2018,01-02-2018,82,Region Midtjylland,Øre-Næse-Halsklinikken i Horsens,161,2,,,SKS,,3
+sgh,6019,01-09-2005,09-02-2012,18-02-2012,82,Region Midtjylland,Horsens Fertilitetsklinik,161,2,,,SKS,,3
+sgh,6020,01-12-2006,16-04-2009,23-04-2009,83,Region Syddanmark,Tværfagligt Smertecenter Vejlefjord,161,2,,,SKS,,3
+sgh,6020,24-04-2009,25-08-2009,01-10-2009,82,Region Midtjylland,Allévia Tværfagligt Smertecenter APS,162,2,,,SKS,,3
+sgh,6020,02-10-2009,18-06-2014,30-06-2014,82,Region Midtjylland,Allévia Tværfagligt Smertecenter ApS,161,2,,,SKS,,3
+sgh,6021,01-01-2007,15-02-2008,01-01-2500,83,Region Syddanmark,Fertilitetsklinik IVF-Syd,161,2,,,SKS,,1
+sgh,6022,01-05-2008,31-07-2015,01-01-2500,82,Region Midtjylland,PainCare - Tværfagligt Smertecenter,161,2,,,SKS,,3
+sgh,6023,01-09-2008,16-11-2011,24-11-2011,83,Region Syddanmark,"ScanSleep A/S, Søvnmedicinsk Klinik, Kolding",161,2,,,SKS,,3
+sgh,6024,01-05-2009,26-02-2020,05-03-2020,83,Region Syddanmark,Specialhospitalet Akselholm,161,2,,,SKS,,3
+sgh,6025,01-05-2009,16-04-2010,24-04-2010,83,Region Syddanmark,Hudlæge Peter H. Andersen,161,2,,,SKS,,3
+sgh,6026,01-07-2009,20-01-2011,27-01-2011,83,Region Syddanmark,Quattro clinic,161,2,,,SKS,,3
+sgh,6026,28-01-2011,20-01-2011,28-01-2011,83,Region Syddanmark,Tereshospitalet Fredericia,161,2,,,SKS,,3
+sgh,6026,29-01-2011,10-10-2013,31-10-2013,83,Region Syddanmark,Teres Hospitalet Fredericia,161,2,,,SKS,,3
+sgh,6027,01-08-2009,26-02-2020,05-03-2020,83,Region Syddanmark,Østjysk Center for Smertebehandling ApS,161,2,,,SKS,,3
+sgh,6028,01-12-2009,27-10-2010,04-11-2010,83,Region Syddanmark,Klinik Kellers Park A/S,161,2,,,SKS,,3
+sgh,6029,02-04-2010,26-03-2010,09-04-2010,83,Region Syddanmark,Hudlæge Peter Hundevadt Andersen,161,2,,,SKS,,3
+sgh,6030,01-01-2010,26-03-2010,01-01-2500,83,Region Syddanmark,Hudlæge Peter Hundevadt Andersen,161,2,,,SKS,,1
+sgh,6031,01-01-2011,31-01-2011,01-01-2500,83,Region Syddanmark,Øjenklinikken Valdemarsgade,161,2,,,SKS,,1
+sgh,6032,01-06-2014,26-02-2020,05-03-2020,83,Region Syddanmark,"Klinik for Øjenlågskirurgi, Vejle",161,2,,,SKS,,3
+sgh,6033,01-07-2015,18-12-2015,31-12-2015,83,Region Syddanmark,Klinik for Neurologi og Smerteterapi,161,2,,,SKS,,3
+sgh,6033,01-01-2016,18-12-2015,01-01-2500,83,Region Syddanmark,CLINIDA Clinics,161,2,,,SKS,,1
+sgh,6034,01-07-2016,22-07-2016,01-01-2500,83,Region Syddanmark,Jordemoder.dk,161,2,,,SKS,,1
+sgh,6035,01-11-2016,09-10-2018,17-10-2018,83,Region Syddanmark,Aareknudeklinikken Vejle,161,2,,,SKS,,3
+sgh,6036,01-02-2020,26-02-2020,01-01-2500,82,Region Midtjylland,Søvnexperten,161,2,,,SKS,,1
+sgh,6088,01-01-2000,18-12-2008,31-12-2008,83,Region Syddanmark,"Anden rekvirent, Vejle Amt",140,9,,,SKS,,3
+sgh,6099,01-01-2009,18-12-2008,01-01-2500,83,Region Syddanmark,"Anden rekvirent, Region Syddanmark",140,9,,,SKS,,1
+sgh,6501,01-04-1976,28-01-2003,31-01-2003,82,Region Midtjylland,Holstebro Centralsygehus,102,1,,,SKS,,3
+sgh,6501,01-02-2003,18-12-2006,31-12-2006,82,Region Midtjylland,Holstebro Sygehus,102,1,,,SKS,,3
+sgh,6501,01-01-2007,10-07-2012,18-07-2012,82,Region Midtjylland,Regionshospitalet Holstebro,102,1,,,SKS,,3
+sgh,6502,01-04-1976,28-01-2003,31-01-2003,82,Region Midtjylland,Herning Centralsygehus,102,1,,,SKS,,3
+sgh,6502,01-02-2003,18-12-2006,31-12-2006,82,Region Midtjylland,Herning Sygehus,102,1,,,SKS,,3
+sgh,6502,01-01-2007,10-07-2012,18-07-2012,82,Region Midtjylland,Regionshospitalet Herning,102,1,,,SKS,,3
+sgh,6503,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,TARM AMTSSYGEHUS,103,1,,,,,
+sgh,6503,01-01-1978,01-01-1978,31-12-1986,82,Region Midtjylland,TARM AMTSSYGEHUS,104,1,,,,,
+sgh,6503,01-01-1987,18-12-2006,31-12-2006,82,Region Midtjylland,Tarm Sygehus,104,1,,,SKS,,3
+sgh,6503,01-01-2007,10-07-2012,18-07-2012,82,Region Midtjylland,Regionshospitalet Tarm,104,1,,,SKS,,3
+sgh,6504,01-04-1976,01-04-1976,31-12-1986,82,Region Midtjylland,RINGKØBING SYGEHUS,104,1,,,,,
+sgh,6504,01-01-1987,18-12-2006,31-12-2006,82,Region Midtjylland,Ringkøbing Sygehus,104,1,,,SKS,,3
+sgh,6504,01-01-2007,10-07-2012,18-07-2012,82,Region Midtjylland,Regionshospitalet Ringkøbing,104,1,,,SKS,,3
+sgh,6505,01-04-1976,01-04-1976,31-12-1986,82,Region Midtjylland,"LEMVIG, AMTSSYGEHUSET I",104,1,,,,,
+sgh,6505,01-01-1987,18-12-2006,31-12-2006,82,Region Midtjylland,Lemvig Sygehus,104,1,,,SKS,,3
+sgh,6505,01-01-2007,10-07-2012,18-07-2012,82,Region Midtjylland,Regionshospitalet Lemvig,104,1,,,SKS,,3
+sgh,6506,01-04-1976,27-10-2000,31-12-2000,82,Region Midtjylland,Hvidbjerg Amtssygehus,139,1,,,SKS,,3
+sgh,6507,01-04-1999,18-12-2006,31-12-2006,82,Region Midtjylland,Psykiatrien i Ringkøbing Amt,121,1,,,SKS,,3
+sgh,6507,01-01-2007,19-04-2007,30-04-2007,82,Region Midtjylland,Regionspsykiatrien i Herning og Holstebro,121,1,,,SKS,,3
+sgh,6507,01-05-2007,17-12-2007,31-12-2007,82,Region Midtjylland,Psykiatrien & Børne- og Ungdomspsykiatrien i Region Midtjy.,121,1,,,SKS,,3
+sgh,6507,01-01-2008,05-12-2011,13-12-2011,82,Region Midtjylland,"Psyk. & BUC, RM Herning og Holstebro",121,1,,,SKS,,3
+sgh,6510,01-03-2001,21-03-2007,31-03-2007,82,Region Midtjylland,Privathospitalet Dalgas,161,2,,,SKS,,3
+sgh,6510,01-04-2007,02-02-2010,09-02-2010,82,Region Midtjylland,Danske Privathospitaler,161,2,,,SKS,,3
+sgh,6510,10-02-2010,23-01-2014,31-01-2014,82,Region Midtjylland,Aleris Privathospitaler,161,2,,,SKS,,3
+sgh,6511,01-01-2002,20-10-2017,31-10-2017,82,Region Midtjylland,Øjenlæge Peter Jacobsen,161,2,,,SKS,,3
+sgh,6512,01-01-2004,16-09-2005,30-09-2005,82,Region Midtjylland,"Ortopædkirurgisk Klinik, Privathospitalet Dalgas, Århus",161,2,,,SKS,,3
+sgh,6512,01-10-2005,18-04-2006,30-04-2006,82,Region Midtjylland,"Privathospitalet Dalgas, Århus",161,2,,,SKS,,3
+sgh,6513,01-06-2005,26-02-2020,05-03-2020,82,Region Midtjylland,Speciallægeklinikken for ortopædisk Kirurgi,161,2,,,SKS,,3
+sgh,6514,01-01-2006,26-02-2020,05-03-2020,82,Region Midtjylland,Kirurgisk Klinik Vestjylland,161,2,,,SKS,,3
+sgh,6515,01-07-2006,18-12-2006,01-01-2500,82,Region Midtjylland,Anker Fjord Hospice,170,2,,,SKS,,3
+sgh,6516,01-07-2007,25-05-2012,02-06-2012,82,Region Midtjylland,Midtjyske Øjenklinik,161,2,,,SKS,,3
+sgh,6517,01-11-2007,17-12-2007,01-01-2500,82,Region Midtjylland,JK Øjenkirurgi,161,2,,,SKS,,1
+sgh,6518,01-06-2010,31-05-2010,01-01-2500,82,Region Midtjylland,Øjenlæge Christian Lahrmann,161,2,,,SKS,,1
+sgh,6588,01-01-2000,18-12-2008,31-12-2008,82,Region Midtjylland,"Anden rekvirent, Ringkøbing Amt",140,9,,,SKS,,3
+sgh,6600,01-01-2009,03-12-2010,01-01-2500,82,Region Midtjylland,Psykiatrien Region Midtjylland,121,1,,,SKS,,1
+sgh,6605,01-01-2020,25-03-2021,01-01-2500,82,Region Midtjylland,"Ganespalteafdelingen, IKH",141,1,,,SKS,,3
+sgh,6610,01-05-2011,25-05-2011,01-01-2500,82,Region Midtjylland,Præhospitalet,141,1,,,SKS,,1
+sgh,6615,01-01-2020,19-09-2023,01-01-2500,82,Region Midtjylland,Regionsapoteket Midtjylland,141,1,,,SKS,,3
+sgh,6620,01-01-2010,06-05-2011,01-01-2500,82,Region Midtjylland,Aarhus Universitetshospital,101,1,,,SKS,,1
+sgh,6630,01-01-2012,05-09-2012,01-01-2500,82,Region Midtjylland,Hospitalsenhed Midt,102,1,,,SKS,,1
+sgh,6640,01-01-2018,27-01-2022,01-01-2500,82,Region Midtjylland,Regionshospitalet Gødstrup,102,1,,,SKS,,3
+sgh,6650,01-03-2010,20-01-2023,28-01-2023,82,Region Midtjylland,Hospitalsenheden Vest,102,1,,,SKS,,3
+sgh,7002,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,SILKEBORG CENTRALSYGEHUS,102,1,,,,,
+sgh,7002,01-01-1978,21-05-2007,31-05-2007,82,Region Midtjylland,Silkeborg Centralsygehus,103,1,,,SKS,,3
+sgh,7002,01-06-2007,23-08-2013,31-08-2013,82,Region Midtjylland,Regionshospitalet Silkeborg,103,1,,,SKS,,3
+sgh,7003,01-04-1976,31-03-2004,31-03-2004,82,Region Midtjylland,Århus Kommunehospital,101,1,,,SKS,,3
+sgh,7003,01-04-2004,28-02-2013,08-03-2013,82,Region Midtjylland,Århus Sygehus,101,1,,,SKS,,3
+sgh,7004,01-04-1976,08-02-2013,16-02-2013,82,Region Midtjylland,Århus Amtssygehus,101,1,,,SKS,,3
+sgh,7005,01-04-1976,21-03-2007,31-03-2007,82,Region Midtjylland,Randers Centralsygehus,102,1,,,SKS,,3
+sgh,7005,01-04-2007,21-03-2007,01-01-2500,82,Region Midtjylland,Regionshospitalet Randers,102,1,,,SKS,,1
+sgh,7006,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,SKANDERBORG SYGEHUS,103,1,,,,,
+sgh,7006,01-01-1978,01-01-1978,31-12-1988,82,Region Midtjylland,SKANDERBORG SYGEHUS,104,1,,,,,
+sgh,7007,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,"ÅRHUS, MARSELISBORG HOSPITAL",103,1,,,,,
+sgh,7007,01-01-1978,01-01-1978,21-11-1990,82,Region Midtjylland,"ÅRHUS, MARSELISBORG HOSPITAL",111,1,,,,,
+sgh,7007,22-11-1990,22-11-1990,31-12-1992,82,Region Midtjylland,"ÅRHUS, MARSELISBORG HOSPITAL",111,1,,,,,
+sgh,7007,01-01-1993,30-01-2004,31-12-2003,82,Region Midtjylland,Marselisborg Hospital,111,1,,,SKS,,3
+sgh,7008,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,ODDER SYGEHUS,103,1,,,,,
+sgh,7008,01-01-1978,31-03-2003,30-04-2003,82,Region Midtjylland,Odder Centralsygehus,104,1,,,SKS,,3
+sgh,7008,01-05-2003,17-10-2007,31-12-2007,82,Region Midtjylland,Odder Sygehus,104,1,,,SKS,,3
+sgh,7009,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,GRENÅ SYGEHUS,103,1,,,,,
+sgh,7009,01-01-1978,30-10-2003,31-10-2003,82,Region Midtjylland,Grenaa Centralsygehus,104,1,,,SKS,,3
+sgh,7009,01-11-2003,21-03-2007,31-03-2007,82,Region Midtjylland,Grenaa Sygehus,104,1,,,SKS,,3
+sgh,7009,01-04-2007,25-05-2012,02-06-2012,82,Region Midtjylland,Regionshospitalet Grenaa,104,1,,,SKS,,3
+sgh,7010,01-04-1976,01-09-1999,31-12-1977,82,Region Midtjylland,HAMMEL NEUROCENTER,111,1,,,SKS,,1
+sgh,7010,01-01-1978,01-09-1999,31-07-1999,82,Region Midtjylland,HAMMEL NEUROCENTER,111,1,,,SKS,,3
+sgh,7010,01-08-1999,21-05-2007,31-05-2007,82,Region Midtjylland,Hammel Neurocenter,111,1,,,SKS,,3
+sgh,7010,01-06-2007,23-08-2013,31-08-2013,82,Region Midtjylland,Regionshospitalet Hammel Neurocenter,111,1,,,SKS,,3
+sgh,7011,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,ØRSTED SYGEHUS,104,1,,,,,
+sgh,7011,01-01-1978,01-01-1978,31-12-1984,82,Region Midtjylland,ØRSTED SYGEHUS,105,1,,,,,
+sgh,7012,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,EBELTOFT SYGEHUS,104,1,,,,,
+sgh,7012,01-01-1978,01-01-1978,31-12-1988,82,Region Midtjylland,EBELTOFT SYGEHUS,105,1,,,,,
+sgh,7013,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,TRANEBJERG SYGEHUS,104,1,,,,,
+sgh,7013,01-01-1978,10-06-2013,30-06-2013,82,Region Midtjylland,Samsø Syge- og sundhedshus,105,1,,,SKS,,3
+sgh,7013,01-07-2013,10-06-2013,01-01-2500,82,Region Midtjylland,Samsø Sundheds- og Akuthus,105,1,,,SKS,,1
+sgh,7014,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,"ÅRHUS, ORTOPÆDISK HOSPITAL",119,1,,,,,
+sgh,7014,01-01-1978,01-01-1978,31-12-1989,82,Region Midtjylland,"ÅRHUS, ORTOPÆDISK HOSPITAL",111,1,,,,,
+sgh,7015,01-04-1976,01-04-1976,31-12-1976,82,Region Midtjylland,ÅRHUS KOMMUNES GERIATRISKE AFD,,,,,,,
+sgh,7016,01-04-1976,19-04-2007,30-04-2007,82,Region Midtjylland,Psykiatrien i Århus Amt,121,1,,,SKS,,3
+sgh,7016,01-05-2007,17-12-2007,31-12-2007,82,Region Midtjylland,Psykiatrien & Børne- og Ungdomspsykiatrien i Region Midtjyl.,121,1,,,SKS,,3
+sgh,7016,01-01-2008,10-09-2009,30-09-2009,82,Region Midtjylland,"Psyk. RM, Rissk/Ran/Silk/Skand.",121,1,,,SKS,,3
+sgh,7016,01-10-2009,28-11-2012,06-12-2012,82,Region Midtjylland,"Psyk. RM, Risskov/Rand/Silk.",121,1,,,SKS,,3
+sgh,7017,01-04-1976,01-04-1976,31-12-1983,82,Region Midtjylland,"SKANDERBORG, FORSORGSCENTRET S",420,3,,,,,
+sgh,7018,01-04-1976,09-06-2010,16-06-2010,82,Region Midtjylland,"Hans Jansens Hjem, Gigtsanatorium",150,2,,,SKS,,3
+sgh,7018,17-06-2010,23-06-2014,01-07-2014,82,Region Midtjylland,Center for sundhed og træning Århus,150,2,,,SKS,,3
+sgh,7019,01-04-1976,18-02-2009,28-02-2009,82,Region Midtjylland,"Egå, Blåkorshjemmet Egåhus",180,2,,,SKS,,3
+sgh,7019,01-03-2009,26-02-2020,05-03-2020,82,Region Midtjylland,"Egå, Blåkorshjemmet Egåhus",162,2,,,SKS,,3
+sgh,7020,01-01-1977,01-01-1977,31-12-1977,82,Region Midtjylland,"ÅRHUS, SCT. JOSEPHS HOSPITAL",139,1,,,,,
+sgh,7020,01-01-1978,01-01-1978,31-12-1986,82,Region Midtjylland,"ÅRHUS, SCT. JOSEPHS HOSPITAL",106,1,,,,,
+sgh,7021,01-01-1981,01-01-1981,31-12-1982,82,Region Midtjylland,"BEHANDLINGSINSTITUTTET, RY",132,2,,,,,
+sgh,7021,01-01-1983,09-10-2009,17-10-2009,82,Region Midtjylland,Sclerosehospitalet i Ry,151,2,,,SKS,,3
+sgh,7022,01-01-1982,01-01-1982,31-12-1986,82,Region Midtjylland,"EBELTOFT, RÅMOSEGÅRD PLEJEHJEM",121,1,,,,,
+sgh,7023,01-01-1982,01-01-1982,31-12-1986,82,Region Midtjylland,RANDERS PLEJEHJEM,121,1,,,,,
+sgh,7024,01-01-1982,01-01-1982,31-12-1986,82,Region Midtjylland,"GRENÅ, DALSTRUP PLEJEHJEM",121,1,,,,,
+sgh,7025,01-01-1984,01-01-1984,31-12-1996,82,Region Midtjylland,NEUROSEKLINIKKEN I ØRSTED,121,1,,,,,
+sgh,7026,01-01-1985,01-01-1985,31-12-1986,82,Region Midtjylland,SKEJBY SYGEHUS,101,1,,,,,
+sgh,7026,01-01-1989,06-08-1997,31-12-1990,82,Region Midtjylland,SKEJBY SYGEHUS,101,1,,,SKS,,1
+sgh,7026,01-01-1991,21-05-2007,31-05-2007,82,Region Midtjylland,Skejby Sygehus,101,1,,,SKS,,3
+sgh,7026,01-06-2007,18-09-2007,30-09-2007,82,Region Midtjylland,"Universitetshospital, Skejby",101,1,,,SKS,,3
+sgh,7026,01-10-2007,08-02-2013,16-02-2013,82,Region Midtjylland,"Århus Universitetshospital, Skejby",101,1,,,SKS,,3
+sgh,7027,01-01-1989,01-01-1989,31-12-1995,82,Region Midtjylland,"MERMAID, PRIVATHOSP.",111,2,,,,,
+sgh,7028,01-01-1995,19-04-2007,30-04-2007,82,Region Midtjylland,Børne- og Ungdomspsyk. Hosp.,121,1,,,SKS,,3
+sgh,7028,01-05-2007,17-12-2007,31-12-2007,82,Region Midtjylland,Psykiatrien & Børne- og Ungdomspsykiatrien i Region Midtjyl.,121,1,,,SKS,,3
+sgh,7028,01-01-2008,15-07-2012,31-08-2012,82,Region Midtjylland,"BUC i RM, Risskov",121,1,,,SKS,,3
+sgh,7029,11-10-1995,12-01-2010,20-01-2010,82,Region Midtjylland,Plastikkirurgisk Klinik,161,2,,,SKS,,3
+sgh,7030,11-10-1995,17-10-2005,01-01-2500,82,Region Midtjylland,Dan Clinic,161,2,,,SKS,,3
+sgh,7031,11-10-1995,17-06-2008,31-05-2008,82,Region Midtjylland,Grymer Plastikkirurgisk Klinik,161,2,,,SKS,,3
+sgh,7031,01-06-2008,23-03-2012,31-03-2012,82,Region Midtjylland,Grymer Privathospital Skejby I/S,161,2,,,SKS,,3
+sgh,7032,10-10-1995,12-11-2009,19-11-2009,82,Region Midtjylland,Muskelsvindfondens Center,161,2,,,SKS,,3
+sgh,7032,20-11-2009,12-11-2009,01-01-2500,82,Region Midtjylland,RehabiliteringsCenter for Muskelsvind,161,2,,,SKS,,1
+sgh,7033,01-01-2002,30-09-2002,01-01-2500,82,Region Midtjylland,"Ciconia, Århus Privathospital",161,2,,,SKS,,3
+sgh,7034,01-01-2002,30-09-2002,01-01-2500,82,Region Midtjylland,Århus øjenklinik,161,2,,,SKS,,1
+sgh,7035,01-01-2002,05-02-2024,13-02-2024,82,Region Midtjylland,Endoskopiklinikken Århus A/S,161,2,,,SKS,,3
+sgh,7036,01-01-2002,16-03-2011,24-03-2011,82,Region Midtjylland,Øjenklinikken Sct. Clemens,161,2,,,SKS,,3
+sgh,7037,01-01-2002,21-03-2011,29-03-2011,82,Region Midtjylland,Bellevues Ortopædkirurgiske Klinik,161,2,,,SKS,,3
+sgh,7038,01-01-2002,28-01-2003,31-01-2003,82,Region Midtjylland,"Århus Speciallægecenter, Plastikkirurgisk Center",161,2,,,SKS,,3
+sgh,7039,01-01-2002,26-02-2020,05-03-2020,82,Region Midtjylland,"Øre-, næse-, halslæge Luisa Grymer",161,2,,,SKS,,3
+sgh,7040,01-01-2002,26-02-2020,05-03-2020,82,Region Midtjylland,Øjenklinikken Finn Eisgart,161,2,,,SKS,,3
+sgh,7041,01-01-2002,22-03-2011,30-03-2011,82,Region Midtjylland,Ortopædkirurgisk Klinik v/Bent Niedermann,161,2,,,SKS,,3
+sgh,7042,01-01-2002,18-02-2009,28-02-2009,82,Region Midtjylland,Århus Speciallægecenter,161,2,,,SKS,,3
+sgh,7042,01-03-2009,18-02-2009,01-01-2500,82,Region Midtjylland,AROS Privathospital,161,2,,,SKS,,1
+sgh,7043,01-01-2002,26-02-2020,05-03-2020,82,Region Midtjylland,Kirurgisk Klinik Århus,161,2,,,SKS,,3
+sgh,7044,01-01-2002,31-03-2004,30-04-2004,82,Region Midtjylland,Prismet,161,2,,,SKS,,3
+sgh,7045,01-01-2002,28-01-2003,31-01-2003,82,Region Midtjylland,"Århus speciallægecenter, Kirurgisk Center",161,2,,,SKS,,3
+sgh,7046,01-01-2002,28-11-2002,01-01-2500,82,Region Midtjylland,Odder Øjenklinik ved Lene Hansen,161,2,,,SKS,,1
+sgh,7047,01-01-2002,07-04-2017,30-04-2017,82,Region Midtjylland,Øjenlæge Torben Sørensen,161,2,,,SKS,,3
+sgh,7048,01-01-2002,17-10-2005,01-01-2500,82,Region Midtjylland,Hospice Søholm,170,2,,,SKS,,3
+sgh,7049,01-01-2003,25-08-2004,31-08-2004,82,Region Midtjylland,Somnea Aps,161,2,,,SKS,,3
+sgh,7050,01-01-2003,25-08-2004,31-08-2004,82,Region Midtjylland,Klinik for Ortopædkirurgi og Sportsskader,161,2,,,SKS,,3
+sgh,7051,01-01-2004,23-03-2012,31-03-2012,82,Region Midtjylland,Kirurgisk Urologisk Klinik,161,2,,,SKS,,3
+sgh,7052,01-01-2004,21-02-2020,29-02-2020,82,Region Midtjylland,"Øre-, næse-og halslæge Klaus Juul Jensen",161,2,,,SKS,,3
+sgh,7053,01-05-2004,17-10-2005,01-01-2500,82,Region Midtjylland,Lungemedicinsk og Allergologisk klinik,161,2,,,SKS,,3
+sgh,7054,01-05-2004,31-03-2004,01-01-2500,82,Region Midtjylland,Prismet Kirurgisk klinik,161,2,,,SKS,,1
+sgh,7055,01-05-2004,24-08-2012,01-09-2012,82,Region Midtjylland,Prismet Plastikkirurgisk klinik,161,2,,,SKS,,3
+sgh,7056,01-05-2004,05-07-2010,12-07-2010,82,Region Midtjylland,Prismet Gynækologisk klinik,161,2,,,SKS,,3
+sgh,7056,13-07-2010,07-08-2015,15-08-2015,82,Region Midtjylland,"Kosmetisk Klinik, Prismet",161,2,,,SKS,,3
+sgh,7057,01-01-2004,17-06-2005,01-01-2500,82,Region Midtjylland,Aagaard Gynækologiske Klinik,161,2,,,SKS,,3
+sgh,7058,01-01-2004,07-09-2009,01-01-2500,82,Region Midtjylland,"Spec.lægerne Plastikkirurgisk Klinik, Århus",161,2,,,SKS,,3
+sgh,7059,01-01-2004,06-04-2017,24-04-2017,82,Region Midtjylland,"Røntgenklinikken, Morten Børups Gade",161,2,,,SKS,,3
+sgh,7059,25-04-2017,09-02-2018,28-02-2018,82,Region Midtjylland,RøntgenKlinikken Aarhus,161,2,,,SKS,,3
+sgh,7060,01-01-2000,17-10-2005,01-01-2500,82,Region Midtjylland,"Retsmedicinsk Institut, Århus",139,3,,,SKS,,3
+sgh,7061,01-01-2000,17-10-2005,01-01-2500,82,Region Midtjylland,"Tandlægehøjskolen, Århus",139,3,,,SKS,,3
+sgh,7062,01-01-2004,20-02-2015,28-02-2015,82,Region Midtjylland,Århus Gigtklinik,161,2,,,SKS,,3
+sgh,7062,01-03-2015,20-02-2015,01-01-2500,82,Region Midtjylland,Aarhus Speciallægeklinik I/S,161,2,,,SKS,,1
+sgh,7063,01-01-2004,20-04-2012,28-04-2012,82,Region Midtjylland,"Kirurgisk Klinik, Grenå",161,2,,,SKS,,3
+sgh,7064,01-04-2004,09-02-2012,18-02-2012,82,Region Midtjylland,Søvn og respirationscenter c/o Grymer Privathospital,161,2,,,SKS,,3
+sgh,7065,01-09-2004,16-03-2018,31-03-2018,82,Region Midtjylland,Århus MR-klinik,161,2,,,SKS,,3
+sgh,7066,01-11-2004,05-08-2015,13-08-2015,82,Region Midtjylland,Århus Lasercenter,161,2,,,SKS,,3
+sgh,7067,01-06-2004,17-06-2008,31-05-2008,82,Region Midtjylland,Grymer Privathospital Skejby ApS,161,2,,,SKS,,3
+sgh,7068,01-01-2005,26-02-2020,05-03-2020,82,Region Midtjylland,Hud- og Laserklinikken i Randers,161,2,,,SKS,,3
+sgh,7069,01-04-2005,23-11-2017,01-12-2017,82,Region Midtjylland,OPA Ortopædisk Privathospital Aarhus,161,2,,,SKS,,3
+sgh,7070,16-05-1991,16-05-1991,14-08-1991,82,Region Midtjylland,MARSELISBORG HOSPITAL - 2,111,1,,,,,
+sgh,7071,01-01-2005,23-10-2014,31-10-2014,82,Region Midtjylland,"ScanSleep A/S, Søvnmedicinsk Klinik, Århus",161,2,,,SKS,,3
+sgh,7072,01-01-2005,17-05-2005,01-01-2500,82,Region Midtjylland,Horsens Øjenklinik,161,2,,,SKS,,1
+sgh,7073,01-02-2005,17-05-2005,01-01-2500,82,Region Midtjylland,"Stadionklinikken, Atletion, Århus",161,2,,,SKS,,1
+sgh,7074,01-09-2005,16-09-2005,01-01-2500,82,Region Midtjylland,Maigaard Fertilitetsklinik,161,2,,,SKS,,1
+sgh,7075,01-01-2006,17-02-2006,01-01-2500,82,Region Midtjylland,Allergi og Lungeklinikken,161,2,,,SKS,,1
+sgh,7076,01-01-2006,18-04-2006,01-01-2500,82,Region Midtjylland,Øjenlæge Peter Thornval,161,2,,,SKS,,1
+sgh,7077,01-06-2006,23-01-2014,31-01-2014,82,Region Midtjylland,Mammaklinikken Århus,161,2,,,SKS,,3
+sgh,7078,01-07-2006,26-02-2020,05-03-2020,82,Region Midtjylland,Klinikken Livet ApS,161,2,,,SKS,,3
+sgh,7079,01-01-2006,26-01-2012,01-01-2500,82,Region Midtjylland,Diers Klinik,161,2,,,SKS,,3
+sgh,7080,01-05-2007,14-06-2011,22-06-2011,82,Region Midtjylland,eira Privathospitalet Skejby,161,2,,,SKS,,3
+sgh,7081,01-04-2007,28-02-2020,07-03-2020,82,Region Midtjylland,Kvindeklinik Papirfabrikken v. Britt Ljungström,161,2,,,SKS,,3
+sgh,7082,01-11-2007,18-09-2007,01-01-2500,82,Region Midtjylland,Hospice Djursland,170,2,,,SKS,,1
+sgh,7083,01-10-2007,17-10-2007,01-01-2500,82,Region Midtjylland,"Speciallægeklinik i Dermato-venerologi, Århus",161,2,,,SKS,,1
+sgh,7084,01-11-2007,17-10-2007,01-01-2500,82,Region Midtjylland,Randers Øjenklinik,161,2,,,SKS,,1
+sgh,7085,01-01-2008,24-04-2012,02-05-2012,82,Region Midtjylland,Hjertemedicinsk speciallægeklinik,161,2,,,SKS,,3
+sgh,7086,01-01-2008,23-03-2012,31-03-2012,82,Region Midtjylland,Øjenlægepraksis v/Kristian Næser,161,2,,,SKS,,3
+sgh,7087,01-04-2008,21-04-2008,01-01-2500,82,Region Midtjylland,Aarhus Hjerteklinik v/Inger Sihm,161,2,,,SKS,,1
+sgh,7088,01-01-2000,18-12-2008,31-12-2008,82,Region Midtjylland,"Anden rekvirent, Århus Amt",140,9,,,SKS,,3
+sgh,7089,01-03-2010,01-03-2010,01-01-2500,82,Region Midtjylland,Misbrugspsykiatrisk Klinik,162,2,,,SKS,,3
+sgh,7090,01-05-2008,30-06-2010,01-01-2500,82,Region Midtjylland,CT-klinikken A/S Science Center Skejby,161,2,,,SKS,,3
+sgh,7091,01-06-2008,28-02-2020,07-03-2020,82,Region Midtjylland,"Erik la Cour, Speciallæge i kardiologi",161,2,,,SKS,,3
+sgh,7092,01-06-2008,20-10-2017,31-10-2017,82,Region Midtjylland,"Allergi- og lungeklinikken, Århus",161,2,,,SKS,,3
+sgh,7093,01-11-2008,31-08-2023,08-09-2023,82,Region Midtjylland,Psykiatrisk klinik for Børn & Unge,162,2,,,SKS,,3
+sgh,7094,03-03-2010,28-02-2020,07-03-2020,82,Region Midtjylland,WebXray,161,2,,,SKS,,3
+sgh,7095,01-05-2010,25-05-2010,01-01-2500,82,Region Midtjylland,Øjenklinikken Skt Clemens,161,2,,,SKS,,1
+sgh,7096,01-01-2011,15-06-2011,01-01-2500,82,Region Midtjylland,Øjenklinikken Aros,161,2,,,SKS,,1
+sgh,7097,01-08-2011,23-05-2017,31-05-2017,82,Region Midtjylland,Cutanea Aarhus Hudlægecenter,161,2,,,SKS,,3
+sgh,7097,01-06-2017,23-05-2017,01-01-2500,82,Region Midtjylland,Cutanea Privathospital,161,2,,,SKS,,1
+sgh,7098,01-12-2011,24-02-2012,01-01-2500,82,Region Midtjylland,"Aareknudeklinikken, Aarhus",161,2,,,SKS,,3
+sgh,7099,01-01-2012,11-10-2013,31-10-2013,82,Region Midtjylland,Grymer Privathospital ApS,161,2,,,SKS,,3
+sgh,7099,01-11-2013,14-10-2016,31-10-2016,82,Region Midtjylland,Teres Hospitalet Aarhus,161,2,,,SKS,,3
+sgh,7100,01-05-2012,28-02-2020,07-03-2020,82,Region Midtjylland,Speciallægerne Egander Grøn,162,2,,,SKS,,3
+sgh,7101,01-10-2012,15-06-2017,30-06-2017,82,Region Midtjylland,MR Scanning Aarhus ApS,161,2,,,SKS,,3
+sgh,7102,01-03-2015,26-03-2015,01-01-2500,82,Region Midtjylland,Gudenå hospice,170,2,,,SKS,,1
+sgh,7103,01-07-2015,04-08-2015,01-01-2500,82,Region Midtjylland,Børn- og Unge klinik AxessMedica,162,2,,,SKS,,1
+sgh,7104,21-09-2015,14-09-2015,01-01-2500,82,Region Midtjylland,Kirurgisk klinik Brabrand,161,2,,,SKS,,1
+sgh,7105,01-07-2015,18-12-2015,01-01-2500,82,Region Midtjylland,Medicinsk Speciallægeklinik,161,2,,,SKS,,1
+sgh,7106,01-01-2016,21-01-2016,01-01-2500,82,Region Midtjylland,"MR-scanner.dk ApS, Horsens",161,2,,,SKS,,1
+sgh,7107,01-10-2016,16-03-2018,31-03-2018,82,Region Midtjylland,MR Scanner Aarhus,161,2,,,SKS,,3
+sgh,7108,01-12-2016,04-11-2016,01-01-2500,82,Region Midtjylland,"Øjenlægernes Center, Aarhus",161,2,,,SKS,,1
+sgh,7109,01-01-2017,27-01-2017,01-01-2500,82,Region Midtjylland,Ortoklinik v/ Michael Ulrich,161,2,,,SKS,,1
+sgh,7110,01-01-2017,20-10-2017,31-10-2017,82,Region Midtjylland,OPA Plastikkirurgi ApS,161,2,,,SKS,,3
+sgh,7110,01-11-2017,20-10-2017,01-01-2500,82,Region Midtjylland,Aaens Privathospital ApS,161,2,,,SKS,,1
+sgh,7111,01-01-2017,20-09-2017,01-01-2500,82,Region Midtjylland,Sclerosehospitalerne i Danmark,151,2,,,SKS,,1
+sgh,7112,15-08-2017,24-11-2017,01-01-2500,82,Region Midtjylland,Klinik Kirurgi og Endoskopi,161,2,,,SKS,,1
+sgh,7113,01-12-2017,19-12-2023,31-12-2023,82,Region Midtjylland,Røntgenklinikken Aarhus v/Christian A. Iversen,161,2,,,SKS,,3
+sgh,7114,01-03-2018,26-04-2018,01-01-2500,82,Region Midtjylland,Den Børnepsykiatriske klinik,162,2,,,SKS,,1
+sgh,7115,01-10-2018,04-12-2018,01-01-2500,82,Region Midtjylland,Øjenlæge Thomas Ege Nielsen Aps,161,2,,,SKS,,1
+sgh,7116,01-10-2018,05-02-2024,13-02-2024,82,Region Midtjylland,Demensudredning Danmark - Århus,163,2,,,SKS,,3
+sgh,7117,01-08-2022,31-08-2022,01-01-2500,82,Region Midtjylland,Søvnklinikken v. Danske Speciallæger,161,2,,,SKS,,1
+sgh,7601,01-04-1976,13-01-2000,31-12-1999,82,Region Midtjylland,VIBORG SYGEHUS,102,1,,,SKS,,3
+sgh,7601,01-01-2000,28-01-2003,31-01-2003,82,Region Midtjylland,Viborg-Kjellerup Sygehus,102,1,,,SKS,,3
+sgh,7601,01-02-2003,21-06-2007,30-06-2007,82,Region Midtjylland,Sygehus Viborg,102,1,,,SKS,,3
+sgh,7601,01-07-2007,17-08-2010,24-08-2010,82,Region Midtjylland,"Regionshospitalet Viborg, Skive og Kjellerup",102,1,,,SKS,,3
+sgh,7601,25-08-2010,27-01-2014,04-02-2014,82,Region Midtjylland,"Regionshospitalet Viborg, Skive",102,1,,,SKS,,3
+sgh,7602,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,SKIVE SYGEHUS,102,1,,,,,
+sgh,7602,01-01-1978,28-01-2003,31-01-2003,82,Region Midtjylland,Skive Sygehus,103,1,,,SKS,,3
+sgh,7603,01-04-1976,01-04-1976,31-12-1977,81,Region Nordjylland,THISTED SYGEHUS,102,1,,,,,
+sgh,7603,01-01-1978,02-12-1999,31-12-1999,81,Region Nordjylland,THISTED SYGEHUS,103,1,,,SKS,,3
+sgh,7603,01-01-2000,27-10-2000,31-12-2000,81,Region Nordjylland,Nykøbing/Thisted Sygehus,103,1,,,SKS,,3
+sgh,7603,01-01-2001,21-06-2007,30-06-2007,81,Region Nordjylland,"Sygehus NORD, Nykøbing-Thisted",103,1,,,SKS,,3
+sgh,7603,01-07-2007,11-12-2017,31-12-2017,81,Region Nordjylland,Sygehus Thy - Mors,103,1,,,SKS,,3
+sgh,7603,01-01-2018,24-08-2018,31-08-2018,81,Region Nordjylland,Regionshospital Nordjylland Thy,103,1,,,SKS,,3
+sgh,7603,01-09-2018,24-08-2018,01-01-2500,81,Region Nordjylland,"Aalborg Universitetshospital, Thisted",103,1,,,SKS,,1
+sgh,7604,01-04-1976,01-04-1976,31-12-1977,81,Region Nordjylland,NYKØBING MORS SYGEHUS,103,1,,,,,
+sgh,7604,01-01-1978,02-12-1999,31-12-1999,81,Region Nordjylland,NYKØBING MORS SYGEHUS,104,1,,,SKS,,3
+sgh,7605,01-04-1976,01-04-1976,31-12-1977,82,Region Midtjylland,KJELLERUP SYGEHUS,103,1,,,,,
+sgh,7605,01-01-1978,13-01-2000,31-12-1999,82,Region Midtjylland,KJELLERUP SYGEHUS,104,1,,,SKS,,3
+sgh,7606,01-04-1976,01-04-1976,31-12-1985,81,Region Nordjylland,VESTERVIG SYGEHUS,139,1,,,,,
+sgh,7607,01-04-1976,01-04-1976,31-12-1980,81,Region Nordjylland,KOLDBY SYGEHUS,139,1,,,,,
+sgh,7608,01-04-1976,01-04-1976,31-12-1978,82,Region Midtjylland,VIBORG SYGEHUS ØST,121,1,,,,,
+sgh,7609,01-04-1976,01-04-1976,31-12-1977,81,Region Nordjylland,"HALD, FYSIURGISK HOSPITAL",111,2,,,,,
+sgh,7609,01-01-1978,01-01-1978,31-12-1982,81,Region Nordjylland,"HALD, FYSIURGISK HOSPITAL",106,2,,,,,
+sgh,7609,01-01-1983,01-01-1983,31-12-1986,81,Region Nordjylland,"HALD, FYSIURGISK HOSPITAL",106,1,,,,,
+sgh,7610,01-04-1976,01-04-1976,31-12-1983,81,Region Nordjylland,"HALD EGE, FORSORGSCENTRET",420,3,,,,,
+sgh,7610,01-01-1984,01-01-1984,31-12-1984,81,Region Nordjylland,"EGESKOVCENTRET, HALD EGE",420,3,,,,,
+sgh,7610,01-01-1985,06-05-1998,31-05-1998,81,Region Nordjylland,"EGESKOVCENTRET, HALD EGE",420,1,,,SKS,,3
+sgh,7610,01-01-2003,21-04-2008,30-04-2008,81,Region Nordjylland,"Dagkirurgisk Hospital, Viborg",161,2,,,SKS,,3
+sgh,7610,01-05-2008,24-01-2018,28-02-2018,81,Region Nordjylland,Viborg Privathospital,161,2,,,SKS,,3
+sgh,7611,01-01-2006,18-04-2006,01-01-2500,82,Region Midtjylland,Viborg Øjenlægecenter,161,2,,,SKS,,1
+sgh,7612,01-04-2006,22-01-2010,01-01-2500,82,Region Midtjylland,"Viborg, Ambulant Kirurgi & Endoskopi",161,2,,,SKS,,3
+sgh,7613,01-10-2006,28-02-2020,07-03-2020,82,Region Midtjylland,Klinik for Kvindesygdomme og Graviditet,161,2,,,SKS,,3
+sgh,7614,01-11-2006,28-02-2020,07-03-2020,81,Region Nordjylland,Øjenklinikken Frost,161,2,,,SKS,,3
+sgh,7615,01-06-2007,18-09-2007,01-01-2500,81,Region Nordjylland,Hospice Limfjord,170,2,,,SKS,,3
+sgh,7616,01-06-2008,07-04-2017,30-04-2017,81,Region Nordjylland,Skive Øjenklinik,161,2,,,SKS,,3
+sgh,7617,01-06-2010,15-06-2010,01-01-2500,84,Region Hovedstaden,Speciallæge i Øre-Næse-Halssygdomme,161,2,,,SKS,,1
+sgh,7618,01-05-2011,25-04-2018,03-05-2018,81,Region Nordjylland,"Øre-Næse-halsklinikkerne, Thisted/Nykøbing Mors",161,2,,,SKS,,3
+sgh,7619,01-05-2020,30-04-2020,01-01-2500,82,Region Midtjylland,Øjenklinikken Nytorv,161,2,,,SKS,,1
+sgh,7620,01-07-2023,31-08-2023,01-01-2500,85,Region Sjælland,Carelink Nærhospital,162,2,,,SKS,,1
+sgh,7621,01-11-2023,19-12-2023,01-01-2500,82,Region Midtjylland,Øjenlæge Peter Jakobsen,161,2,,,SKS,,1
+sgh,7688,01-01-2000,18-12-2008,31-12-2008,82,Region Midtjylland,"Anden rekvirent, Viborg Amt",140,9,,,SKS,,3
+sgh,7690,19-02-1991,19-02-1991,31-12-1993,81,Region Nordjylland,"THISTED,DISTR.PSYK. ENHED NORD",121,1,,,,,
+sgh,7690,01-01-1994,20-02-2007,31-01-2007,81,Region Nordjylland,Distr.psyk. enhed Nord,121,1,,,SKS,,3
+sgh,7690,01-02-2007,18-05-2009,26-05-2009,81,Region Nordjylland,"Psykiatrien, Region Nordjylland - afdeling Thy/Mors",121,1,,,SKS,,3
+sgh,7691,01-01-1993,31-10-2002,31-12-2002,82,Region Midtjylland,"Søndersøparken, voksenpsykiatri",121,1,,,SKS,,3
+sgh,7691,01-01-2003,19-04-2007,30-04-2007,82,Region Midtjylland,"Psykiatrisk Sygehus Søndersø, Vib. Amt /Distr.psyk. Enh.Vib.",121,1,,,SKS,,3
+sgh,7691,01-05-2007,17-12-2007,31-12-2007,82,Region Midtjylland,Psykiatrien & Børne- og Ungdomspsykiatrien i Region Midtjyl.,121,1,,,SKS,,3
+sgh,7691,01-01-2008,28-11-2012,06-12-2012,82,Region Midtjylland,"Psykiatrien i RM, Viborg",121,1,,,SKS,,3
+sgh,7692,01-01-1993,31-10-2002,31-12-2002,82,Region Midtjylland,"Søndersøparken, børne- og ungd",121,1,,,SKS,,3
+sgh,7692,01-01-2003,19-04-2007,30-04-2007,82,Region Midtjylland,"Børne- og Ungdoms-psykiatrisk Sygehus, Viborg Amt",121,1,,,SKS,,3
+sgh,7692,01-05-2007,17-12-2007,31-12-2007,82,Region Midtjylland,Psykiatrien & Børne- og Ungdomspsykiatrien i Region Midtjyl.,121,1,,,SKS,,3
+sgh,7692,01-01-2008,28-11-2012,06-12-2012,82,Region Midtjylland,"BUC i RM, Viborg",121,1,,,SKS,,3
+sgh,7693,03-07-1993,03-07-1993,31-12-1993,82,Region Midtjylland,"VIBORG, DISTR.PSYK. ENHED MIDT",121,1,,,,,
+sgh,7693,01-01-1994,19-04-2007,30-04-2007,82,Region Midtjylland,Distr.psyk. enhed Midt,121,1,,,SKS,,3
+sgh,7693,01-05-2007,17-12-2007,31-12-2007,82,Region Midtjylland,Psykiatrien & Børne- og Ungdomspsykiatrien i Region Midtjyl.,121,1,,,SKS,,3
+sgh,7693,01-01-2008,28-11-2012,06-12-2012,82,Region Midtjylland,"Psykiatrien i RM, Skive",121,1,,,SKS,,3
+sgh,7694,01-01-1997,19-04-2007,30-04-2007,83,Region Syddanmark,Distr.psyk. enhed Syd,121,1,,,SKS,,3
+sgh,7694,01-05-2007,17-12-2007,31-12-2007,82,Region Midtjylland,Psykiatrien & Børne- og Ungdomspsykiatrien i Region Midtjyl.,121,1,,,SKS,,3
+sgh,7694,01-01-2008,29-09-2011,07-10-2011,82,Region Midtjylland,"Psykiatrien i RM, Kjellerup",121,1,,,SKS,,3
+sgh,7695,01-01-2004,26-10-2018,03-11-2018,82,Region Midtjylland,Viborg Øjenklinik,161,2,,,SKS,,3
+sgh,7696,01-10-2004,24-08-2011,01-09-2011,82,Region Midtjylland,"Ortopædkirurgisk Klinik, Viborg",161,2,,,SKS,,3
+sgh,7697,01-02-2005,07-04-2017,30-04-2017,81,Region Nordjylland,Hudklinikken i Thisted/Jydsk lasercenter,161,2,,,SKS,,3
+sgh,7698,01-09-2005,21-01-2022,31-01-2022,82,Region Midtjylland,MR Scanner Viborg,161,2,,,SKS,,3
+sgh,7699,01-01-2009,18-12-2008,01-01-2500,82,Region Midtjylland,"Anden rekvirent, Region Midtjylland",140,9,,,SKS,,1
+sgh,8001,01-04-1976,14-05-2013,21-05-2013,81,Region Nordjylland,Aalborg Sygehus,101,1,,,SKS,,3
+sgh,8001,22-05-2013,14-05-2013,01-01-2500,81,Region Nordjylland,Aalborg Universitetshospital,101,1,,,SKS,,1
+sgh,8003,01-04-1976,19-12-2003,30-09-2003,81,Region Nordjylland,Hjørring-Brønderslev Sygehus,102,1,,,SKS,,3
+sgh,8003,01-10-2003,11-12-2017,31-12-2017,81,Region Nordjylland,Sygehus Vendsyssel,102,1,,,SKS,,3
+sgh,8003,01-01-2018,11-12-2017,01-01-2500,81,Region Nordjylland,Regionshospital Nordjylland Ven,102,1,,,SKS,,1
+sgh,8004,01-04-1976,01-04-1976,31-12-1977,81,Region Nordjylland,HOBRO SYGEHUS,103,1,,,,,
+sgh,8004,01-01-1978,21-12-2004,31-01-2005,81,Region Nordjylland,Hobro-Terndrup Sygehus,104,1,,,SKS,,3
+sgh,8005,01-04-1976,01-04-1976,31-12-1977,81,Region Nordjylland,FARSØ SYGEHUS,103,1,,,,,
+sgh,8005,01-01-1978,21-12-2004,31-12-2004,81,Region Nordjylland,Farsø Sygehus,104,1,,,SKS,,3
+sgh,8005,01-01-2005,09-02-2015,17-02-2015,81,Region Nordjylland,Sygehus Himmerland,105,1,,,SKS,,3
+sgh,8006,01-04-1976,01-04-1976,31-12-1977,81,Region Nordjylland,BRØNDERSLEV SYGEHUS,103,1,,,,,
+sgh,8006,01-01-1978,01-01-1978,31-12-1985,81,Region Nordjylland,BRØNDERSLEV SYGEHUS,104,1,,,,,
+sgh,8006,01-01-1986,01-01-1986,31-12-1991,81,Region Nordjylland,BRØNDERSLEV SYGEHUS,104,1,,,,,
+sgh,8006,29-01-1992,30-03-2001,30-06-2001,81,Region Nordjylland,Brønderslev Psykiatriske Sgh.,121,1,,,SKS,,3
+sgh,8007,01-04-1976,01-04-1976,31-12-1977,81,Region Nordjylland,DRONNINGLUND SYGEHUS,103,1,,,,,
+sgh,8007,01-01-1978,30-01-2004,31-12-2003,81,Region Nordjylland,Dronninglund Sygehus,104,1,,,SKS,,3
+sgh,8008,01-04-1976,01-04-1976,31-12-1977,81,Region Nordjylland,FREDERIKSHAVN SYGEHUS,103,1,,,,,
+sgh,8008,01-01-1978,04-04-2000,31-12-1991,81,Region Nordjylland,FREDERIKSHAVN SYGEHUS,104,1,,,SKS,,3
+sgh,8008,01-01-1992,30-01-2004,31-12-2003,81,Region Nordjylland,Frederikshavn-Skagen Sygehus,104,1,,,SKS,,3
+sgh,8009,01-04-1976,01-04-1976,31-12-1977,81,Region Nordjylland,BROVST SYGEHUS,104,1,,,,,
+sgh,8009,01-01-1978,30-01-2004,31-12-2003,81,Region Nordjylland,Brovst Sygehus,105,1,,,SKS,,3
+sgh,8010,01-04-1976,01-04-1976,31-12-1978,81,Region Nordjylland,HALS SYGEHUS,139,1,,,,,
+sgh,8010,12-10-1995,16-03-2018,31-03-2018,81,Region Nordjylland,Privathospitalet Skørping,161,2,,,SKS,,3
+sgh,8011,01-04-1976,01-04-1976,31-12-1977,81,Region Nordjylland,NIBE SYGEHUS,104,1,,,,,
+sgh,8011,01-01-1978,01-01-1978,31-12-1986,81,Region Nordjylland,NIBE SYGEHUS,105,1,,,,,
+sgh,8012,01-04-1976,23-02-2001,28-02-2001,81,Region Nordjylland,"Løgstør, Efterbehandlingssygehus",139,1,,,SKS,,3
+sgh,8013,01-04-1976,01-04-1976,31-12-1977,81,Region Nordjylland,TERNDRUP SYGEHUS,104,1,,,,,
+sgh,8013,01-01-1978,01-01-1978,31-12-1991,81,Region Nordjylland,TERNDRUP SYGEHUS,105,1,,,,,
+sgh,8014,01-04-1976,01-04-1976,31-12-1977,81,Region Nordjylland,SKAGEN SYGEHUS,104,1,,,,,
+sgh,8014,01-01-1978,01-01-1978,31-12-1991,81,Region Nordjylland,SKAGEN SYGEHUS,105,1,,,,,
+sgh,8015,01-04-1976,01-04-1976,31-12-1993,81,Region Nordjylland,FJERRITSLEV SYGEHUS,139,1,,,,,
+sgh,8016,01-04-1976,01-04-1976,31-12-1988,81,Region Nordjylland,"ÅLBORG, SCT.JOSEPHS HOSPITAL",119,2,,,,,
+sgh,8017,01-04-1976,01-04-1976,31-12-1977,81,Region Nordjylland,SKØRPING HOSPITAL,111,2,,,,,
+sgh,8017,01-01-1978,01-01-1978,31-12-1988,81,Region Nordjylland,SKØRPING HOSPITAL,106,2,,,,,
+sgh,8018,01-04-1976,01-04-1976,31-12-1980,81,Region Nordjylland,ÅLBORG KOMMUNES GERIATRISKE AF,450,1,,,,,
+sgh,8019,01-04-1976,30-03-2001,30-06-2001,81,Region Nordjylland,Aalborg Psykiatriske Sygehus,121,1,,,SKS,,3
+sgh,8020,01-04-1976,01-04-1976,31-12-1985,81,Region Nordjylland,BRØNDERSLEV PSYKIATRISKE SYGEH,121,1,,,,,
+sgh,8021,01-04-1976,01-04-1976,31-12-1985,81,Region Nordjylland,"HAMMER BAKKER, INSTITUTIONERNE",420,3,,,,,
+sgh,8021,01-01-1986,01-01-1986,31-12-1993,81,Region Nordjylland,"HAMMER BAKKER, INSTITUTIONERNE",420,1,,,,,
+sgh,8022,01-01-1983,30-01-2004,31-12-2003,81,Region Nordjylland,"Hadsund, Visborggård Plejehjem",139,1,,,SKS,,3
+sgh,8023,01-01-1983,30-01-2004,31-12-2003,81,Region Nordjylland,"Vrå, Ringgården",133,2,,,SKS,,3
+sgh,8024,01-01-1992,01-01-1992,28-01-1992,81,Region Nordjylland,BRØNDERSLEV PSYKIATRISKE SGH.,121,1,,,,,
+sgh,8025,01-01-1999,19-06-2019,26-06-2019,81,Region Nordjylland,KamillianerGaardens Hospice,170,2,,,SKS,,3
+sgh,8025,27-06-2019,19-06-2019,01-01-2500,81,Region Nordjylland,Hospice Vangen,170,2,,,SKS,,1
+sgh,8026,01-01-2001,20-02-2007,31-01-2007,81,Region Nordjylland,Psykiatrien i Nordjyllands Amt,121,1,,,SKS,,3
+sgh,8026,01-02-2007,18-05-2010,01-01-2500,81,Region Nordjylland,Psykiatrien Nordjylland,121,1,,,SKS,,3
+sgh,8027,01-01-2002,28-02-2020,07-03-2020,81,Region Nordjylland,Øjenlæge Flemming Krebs Sørensen,161,2,,,SKS,,3
+sgh,8028,01-01-2002,30-09-2002,01-01-2500,81,Region Nordjylland,Øjenklinikken Kalstrup,161,2,,,SKS,,1
+sgh,8029,01-01-2002,28-02-2020,07-03-2020,81,Region Nordjylland,"Øjenkirurgisk Klinik aps, Aalborg",161,2,,,SKS,,3
+sgh,8030,01-01-2002,15-02-2008,29-02-2008,81,Region Nordjylland,Øjenklinikken i Hjørring ApS,161,2,,,SKS,,3
+sgh,8030,01-03-2008,15-02-2008,01-01-2500,81,Region Nordjylland,Øjencenter Nord,161,2,,,SKS,,1
+sgh,8031,01-01-2003,28-02-2020,07-03-2020,81,Region Nordjylland,Øjenlæge Jens Bach Andersen,161,2,,,SKS,,3
+sgh,8032,01-01-2003,28-02-2020,07-03-2020,81,Region Nordjylland,Ortopædisk Klinik,161,2,,,SKS,,3
+sgh,8033,01-01-2003,23-08-2011,31-08-2011,81,Region Nordjylland,Nordjysk Søvncenter,161,2,,,SKS,,3
+sgh,8034,01-01-2003,22-01-2010,01-01-2500,81,Region Nordjylland,Øre-Næse-Halsklinikken Budolfiplads,161,2,,,SKS,,3
+sgh,8035,01-01-2004,07-04-2017,30-04-2017,81,Region Nordjylland,Speciallæge Poul-Erik Højslet,161,2,,,SKS,,3
+sgh,8036,01-11-2004,01-09-2011,09-09-2011,8,Nationalt,Instant Care Clinic,161,2,,,SKS,,3
+sgh,8037,01-01-2005,31-01-2005,01-01-2500,81,Region Nordjylland,Hud- og Laserklinikken i Hobro,161,2,,,SKS,,1
+sgh,8038,01-01-2005,02-11-2011,01-01-2500,81,Region Nordjylland,Ortopædkirurgisk Klinik Sydhimmerland ApS,161,2,,,SKS,,3
+sgh,8039,01-05-2005,23-10-2014,31-10-2014,81,Region Nordjylland,"ScanSleep A/S, Søvnmedicinsk Klinik, Aalborg",161,2,,,SKS,,3
+sgh,8040,01-01-2003,26-10-2012,03-11-2012,81,Region Nordjylland,Ortopædkirurgi Nordjylland,105,1,,,SKS,,3
+sgh,8041,01-12-2004,01-09-2011,09-09-2011,81,Region Nordjylland,Øjenklinikken i Dronninglund ApS,161,2,,,SKS,,3
+sgh,8042,01-12-2005,24-08-2015,01-09-2015,81,Region Nordjylland,Øjenlæge Hans Erik Heuer,161,2,,,SKS,,3
+sgh,8043,01-01-2007,23-05-2016,01-01-2500,81,Region Nordjylland,Rehabiliteringscenter for flygtninge,121,1,,,SKS,,3
+sgh,8044,01-11-2006,19-03-2013,31-03-2013,81,Region Nordjylland,ARTROS Privathospital,161,2,,,SKS,,3
+sgh,8044,01-04-2013,06-04-2017,30-04-2017,81,Region Nordjylland,Teres Hospitalet Aalborg,161,2,,,SKS,,3
+sgh,8045,01-11-2006,24-08-2017,01-09-2017,81,Region Nordjylland,MR Scanning Aalborg A/S,161,2,,,SKS,,3
+sgh,8046,01-11-2006,02-11-2011,10-11-2011,81,Region Nordjylland,TR Ortopædisk Klinik,161,2,,,SKS,,3
+sgh,8047,01-01-2007,22-01-2021,31-01-2021,81,Region Nordjylland,Hjerteklinik Nordjylland v/ Geert T. Espersen,161,2,,,SKS,,3
+sgh,8048,01-02-2007,28-02-2020,07-03-2020,81,Region Nordjylland,MR-Klinikken Skørping,161,2,,,SKS,,3
+sgh,8049,01-02-2007,03-10-2011,11-10-2011,81,Region Nordjylland,"Øjenkirurgisk Klinik, Aalborg",161,2,,,SKS,,3
+sgh,8050,01-01-2003,26-10-2012,03-11-2012,81,Region Nordjylland,Anæstesisektor Nordjylland,105,1,,,SKS,,3
+sgh,8051,01-02-2007,19-04-2007,01-01-2500,81,Region Nordjylland,Øjenklinikken i Dronninglund,161,2,,,SKS,,1
+sgh,8052,01-05-2007,28-02-2020,07-03-2020,81,Region Nordjylland,Ortopædkirurgisk Speciallægepraksis,161,2,,,SKS,,3
+sgh,8053,01-04-2008,21-05-2008,01-01-2500,81,Region Nordjylland,Hospice Vendsyssel,170,2,,,SKS,,1
+sgh,8054,01-01-2007,17-11-2009,24-11-2009,81,Region Nordjylland,Lasercenter Nord I/S,161,2,,,SKS,,3
+sgh,8054,25-11-2009,17-11-2009,25-11-2009,81,Region Nordjylland,Lasercenter Nord I/S,161,2,,,SKS,,3
+sgh,8054,26-11-2009,12-04-2011,19-04-2011,81,Region Nordjylland,Lasercenter Nord,161,2,,,SKS,,3
+sgh,8054,20-04-2011,23-08-2013,31-08-2013,81,Region Nordjylland,"Hudlægerne Vesterbro, Ålborg",161,2,,,SKS,,3
+sgh,8054,01-09-2013,23-08-2013,01-01-2500,81,Region Nordjylland,Hudlægecenter Nord,161,2,,,SKS,,1
+sgh,8055,01-01-2009,24-08-2011,01-09-2011,81,Region Nordjylland,"Hjertemedicinsk Speciallægeklinik, Skagen",161,2,,,SKS,,3
+sgh,8056,01-09-2009,22-08-2016,31-08-2016,81,Region Nordjylland,Øjenlæge Masoud Arani,161,2,,,SKS,,3
+sgh,8057,25-11-2009,30-03-2011,07-04-2011,81,Region Nordjylland,Laser Center Nord I/S,161,2,,,SKS,,3
+sgh,8058,01-01-2011,28-02-2020,07-03-2020,81,Region Nordjylland,Lasercenter Nord I/S,161,2,,,SKS,,3
+sgh,8059,01-01-2013,28-02-2020,07-03-2020,81,Region Nordjylland,"Aareknudeklinikken, Aalborg",161,2,,,SKS,,3
+sgh,8060,01-01-2016,15-02-2016,01-01-2500,81,Region Nordjylland,Vendsyssel Øjenklinik,161,2,,,SKS,,1
+sgh,8061,01-11-2016,27-11-2016,01-01-2500,81,Region Nordjylland,Øjenkirurgisk Privat Klinik,161,2,,,SKS,,1
+sgh,8062,01-01-2017,15-06-2023,22-06-2023,81,Region Nordjylland,Børneklinikken Aalborg. Allergiklinik,161,2,,,SKS,,3
+sgh,8062,23-06-2023,15-06-2023,01-01-2500,81,Region Nordjylland,Privatklinikken Aalborg v/Camilla Rix Birkegaard,161,2,,,SKS,,1
+sgh,8063,01-01-2018,25-01-2018,01-01-2500,81,Region Nordjylland,Øjencenter Nord Sæby,161,2,,,SKS,,1
+sgh,8064,01-10-2019,28-10-2019,01-01-2500,81,Region Nordjylland,Øjenklinikken Mors,161,2,,,SKS,,1
+sgh,8065,01-12-2020,11-12-2020,01-01-2500,81,Region Nordjylland,Vendsyssel Øjenklinik Aalborg,161,2,,,SKS,,1
+sgh,8066,01-05-2021,06-02-2024,14-02-2024,81,Region Nordjylland,Øjencenter Nord v/Henrik Vorum,161,2,,,SKS,,3
+sgh,8067,01-05-2021,08-05-2021,01-01-2500,81,Region Nordjylland,Øjencenter Nord v/Tommy Poulsen,161,2,,,SKS,,1
+sgh,8068,01-07-2022,07-07-2022,01-01-2500,81,Region Nordjylland,Budolfi Privathospital,161,2,,,SKS,,1
+sgh,8069,01-12-2023,19-12-2023,01-01-2500,81,Region Nordjylland,Aalborg Privathospital,161,2,,,SKS,,1
+sgh,8070,01-08-2024,28-08-2024,01-01-2500,81,Region Nordjylland,Sygehusapoteket Region Nordjylland,141,1,,,SKS,,1
+sgh,8071,01-09-2024,20-09-2024,01-01-2500,81,Region Nordjylland,Velform,161,2,,,SKS,,1
+sgh,8080,01-07-2022,07-07-2022,01-01-2500,81,Region Nordjylland,Den Præhospitale Virksomhed,141,1,,,SKS,,1
+sgh,8088,01-01-2000,18-12-2008,31-12-2008,81,Region Nordjylland,"Anden rekvirent, Nordjyllands Amt",140,9,,,SKS,,3
+sgh,8099,01-01-2009,18-12-2008,01-01-2500,81,Region Nordjylland,"Anden rekvirent, Region Nordjylland",140,9,,,SKS,,1
+sgh,8910,01-01-2002,30-09-2003,31-12-2003,8,Nationalt,Speciallæge i eget amt,139,2,,,SKS,,3
+sgh,8920,01-01-2002,30-09-2003,31-12-2003,8,Nationalt,Speciallæge i andet amt,139,2,,,SKS,,3
+sgh,8990,01-10-2020,09-10-2020,01-01-2500,8,Nationalt,Virtuel institution for speciallægevisitation,140,9,,,SKS,,1
+sgh,9001,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,"GODTHÅB, DR. INGRIDS HOSPITAL",103,1,,,,,
+sgh,9001,01-01-1993,30-05-2000,01-01-2500,8,Nationalt,Nuuk Sgh. (Dr.Ingrids Hosp.),103,1,,,SKS,,3
+sgh,9002,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,ANGMAGSSALIK SYGEHUS,104,1,,,,,
+sgh,9002,01-01-1993,04-04-2000,01-01-2500,8,Nationalt,Tasiilaq Sygehus (Ammassalik),104,1,,,SKS,,3
+sgh,9003,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,CHRISTIANSHÅB SYGEHUS,104,1,,,,,
+sgh,9003,01-01-1993,04-04-2000,01-01-2500,8,Nationalt,Qasigiannguit Sygehus/Sundhedscenter,104,1,,,SKS,,3
+sgh,9004,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,EGEDESMINDE SYGEHUS,104,1,,,,,
+sgh,9004,01-01-1993,30-05-2000,01-01-2500,8,Nationalt,Aasiaat Sygehus (Egedesminde),104,1,,,SKS,,3
+sgh,9005,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,FREDERIKSHÅB SYGEHUS,104,1,,,,,
+sgh,9005,01-01-1993,04-04-2000,01-01-2500,8,Nationalt,Paamiut Sygehus/Dr. Margrethes Sundhedscenter,104,1,,,SKS,,3
+sgh,9006,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,GODHAVN SYGEHUS,104,1,,,,,
+sgh,9006,01-01-1993,04-04-2000,01-01-2500,8,Nationalt,Qeqertarsuaq Sygehus/Sundhedscenter,104,1,,,SKS,,3
+sgh,9007,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,HOLSTEINSBORG SYGEHUS,104,1,,,,,
+sgh,9007,01-01-1993,04-04-2000,01-01-2500,8,Nationalt,Sisimiut Sygehus/Sundhedscenter,104,1,,,SKS,,3
+sgh,9008,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,JAKOBSHAVN SYGEHUS,104,1,,,,,
+sgh,9008,01-01-1993,30-05-2000,01-01-2500,8,Nationalt,Ilulissat Sgh. (Jakobshavn),104,1,,,SKS,,3
+sgh,9009,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,JULIANEHÅB SYGEHUS,104,1,,,,,
+sgh,9009,01-01-1993,30-05-2000,01-01-2500,8,Nationalt,Qaqortoq Sygehus (Julianehåb),104,1,,,SKS,,3
+sgh,9010,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,NANORTALIK SYGEHUS,104,1,,,,,
+sgh,9010,01-01-1993,30-05-2000,01-01-2500,8,Nationalt,Nanortalik Sygehus,104,1,,,SKS,,3
+sgh,9011,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,NARSSAQ SYGEHUS,104,1,,,,,
+sgh,9011,01-01-1993,04-04-2000,01-01-2500,8,Nationalt,Narsag Sygehus/Sundhedscenter,104,1,,,SKS,,3
+sgh,9012,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,SCORESBYSUND SYGEHUS,104,1,,,,,
+sgh,9012,01-01-1993,30-05-2000,01-01-2500,8,Nationalt,Ittoqqortoormiut Sgh.(Scoresb),104,1,,,SKS,,3
+sgh,9013,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,SUKKERTOPPEN SYGEHUS,104,1,,,,,
+sgh,9013,01-01-1993,04-04-2000,01-01-2500,8,Nationalt,Maniitsoq Sygehus/Sundhedscenter,104,1,,,SKS,,3
+sgh,9014,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,THULE SYGEHUS,104,1,,,,,
+sgh,9014,01-01-1993,30-05-2000,01-01-2500,8,Nationalt,Qaanaaq Sygehus (Thule),104,1,,,SKS,,3
+sgh,9015,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,UMANAK SYGEHUS,104,1,,,,,
+sgh,9015,01-01-1993,30-05-2000,01-01-2500,8,Nationalt,Uummannaq Sygehus,104,1,,,SKS,,3
+sgh,9016,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,UPERNAVIK SYGEHUS,104,1,,,,,
+sgh,9016,01-01-1993,30-05-2000,01-01-2500,8,Nationalt,Upernavik Sygehus,104,1,,,SKS,,3
+sgh,9017,01-01-2000,28-05-2003,31-05-2003,8,Nationalt,Kangaatsiaq Sundhedscenter,104,1,,,SKS,,3
+sgh,9018,01-01-2000,04-04-2000,01-01-2500,8,Nationalt,Lægeklinikken i Nuuk,104,1,,,SKS,,1
+sgh,9088,01-01-2000,18-08-2005,01-01-2500,8,Nationalt,"Anden rekvirent, Grønland",140,9,,,SKS,,3
+sgh,9099,14-01-1992,14-01-1992,31-12-1993,8,Nationalt,GRØNLANDSK SYGEHUS,999,,,,,,
+sgh,9701,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,"TORSHAVN,DR. ALEXANDRINES HOSP",103,1,,,,,
+sgh,9701,10-01-1992,10-01-1992,10-01-1992,8,Nationalt,DR. ALEXANDRINES HOSP.TORSHAVN,101,1,,,,,
+sgh,9702,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,KLAKSVIG SYGEHUS,104,1,,,,,
+sgh,9702,10-01-1992,10-01-1992,10-01-1992,8,Nationalt,KLAKSVIG SYGEHUS,105,1,,,,,
+sgh,9703,01-04-1976,01-04-1976,31-12-1991,8,Nationalt,SUDERØ SYGEHUS,104,1,,,,,
+sgh,9703,10-01-1992,10-01-1992,10-01-1992,8,Nationalt,SUDERØ SYGEHUS,105,1,,,,,
+sgh,9704,01-04-1976,01-04-1976,31-12-1982,8,Nationalt,"TORSHAVN, DR. ALEXANDRINES HOS",121,1,,,,,
+sgh,9704,01-01-2008,14-03-2008,01-01-2500,8,Nationalt,"Landssygehuset, FO-100 Tòrshavn",999,1,,,SKS,,1
+sgh,9705,01-01-2008,14-03-2008,01-01-2500,8,Nationalt,"Klaksvig Sygehus, FO-700 Klaksvig",999,1,,,SKS,,1
+sgh,9706,01-01-2008,14-03-2008,01-01-2500,8,Nationalt,"Suderø sygehus, FO-800 Tvøroyri",999,1,,,SKS,,1
+sgh,9799,14-01-1992,14-03-2008,31-03-2008,8,Nationalt,Færøsk Sygehus,999,1,,,SKS,,3
+sgh,9990,01-01-1984,01-01-1984,12-10-1995,8,Nationalt,"MONTEBELLO, SPANIEN",122,1,,,,,
+sgh,9999,01-01-1980,31-05-2000,01-01-2500,8,Nationalt,Udenlandsk Sygehus,999,1,,,SKS,,3

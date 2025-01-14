@@ -86,3 +86,9 @@ The [SKS](https://sundhedsdatastyrelsen.dk/da/rammer-og-retningslinjer/om-klassi
     
 [CPT](https://mmshub.cms.gov/measure-lifecycle/measure-specification/specify-code/CPT) (Current Procedural Terminology): A code set for medical, surgical, and diagnostic procedures. CPT codes are widely used in billing and electronic health records to document healthcare services.
    
+### Care Site - SHAK
+
+We are currently using the shak code as it is more complete over historical records. The SHAK code comprises a 4-digit 
+SGH code for the hospital/clinic and an optional addition AFD code for the department. The [shak_location_map.csv](Caresites%2Fshak_location_map.csv)
+file contains the mapping of SHAK codes to location ids for the Danish regions (81-85). Unknown regions are 
+mapped to the location id "National" (code 8).
