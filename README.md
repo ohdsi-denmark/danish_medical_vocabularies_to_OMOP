@@ -92,3 +92,7 @@ We are currently using the shak code as it is more complete over historical reco
 SGH code for the hospital/clinic and an optional addition AFD code for the department. The [shak_location_map.csv](Caresites%2Fshak_location_map.csv)
 file contains the mapping of SHAK codes to location ids for the Danish regions (81-85). Unknown regions are 
 mapped to the location id "National" (code 8).
+
+### Route Mapping
+
+In the OHDSI framework, [route mapping]() refers to the process of standardizing information about how a drug is administered to a patient, such as orally, intravenously, or topically. This information is critical for interpreting drug exposure data in a clinically meaningful way and ensuring consistency across diverse data sources. Within the OMOP CDM, the `drug_exposure` table includes a field called `route_concept_id`, which is used to store the standardized concept that represents the route of drug administration. Since source datasets often contain non-standardized or locally defined route descriptions—such as free-text entries, abbreviations, or local codes—these values must be mapped to standardized concepts from the OHDSI vocabulary, most commonly from the Standardized Drug Route vocabulary or SNOMED CT. This is achieved through a lookup table or mapping file, often referred to as `route_mapping`, which links source route values to OMOP standard concept IDs and names.
