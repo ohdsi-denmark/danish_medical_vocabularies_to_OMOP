@@ -1,0 +1,137 @@
+﻿source_description;source_code;standard_concept_id;standard_concept_name;notes
+Intravenøs anvendelse;IV;4171047;Intravenous;
+Oralanvendelse;OR;4132161;Oral;
+Okulær anvendelse;OC;40549429;Ocular use;
+Transdermal anvendelse;TD;4262099;Transdermal;
+Submukøs anvendelse;0;4169634;Submucosal;No source code
+34258961 Oral anvendelse;OR;4132161;Oral use;
+10746483 Oralanvendelse;OR;4132161;Oral use;
+1201444 Til inhalation;IR;40486069;Inhalation;
+397360 OkulÃ¦r anvendelse;OC;40549429;Ocular use;
+309006 Subkutan anvendelse;SC;4142048;Subcutaneous;
+292429 OK;OK;0;;Not found
+252204 Kutan anvendelse;CU;40490507;Cutaneous application;
+216121 Subkutananvendelse;SC;4142048;Subcutaneous;
+181477 Tilinhalation;IR;40486069;Inhalation;
+118057 Tilanvendelseiluftvejene;IR;40486069;Inhalation;
+106530 IntravenÃ¸s anvendelse;IV;4171047;Intravenous;
+104331 OkulÃ¦r anvendelse;OK;0;;Not found
+84008 peroralt;OR;4132161;Oral use;
+80058 Kutananvendelse;CU;40490507;Cutaneous application;
+75484 Rektal anvendelse;PR;4290759;Rectal;
+67571 Nasal anvendelse;NA;4262914;Nasal;
+54796 IntramuskulÃ¦r anvendelseF;IM;4302612;Intramuscular;
+41940 IntramuskulÃ¦ranvendelse;IM;4302612;Intramuscular;
+30334 Rektalanvendelse;PR;4290759;Rectal;
+23962 Sublingual anvendelse;SB;4292110;Sublingual;
+22307 Subkonjunktivalanvendelse;SR;4163770;Subconjunctival;
+17258 Subkonjunktival anvendelse;SR;4163770;Subconjunctival;
+14133 Nasalanvendelse;NA;4262914;Nasal;
+12926 Inhalation;IR;40486069;Inhalation;
+12486 oralt;OR;4132161;Oral use;
+8544 PO -Per os;OR;4132161;Oral use;
+CU':40490507;CU;40490507;Cutaneous application;
+5085 Kutananvendesle;CU;40490507;Cutaneous application;
+4672 Til anvendelse i luftvejene;IR;40486069;Inhalation;
+4471 Til anvendelse i Ã¸ret;TA;0;;Not found
+3793 Sublingualanvendelse;SB;4292110;Sublingual;
+3321 IntravenÃ¸sanvendelse;IV;4171047;Intravenous;
+3230 Gastrointestinalanvendelse;GI;4168665;Gastrointestinal;
+3026 Administrationsvejikkerelevant;RA;4106215;Route of administration;
+3001 Til anvendelse i mundhulen;OR;4132161;Oral use;
+2126 Vaginal anvendelse;PV;4057765;Vaginal use;
+1996 TilanvendelseiÃ¸ret;0;0;;No source code
+1750 Transdermal anvendelse;TD;4262099;Transdermal;
+1257 Intrapleural anvendelse;IP;4156707;Intrapleural;
+1115 Topikal anvendelse;TP;4263689;Topikal anvendelse;
+1110 Tilanvendelseimundhulen;OR;4132161;Oral use;
+1078 inhalation;IR;40486069;Inhalation;
+1055 Vaginalanvendelse;PV;4057765;Vaginal use;
+979 Dental anvendelse;DE;4163765;Dental application;
+963 Intrapleuralanvendelse;IP;4156707;Intrapleural;
+952 Dentalanvendelse;DE;4163765;Dental application;
+933 Endotrakeopulmonaranvendelse;ET;4186832;Endotracheopulmonary use;
+909 Transdermalanvendelse;TD;4262099;Transdermal;
+653 OS;OR;4132161;Oral use;
+499 Lokalanvendelse;0;0;;No source code
+322 Intrakutananvendelse;0;0;;No source code
+317 Enteralanvendelse;ER;4167540;Enteral use;
+275 indgiftandreveje;0;0;;No source code
+272 ET;ET;4186832;Endotracheopulmonary use;
+260 IU;IU;4269621;Intrauterine use;
+253 Lokal anvendelse;0;0;;No source code
+237 okulært;OC;40549429;ocular;
+204 Administrationsvej ikke relevant;0;0;;No source code
+198 imundhulen;OR;4132161;Oral use;
+172 subkutant;SC;4142048;Subcutaneous;
+155 kutant;CU;40490507;Cutaneous;
+143 Intrakutan anvendelse;0;0;;No source code
+124 rektalt;PR;4290759;Rectal;
+112;0;0;;No source code
+96 ID;0;0;;No source code
+73 Hæmodialyse;EH;35624178;Hemodialysis;
+72 PA;0;0;;No source code
+58 Gastrointestinal anvendelse;GI;4168665;Gastrointestinal;
+54 IP;IP;4156707;Intrapleural;
+54 Hæjreæ¸je;0;0;;No source code
+45 Intraamnionalanvendelse;IA;4163767;Intraamniotic use;
+45 Buccalanvendelse;BR;4181897;Buccal use;
+43 IS;0;0;;No source code
+42 viadetperiferenervesystem;IV;4171884;Intravenous;
+40 Topikalanvendelse;TP;4263689;Topikal anvendelse;
+40 IE;0;0;;No source code
+40 Enteral anvendelse;ER;4167540;Enteral use;
+39 IntraartikulÃ¦r anvendelse;IT;4269621;Intrauterine use;
+37 IR;IR;40486069;Inhalation;
+36 Beggeæjne;0;0;;Not found
+32 IO;IO;4157760;Intraocular use;
+32 BR;BR;4181897;Buccal use;
+29 vaginalt;PV;4057765;Vaginal use;
+29 inhalationmedspray;IR;40486069;Rectal;
+29 EA;0;0;;Not found
+26 OG;0;0;;Not found
+24 Næb-dypning;0;0;;Not found
+21 vialuftveje;0;0;;Not found
+21 CA;0;0;;Not found
+20 nasalt;NA;4262914;Nasal;
+19 Intrauterinanvendelse;IT;4269621;Intrauterine use;
+18 PD;0;0;;Not found
+17 SM;SM;4169634;Submucosal use;
+15 Intrabronkialanvendelse;IB;4303263;Intrabronchial use;
+15 Endotrakeopulmonar anvendelse;EP;4186832;Endotracheopulmonary use;
+12 VenstreÃ¸je;0;0;;Not found
+11:00 AM;0;0;;Not found
+10 VI;0;0;;Not found
+9 oromukosalt;OR;4186839;Oral use;
+9 ON;0;0;;Not found
+8 PN;0;0;;Not found
+8 IT;IT;4269621;Intrauterine use;
+8 IC;IC;4186835;Intracervical use;
+6 IntraokulÃ¦r anvendelse;IO;4157760;Intraocular use;
+6 GI;GI;4168665;Gastrointestinal;
+5 XA;0;0;;Not found
+5 viagastrointestinalkanalen;GE;4186834;gastrointestinal tract;
+5 RB;0;0;;Not found
+5 PT;0;0;;Not found
+5 BS;0;0;;Not found
+5 AL;0;0;;Not found
+4 PJ;0;0;;Not found
+4 Intrauterin anvendelse;IU;4269621;Intrauterine use;
+3 viaæjet;0;0;;Not found
+3 SubmukÃ¸s anvendelse;SM;4169634;Submucosal use;
+3 KO;0;0;;Not found
+3 Intrapentonealanvendelse;IP;4156707;Intrapleural;
+3 intramuskulÃ¦rt;IM;4302612;Intramuscular;
+3 intrakutant;0;0;;Not found
+3 applikation;0;0;;Not found
+2 TO;0;0;;Not found
+2 PV;PV;4057765;Vaginal use;
+2 Intracervikalanvendelse;IC;4186835;Intracervical use;
+2 CB;0;0;;Not found
+1 Tilanvendelseibihulerne;0;0;;Not found
+1 Oftalmiskanvendelse;OP;4184451;Ophthalmic use;
+1 LF;0;0;;Not found
+1 Intrabrokialanvendelse;IB;4303263;Intrabronchial use;
+1 FA;0;0;;Not found
+1 DI;0;0;;Not found
+1 CE;0;0;;Not found
