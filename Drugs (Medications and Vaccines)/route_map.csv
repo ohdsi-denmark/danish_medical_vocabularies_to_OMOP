@@ -1,137 +1,137 @@
-source_code;equivalent_acronym;standard_concept_id;standard_concept_name;notes;
-Intravenøs anvendelse;IV;4171047;Intravenous;;
-Oralanvendelse;OR;4132161;Oral;;
-Okulær anvendelse;OC;40549429;Ocular use;;
-Transdermal anvendelse;TD;4262099;Transdermal;;
-Submukøs anvendelse;0;4169634;Submucosal;No source code;
-Oral anvendelse;OR;4132161;Oral use;;
-Oralanvendelse;OR;4132161;Oral use;;
-Til inhalation;IR;40486069;Inhalation;;
-Okulær anvendelse;OC;40549429;Ocular use;;
-Subkutan anvendelse;SC;4142048;Subcutaneous;;
-OK;OK;40549429;;Okulær anvendelse;
-Kutan anvendelse;CU;40490507;Cutaneous application;;
-Subkutananvendelse;SC;4142048;Subcutaneous;;
-Tilinhalation;IR;40486069;Inhalation;;
-Til anvendelse i luftvejene;IR;40486069;Inhalation;;
-Intravenøs anvendelse;IV;4171047;Intravenous;;
-Okulær anvendelse;OK;40549429;;Ocular;
-peroralt;OR;4132161;Oral use;;
-Kutananvendelse;CU;40490507;Cutaneous application;;
-Rektal anvendelse;PR;4290759;Rectal;;
-Nasal anvendelse;NA;4262914;Nasal;;
-Intramuskulær anvendelse;IM;4302612;Intramuscular;;
-Intramuskulær anvendelse;IM;4302612;Intramuscular;;
-Rektalanvendelse;PR;4290759;Rectal;;
-Sublingual anvendelse;SB;4292110;Sublingual;;
-Subkonjunktivalanvendelse;SR;4163770;Subconjunctival;;
-Subkonjunktival anvendelse;SR;4163770;Subconjunctival;;
-Nasalanvendelse;NA;4262914;Nasal;;
-Inhalation;IR;40486069;Inhalation;;
-Oralt;OR;4132161;Oral use;;
-PO -Per os;OR;4132161;Oral use;;
-CU;CU;40490507;Cutaneous application;;
-Kutananvendesle;CU;40490507;Cutaneous application;;
-Til anvendelse i luftvejene;IR;40486069;Inhalation;;
-Til anvendelse i øret;AC;4023156;;Auricular;
-Sublingualanvendelse;SB;4292110;Sublingual;;
-Intravenøs anvendelse;IV;4171047;Intravenous;;
-Gastrointestinalanvendelse;GI;4168665;Gastrointestinal;;
-Administrationsvej ikke relevant;RA;0;Route of administration irrelevant;;
-Til anvendelse i mundhulen;OR;4132161;Oral use;;
-Vaginal anvendelse;PV;4057765;Vaginal use;;
-Tilanvendelse i øret;0;4023156;;Auricular;
-Transdermal anvendelse;TD;4262099;Transdermal;;
-Intrapleural anvendelse;IP;4156707;Intrapleural;;
-Topikal anvendelse;TP;4263689;Topikal anvendelse;;
-Til anvendelse i mundhulen;OR;4132161;Oral use;;
-Inhalation;IR;40486069;Inhalation;;
-Vaginalanvendelse;PV;4057765;Vaginal use;;
-Dental anvendelse;DE;4163765;Dental application;;
- Intrapleuralanvendelse;IP;4156707;Intrapleural;;
-Dentalanvendelse;DE;4163765;Dental application;;
-Endotrakeopulmonaranvendelse;ET;4186832;Endotracheopulmonary use;;
-Transdermalanvendelse;TD;4262099;Transdermal;;
-OS;OR;4132161;Oral use;;
-Lokalanvendelse;0;4263689;;Assuming topical;
-Intrakutananvendelse;0;4156706;;Intradermal;
-Enteralanvendelse;ER;4167540;Enteral use;;
-Indgiftandreveje;0;0;;Other routes of administration;
-ET;ET;40486069;Inhalation route;;
-IU;IU;4269621;Intrauterine use;;
-Lokal anvendelse;0;4263689;;Assuming topical;
-okulært;OC;40549429;ocular;;
-Administrationsvej ikke relevant;0;0;;No source code;
-imundhulen;OR;4132161;Oral use;;
-subkutant;SC;4142048;Subcutaneous;;
-kutant;CU;40490507;Cutaneous;;
-Intrakutan anvendelse;0;4156706;;Intradermal;
-rektalt;PR;4290759;Rectal;;
-112;0;0;;No source code;
-ID;0;4156706;;Intradermal route;
-Hæmodialyse;EH;35624178;Hemodialysis;;
-PA;0;0;;Unknown - multiple routes observed;
-Gastrointestinal anvendelse;GI;4168665;Gastrointestinal;;
-IP;IP;4156707;Intrapleural;;
-Højre øje;0;40549429;;Assuming ocular;
-Intraamnionalanvendelse;IA;4163767;Intraamniotic use;;
-Buccalanvendelse;BR;4181897;Buccal use;;
- IS;0;0;;Not found - unkown;
-via det perifere nervesystem;IV;4157761;Perineural;;
-Topikalanvendelse;TP;4263689;Topikal anvendelse;;
-IE;0;0;;Unknown;
-Enteral anvendelse;ER;4167540;Enteral use;;
-Intraartikulær anvendelse;IT;4269621;Intrauterine use;;
-IR;IR;40486069;Inhalation;;
-Beggeæjne;0;40549429;;Assuming ocular;
-IO;IO;4157760;Intraocular use;;
-BR;BR;4181897;Buccal use;;
-vaginalt;PV;4057765;Vaginal use;;
-inhalationmedspray;IR;40486069;Rectal;;
-EA;0;0;;Not found;
-OG;0;0;;Not found;
-Næb-dypning;0;4132161 ;Oral use for birds?;;
- vialuftveje;0;0;;Not found;
-CA;0;0;;Not found;
-nasalt;NA;4262914;Nasal;;
-Intrauterinanvendelse;IT;4269621;Intrauterine use;;
-PD;0;0;;Not found;
-SM;SM;4169634;Submucosal use;;
-Intrabronkialanvendelse;IB;4303263;Intrabronchial use;;
-Endotrakeopulmonar anvendelse;EP;4186832;Endotracheopulmonary use;;
-Venstreøje;0;40549429    Ocular;;;
-11:00 AM;0;0;;Not found;
-VI;0;0;;Not found;
-oromukosalt;OM;4186839;Oral mucosal;;
-ON;0;0;;Not found;
-PN;0;0;;Not found;
-IT;IT;4269621;Intrauterine use;;
-IC;IC;4186835;Intracervical use;;
-Okulær anvendelse;OC;40549429;ocular use;;
-GI;GI;4168665;Gastrointestinal;;
-XA;0;0;;Not found;
-viagastrointestinalkanalen;GE;4186834;gastrointestinal tract;;
-RB;0;0;;Not found;
-PT;0;0;;Not found;
-BS;0;0;;Not found;
- AL;0;0;;Not found;
-PJ;0;0;;Not found;
-Intrauterin anvendelse;IU;4269621;Intrauterine use;;
-viaæjet;0;40549429;    Ocular use;;
-Submukøs anvendelse;SM;4169634;Submucosal use;;
-KO;0;0;;Not found;
-Intrapentonealanvendelse;IP;4156707;Intrapleural;;
-intramuskulært;IM;4302612;Intramuscular;;
-intrakutant;ID;0;4156706;;Intradermal
-applikation;0;4263689;    Assuming Topical;;
-TO;0;0;;Not found;
-PV;PV;4057765;Vaginal use;;
-Intracervikalanvendelse;IC;4186835;Intracervical use;;
-CB;0;0;;Not found;
-Tilanvendelseibihulerne;0;4262914;;Nasal;
-Oftalmiskanvendelse;OP;4184451;Ophthalmic use;;
-LF;0;0;;Not found;
-Intrabrokialanvendelse;IB;4303263;Intrabronchial use;;
-FA;0;0;;Not found;
-DI;0;0;;Not found;
-CE;0;0;;Not found;
+source_code,equivalent_acronym,standard_concept_id,standard_concept_name,notes,
+Intravenøs anvendelse,IV,4171047,Intravenous,,
+Oralanvendelse,OR,4132161,Oral,,
+Okulær anvendelse,OC,40549429,Ocular use,,
+Transdermal anvendelse,TD,4262099,Transdermal,,
+Submukøs anvendelse,0,4169634,Submucosal,No source code,
+Oral anvendelse,OR,4132161,Oral use,,
+Oralanvendelse,OR,4132161,Oral use,,
+Til inhalation,IR,40486069,Inhalation,,
+Okulær anvendelse,OC,40549429,Ocular use,,
+Subkutan anvendelse,SC,4142048,Subcutaneous,,
+OK,OK,40549429,,Okulær anvendelse,
+Kutan anvendelse,CU,40490507,Cutaneous application,,
+Subkutananvendelse,SC,4142048,Subcutaneous,,
+Tilinhalation,IR,40486069,Inhalation,,
+Til anvendelse i luftvejene,IR,40486069,Inhalation,,
+Intravenøs anvendelse,IV,4171047,Intravenous,,
+Okulær anvendelse,OK,40549429,,Ocular,
+peroralt,OR,4132161,Oral use,,
+Kutananvendelse,CU,40490507,Cutaneous application,,
+Rektal anvendelse,PR,4290759,Rectal,,
+Nasal anvendelse,NA,4262914,Nasal,,
+Intramuskulær anvendelse,IM,4302612,Intramuscular,,
+Intramuskulær anvendelse,IM,4302612,Intramuscular,,
+Rektalanvendelse,PR,4290759,Rectal,,
+Sublingual anvendelse,SB,4292110,Sublingual,,
+Subkonjunktivalanvendelse,SR,4163770,Subconjunctival,,
+Subkonjunktival anvendelse,SR,4163770,Subconjunctival,,
+Nasalanvendelse,NA,4262914,Nasal,,
+Inhalation,IR,40486069,Inhalation,,
+Oralt,OR,4132161,Oral use,,
+PO -Per os,OR,4132161,Oral use,,
+CU,CU,40490507,Cutaneous application,,
+Kutananvendesle,CU,40490507,Cutaneous application,,
+Til anvendelse i luftvejene,IR,40486069,Inhalation,,
+Til anvendelse i øret,AC,4023156,,Auricular,
+Sublingualanvendelse,SB,4292110,Sublingual,,
+Intravenøs anvendelse,IV,4171047,Intravenous,,
+Gastrointestinalanvendelse,GI,4168665,Gastrointestinal,,
+Administrationsvej ikke relevant,RA,0,Route of administration irrelevant,,
+Til anvendelse i mundhulen,OR,4132161,Oral use,,
+Vaginal anvendelse,PV,4057765,Vaginal use,,
+Tilanvendelse i øret,0,4023156,,Auricular,
+Transdermal anvendelse,TD,4262099,Transdermal,,
+Intrapleural anvendelse,IP,4156707,Intrapleural,,
+Topikal anvendelse,TP,4263689,Topikal anvendelse,,
+Til anvendelse i mundhulen,OR,4132161,Oral use,,
+Inhalation,IR,40486069,Inhalation,,
+Vaginalanvendelse,PV,4057765,Vaginal use,,
+Dental anvendelse,DE,4163765,Dental application,,
+ Intrapleuralanvendelse,IP,4156707,Intrapleural,,
+Dentalanvendelse,DE,4163765,Dental application,,
+Endotrakeopulmonaranvendelse,ET,4186832,Endotracheopulmonary use,,
+Transdermalanvendelse,TD,4262099,Transdermal,,
+OS,OR,4132161,Oral use,,
+Lokalanvendelse,0,4263689,,Assuming topical,
+Intrakutananvendelse,0,4156706,,Intradermal,
+Enteralanvendelse,ER,4167540,Enteral use,,
+Indgiftandreveje,0,0,,Other routes of administration,
+ET,ET,40486069,Inhalation route,,
+IU,IU,4269621,Intrauterine use,,
+Lokal anvendelse,0,4263689,,Assuming topical,
+okulært,OC,40549429,ocular,,
+Administrationsvej ikke relevant,0,0,,No source code,
+imundhulen,OR,4132161,Oral use,,
+subkutant,SC,4142048,Subcutaneous,,
+kutant,CU,40490507,Cutaneous,,
+Intrakutan anvendelse,0,4156706,,Intradermal,
+rektalt,PR,4290759,Rectal,,
+112,0,0,,No source code,
+ID,0,4156706,,Intradermal route,
+Hæmodialyse,EH,35624178,Hemodialysis,,
+PA,0,0,,Unknown - multiple routes observed,
+Gastrointestinal anvendelse,GI,4168665,Gastrointestinal,,
+IP,IP,4156707,Intrapleural,,
+Højre øje,0,40549429,,Assuming ocular,
+Intraamnionalanvendelse,IA,4163767,Intraamniotic use,,
+Buccalanvendelse,BR,4181897,Buccal use,,
+ IS,0,0,,Not found - unkown,
+via det perifere nervesystem,IV,4157761,Perineural,,
+Topikalanvendelse,TP,4263689,Topikal anvendelse,,
+IE,0,0,,Unknown,
+Enteral anvendelse,ER,4167540,Enteral use,,
+Intraartikulær anvendelse,IT,4269621,Intrauterine use,,
+IR,IR,40486069,Inhalation,,
+Beggeæjne,0,40549429,,Assuming ocular,
+IO,IO,4157760,Intraocular use,,
+BR,BR,4181897,Buccal use,,
+vaginalt,PV,4057765,Vaginal use,,
+inhalationmedspray,IR,40486069,Rectal,,
+EA,0,0,,Not found,
+OG,0,0,,Not found,
+Næb-dypning,0,4132161 ,Oral use for birds?,,
+ vialuftveje,0,0,,Not found,
+CA,0,0,,Not found,
+nasalt,NA,4262914,Nasal,,
+Intrauterinanvendelse,IT,4269621,Intrauterine use,,
+PD,0,0,,Not found,
+SM,SM,4169634,Submucosal use,,
+Intrabronkialanvendelse,IB,4303263,Intrabronchial use,,
+Endotrakeopulmonar anvendelse,EP,4186832,Endotracheopulmonary use,,
+Venstreøje,0,40549429    Ocular,,,
+11:00 AM,0,0,,Not found,
+VI,0,0,,Not found,
+oromukosalt,OM,4186839,Oral mucosal,,
+ON,0,0,,Not found,
+PN,0,0,,Not found,
+IT,IT,4269621,Intrauterine use,,
+IC,IC,4186835,Intracervical use,,
+Okulær anvendelse,OC,40549429,ocular use,,
+GI,GI,4168665,Gastrointestinal,,
+XA,0,0,,Not found,
+viagastrointestinalkanalen,GE,4186834,gastrointestinal tract,,
+RB,0,0,,Not found,
+PT,0,0,,Not found,
+BS,0,0,,Not found,
+ AL,0,0,,Not found,
+PJ,0,0,,Not found,
+Intrauterin anvendelse,IU,4269621,Intrauterine use,,
+viaæjet,0,40549429,    Ocular use,,
+Submukøs anvendelse,SM,4169634,Submucosal use,,
+KO,0,0,,Not found,
+Intrapentonealanvendelse,IP,4156707,Intrapleural,,
+intramuskulært,IM,4302612,Intramuscular,,
+intrakutant,ID,0,4156706,,Intradermal
+applikation,0,4263689,    Assuming Topical,,
+TO,0,0,,Not found,
+PV,PV,4057765,Vaginal use,,
+Intracervikalanvendelse,IC,4186835,Intracervical use,,
+CB,0,0,,Not found,
+Tilanvendelseibihulerne,0,4262914,,Nasal,
+Oftalmiskanvendelse,OP,4184451,Ophthalmic use,,
+LF,0,0,,Not found,
+Intrabrokialanvendelse,IB,4303263,Intrabronchial use,,
+FA,0,0,,Not found,
+DI,0,0,,Not found,
+CE,0,0,,Not found,
