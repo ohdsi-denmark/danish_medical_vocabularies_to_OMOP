@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Danish OMOP Mapping Explorer</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Danish OHDSI Node · Lab vocabulary pilot</p>
+    <h1>Danish OMOP Mapping Explorer</h1>
+    <p>Find mappings for Danish laboratory codes and help improve them.</p>
+    <nav aria-label="Main navigation">
+      <a href="#search">Search mappings</a>
+      <a href="#unmapped">Unmapped NPU codes</a>
+      <a href="#downloads">Downloads</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <p id="version"></p>
+  <p id="load-status" role="status">Loading mappings…</p>
+  <div id="view"></div>
+</main>
+</body>
+</html>

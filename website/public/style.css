@@ -1,0 +1,33 @@
+:root { color-scheme: light; font: 16px/1.55 system-ui, sans-serif; color: #152b32; background: #f4f7f6; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.wrap { width: min(72rem, 100% - 2rem); margin: auto; }
+header { background: #153d43; color: #fff; padding: 2rem 0 1.5rem; }
+h1 { font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.15; margin: .45rem 0; }
+h2, h3 { line-height: 1.25; }
+.eyebrow { color: #bce1d6; font-weight: 650; margin: 0; }
+nav, .actions, .filters { display: flex; flex-wrap: wrap; gap: .75rem 1rem; align-items: end; }
+nav a { color: #fff; }
+a { color: #075c63; text-underline-offset: .18em; }
+main { padding-bottom: 3rem; }
+#version { color: #41595d; font-size: .9rem; }
+section, fieldset { background: #fff; border: 1px solid #ccd9d6; border-radius: .65rem; padding: 1rem; margin: 1rem 0; min-width: 0; }
+section > :first-child { margin-top: 0; }
+label { display: block; font-weight: 600; }
+input, select, textarea, button { font: inherit; }
+input:not([type=checkbox]), select, textarea { display: block; max-width: 100%; padding: .45rem .55rem; border: 1px solid #708686; border-radius: .3rem; color: inherit; background: #fff; }
+input[type=search], textarea { width: min(100%, 40rem); }
+textarea { min-height: 5rem; }
+button { background: #075c63; color: #fff; border: 1px solid transparent; border-radius: .35rem; padding: .45rem .8rem; cursor: pointer; }
+button:disabled { opacity: .65; cursor: default; }
+:focus-visible { outline: 3px solid #b05a09; outline-offset: 3px; }
+.results { padding: 0; list-style: none; }
+.results li { border-top: 1px solid #d9e2e0; padding: .6rem 0; }
+.results label { font-weight: 400; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1rem; }
+dl { display: grid; grid-template-columns: minmax(6rem, 1fr) 2fr; gap: .35rem .75rem; }
+dt { font-weight: 600; }
+dd { margin: 0; overflow-wrap: anywhere; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #edf4f1; padding: .8rem; }
+.choice { margin: .4rem 0; }
+fieldset label { margin-top: .5rem; }
