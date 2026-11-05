@@ -1,4 +1,4 @@
-name = "danish-omop-mapping-explorer"
+name = "omop-mapping-review"
 main = "worker.mjs"
 compatibility_date = "2026-11-04"
 
@@ -9,8 +9,8 @@ run_worker_first = ["/api/*"]
 
 [[d1_databases]]
 binding = "SUBMISSIONS"
-database_name = "danish-omop-submissions"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_name = "omop_mapping_submissions"
+database_id = "199c52cd-0010-4555-9959-68eb1a19d763"
 
 [[ratelimits]]
 name = "PROPOSAL_RATE"
