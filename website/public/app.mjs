@@ -79,9 +79,46 @@ function showSearch() {
   update();
 }
 
+function mappingValue(key, value) {
+  if (!["statusSetOn", "createdOn"].includes(key) || !/^-?\d+$/.test(value)) return value;
+  const date = new Date(Number(value));
+  if (!Number.isFinite(date.getTime())) return value;
+  return node("time", { datetime: date.toISOString(), title: `Source timestamp: ${value}` },
+    new Intl.DateTimeFormat("en-GB", {
+      dateStyle: "medium", timeStyle: "long", timeZone: "UTC",
+    }).format(date));
+}
+
 function facts(title, pairs) {
+  const labels = {
+    matchScore: "Match score",
+    mappingStatus: "Mapping status",
+    equivalence: "Equivalence",
+    statusSetBy: "Status set by",
+    statusSetOn: "Status set on",
+    mappingType: "Mapping type",
+    comment: "Comment",
+    createdBy: "Created by",
+    createdOn: "Created on",
+    assignedReviewer: "Assigned reviewer",
+    sourceAutoAssignedConceptIds: "Automatically assigned source concept IDs",
+    Column1: "Source row number",
+    npu: "Source code",
+    freq: "Source frequency",
+    description: "Description",
+    kind_of_property: "Unit type",
+    unit: "Source unit",
+    americanized: "Source unit (US spelling)",
+    omop: "OMOP unit concept ID",
+    "omop label": "OMOP unit label",
+    "additional computations": "Additional computations",
+    justification: "Justification",
+  };
   return node("section", {}, node("h3", {}, title), node("dl", {},
-    ...pairs.filter(([, value]) => value).flatMap(([key, value]) => [node("dt", {}, key), node("dd", {}, value)])));
+    ...pairs.filter(([, value]) => value).flatMap(([key, value]) => {
+      const label = labels[key] || key.replace(/_/g, " ").replace(/([a-z])([A-Z])/g, "$1 $2");
+      return [node("dt", {}, label.charAt(0).toUpperCase() + label.slice(1)), node("dd", {}, mappingValue(key, value))];
+    })));
 }
 
 function showMapping(id, commit) {
@@ -99,9 +136,11 @@ function showMapping(id, commit) {
       facts("OMOP target", [["Concept ID", target ? link(row.conceptId, `${athena}terms/${row.conceptId}`) : row.conceptId],
         ["Name", row.conceptName], ["Domain", row.domainId], ["Vocabulary", target?.vocabulary],
         ["Vocabulary code", target?.code]])),
-    facts("Mapping record", Object.entries(row).filter(([key]) =>
-      !["id", "vocabulary", "sourceCode", "sourceName", "sourceFrequency", "ADD_INFO:unit", "conceptId", "conceptName", "domainId"].includes(key))),
-    ...units.map(unit => facts("Related unit mapping", Object.entries(unit))),
+    node("div", { class: "grid" },
+      ...(units.length ? [node("div", { class: "unit-mappings" },
+        ...units.map(unit => facts("Related unit mapping", Object.entries(unit))))] : []),
+      facts("Mapping record", Object.entries(row).filter(([key]) =>
+        !["id", "vocabulary", "sourceCode", "sourceName", "sourceFrequency", "ADD_INFO:unit", "conceptId", "conceptName", "domainId"].includes(key)))),
     node("div", { class: "actions" }, link("Download source file", data.downloads[row.vocabulary]),
       link("Suggest a correction", `#correct/${data.commit}/${id}`)));
 }

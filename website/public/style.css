@@ -25,6 +25,7 @@ button:disabled { opacity: .65; cursor: default; }
 .results li { border-top: 1px solid #d9e2e0; padding: .6rem 0; }
 .results label { font-weight: 400; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1rem; }
+.unit-mappings { min-width: 0; }
 dl { display: grid; grid-template-columns: minmax(6rem, 1fr) 2fr; gap: .35rem .75rem; }
 dt { font-weight: 600; }
 dd { margin: 0; overflow-wrap: anywhere; }
