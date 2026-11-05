@@ -74,7 +74,9 @@ async function submit(request, env) {
   if (!verification.success || verification.action !== "mapping_proposal" || verification.hostname !== new URL(origin).hostname) {
     return fail("The spam check expired or failed. Please try again.", 400);
   }
-  const data = await env.ASSETS.fetch(new URL("/data.json", origin)).then(response => response.json());
+  if (input.dataset && !["labs", "drugs"].includes(input.dataset)) return fail("Unknown mapping collection.", 400);
+  const filename = input.dataset === "drugs" ? "/drug-proposals.json" : "/data.json";
+  const data = await env.ASSETS.fetch(new URL(filename, origin)).then(response => response.json());
   let issue;
   try {
     issue = proposal(data, input);

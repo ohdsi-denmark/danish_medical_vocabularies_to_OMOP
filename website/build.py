@@ -5,10 +5,12 @@ import subprocess
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import quote
+from drugs import build_drugs
 
 SITE = Path(__file__).resolve().parent
 ROOT = SITE.parent
 LABS = ROOT / "Measurements (Labs)"
+DRUGS = ROOT / "Drugs (Medications and Vaccines)"
 OUT = SITE / "dist"
 REPO = "https://github.com/ohdsi-denmark/danish_medical_vocabularies_to_OMOP"
 
@@ -63,8 +65,10 @@ def rows(path, delimiter=","):
 
 def main():
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-    if subprocess.check_output(["git", "status", "--porcelain", "--", str(LABS)], cwd=ROOT):
-        raise SystemExit("Commit the lab inputs before building a versioned snapshot.")
+    input_paths = [f":(glob){folder.name}/**/*.{extension}"
+                   for folder in (LABS, DRUGS) for extension in ("csv", "txt")]
+    if subprocess.check_output(["git", "status", "--porcelain", "--", *input_paths], cwd=ROOT):
+        raise SystemExit("Commit the mapping inputs before building a versioned snapshot.")
     files = {
         "NPU": "NPU_mapping_USAGI.csv",
         "DNK": "NPU_mapping_99_USAGI (DNK).csv",
@@ -131,6 +135,16 @@ def main():
                 unmapped=sorted(unmapped, key=lambda row: -int(row["occurrences"].lstrip("<"))),
                 targets=targets)
     (OUT / "data.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    drug_data = build_drugs(ROOT, commit)
+    (OUT / "drugs.json").write_text(json.dumps(drug_data, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    # Submissions need identities and mapping records, not the larger reference details.
+    proposal_data = {key: drug_data[key] for key in ("commit", "categories", "mappings", "targets", "unmapped")}
+    proposal_data["sources"] = {
+        key: {field: source[field] for field in ("id", "code", "name", "category", "preparation") if field in source}
+        for key, source in drug_data["sources"].items()
+    }
+    (OUT / "drug-proposals.json").write_text(json.dumps(proposal_data, ensure_ascii=False,
+                                                      separators=(",", ":")), encoding="utf-8")
 
 if __name__ == "__main__":
     main()
