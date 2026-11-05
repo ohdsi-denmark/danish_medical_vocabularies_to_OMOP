@@ -4,7 +4,7 @@ These working files support enrichment and review of the existing drug mappings.
 
 The date on the drug mapping details file comes from its original filename. Other file dates have not been inferred. Counts and mapping statuses describe the original working data and require reconciliation with the published mappings.
 
-The website currently builds its Measurements pilot from explicit lab inputs. These reference files have not yet been integrated into its search index or download page.
+The website uses these reference files to enrich medication and vaccine review, search, and proposals. Original published mapping files and additional vaccine proposals have separate download links. Source reference files are linked from the relevant detail pages.
 
 | Local file | Original file | Contents | Encoding |
 | --- | --- | --- | --- |

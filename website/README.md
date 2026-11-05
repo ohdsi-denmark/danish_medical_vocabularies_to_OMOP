@@ -24,12 +24,21 @@ After building, run `node --test website/test_drugs.mjs` for source-identity, re
 
 ## Automatic deployment from GitHub
 
+**Production deployments use the `website-release` branch.** To publish website
+or mapping changes, merge or commit the intended release to `website-release`
+and push it to GitHub. Pushes to `main` or other branches do not update the live
+site. Routine releases use GitHub Actions; no local Wrangler deployment is needed.
+
 The workflow in `.github/workflows/deploy-website.yml` deploys every push to
 `website-release`. It builds the website from that commit, runs the website checks,
 applies pending D1 migrations, and deploys to the existing `omop-mapping-review`
 Worker. Other branches do not trigger deployment.
 
-In the GitHub repository, open Settings > Secrets and variables > Actions and add
+Check **Actions > Deploy mapping website** for the deployment result. A successful
+run updates https://omop-mapping-review.tsagi-006.workers.dev/.
+
+The deployment credentials are already configured. If they need to be recreated,
+open Settings > Secrets and variables > Actions in the GitHub repository and add
 these repository secrets:
 
 - `CLOUDFLARE_API_TOKEN`: a Cloudflare API token restricted to the deployment
@@ -45,11 +54,15 @@ mapping inputs to `website-release`, then push that branch. Watch the run in
 the repository's Actions tab. Generated `website/dist` files and private keys
 must not be committed. A failed build or check prevents migration and deployment.
 
-## Deploy on Cloudflare Workers
+## Initial Cloudflare setup / manual deployment
+
+The following steps document initial provisioning and manual deployment for a
+new installation. The existing production site is already configured; use the
+`website-release` workflow above for future releases.
 
 1. In the OHDSI Denmark GitHub organization, register a GitHub App with repository Issues read/write permission, install it on this repository only, and generate a private key. The Worker uses installation authentication. Convert the downloaded key to unencrypted PKCS#8 PEM locally if needed using `openssl pkcs8 -topk8 -nocrypt -in app-key.pem -out app-key-pkcs8.pem`.
 2. In Cloudflare, create a D1 database named `danish-omop-submissions` and replace the placeholder database ID in `wrangler.toml`. Create a Turnstile widget authorized for the deployment hostname.
 3. From this directory, run `npx wrangler d1 migrations apply danish-omop-submissions --remote`. Run `python build.py` and `npx wrangler deploy` to bring up the read-only site. Then set `GITHUB_APP_CLIENT_ID`, `GITHUB_INSTALLATION_ID`, `GITHUB_APP_PRIVATE_KEY` (the complete PKCS#8 PEM), `TURNSTILE_SITE_KEY`, and `TURNSTILE_SECRET` using the Cloudflare secrets UI or `npx wrangler secret put NAME`.
-4. Verify search, a sample single proposal, and a small batch on a separate test deployment with its own D1 database, an authorized test repository in `GITHUB_REPOSITORY`, and matching App and Turnstile settings. Add the production credentials after that check. Configure a deployment build on mapping releases once the snapshot and issue flow have been checked.
+4. Verify search, a sample single proposal, and a small batch on a separate test deployment with its own D1 database, an authorized test repository in `GITHUB_REPOSITORY`, and matching App and Turnstile settings. Add the production credentials after that check. For the existing production site, automatic deployments are configured through the `website-release` workflow described above.
 
 The submission endpoint uses Turnstile and a Cloudflare rate limit of five requests per minute per IP at each Cloudflare location. It stores a submission fingerprint and public issue URL in D1. If GitHub's response is ambiguous and the receipt stays pending, search recent issues for the fingerprint in the hidden submission marker. Set the recorded issue URL in D1 if found. Clear the pending entry only after confirming the issue was never created. Proposals are public, and the form does not collect contact details.
