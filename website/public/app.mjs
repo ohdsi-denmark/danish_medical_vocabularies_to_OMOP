@@ -69,8 +69,8 @@ function sourceDetails(code) {
   }
   return node("div", {},
     node("p", {}, `National terminology · ${data.terminologyDate}. Dates are shown as supplied by the source.`),
-    ...(Object.keys(details.concept).length ? [facts("National concept definition", Object.entries(details.concept))] : []),
-    ...details.names.map(name => facts("National name", Object.entries(name))));
+    ...(Object.keys(details.concept).length ? [facts("National concept definition", Object.entries(details.concept), "source")] : []),
+    ...details.names.map(name => facts("National name", Object.entries(name), "source")));
 }
 
 function renderList(container, rows, makeRow) {
@@ -100,9 +100,9 @@ function showSearch() {
         ...sourceSearchValues(row.sourceCode)]));
     rows.sort((a, b) => Number(exact(b)) - Number(exact(a)));
     renderList(results, rows, row => node("li", {},
-      link(`${row.sourceCode} · ${row.sourceName}`, `#mapping/${data.commit}/${row.id}`),
+      link(node("span", { class: "code-source" }, `${row.sourceCode} · ${row.sourceName}`), `#mapping/${data.commit}/${row.id}`),
       ...(sourceName(row.sourceCode) ? [node("div", {}, sourceName(row.sourceCode))] : []),
-      node("div", {}, row.conceptName ? `→ ${row.conceptName} (${row.conceptId})` : "No target recorded")));
+      node("div", { class: "code-target" }, row.conceptName ? `→ ${row.conceptName} (${row.conceptId})` : "No target recorded")));
   };
   view.append(node("section", {}, node("h2", {}, "Search mappings"),
     searchBox("Code, concept ID or name", searchState.query, value => change("query", value)),
@@ -113,6 +113,9 @@ function showSearch() {
 }
 
 function mappingValue(key, value) {
+  if (["omop", "concept_id", "Historical target concept ID"].includes(key) && /^[1-9]\d*$/.test(value)) {
+    return link(value, `${athena}terms/${value}`);
+  }
   if (!["statusSetOn", "createdOn"].includes(key) || !/^-?\d+$/.test(value)) return value;
   if (value === "0") return "Not recorded";
   const date = new Date(Number(value));
@@ -123,7 +126,7 @@ function mappingValue(key, value) {
     }).format(date));
 }
 
-function facts(title, pairs) {
+function facts(title, pairs, tone = "") {
   const labels = {
     matchScore: "Match score",
     mappingStatus: "Mapping status",
@@ -171,10 +174,18 @@ function facts(title, pairs) {
     concept_id: "Target concept ID",
     concept_name: "Target concept name",
   };
-  return node("section", {}, node("h3", {}, title), node("dl", {},
-    ...pairs.filter(([, value]) => value).flatMap(([key, value]) => {
+  const sourceFields = ["Column1", "npu", "freq", "description", "kind_of_property", "unit", "americanized",
+    "vocabulary", "sourceFrequency", "preparation", "abbreviation", "SourceId", "SourceName", "IngredientTranslation",
+    "DoseForm", "DrugCount", "RecordCount", "SourceUnit"];
+  const targetFields = ["omop", "omop label", "concept_id", "concept_name", "TargetUnit", "targetVocabulary", "domainId",
+    "recordedTarget", "Historical standard status"];
+  return node("section", tone ? { class: `tone-${tone}` } : {}, node("h3", {}, title), node("dl", {},
+    ...pairs.filter(([, value]) => value).map(([key, value]) => {
       const label = labels[key] || key.replace(/_/g, " ").replace(/([a-z])([A-Z])/g, "$1 $2");
-      return [node("dt", {}, label.charAt(0).toUpperCase() + label.slice(1)), node("dd", {}, mappingValue(key, value))];
+      const fieldTone = targetFields.includes(key) || key.startsWith("Historical target") ? "target" :
+        sourceFields.includes(key) ? "source" : "";
+      return node("div", { class: `fact-row${fieldTone ? ` tone-${fieldTone}` : ""}` },
+        node("dt", {}, label.charAt(0).toUpperCase() + label.slice(1)), node("dd", {}, mappingValue(key, value)));
     })));
 }
 
@@ -195,14 +206,14 @@ function showMapping(id, commit) {
           ["System", concept.System], ["Component", concept.Component], ["Unit type", concept.Property],
           ["National unit", concept.Unit], ["National concept status", concept.Status],
           ["Replaces", concept.Replaces], ["Replaced by", concept["Replaced by"]],
-          ["Source frequency", row.sourceFrequency], ["Recorded unit", row["ADD_INFO:unit"]]]),
+          ["Source frequency", row.sourceFrequency], ["Recorded unit", row["ADD_INFO:unit"]]], "source"),
         node("details", {}, node("summary", {}, "All national terminology details"), sourceDetails(row.sourceCode))),
       facts("OMOP target", [["Concept ID", target ? link(row.conceptId, `${athena}terms/${row.conceptId}`) : row.conceptId],
         ["Name", row.conceptName], ["Domain", row.domainId], ["Vocabulary", target?.vocabulary],
-        ["Vocabulary code", target?.code]])),
+        ["Vocabulary code", target?.code]], "target")),
     node("div", { class: "grid" },
       ...(units.length ? [node("div", { class: "unit-mappings" },
-        ...units.map(unit => facts("Related unit mapping", Object.entries(unit))))] : []),
+        ...units.map(unit => facts("Related unit mapping", Object.entries(unit).filter(([key]) => key !== "freq"))))] : []),
       facts("Mapping record", Object.entries(row).filter(([key]) =>
         !["id", "vocabulary", "sourceCode", "sourceName", "sourceFrequency", "ADD_INFO:unit", "conceptId", "conceptName", "domainId"].includes(key)))),
     node("div", { class: "actions" }, link("Download source file", data.downloads[row.vocabulary]),
@@ -239,7 +250,8 @@ function showBacklog() {
       const concept = data.sourceDetails?.[row.code]?.concept || {};
       const properties = [concept.System, concept.Component, concept.Property, concept.Unit].filter(Boolean);
       return node("li", {},
-        node("label", {}, checkbox, ` ${row.code} · ${row.occurrences.startsWith("<") ? row.occurrences : Number(row.occurrences).toLocaleString()} occurrences`),
+        node("label", {}, checkbox, node("span", { class: "code-source" }, ` ${row.code}`),
+          ` · ${row.occurrences.startsWith("<") ? row.occurrences : Number(row.occurrences).toLocaleString()} occurrences`),
         node("strong", {}, sourceName(row.code) || "Description unavailable"),
         node("div", {}, properties.join(" · ")),
         node("div", {}, `National concept status: ${concept.Status || "Unknown"}`,
@@ -261,7 +273,7 @@ function showBacklog() {
 
 function targetPicker(input, catalog = data, domain) {
   const choices = node("div", { class: "choice" });
-  return node("div", {},
+  return node("div", { class: "target-picker tone-target" },
     searchBox("Find an OMOP target", "", query => {
       choices.replaceChildren();
       if (query.trim().length < 2) return;
@@ -298,13 +310,14 @@ function showProposal(id, commit, dataset = "labs") {
     const reason = node("textarea", { required: "", minlength: "10", maxlength: "1500" });
     const source = current || data.mappings.find(row => row.sourceCode === code);
     const unitDescription = data.units[code]?.[0]?.description;
-    form.append(node("fieldset", {}, node("legend", {}, code),
-      node("p", {}, drugSource?.name || sourceName(code) || source?.sourceName || unitDescription || "Source description unavailable in this snapshot."),
-      ...(drugSource?.preparation ? [node("p", {}, drugSource.preparation)] : []),
-      node("details", {}, node("summary", {}, "Code details"), drugSource ? drugSourceDetails(drugSource) : sourceDetails(code)),
-      ...(current ? [node("p", {}, `${current.reviewState === "Needs review" ? "Existing proposal" : "Current target"}: ${current.conceptName || "Name unavailable"} (${current.conceptId || "no ID"})`)] : []),
+    form.append(node("fieldset", {}, node("legend", { class: "code-source" }, code),
+      node("div", { class: "source-summary tone-source" },
+        node("p", {}, drugSource?.name || sourceName(code) || source?.sourceName || unitDescription || "Source description unavailable in this snapshot."),
+        ...(drugSource?.preparation ? [node("p", {}, drugSource.preparation)] : []),
+        node("details", {}, node("summary", {}, "Code details"), drugSource ? drugSourceDetails(drugSource) : sourceDetails(code))),
+      ...(current ? [node("p", { class: "code-target" }, `${current.reviewState === "Needs review" ? "Existing proposal" : "Current target"}: ${current.conceptName || "Name unavailable"} (${current.conceptId || "no ID"})`)] : []),
       targetPicker(target, catalog, drugSource ? (drugSource.category === "routes" ? "Route" : "Drug") : undefined),
-      node("label", {}, "Proposed OMOP concept ID", target),
+      node("label", { class: "target-picker tone-target" }, "Proposed OMOP concept ID", target),
       node("label", {}, "Why is this target appropriate?", reason)));
     if (current?.reviewState === "Needs review") target.value = current.conceptId;
     return { code, item, target, reason };
@@ -398,35 +411,45 @@ function drugSourceDetails(source) {
     renderList(list, records, record => node("li", {}, node("details", {},
       node("summary", {}, [record["Product name"], record["Ingredient name"], record["Dosage option"],
         record["Pharmaceutical form"], `Source record ${record["Source record"]}`].filter(Boolean).join(" · ")),
-      facts("Source details", Object.entries(record)))));
+      facts("Source details", Object.entries(record), "source"))));
     container.append(list);
   } else if (source.category !== "routes") {
     container.append(node("p", {}, "Additional source details are unavailable for this identifier."));
   }
   for (const id of source.supportIds || []) {
     const support = drugData.supportRecords[id];
-    container.append(facts("Supporting reference", Object.entries(support.fields)),
+    container.append(facts("Supporting reference", Object.entries(support.fields), "source"),
       drugFileLink("reference_data/medications/" + support.file, "View supporting file"));
   }
   return container;
 }
 
-function drugNavigation(category = "products") {
-  view.append(node("nav", { class: "section-nav", "aria-label": "Drug categories" },
-    link("Medications", "#drugs/products/review"), link("Vaccines", "#drugs/vaccines/review"),
-    link("Administration routes", "#drugs/routes/review")));
-  if (["products", "ingredients"].includes(category)) {
-    view.append(node("nav", { class: "section-nav", "aria-label": "Medication categories" },
-      link("Product mappings", "#drugs/products/review"), link("Ingredient mappings", "#drugs/ingredients/review")));
-  }
-  view.append(node("nav", { class: "section-nav", "aria-label": "Review or suggest mappings" },
-    link("Review mappings", `#drugs/${category}/review`),
-    link("Suggest new mappings", `#drugs/${category}/unmapped`)));
+function drugNavigation(category = "products", mode = "review") {
+  const medication = ["products", "ingredients"].includes(category);
+  const topic = medication ? "products" : category;
+  const topics = [["products", "Medications"], ["vaccines", "Vaccines"], ["routes", "Administration routes"]];
+  const navigation = node("nav", { class: "topic-navigation", "aria-label": "Drug topics and actions" },
+    ...topics.map(([key, label]) => node("a", {
+      href: `#drugs/${key}/review`, class: "topic-tab", ...(key === topic ? { "aria-current": "location" } : {}),
+    }, label)));
+  const context = node("div", {
+    class: "topic-context", style: `--topic-column: ${topics.findIndex(([key]) => key === topic) + 1}`,
+  }, node("p", { class: "topic-context-title" }, `Actions for ${drugData.categories[category]}`));
+  if (medication) context.append(node("div", { class: "topic-subcategories" },
+    ...[["products", "Products"], ["ingredients", "Ingredients"]].map(([key, label]) => node("a", {
+      href: `#drugs/${key}/${mode}`, ...(key === category ? { "aria-current": "location" } : {}),
+    }, label))));
+  context.append(node("div", { class: "topic-actions" },
+    ...[["review", "Review mappings"], ["unmapped", "Suggest new mappings"]].map(([key, label]) => node("a", {
+      href: `#drugs/${category}/${key}`, ...(key === mode ? { "aria-current": "page" } : {}),
+    }, label))));
+  navigation.append(context);
+  view.append(navigation);
 }
 
 function showDrugSection(category, mode) {
   if (!drugData.categories[category]) category = "products";
-  drugNavigation(category);
+  drugNavigation(category, mode);
   const backlog = mode === "unmapped";
   const state = drugStates[category + mode] ||= {};
   const results = node("div");
@@ -451,9 +474,9 @@ function showDrugSection(category, mode) {
     renderList(results, rows, row => {
       const source = drugData.sources[row.sourceKey];
       if (!backlog) return node("li", {},
-        link(`${source.code} · ${source.name}`, `#drug-mapping/${drugData.commit}/${row.id}`),
+        link(node("span", { class: "code-source" }, `${source.code} · ${source.name}`), `#drug-mapping/${drugData.commit}/${row.id}`),
         ...(source.preparation ? [node("div", {}, source.preparation)] : []),
-        node("div", {}, row.conceptId ? `→ ${row.conceptName || "Target name unavailable"} (${row.conceptId})` : "No usable target recorded"),
+        node("div", { class: "code-target" }, row.conceptId ? `→ ${row.conceptName || "Target name unavailable"} (${row.conceptId})` : "No usable target recorded"),
         node("div", {}, `${row.reviewState} · ${row.mappingStatus}`));
       const checkbox = node("input", { type: "checkbox", onchange: () => {
         if (checkbox.checked && drugSelections.size >= batchLimit) {
@@ -466,7 +489,7 @@ function showDrugSection(category, mode) {
         updateSelection();
       } });
       checkbox.checked = drugSelections.has(source.id);
-      return node("li", {}, node("label", {}, checkbox, ` ${source.code} · ${source.name}`),
+      return node("li", {}, node("label", {}, checkbox, node("span", { class: "code-source" }, ` ${source.code} · ${source.name}`)),
         ...(source.preparation ? [node("p", {}, source.preparation)] : []),
         node("p", {}, source.backlogReason),
         node("details", {}, node("summary", {}, "Source details"), drugSourceDetails(source)));
@@ -506,13 +529,13 @@ function showDrugMapping(id, commit) {
     node("div", { class: "grid" },
       node("div", { class: "unit-mappings" },
         facts("Danish source", [["Code", source.code], ["Name", source.name], ["Preparation", source.preparation],
-          ["Vocabulary", row.vocabulary], ["Historical frequency", row.sourceFrequency]]), drugSourceDetails(source)),
+          ["Vocabulary", row.vocabulary], ["Historical frequency", row.sourceFrequency]], "source"), drugSourceDetails(source)),
       facts(row.reviewState === "Needs review" ? "Proposed OMOP target" : "OMOP target", [
         ["Concept ID", row.conceptId ? link(row.conceptId, `${athena}terms/${row.conceptId}`) : "No usable target recorded"],
         ["Name", row.conceptName || "Target name unavailable in the mapping files"], ["Domain", row.domainId],
         ["Vocabulary", target.vocabulary || row.targetVocabulary], ["Vocabulary code", target.code],
         ["Concept class", target.conceptClass], ["Metadata source", target.metadataSource],
-        ["Historical target valid from", target.validFrom], ["Historical target valid until", target.validUntil]])),
+        ["Historical target valid from", target.validFrom], ["Historical target valid until", target.validUntil]], "target")),
     facts("Mapping record", Object.entries(row).filter(([key]) => !["id", "sourceKey", "category", "sourceName", "sourceCode", "conceptId", "conceptName"].includes(key))),
     node("div", { class: "actions" }, drugFileLink(row.sourceFile),
       link(row.reviewState === "Needs review" ? "Review this proposal" : "Suggest a correction", `#drug-correct/${drugData.commit}/${row.id}`)));
