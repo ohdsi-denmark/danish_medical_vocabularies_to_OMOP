@@ -2,6 +2,8 @@
 
 The NPU/DNK pilot uses the lab files in this repository. The public site builds a versioned search snapshot and links to the corresponding original GitHub downloads. Public submissions open issues in the same repository.
 
+The national BRUGSNAVN and NPUBEGREB exports dated 30 October 2026 enrich mapped and backlog codes by exact DNK/NPU code. The importer preserves every national name, both abbreviated and full concept properties, inactive status, and replacement references. Danish names and definitions are searchable. The existing frequency report determines the backlog membership. Missing terminology entries remain visible with an explicit fallback. Source definition markup is converted to plain text, with superscripts represented as `^(...)` and subscripts as `_(...)`. National terminology dates retain the source's date and time without assuming a time zone.
+
 ## Preview locally
 
 Run `python website/build.py` from the repository root, then `python -m http.server 8000 --bind 127.0.0.1 --directory website/dist`. Open http://127.0.0.1:8000. This preview supports search, downloads, and proposal previews. The source lab inputs must be committed so downloads and displayed data refer to the same snapshot.

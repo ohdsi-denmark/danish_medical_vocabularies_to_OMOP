@@ -3,6 +3,7 @@ import csv
 import json
 import os
 import subprocess
+from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import quote
 
@@ -11,6 +12,48 @@ ROOT = SITE.parent
 LABS = ROOT / "Measurements (Labs)"
 OUT = SITE / "dist"
 REPO = "https://github.com/ohdsi-denmark/danish_medical_vocabularies_to_OMOP"
+
+class DefinitionText(HTMLParser):
+    """Keep terminology text and notation without publishing source HTML."""
+
+    def __init__(self):
+        super().__init__()
+        self.parts = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag in ("sup", "sub"):
+            self.parts.append("^(" if tag == "sup" else "_(")
+        elif tag == "br":
+            self.parts.append(" ")
+
+    def handle_endtag(self, tag):
+        if tag in ("sup", "sub"):
+            self.parts.append(")")
+
+    def handle_data(self, text):
+        self.parts.append(text)
+
+
+def terminology_rows(path, labels):
+    # Positional labels preserve abbreviated and full columns with identical headers.
+    with path.open(encoding="utf-8-sig", newline="") as file:
+        reader = csv.reader(file, delimiter=";")
+        headers = next(reader)
+        if len(headers) != len(labels):
+            raise ValueError(f"Unexpected terminology columns in {path.name}")
+        for values in reader:
+            if len(values) != len(labels):
+                raise ValueError(f"Unexpected terminology row in {path.name}")
+            record = {}
+            for label, value in zip(labels, values):
+                if not value.strip():
+                    continue
+                parser = DefinitionText()
+                parser.feed(value.strip())
+                record[label] = "".join(parser.parts)
+            record["Status"] = {"1": "Active", "0": "Inactive"}.get(record.pop("Active", ""), "Unknown")
+            yield record
+
 
 def rows(path, delimiter=","):
     with path.open(encoding="utf-8-sig", newline="") as file:
@@ -28,6 +71,8 @@ def main():
         "DNK": "NPU_mapping_99_USAGI (DNK).csv",
         "Units": "Units for NPU and DNK codes.csv",
         "Unmapped NPU": "missing_NPU_code__w_frequency.txt",
+        "National names (30 Oct 2026)": "NATIONAL__CSV_DK_BRUGSNAVN_2026-10-30.csv",
+        "National concept definitions (30 Oct 2026)": "NATIONAL__CSV_DK_NPUBEGREB_2026-10-30.csv",
     }
     downloads = {
         label: f"{REPO}/raw/{commit}/{quote(f'Measurements (Labs)/{name}')}"
@@ -55,6 +100,30 @@ def main():
         for row in rows(LABS / files["Unmapped NPU"], "\t")
         if row["Code"] and row["Code"] not in mapped
     ]
+    codes = {row["sourceCode"] for row in mappings} | {row["code"] for row in unmapped}
+    source_details = {code: {"concept": {}, "names": []} for code in codes}
+    concept_labels = [
+        "Created on", "Last changed on", "Version note", "Source code", "Short definition",
+        "System (abbreviated)", "System specification (abbreviated)", "Component (abbreviated)",
+        "Component specification (abbreviated)", "Property (abbreviated)",
+        "Property specification (abbreviated)", "Unit (abbreviated)", "Full definition",
+        "System", "System specification", "Component", "Component specification", "Property",
+        "Property specification", "Unit", "Specialty code", "Context dependent", "Group header",
+        "Scale type", "Replaces", "Replaced by", "Valid from", "Valid until", "Active", "Current instance",
+    ]
+    name_labels = [
+        "Created on", "Last changed on", "Source code", "Short definition", "Full definition",
+        "National short name", "Name type (source value)", "Approving organization",
+        "Valid from", "Valid until", "Active", "Current instance",
+    ]
+    for record in terminology_rows(LABS / files["National concept definitions (30 Oct 2026)"], concept_labels):
+        code = record["Source code"]
+        if code in source_details:
+            source_details[code]["concept"] = record
+    for record in terminology_rows(LABS / files["National names (30 Oct 2026)"], name_labels):
+        code = record.get("Source code")
+        if code in source_details:
+            source_details[code]["names"].append(record)
     # Supply a CONCEPT export filtered to fields and vocabularies cleared for public display.
     concept_path = os.environ.get("PUBLIC_OMOP_CONCEPTS")
     if concept_path:
@@ -68,6 +137,7 @@ def main():
     for path in (SITE / "public").iterdir():
         (OUT / path.name).write_bytes(path.read_bytes())
     data = dict(commit=commit, downloads=downloads, mappings=mappings, units=units,
+                sourceDetails=source_details, terminologyDate="30 Oct 2026",
                 unmapped=sorted(unmapped, key=lambda row: -int(row["occurrences"].lstrip("<"))),
                 targets=targets, omopRelease=os.environ.get("OMOP_RELEASE") if concept_path else None)
     if concept_path and not data["omopRelease"]:

@@ -42,6 +42,32 @@ function match(query, fields) {
   return (query || "").trim().toLocaleLowerCase().split(/\s+/).every(word => haystack.includes(word));
 }
 
+function sourceSearchValues(code) {
+  const details = data.sourceDetails?.[code];
+  return [
+    ...Object.values(details?.concept || {}),
+    ...(details?.names || []).flatMap(name => Object.values(name)),
+    ...(data.units[code] || []).map(unit => unit.description),
+  ];
+}
+
+function sourceName(code) {
+  const details = data.sourceDetails?.[code];
+  const name = details?.names.find(name => name.Status === "Active") || details?.names[0];
+  return name?.["National short name"] || details?.concept["Full definition"] || data.units[code]?.[0]?.description;
+}
+
+function sourceDetails(code) {
+  const details = data.sourceDetails?.[code];
+  if (!details || (!Object.keys(details.concept).length && !details.names.length)) {
+    return node("p", {}, "No national terminology details found for this code in the supplied export.");
+  }
+  return node("div", {},
+    node("p", {}, `National terminology · ${data.terminologyDate}. Dates are shown as supplied by the source.`),
+    ...(Object.keys(details.concept).length ? [facts("National concept definition", Object.entries(details.concept))] : []),
+    ...details.names.map(name => facts("National name", Object.entries(name))));
+}
+
 function renderList(container, rows, makeRow) {
   const list = node("ul", { class: "results" });
   let limit = 30;
@@ -65,10 +91,12 @@ function showSearch() {
     const exact = row => [row.sourceCode, row.conceptId, data.targets[row.conceptId]?.code].includes(query);
     const rows = data.mappings.filter(row =>
       Object.keys(fields).every(key => !searchState[key] || row[key] === searchState[key]) &&
-      match(query, [row.sourceCode, row.sourceName, row.conceptId, row.conceptName, data.targets[row.conceptId]?.code]));
+      match(query, [row.sourceCode, row.sourceName, row.conceptId, row.conceptName, data.targets[row.conceptId]?.code,
+        ...sourceSearchValues(row.sourceCode)]));
     rows.sort((a, b) => Number(exact(b)) - Number(exact(a)));
     renderList(results, rows, row => node("li", {},
       link(`${row.sourceCode} · ${row.sourceName}`, `#mapping/${data.commit}/${row.id}`),
+      ...(sourceName(row.sourceCode) ? [node("div", {}, sourceName(row.sourceCode))] : []),
       node("div", {}, row.conceptName ? `→ ${row.conceptName} (${row.conceptId})` : "No target recorded")));
   };
   view.append(node("section", {}, node("h2", {}, "Search mappings"),
@@ -129,10 +157,17 @@ function showMapping(id, commit) {
   }
   const target = data.targets[row.conceptId];
   const units = data.units[row.sourceCode] || [];
+  const concept = data.sourceDetails?.[row.sourceCode]?.concept || {};
   view.append(node("h2", {}, row.sourceCode),
     node("div", { class: "grid" },
-      facts("Source", [["Vocabulary", row.vocabulary], ["Code", row.sourceCode], ["Name", row.sourceName],
-        ["Source frequency", row.sourceFrequency], ["Recorded unit", row["ADD_INFO:unit"]]]),
+      node("div", { class: "unit-mappings" },
+        facts("Source", [["Vocabulary", row.vocabulary], ["Code", row.sourceCode], ["Name in mapping file", row.sourceName],
+          ["National name", sourceName(row.sourceCode)], ["Full definition", concept["Full definition"]],
+          ["System", concept.System], ["Component", concept.Component], ["Unit type", concept.Property],
+          ["National unit", concept.Unit], ["National concept status", concept.Status],
+          ["Replaces", concept.Replaces], ["Replaced by", concept["Replaced by"]],
+          ["Source frequency", row.sourceFrequency], ["Recorded unit", row["ADD_INFO:unit"]]]),
+        node("details", {}, node("summary", {}, "All national terminology details"), sourceDetails(row.sourceCode))),
       facts("OMOP target", [["Concept ID", target ? link(row.conceptId, `${athena}terms/${row.conceptId}`) : row.conceptId],
         ["Name", row.conceptName], ["Domain", row.domainId], ["Vocabulary", target?.vocabulary],
         ["Vocabulary code", target?.code]])),
@@ -154,7 +189,11 @@ function showBacklog() {
     proceed.disabled = !selected.size;
   };
   const update = () => {
-    const rows = data.unmapped.filter(row => match(backlogState.query, [row.code]));
+    const rows = data.unmapped.filter(row => {
+      const concept = data.sourceDetails?.[row.code]?.concept || {};
+      return (!backlogState.status || (concept.Status || "Unknown") === backlogState.status) &&
+        match(backlogState.query, [row.code, ...sourceSearchValues(row.code)]);
+    });
     if (backlogState.sort) rows.sort((a, b) => a.code.localeCompare(b.code));
     renderList(results, rows, row => {
       const checkbox = node("input", { type: "checkbox", onchange: () => {
@@ -168,13 +207,23 @@ function showBacklog() {
         selection();
       } });
       checkbox.checked = selected.has(row.code);
-      return node("li", {}, node("label", {}, checkbox, ` ${row.code} · ${row.occurrences.startsWith("<") ? row.occurrences : Number(row.occurrences).toLocaleString()} occurrences`));
+      const concept = data.sourceDetails?.[row.code]?.concept || {};
+      const properties = [concept.System, concept.Component, concept.Property, concept.Unit].filter(Boolean);
+      return node("li", {},
+        node("label", {}, checkbox, ` ${row.code} · ${row.occurrences.startsWith("<") ? row.occurrences : Number(row.occurrences).toLocaleString()} occurrences`),
+        node("strong", {}, sourceName(row.code) || "Description unavailable"),
+        node("div", {}, properties.join(" · ")),
+        node("div", {}, `National concept status: ${concept.Status || "Unknown"}`,
+          concept["Replaced by"] ? ` · Replaced by ${concept["Replaced by"]}` : ""),
+        node("details", {}, node("summary", {}, "Code details"), sourceDetails(row.code)));
     });
   };
   view.append(node("section", {}, node("h2", {}, "Unmapped NPU codes"),
     node("p", {}, "Published backlog for lab_dm_forsker. Counts refer to occurrences in that dataset."),
     node("div", { class: "filters" },
-      searchBox("Find a code", backlogState.query, value => { backlogState.query = value; update(); }),
+      searchBox("Code, Danish name, definition or property", backlogState.query, value => { backlogState.query = value; update(); }),
+      filter("National concept status", ["Active", "Inactive", "Unknown"], backlogState.status,
+        value => { backlogState.status = value; update(); }),
       filter("Sort", ["Code"], backlogState.sort, value => { backlogState.sort = value; update(); })),
     summary, proceed, results));
   selection();
@@ -216,7 +265,8 @@ function showProposal(id, commit) {
     const source = current || data.mappings.find(row => row.sourceCode === code);
     const unitDescription = data.units[code]?.[0]?.description;
     form.append(node("fieldset", {}, node("legend", {}, code),
-      node("p", {}, source?.sourceName || unitDescription || "Source description unavailable in this snapshot."),
+      node("p", {}, sourceName(code) || source?.sourceName || unitDescription || "Source description unavailable in this snapshot."),
+      node("details", {}, node("summary", {}, "Code details"), sourceDetails(code)),
       ...(current ? [node("p", {}, `Current target: ${current.conceptName || "None"} (${current.conceptId || "no ID"})`)] : []),
       targetPicker(target), node("label", {}, "Proposed OMOP concept ID", target),
       node("label", {}, "Why is this target appropriate?", reason)));
