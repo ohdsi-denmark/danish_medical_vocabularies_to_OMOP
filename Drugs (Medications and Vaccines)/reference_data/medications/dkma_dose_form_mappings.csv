@@ -1,0 +1,582 @@
+DoseForm,DrugCount,RecordCount,Priority,concept_id,concept_name,Comments
+ ,827,0,0,,,NEW,
+afdelte enterogranulater,2,0,0,,,NEW,gescheiden enterogranules
+afdelte granulater,17,0,0,19082651,Oral Granules,NEW,gescheiden korrels
+afdelte pulvere,49,0,0,19095976,Oral Powder,NEW,gescheiden poeders
+anæstesivæske,3,0,0,,,NEW,verdovende vloeistof
+badeadditiv,1,0,0,19082228,Topical Solution,NEW,badadditief
+badevand,1,0,0,19082228,Topical Solution,NEW,zwemwater
+bistadestrip,1,0,0,,,NEW,bistadestrip
+bolus,13,0,0,,,NEW,bolus
+brusegranulat,6,0,0,19082076,Disintegrating Oral Tablet,NEW,brusegranulat
+brusetabletter,164,652,0,44817840,Effervescent Oral Tablet,NEW,bruistabletten
+brusetabletter,164,652,1,19082573,Oral Tablet,,
+bukkalfilm,8,0,0,40227830,Buccal Tablet,NEW,bukkalfilm
+bukkaltabletter,17,0,0,40227830,Buccal Tablet,NEW,buccale tabletten
+cigaretter,2,0,0,,,NEW,sigaretten
+creme,596,7570,0,19082224,Topical Cream,NEW,room
+dentalgel,9,0,0,19009068,Toothpaste,NEW,tandgel
+dentalindlæg,1,0,0,,,NEW,tandheelkundige inzetstukken
+dentalpasta,1,0,0,19009068,Toothpaste,NEW,tandpasta
+dentalsuspension,9,0,0,19126590,Mouthwash,NEW,tandheelkundige ophanging
+depotbolus,4,0,0,,,NEW,depotbolus
+depotgranulat,4,0,0,19082079,Extended Release Oral Tablet,NEW,depot korrels
+depotgranulat,4,0,1,19082651,Oral Granules,NEW,depot korrels
+depotgranulat til oral suspension,1,0,0,19082079,Extended Release Oral Tablet,NEW,Granulaat met verlengde afgifte voor orale suspensie
+"depotgranulat til oral suspension, enkeltdosisbeholder",5,0,0,19082079,Extended Release Oral Tablet,NEW,"Granulaat met verlengde afgifte voor orale suspensie, verpakking voor eenmalig gebruik"
+"depotgranulat, enkeltdosisbeholder",8,0,0,19082079,Extended Release Oral Tablet,NEW,"Granulaat met verlengde afgifte, verpakking voor eenmalig gebruik"
+"depotinjektionsvæske, opløsning",7,0,0,19082103,Injectable Solution,NEW,oplossing voor injectie met verlengde afgifte
+"depotinjektionsvæske, pulver og solvens til suspension",62,0,0,19082104,Injectable Suspension,NEW,"suspensie voor injectie met verlengde afgifte, poeder en oplosmiddel"
+"depotinjektionsvæske, suspension",41,0,0,19082104,Injectable Suspension,NEW,suspensie voor injectie met verlengde afgifte
+depotkapsler,200,0,0,19082077,Extended Release Oral Capsule,NEW,capsules met verlengde afgifte
+"depotkapsler, hårde",428,11649,0,19082077,Extended Release Oral Capsule,NEW,harde capsules met verlengde afgifte
+depotplastre,422,1026,0,19082229,Transdermal System,NEW,depotpleisters
+depotresoribletter,4,0,0,19082079,Extended Release Oral Tablet,NEW,depot resoriblets
+depottabletter,1781,59441,0,19082079,Extended Release Oral Tablet,NEW,tabletten met verlengde afgifte
+depottabletter (duretter),21,0,0,19082079,Extended Release Oral Tablet,NEW,tabletten met verlengde afgifte (duretter)
+depotøjendråber,10,1012,0,19129139,Prefilled Applicator,NEW,depot valt weg
+dispergible tabletter,132,0,0,19082076,Disintegrating Oral Tablet,NEW,dispergeerbare tabletten
+dispergible tabletter til dosisdispenser,1,0,0,19082076,Disintegrating Oral Tablet,NEW,dispergeerbare tabletten voor het afgeven van doses
+dispergible tabletter til dosisdispenser,1,0,1,19082079,Extended Release Oral Tablet,NEW,dispergeerbare tabletten voor het afgeven van doses
+diverse former,3,0,0,,,NEW,verschillende vormen
+drageer,47,0,0,19082573,Oral Tablet,NEW,drageer
+dråber,64,0,0,,,NEW,druppels
+"ekstrakt, tør ublandet",2,0,0,,,NEW,"extract, droog ongemengd"
+elektuarium,2,0,0,,,NEW,electuarium
+"endocervikalgel, enkeltdosisbeholder",1,0,0,19010880,Vaginal Gel,NEW,"endocervicale gel, verpakking voor eenmalig gebruik"
+"endotracheopulmonal instillationsvæske, suspension",10,0,0,,,NEW,"endotracheopulmonale instillatievloeistof, suspensie"
+enteralgel,4,0,0,19010880,Vaginal Gel,NEW,enterale gel
+"enterodepotgranulat, breve",4,0,0,,,NEW,"enterodepot-korrels, breve"
+enterodepottabletter,5,0,0,19001949,Delayed Release Oral Tablet,NEW,enterische tabletten met verlengde afgifte
+enterogranulat,8,0,0,19082651,Oral Granules,NEW,enterogranulaat
+enterogranulat til oral suspension,8,0,0,19082651,Oral Granules,NEW,enterogranulaat voor orale suspensie
+enterogranulat til oral suspension,8,0,1,19082191,Oral Suspension,NEW,enterogranulaat voor orale suspensie
+enterokapsler,53,2167,0,19082255,Delayed Release Oral Capsule,NEW,enterische capsules
+"enterokapsler, hårde",435,4853,0,19082255,Delayed Release Oral Capsule,NEW,"maagsap resitente capsules, hard"
+enterotabletter,701,17885,0,19001949,Delayed Release Oral Tablet,NEW,maagsap resistent tablet
+fedtcreme,17,0,0,19082224,Topical Cream,NEW,vette room
+fedtsalve,1,0,0,19082227,Topical Ointment,NEW,vette zalf
+filmovertrukne depottabletter,2,0,0,19082079,Extended Release Oral Tablet,NEW,filmomhulde tabletten met verlengde afgifte
+filmovertrukne tabletter,7786,208420,0,19001949,Delayed Release Oral Tablet,NEW,filmomhulde tabletten
+filmovertrukne tabletter,7786,208420,1,19082573,Oral Tablet,NEW,filmomhulde tabletten
+fortyndingsvæske,2,0,0,,,NEW,verdunningsmiddel
+frysetørret tablet,120,0,0,19082573,Oral Tablet,NEW,gelyofiliseerde tablet
+gazebind,8,0,0,19130307,Medicated Pad,NEW,gaasband
+gazetamponer,1,0,0,19130307,Medicated Pad,NEW,gaasjes
+gel,247,0,0,19112544,Gel,NEW,gel
+gel,247,0,1,19095973,Topical Gel,,
+gel til desinfektion,4,0,0,19095973,Topical Gel,NEW,gel voor desinfectie
+gel til overfladeanalgesi,6,0,0,19095973,Topical Gel,NEW,gel voor oppervlakkige analgesie
+"gel, brev",3,0,0,19095973,Topical Gel,NEW,"gel, brief"
+gelatinesvamp,7,0,0,19130307,Medicated Pad,NEW,gelatine spons
+granulat,88,0,0,19082651,Oral Granules,NEW,korrels
+granulat i brev,3,0,0,19082651,Oral Granules,NEW,korrels in letters
+granulat i enkeltdosisbeholder,6,0,0,19082651,Oral Granules,NEW,granulaat in verpakkingen voor eenmalig gebruik
+granulat og solvens til oral suspension,2,0,0,45775489,Granules for Oral Solution,NEW,granulaat en oplosmiddel voor orale suspensie
+granulat til anvendelse i drikkevand,15,0,0,19082651,Oral Granules,NEW,granulaat voor gebruik in drinkwater
+granulat til mikstur,26,0,0,19082651,Oral Granules,NEW,korrels om te mengen
+granulat til oral opløsning,21,0,0,45775489,Granules for Oral Solution,NEW,granulaat voor drank
+"granulat til oral opløsning, enkeltdosisbeholder",1,0,0,45775489,Granules for Oral Solution,NEW,"granulaat voor drank, verpakking voor eenmalig gebruik"
+granulat til oral suspension,47,0,0,45775489,Granules for Oral Solution,NEW,granulaat voor orale suspensie
+"granulat til oral suspension, enkeltdosisbeholder",3,0,0,45775489,Granules for Oral Solution,NEW,"granulaat voor orale suspensie, verpakking voor eenmalig gebruik"
+"granulat til orale dråber, opløsning",8,0,0,19082170,Oral Solution,NEW,"granulaat voor orale druppels, oplossing"
+"granulat, opløseligt",2,0,0,45775489,Granules for Oral Solution,NEW,"korrels, oplosbaar"
+halsbånd,5,0,0,,,NEW,halsband
+"hæmodiafiltreringsvæske, opløsning",6,0,0,19082106,Intravenous Solution,NEW,"hemodiafiltratievloeistof, oplossing"
+hæmodialyse-/hæmofiltreringsvæske,15,0,0,19082106,Intravenous Solution,NEW,hemodialyse / hemofiltratievloeistof
+hæmodialysekoncentra,2,0,0,19082106,Intravenous Solution,NEW,hemodialyse concentraties
+hæmodialysekoncentrat,15,0,0,19082106,Intravenous Solution,NEW,hemodialyse concentraat
+hæmodialysesubstans,3,0,0,19082106,Intravenous Solution,NEW,hemodialyse stof
+hæmofiltreringsvæske,7,0,0,19082106,Intravenous Solution,NEW,hemofiltratievloeistof
+"hæmofiltreringsvæske, hæmodialysevæske til kontinuerlig hæmodialyse",1,0,0,19082106,Intravenous Solution,NEW,"hemofiltratievloeistof, hemodialysevloeistof voor continue hemodialyse"
+implantat,32,0,0,19124968,Drug Implant,NEW,implantaten
+"implantat, fyldt injektionssprøjte",17,0,0,19124968,Drug Implant,NEW,"implantaat, voorgevulde spuit"
+imprægneret gaze,15,0,0,19082229,Transdermal System,NEW,geïmpregneerd gaas
+imprægneret tråd,3,0,0,19082229,Transdermal System,NEW,geïmpregneerde draad
+infus,1,0,0,19082106,Intravenous Solution,NEW,infus
+infusions-/injektionssubstans,2,0,0,19082106,Intravenous Solution,NEW,infusie / injectie stof
+infusions-injektionssæt,6,0,0,19126920,Prefilled Syringe,NEW,infuus injectie kit
+infusionskoncentrat,79,0,0,19082106,Intravenous Solution,NEW,infusieconcentraat
+infusionssubstans,52,0,0,19082106,Intravenous Solution,NEW,infusiesubstantie
+infusionsvæske,310,0,0,19082106,Intravenous Solution,NEW,infusie-oplossing
+infusionsvæske,310,0,1,19082106,Intravenous Solution,NEW,infusie-oplossing
+infusionsvæske (kombipakning),1,0,0,19082106,Intravenous Solution,NEW,infuusoplossing (combinatiepakket)
+infusionsvæske i excel,6,0,0,19082106,Intravenous Solution,NEW,infusievloeistof in Excel
+infusionsvæske i viaflexbeholder,13,0,0,19082106,Intravenous Solution,NEW,infusievloeistof in viaflex-container
+"infusionsvæske, dispersion",3,0,0,19082106,Intravenous Solution,NEW,"infusie-oplossing, dispersie"
+"infusionsvæske, emulsion",147,0,0,19082106,Intravenous Solution,NEW,"infusie-oplossing, emulsie"
+"infusionsvæske, hypertonisk",3,0,0,19082106,Intravenous Solution,NEW,"infusievloeistof, hypertoon"
+"infusionsvæske, isotonisk",2,0,0,19082106,Intravenous Solution,NEW,"infusievloeistof, isotoon"
+"infusionsvæske, opløsning",600,0,0,19082106,Intravenous Solution,NEW,infusie-oplossing
+"infusionsvæske, opløsning i administrationssystem",3,0,0,19082106,Intravenous Solution,NEW,"infuusoplossing, oplossing in toedieningssysteem"
+"infusionsvæske, opløsning og oral opløsning",1,0,0,19082106,Intravenous Solution,NEW,"infuusoplossing, oplossing en drank"
+inhalationsaerosol,64,238,0,19126918,Metered Dose Inhaler,NEW,inademing aerosol
+inhalationsdamp,6,0,0,19082258,Gas for Inhalation,NEW,inademing damp
+inhalationsgas,4,0,0,19082258,Gas for Inhalation,NEW,inademing gas
+inhalationspulver,569,15845,0,19082259,Inhalation Powder,NEW,inhalatiepoeder
+inhalationspulver i kapsler,33,2209,0,19127579,Dry Powder Inhaler,NEW,inhalatiepoeder in capsules
+"inhalationspulver, afdelt",92,2539,0,19126918,Metered Dose Inhaler,NEW,"inhalatiepoeder, verdeeld"
+"inhalationspulver, hård kapsel",113,3896,0,19082259,Inhalation Powder,NEW,"inhalatiepoeder, harde capsule"
+inhalationsspray,2,0,0,19095898,Inhalation Solution,NEW,inademingsspray
+"inhalationsspray, emulsion",5,0,0,19095898,Inhalation Solution,NEW,"inhalatiespray, emulsie"
+"inhalationsspray, opløsning",58,732,0,19095898,Inhalation Solution,NEW,"inhalatiespray, oplossing"
+"inhalationsspray, suspension",125,2825,0,19095898,Inhalation Solution,NEW,"inhalatiespray, suspensie"
+inhalationsvæske,47,0,0,19095898,Inhalation Solution,NEW,inademingsvloeistof
+inhalationsvæske (endosisbeholder),1,0,0,19095898,Inhalation Solution,NEW,inademingsvloeistof (verpakking voor een enkele dosis)
+"inhalationsvæske til nebulisator, opløsning",45,325,0,19095898,Inhalation Solution,NEW,"inhalatievloeistof voor vernevelaar, oplossing"
+"inhalationsvæske til nebulisator, opløsning, enkeltdosisbeholder",17,0,0,19095898,Inhalation Solution,NEW,"inhalatievloeistof voor vernevelaar, oplossing, verpakking voor éénmalig gebruik"
+"inhalationsvæske til nebulisator, suspension",23,0,0,19095898,Inhalation Solution,NEW,"inhalatievloeistof voor vernevelaar, suspensie"
+"inhalationsvæske, opløsning",30,2067,0,19095898,Inhalation Solution,NEW,inhalatie-oplossing
+inhalator,4,0,0,,,NEW,inhalator
+injektions- og infusionskoncentrat,1,0,0,,,NEW,injectie- en infuusconcentraat
+injektions- og infusionssubstans,20,0,1,19082104,Injectable Suspension,NEW,injectie en infusiesubstantie
+injektions- og infusionssubstans,20,0,2,19095915,Intravenous Suspension,NEW,injectie en infusiesubstantie
+"injektions-/infusions-/rektalvæske, opløsning",8,0,1,19082103,Injectable Solution,NEW,oplossing voor injectie / infusie / rectale oplossing
+"injektions-/infusions-/rektalvæske, opløsning",8,0,2,19082106,Intravenous Solution,NEW,oplossing voor injectie / infusie / rectale oplossing
+"injektions-/infusions-/rektalvæske, opløsning",8,0,3,19082283,Rectal Solution,NEW,oplossing voor injectie / infusie / rectale oplossing
+injektions-/infusionsvæske,6,0,1,19082103,Injectable Solution,NEW,injectie / infusie-oplossing
+injektions-/infusionsvæske,6,0,2,19082106,Intravenous Solution,NEW,injectie / infusie-oplossing
+"injektions-/infusionsvæske, emulsion",41,0,0,19082104,Injectable Suspension,NEW,"oplossing voor injectie / infusie, emulsie"
+"injektions-/infusionsvæske, opløsning",251,0,0,19082103,Injectable Solution,NEW,oplossing voor injectie / infusie
+"injektions-/infusionsvæske, opløsning, flerdosisbeholder",14,0,0,,,NEW,"oplossing voor injectie / infusie, container voor meerdere doses"
+"injektions-/infusionsvæske, opløsning, fyldt injektionssprøjte",2,0,0,,,NEW,"oplossing voor injectie / infusie, voorgevulde spuit"
+injektionspræparat,8,0,0,,,NEW,injectie voorbereiding
+injektionssubstans,271,0,0,19082103,Injectable Solution,NEW,injectie stof
+injektionssubstans (aquagen-sq),9,0,0,19082103,Injectable Solution,NEW,injectiesubstantie (aquagen-sq)
+injektionssubstans (vaccine),4,0,0,19082103,Injectable Solution,NEW,injecteerbare stof (vaccin)
+injektionssubstans + injektionsvæske (vaccine),15,0,0,19082103,Injectable Solution,NEW,injectie + injectie (vaccin)
+injektionssubstans + solvens,4,0,0,19082103,Injectable Solution,NEW,injectie + oplosmiddel
+injektionssubstans med albumin-diluent,27,0,0,19082103,Injectable Solution,NEW,injectiesubstantie met albumine-verdunningsmiddel
+injektionssubstans med depot-diluent,17,0,0,19082103,Injectable Solution,NEW,injectiesubstantie met depotverdunningsmiddel
+injektionssubstans med glycerol-diluent,25,0,0,19082103,Injectable Solution,NEW,injectiesubstantie met glycerolverdunningsmiddel
+injektionssubstans og solvens,16,0,0,19082103,Injectable Solution,NEW,injectiesubstantie en oplosmiddel
+"injektionssubstans, intramuskulær",2,0,0,19082103,Injectable Solution,NEW,"injectie, intramusculair"
+"injektionssubstans, intravenøs",1,0,0,19082106,Intravenous Solution,NEW,"injectie, intraveneus"
+injektionssæt,2,0,0,,,NEW,injectie kit
+injektionsvæske,1492,0,0,19082103,Injectable Solution,NEW,oplossing voor injectie
+injektionsvæske (serum),4,0,0,19082103,Injectable Solution,NEW,injectie (serum)
+injektionsvæske (vaccine),65,0,0,19082103,Injectable Solution,NEW,injectie (vaccin)
+injektionsvæske olieopløsning,12,0,0,19082103,Injectable Solution,NEW,oplossing voor injectieolie
+injektionsvæske til primær vaccination,1,0,0,19082103,Injectable Solution,NEW,injectie voor primaire vaccinatie
+"injektionsvæske, alutard-sq",3,0,0,19082103,Injectable Solution,NEW,
+"injektionsvæske, emulsion",96,0,0,19082103,Injectable Solution,NEW,oplossing voor injectie
+"injektionsvæske, i.m.",4,0,0,19082103,Injectable Solution,NEW,"oplossing voor injectie, i.m."
+"injektionsvæske, opløsning",2042,2594,0,19082103,Injectable Solution,NEW,oplossing voor injectie
+"injektionsvæske, opløsning i cylinderampul",38,0,0,19082103,Injectable Solution,NEW,oplossing voor injectie in patroon
+"injektionsvæske, opløsning i fyldt injektionssprøjte",436,0,0,19126920,Prefilled Syringe,NEW,oplossing voor injectie in een voorgevulde spuit
+"injektionsvæske, opløsning i fyldt pen",281,2367,0,19126920,Prefilled Syringe,NEW,oplossing voor injectie in een voorgevulde pen
+"injektionsvæske, opløsning i kassette til dosisdispenser",1,0,0,19082103,Injectable Solution,NEW,Oplossing voor injectie in een cassette voor dosisdispenser
+"injektionsvæske, opløsning, enkeltdosisbeholder",5,0,0,19082103,Injectable Solution,NEW,"oplossing voor injectie, verpakking voor éénmalig gebruik"
+"injektionsvæske, opløsning, enkeltdosisbeholder, i.v.",7,0,0,19082103,Injectable Solution,NEW,"oplossing voor injectie, verpakking voor eenmalig gebruik, i.v."
+"injektionsvæske, opløsning, flerdosisbeholder",1,0,0,19082103,Injectable Solution,NEW,"oplossing voor injectie, container voor meerdere doses"
+"injektionsvæske, opløsning, flerdosispen",8,0,0,19082103,Injectable Solution,NEW,"Oplossing voor injectie, pen voor meerdere doses"
+"injektionsvæske, opløsning, fyldt injektionssprøjte med nålebeskytter",12,0,0,19126920,Prefilled Syringe,NEW,"Oplossing voor injectie, voorgevulde spuit met naaldbeschermer"
+"injektionsvæske, opløsning, fyldt injektionssprøjte, enkeltdosisbeholder, i.v.",6,0,0,19126920,Prefilled Syringe,NEW,"oplossing voor injectie, voorgevulde spuit, verpakking voor eenmalig gebruik, i.v."
+"injektionsvæske, opløsning, hætteglas",9,0,0,19082103,Injectable Solution,NEW,"oplossing voor injectie, injectieflacon"
+"injektionsvæske, opløsning, i.m.",2,0,0,19082103,Injectable Solution,NEW,"oplossing voor injectie, i.m."
+"injektionsvæske, opløsning, i.v.",9,0,0,19082103,Injectable Solution,NEW,"oplossing voor injectie, i.v."
+"injektionsvæske, opløsning, nålefri injektor",1,0,0,19082103,Injectable Solution,NEW,"oplossing voor injectie, naaldvrije injector"
+"injektionsvæske, opløsning, til subkutan injektion",1,0,0,19082103,Injectable Solution,NEW,oplossing voor injectie voor subcutane injectie
+"injektionsvæske, suspension",745,1913,0,19082104,Injectable Suspension,NEW,suspensie voor injectie
+"injektionsvæske, suspension",745,1913,1,19082103,Injectable Solution,NEW,suspensie voor injectie
+"injektionsvæske, suspension",745,1913,2,19126920,Prefilled Syringe,NEW,suspensie voor injectie
+"injektionsvæske, suspension (frossen)",1,0,0,19082104,Injectable Suspension,NEW,suspensie voor injectie (bevroren)
+"injektionsvæske, suspension, cylinderampul",9,0,0,19082104,Injectable Suspension,NEW,"oplossing voor injectie, suspensie, patroon"
+"injektionsvæske, suspension, cylinderampul",9,0,1,19126920,Prefilled Syringe,NEW,"oplossing voor injectie, suspensie, patroon"
+"injektionsvæske, suspension, enkeltdosisbeholder",4,0,0,19082104,Injectable Suspension,NEW,"Oplossing voor injectie, suspensie, verpakking voor eenmalig gebruik"
+"injektionsvæske, suspension, flerdosispen",2,0,0,19082104,Injectable Suspension,NEW,"Oplossing voor injectie, suspensie, pen met meerdere doses"
+"injektionsvæske, suspension, fyldt injektionssprøjte",69,0,0,19082104,Injectable Suspension,NEW,"Oplossing voor injectie, suspensie, voorgevulde spuit"
+"injektionsvæske, suspension, fyldt pen",34,5392,0,46234467,Pen Injector,NEW,"Oplossing voor injectie, suspensie, voorgevulde pen"
+"injektionsvæske, suspension, hætteglas",8,0,0,19082104,Injectable Suspension,NEW,"oplossing voor injectie, suspensie, injectieflacon"
+"injektionsvæske, suspension, i.m.",6,0,0,19082104,Injectable Suspension,NEW,"suspensie voor injectie, i.m."
+"injektionsvæske, vaccine",1,0,0,,,NEW,"injectie, vaccin"
+"injektionsvæske/konc. til infusionsvæske, opløsning",16,0,0,19082103,Injectable Solution,NEW,oplossing voor injectie / conc. voor oplossing voor infusie
+instillationsvæske,2,0,0,19082103,Injectable Solution,NEW,instillatievloeistof
+"instillationsvæske, suspension",2,0,0,19082104,Injectable Suspension,NEW,"instillatievloeistof, suspensie"
+intramammarier,16,0,0,,,NEW,intramammarier
+intramammarier i engangssprøjter,1,0,0,,,NEW,intramammaries in wegwerpspuiten
+intramammarier oliesuspension,3,0,0,,,NEW,intramammarier oliesuspensie
+intramammær emulsion,13,0,0,,,NEW,intramammaire emulsie
+intramammær oliesuspension,1,0,0,,,NEW,intramammaire oliesuspensie
+intramammær opløsning,8,0,0,,,NEW,intramammaire oplossing
+intramammær salve,34,0,0,,,NEW,intramammaire zalf
+intramammær suspension,67,0,0,,,NEW,intramammaire schorsing
+intraruminalt indlæg,5,0,0,,,NEW,intraruminale post
+intrauterint indlæg,22,0,0,43126086,Intrauterine Drug Delivery System,NEW,intra-uteriene post
+intrauterint pessar,33,0,0,43126086,Intrauterine Drug Delivery System,NEW,intra-uterien pessarium
+intravitreal implantat i applikator,2,0,0,40033316,Drug Implant,NEW,intravitreaal implantaat in applicator
+kapsler,501,230,0,19082168,Oral Capsule,NEW,capsules
+kapsler med modificeret udløsning,3,0,0,19082255,Delayed Release Oral Capsule,NEW,capsules met gereguleerde afgifte
+"kapsler med modificeret udløsning, hårde",178,3140,0,19082077,Extended Release Oral Capsule,NEW,harde capsules met gereguleerde afgifte
+"kapsler, bløde",230,758,0,19082168,Oral Capsule,NEW,"capsules, zacht"
+"kapsler, hårde",1624,18594,0,19082168,Oral Capsule,NEW,"capsules, hard"
+katetercreme,1,0,0,,,NEW,katheter crème
+klysma,51,0,0,19082627,Enema,NEW,klysma
+knoglecement,7,0,0,,,NEW,bot cement
+konc.t.inf.væsk.opl.,21,0,0,19082103,Injectable Solution,NEW,konc.t.inf.væsk.opl.
+koncentrat,4,0,0,,,NEW,concentreren
+"koncentrat og solvens til infusionsvæske, opløsning",8,0,0,19082106,Intravenous Solution,NEW,concentraat en oplosmiddel voor oplossing voor infusie
+"koncentrat og solvens til injektionsvæske, opløsning",1,0,0,19082103,Injectable Solution,NEW,concentraat en oplosmiddel voor oplossing voor injectie
+"koncentrat og solvens til injektionsvæske, susp.",2,0,0,19082104,Injectable Suspension,NEW,"concentraat en oplosmiddel voor oplossing voor injectie, susp."
+"koncentrat og solvens til injektionsvæske, suspension",3,0,0,19082104,Injectable Suspension,NEW,concentraat en oplosmiddel voor suspensie voor injectie
+"koncentrat og solvens til koncentrat til infusionsvæske, opløsning",2,0,0,19082106,Intravenous Solution,NEW,concentraat en oplosmiddel voor concentraat voor oplossing voor infusie
+"koncentrat til badevand, opløsning",2,0,0,,,NEW,"concentraat voor badwater, oplossing"
+"koncentrat til badevand, suspension",4,0,0,,,NEW,"badwaterconcentraat, suspensie"
+"koncentrat til badevand, suspension og injektionsvæske, suspension",1,0,0,19082104,Injectable Suspension,NEW,"badwaterconcentraat, suspensie en suspensie voor injectie"
+koncentrat til behandlingsopløsning,3,0,0,,,NEW,concentraat voor behandelingsoplossing
+koncentrat til infusionsvæske,1,0,0,19082106,Intravenous Solution,NEW,concentraat voor oplossing voor infusie
+"koncentrat til infusionsvæske, emulsion",3,0,0,19082106,Intravenous Solution,NEW,"concentraat voor oplossing voor infusie, emulsie"
+"koncentrat til infusionsvæske, opløsning",477,0,0,19082106,Intravenous Solution,NEW,concentraat voor oplossing voor infusie
+"koncentrat til infusionsvæske, suspension",2,0,0,19095915,Intravenous Suspension,NEW,concentraat voor oplossing voor infusie
+"koncentrat til injektions-/infusionsvæske, opløsning",10,0,0,19082103,Injectable Solution,NEW,concentraat voor oplossing voor injectie of infusie
+"koncentrat til injektionsvæske, opløsning",6,0,0,19082103,Injectable Solution,NEW,concentraat voor oplossing voor injectie
+koncentrat til kutanopløsning,12,0,0,19082228,Topical Solution,NEW,concentraat voor cutane oplossing
+koncentrat til kutanvæske,4,0,0,19082228,Topical Solution,NEW,concentraat voor huidvocht
+koncentrat til liniment,1,0,0,19082228,Topical Solution,NEW,concentraat voor smeersel
+koncentrat til opløsning til behandling af fisk,1,0,0,19082228,Topical Solution,NEW,concentraat voor oplossing voor het verwerken van vis
+koncentrat til oral opløsning,4,0,0,19082170,Oral Solution,NEW,concentraat voor drank
+koncentrat til oral opløsning til brug i drikkevand,4,0,0,19082170,Oral Solution,NEW,concentraat voor drank voor gebruik in drinkwater
+koncentrat til vaccination,3,0,0,,,NEW,concentraat voor vaccinatie
+kontinuert intraruminalt indlæg,15,0,0,,,NEW,continue intraruminale post
+kutan væske,6,0,0,,,NEW,huidvocht
+kutanemulsion,19,0,0,19082228,Topical Solution,NEW,cutane emulsie
+kutanopløsning,150,206,0,19082228,Topical Solution,NEW,cutane oplossing
+kutanpasta,7,0,0,19010878,Vaginal Cream,NEW,gesneden pasta
+kutanplaster,4,0,0,42629089,Medicated Patch,NEW,huidpleisters
+kutanskum,13,0,0,19082227,Topical Ointment,NEW,huidschuim
+kutanspray,6,0,0,19095912,Topical Spray,NEW,gesneden spray
+"kutanspray, opløsning",27,0,0,19082228,Topical Solution,NEW,"huidspray, oplossing"
+"kutanspray, pulver",4,0,0,19082286,Topical Powder,NEW,"huidspray, poeder"
+"kutanspray, suspension",10,0,0,46234410,Topical Suspension,NEW,"huidspray, suspensie"
+kutansuspension,4,0,0,46234410,Topical Suspension,NEW,cutane suspensie
+"kutansuspension/øredråber, suspension",1,0,0,46234410,Topical Suspension,NEW,"cutane suspensie / oordruppels, suspensie"
+"kutansuspension/øredråber, suspension",1,0,1,19082196,Otic Suspension,NEW,"cutane suspensie / oordruppels, suspensie"
+kæde til implantation,7,0,0,40033316,Drug Implant,NEW,ketting voor implantatie
+lancet,41,0,0,,,NEW,lancet
+"laryngofaryngealspray, opløsning",1,0,0,,,NEW,"laryngofaryngeale spray, oplossing"
+liniment,114,0,0,19082227,Topical Ointment,NEW,smeersel
+liniment,114,0,1,19082224,Topical Cream,NEW,smeersel
+"liniment, spritholdig",1,0,0,19082228,Topical Solution,NEW,"liniment, alcoholisch"
+"liniment, viskøs",1,0,0,19082224,Topical Cream,NEW,"smeersel, stroperig"
+lotion,1,0,0,19082225,Topical Lotion,NEW,lotion
+"lyofilisat og solvens til injektionsvæske, emulsion",1,0,0,,,NEW,lyofilisaat en oplosmiddel voor oplossing voor injectie
+"lyofilisat og solvens til injektionsvæske, opløsning",3,0,0,19082103,Injectable Solution,NEW,lyofilisaat en oplosmiddel voor oplossing voor injectie
+"lyofilisat og solvens til injektionsvæske, opløsning, cylinderampul",5,0,0,19082103,Injectable Solution,NEW,"lyofilisaat en oplosmiddel voor oplossing voor injectie, patroon"
+"lyofilisat og solvens til injektionsvæske, susp.",2,0,0,19082104,Injectable Suspension,NEW,"lyofilisaat en oplosmiddel voor oplossing voor injectie, susp."
+"lyofilisat og solvens til injektionsvæske, suspension",62,0,0,19082104,Injectable Suspension,NEW,lyofilisaat en oplosmiddel voor suspensie voor injectie
+"lyofilisat og solvens til injektionsvæske, suspension eller næsespray",2,0,0,19082104,Injectable Suspension,NEW,lyofilisaat en oplosmiddel voor oplossing voor injectie of neusspray
+"lyofilisat og solvens til injektionsvæske, suspension eller næsespray",2,0,1,19011167,Nasal Spray,NEW,lyofilisaat en oplosmiddel voor oplossing voor injectie of neusspray
+lyofilisat og solvens til oral suspension,6,0,0,19082191,Oral Suspension,NEW,lyofilisaat en oplosmiddel voor orale suspensie
+"lyofilisat og solvens, suspension til nasal administration",1,0,0,19095977,Nasal Suspension,NEW,"lyofilisaat en oplosmiddel, suspensie voor nasale toediening"
+"lyofilisat og suspension til injektionsvæske, suspension",3,0,0,19082104,Injectable Suspension,NEW,"lyofilisaat en suspensie voor injectie, suspensie"
+lyofilisat til anvendelse i drikkevand,6,0,0,,,NEW,lyofilisaat voor gebruik in drinkwater
+"lyofilisat til injektionsvæske, opløsning",1,0,0,19082103,Injectable Solution,NEW,lyofilisaat voor oplossing voor injectie
+"lyofilisat til injektionsvæske, suspension",3,0,0,19082104,Injectable Suspension,NEW,lyofilisaat voor suspensie voor injectie
+lyofilisat til okulonasal suspension,4,0,0,,,NEW,lyofilisaat voor oculonasale suspensie
+lyofilisat til okulonasal suspension/anvendelse i drikkevand,2,0,0,,,NEW,lyofilisaat voor oculonasale suspensie / gebruik in drinkwater
+lyofilisat til oral suspension,1,0,0,,,NEW,lyofilisaat voor orale suspensie
+lyofilisat til suspension,32,0,0,,,NEW,lyofilisaat voor suspensie
+lyofilisat til suspension i drikkevand,1,0,0,,,NEW,lyofilisaat voor suspensie in drinkwater
+lyofilisat til suspension til sprayvaccination,3,0,0,,,NEW,lyofilisaat voor suspensie voor sprayvaccinatie
+"lyofilisat til øjen- og næsedråber, suspension",3,0,0,,,NEW,"lyofilisaat voor oog- en neusdruppels, suspensie"
+matrix til implantation,1,0,0,,,NEW,matrix voor implantatie
+medicinsk gas,40,0,0,19082258,Gas for Inhalation,NEW,medisch gas
+"medicinsk gas, flydende",18,0,0,19082258,Gas for Inhalation,NEW,"medisch gas, vloeistof"
+"medicinsk gas, komprimeret",93,0,0,19082258,Gas for Inhalation,NEW,"medisch gas, gecomprimeerd"
+"medicinsk gas, kryogen",10,0,0,19082258,Gas for Inhalation,NEW,"medisch gas, cryogeen"
+medicinsk neglelak,15,0,0,21014177,Medicated nail lacquer,NEW,medische nagellak
+medicinsk plaster,23,0,0,42629089,Medicated Patch,NEW,medische pleister
+medicinsk tyggegummi,158,0,0,19102296,Chewing Gum,NEW,medische kauwgom
+mikstur,271,0,0,,,NEW,mengsel
+"mikstur, enkeltdosisbeholder",6,0,0,40799200,Unknown Combination Pack Medical Aids,NEW,"drank, verpakking voor eenmalig gebruik"
+"mikstur, sukkerfri",2,0,0,19082170,Oral Solution,NEW,"orale oplossing, suikervrij"
+"mikstur, suspension",6,0,0,19082191,Oral Suspension,NEW,orale suspensie
+mundhulegel,7,608,0,19095916,Oral Gel,NEW,mundhulegel
+mundhulepasta,1,0,0,19095918,Oral Paste,NEW,mondholte pasta
+"mundhulespray, opløsning",16,0,0,19095911,Oral Spray,NEW,"orale spray, oplossing"
+"mundhulespray, opløsning",16,0,1,19082170,Oral Solution,NEW,"orale spray, oplossing"
+"mundhulevæske, opløsning",11,0,0,19082170,Oral Solution,NEW,"orale vloeistof, oplossing"
+mundskyllevæske,10,399,0,19126590,Mouthwash,NEW,mondwater
+næseaerosol,9,0,0,44012797,Nasal Metered-Dose Aerosol,NEW,nasale aerosol
+næsedråber,21,0,0,19082165,Nasal Solution,NEW,neusdruppels
+"næsedråber, opløsning",29,0,0,19082165,Nasal Solution,NEW,"neusdruppels, oplossing"
+"næsedråber, suspension",5,0,0,19095977,Nasal Suspension,NEW,"neusdruppels, suspensie"
+næsepudder,11,861,0,35604877,Nasal Powder,NEW,neuspoeder
+næsesalve,5,0,0,19082164,Nasal Ointment,NEW,neuszalf
+næsespray,45,0,0,19011167,Nasal Spray,NEW,neusspray
+"næsespray, lyofilisat og solvens til suspension",2,0,0,19011167,Nasal Spray,NEW,"neusspray, lyofilisaat en oplosmiddel voor suspensie"
+"næsespray, opløsning",138,0,0,19011167,Nasal Spray,NEW,"neusspray, oplossing"
+"næsespray, opløsning",138,0,1,19082165,Nasal Solution,,
+"næsespray, suspension",94,3932,0,19011167,Nasal Spray,NEW,"neusspray, suspensie"
+"næsespray, suspension",94,3932,1,19095977,Nasal Suspension,NEW,"neusspray, suspensie"
+olie,1,0,0,19082226,Topical Oil,NEW,olie
+opløselige tabletter,72,311,0,19082076,Disintegrating Oral Tablet,NEW,oplosbare tabletten
+"opløselige tabletter og pulver til oral opløsning, kombinationspakning",1,0,0,19082076,Disintegrating Oral Tablet,NEW,"oplosbare tabletten en poeder voor drank, combinatiepakket"
+"opløselige tabletter og pulver til oral opløsning, kombinationspakning",1,0,1,45775491,Powder for Oral Solution,,
+opløseligt pulver,1,0,0,,,NEW,oplosbaar poeder
+opløsning,94,0,0,19111276,Solution,NEW,resolutie
+"opløsning og suspension til injektionsvæske, suspension, fyldt injektionssprøjte",1,0,0,19126920,Prefilled Syringe,NEW,"oplossing en suspensie voor oplossing voor injectie, suspensie, voorgevulde spuit"
+opløsning til anvendelse i drikkevand,17,0,0,19082170,Oral Solution,NEW,oplossing voor gebruik in drinkwater
+opløsning til anvendelse i drikkevand/mælk,6,0,0,19082170,Oral Solution,NEW,oplossing voor gebruik in drinkwater / melk
+opløsning til anvendelse på huden,3,0,0,19082228,Topical Solution,NEW,oplossing voor gebruik op de huid
+opløsning til blodstabilisering,21,0,0,19082106,Intravenous Solution,NEW,oplossing voor bloedstabilisatie
+opløsning til desinfektion,33,0,0,19082228,Topical Solution,NEW,oplossing voor desinfectie
+opløsning til fortynding,3,0,0,,,NEW,oplossing voor verdunning
+opløsning til intraokulær anvendelse,10,0,0,19129634,Ophthalmic Solution,NEW,oplossing voor intraoculair gebruik
+opløsning til lokal anvendelse (tørstof),1,0,0,19082286,Topical Powder,NEW,oplossing voor lokaal gebruik (droge stof)
+opløsning til modificering af blodfraktioner,1,0,0,19082103,Injectable Solution,NEW,oplossing voor het aanpassen van bloedfracties
+opløsning til pensling,7,0,0,,,NEW,oplossing voor poetsen
+opløsning til priktest,33,0,0,19082103,Injectable Solution,NEW,resolutie voor puntentest
+opløsning til priktest (soluprick),106,0,0,19082103,Injectable Solution,NEW,
+opløsning til priktest (soluprick-sq),25,0,0,19082103,Injectable Solution,NEW,
+opløsning til priktest (soluprick-squ),2,0,0,19082103,Injectable Solution,NEW,
+opløsning til tandkød,2,0,0,,,NEW,gom oplossing
+opløsning til vaccination,2,0,0,,,NEW,oplossing voor vaccinatie
+"opløsning, vandig",2,0,0,,,NEW,"oplossing, waterig"
+opløsnings- og fortyndingsvæske,16,0,0,,,NEW,oplosmiddel en verdunningsmiddel
+oral emulsion,6,0,0,,,NEW,orale emulsie
+oral gel,25,0,0,19095916,Oral Gel,NEW,orale gel
+oral opløsning,485,4192,0,19082170,Oral Solution,NEW,Orale oplossing
+oral opløsning,485,4192,1,19082191,Oral Suspension,NEW,Orale oplossing
+oral opløsning i brev,2,0,0,19082170,Oral Solution,NEW,orale oplossing in brief
+oral opløsning til brug i drikkevand,8,0,0,19082170,Oral Solution,NEW,orale oplossing voor gebruik in drinkwater
+"oral opløsning, enkeltdosisbeholder",3,0,0,19082170,Oral Solution,NEW,"drank, verpakking voor eenmalig gebruik"
+oral pasta,72,0,0,19095918,Oral Paste,NEW,orale pasta
+oral suspension,222,437,0,19082191,Oral Suspension,NEW,orale suspensie
+oral suspension i brev,3,0,0,19082191,Oral Suspension,NEW,orale suspensie in letters
+"oral suspension og rektalvæske, suspension",4,0,0,19082191,Oral Suspension,NEW,"orale suspensie en rectale vloeistof, suspensie"
+oral suspension til brug i drikkevand,8,0,0,19082191,Oral Suspension,NEW,orale suspensie voor gebruik in drinkwater
+"oral suspension, enkeltdosisbeholder",1,0,0,19082191,Oral Suspension,NEW,"orale suspensie, verpakking voor eenmalig gebruik"
+oral væske,9,0,0,19082170,Oral Solution,NEW,orale vloeistof
+orale dråber,15,0,0,19082170,Oral Solution,NEW,orale druppels
+"orale dråber, emulsion",1,0,0,19082170,Oral Solution,NEW,"druppels voor oraal gebruik, emulsie"
+"orale dråber, opløsning",51,1153,0,19082170,Oral Solution,NEW,"druppels voor oraal gebruik, oplossing"
+oralt pulver,117,0,0,19095976,Oral Powder,NEW,oraal poeder
+oralt pulver i brev,4,0,0,19095976,Oral Powder,NEW,oraal poeder in brief
+"oralt pulver, enkeltdosisbeholder",3,0,0,19095976,Oral Powder,NEW,"oraal poeder, verpakking voor éénmalig gebruik"
+"oralt pulver, opløseligt",1,0,0,45775491,Powder for Oral Solution,NEW,"oraal poeder, oplosbaar"
+organopbevaringsvæske,1,0,0,,,NEW,opslagvloeistof voor organen
+overtrukne tabletter,356,26177,0,19001949,Delayed Release Oral Tablet,NEW,Gecoate tabletten
+pasta,20,0,0,19102295,Paste,NEW,pasta
+pasta til røntgenundersøgelse,1,0,0,19102295,Paste,NEW,plak voor röntgenonderzoek
+pasta/cement,1,0,0,19102295,Paste,NEW,pasta / cement
+periodevis intraruminalt indlæg,14,0,0,,,NEW,periodieke intraruminale post
+periodontalgel,1,0,0,19095916,Oral Gel,NEW,parodontale gel
+peritonaeldialysevæske,1,0,0,19082106,Intravenous Solution,NEW,peritoneale dialysevloeistof
+peritonealdialysevæske,430,0,0,19082106,Intravenous Solution,NEW,peritoneale dialysevloeistof
+"peritonealdialysevæske, opløsning",14,0,0,19082103,Injectable Solution,NEW,"peritoneale dialysevloeistof, oplossing"
+peroral suspension,2,0,0,,,NEW,orale suspensie
+piller,9,0,0,19082573,Oral Tablet,NEW,pillen
+"piller, overtrukne",1,0,0,19001949,Delayed Release Oral Tablet,NEW,"pillen, gecoat"
+plaster til provokationstest,9,0,0,,,NEW,patch voor provocatietest
+pour-on,4,0,0,,,NEW,gieten op
+"pour-on, opløsning",39,0,0,19082228,Topical Solution,NEW,"opschenken, oplossing"
+"pour-on, suspension",1,0,0,,,NEW,"opschenken, opschorting"
+premix,47,0,0,,,NEW,premix
+premix til foderlægemiddel,29,0,0,,,NEW,premix voor diervoeder
+"premix, foderlægemiddel",5,0,0,,,NEW,
+"premix, oral pulver",3,0,0,,,NEW,
+pudder,33,0,0,19135790,Powder,NEW,poeder
+pulver,42,0,0,19135790,Powder,NEW,poeder
+pulver og gel til gel,2,0,0,,,NEW,poeder en gel tot gel
+pulver og opløsning til bistadedispersion,1,0,0,,,NEW,poeder en oplossing voor bijenkorfverspreiding
+"pulver og opløsning til injektionsvæske, opløsning",2,0,0,19082103,Injectable Solution,NEW,poeder en oplossing voor oplossing voor injectie
+"pulver og solvens til depotinjektionsvæske, suspension",29,0,0,19082104,Injectable Suspension,NEW,poeder en oplosmiddel voor suspensie voor injectie met verlengde afgifte
+"pulver og solvens til depotinjektionsvæske, suspension i fyldt injektionssprøjte",4,0,0,19082104,Injectable Suspension,NEW,"poeder en oplosmiddel voor spuit met verlengde afgifte, suspensie in voorgevulde spuit"
+"pulver og solvens til depotinjektionsvæske, suspension i fyldt pen",5,0,0,19082104,Injectable Suspension,NEW,poeder en oplosmiddel voor suspensie voor injectie met verlengde afgifte in een voorgevulde pen
+"pulver og solvens til infusionsvæske, opløsning",53,0,0,19082106,Intravenous Solution,NEW,poeder en oplosmiddel voor oplossing voor infusie
+"pulver og solvens til injektions- /infusionsvæske, opløsning",37,0,0,19082103,Injectable Solution,NEW,poeder en oplosmiddel voor oplossing voor injectie of infusie
+"pulver og solvens til injektionsvæske, dispergering",2,0,0,19082103,Injectable Solution,NEW,poeder en oplosmiddel voor oplossing voor injectie
+"pulver og solvens til injektionsvæske, emulsion",2,0,0,19082103,Injectable Solution,NEW,poeder en oplosmiddel voor oplossing voor injectie
+"pulver og solvens til injektionsvæske, opløsning",573,0,0,19082103,Injectable Solution,NEW,poeder en oplosmiddel voor oplossing voor injectie
+"pulver og solvens til injektionsvæske, opløsning i fyldt pen",5,0,0,19126920,Prefilled Syringe,NEW,poeder en oplosmiddel voor oplossing voor injectie in een voorgevulde pen
+"pulver og solvens til injektionsvæske, opløsning, fyldt injektionssprøjte",35,0,0,19082103,Injectable Solution,NEW,"poeder en oplosmiddel voor oplossing voor injectie, voorgevulde spuit"
+"pulver og solvens til injektionsvæske, suspension",102,0,0,19082104,Injectable Suspension,NEW,poeder en oplosmiddel voor suspensie voor injectie
+"pulver og solvens til injektionsvæske, suspension, fyldt injektionssprøjte",16,0,0,19082104,Injectable Suspension,NEW,"poeder en oplosmiddel voor suspensie voor injectie, voorgevulde spuit"
+pulver og solvens til intravesikal opløsning,1,0,0,19082106,Intravenous Solution,NEW,poeder en oplosmiddel voor intravesicale oplossing
+pulver og solvens til intravesikal suspension,2,0,0,44012800,Intravenous Suspension,NEW,poeder en oplosmiddel voor intravesicale suspensie
+"pulver og solvens til koncentrat til infusionsvæske, opløsning",11,0,0,19082106,Intravenous Solution,NEW,poeder en oplosmiddel voor concentraat voor oplossing voor infusie
+"pulver og solvens til næsedråber, suspension",4,0,0,45775488,Powder for Nasal Solution,NEW,"poeder en oplosmiddel voor neusdruppels, suspensie"
+pulver og solvens til opløsning til intravesikal anvendelse,2,0,0,19082106,Intravenous Solution,NEW,poeder en oplosmiddel voor oplossing voor intravesicaal gebruik
+pulver og solvens til opløsning til nebulisator,1,0,0,19082259,Inhalation Powder,NEW,poeder en oplosmiddel voor oplossing voor vernevelaar
+pulver og solvens til oral suspension,2,0,0,45775492,Powder for Oral Suspension,NEW,poeder en oplosmiddel voor orale suspensie
+"pulver og solvens til tandkødsgel, fyldt injektionssprøjte",1,0,0,,,NEW,"poeder en oplosmiddel voor gomgel, voorgevulde spuit"
+"pulver og solvens til øjendråber, opløsning",4,0,0,19129634,Ophthalmic Solution,NEW,"poeder en oplosmiddel voor oogdruppels, oplossing"
+"pulver og suspension til injektionsvæske, suspension",1,0,0,19082104,Injectable Suspension,NEW,"poeder en suspensie voor injectie, suspensie"
+"pulver og suspension til injektionsvæske, suspension i fyldt injektionssprøjte",1,0,0,19082104,Injectable Suspension,NEW,"poeder en suspensie voor injectie, suspensie in voorgevulde spuit"
+pulver til anvendelse i drikkevand,12,0,0,45775491,Powder for Oral Solution,NEW,poeder voor gebruik in drinkwater
+pulver til anvendelse i drikkevand/mælk,8,0,0,45775491,Powder for Oral Solution,NEW,poeder voor gebruik in drinkwater / melk
+pulver til blæreskyllevæske,3,0,0,,,NEW,poeder voor blaasspoelvloeistof
+pulver til brug i drikkevand,2,0,0,19095976,Oral Powder,NEW,poeder voor gebruik in drinkwater
+pulver til brug i drikkevand (vaccine),8,0,0,19095976,Oral Powder,NEW,poeder voor gebruik in drinkwater (vaccin)
+pulver til brug i drikkevand eller spray,12,0,0,19095976,Oral Powder,NEW,poeder voor gebruik in drinkwater of spray
+"pulver til implantation, suspension",8,0,0,40033316,Drug Implant,NEW,"poeder voor implantatie, suspensie"
+pulver til infusionsvæske,3,0,0,19082106,Intravenous Solution,NEW,poeder voor oplossing voor infusie
+"pulver til infusionsvæske, opløsning",184,0,0,19082106,Intravenous Solution,NEW,poeder voor oplossing voor infusie
+"pulver til infusionsvæske, suspension",2,0,0,44012800,Intravenous Suspension,NEW,poeder voor oplossing voor infusie
+pulver til inhalationsvæske,1,0,0,45775488,Powder for Nasal Solution,NEW,poeder voor inademingsvloeistof
+"pulver til injektions-/infusionsvæske, opløsning",143,0,1,19082103,Injectable Solution,NEW,poeder voor oplossing voor injectie / infusie
+"pulver til injektions-/infusionsvæske, opløsning",143,0,2,19082106,Intravenous Solution,NEW,poeder voor oplossing voor injectie / infusie
+"pulver til injektions-/infusionsvæske, opløsning eller oral opløsning",11,0,0,19082103,Injectable Solution,NEW,poeder voor oplossing voor injectie of infusie of drank
+"pulver til injektions-/infusionsvæske, opløsning eller oral opløsning",11,0,1,19082106,Intravenous Solution,NEW,poeder voor oplossing voor injectie of infusie of drank
+"pulver til injektions-/infusionsvæske, opløsning eller oral opløsning",11,0,2,45775491,Powder for Oral Solution,NEW,poeder voor oplossing voor injectie of infusie of drank
+"pulver til injektions-/infusionsvæske, opløsning eller til intravesikal opløsning",1,0,0,19082103,Injectable Solution,NEW,poeder voor oplossing voor injectie of infusie of voor intravesicale oplossing
+"pulver til injektions-/infusionsvæske, opløsning eller til intravesikal opløsning",1,0,1,19082106,Intravenous Solution,NEW,poeder voor oplossing voor injectie of infusie of voor intravesicale oplossing
+pulver til injektionsvæske,9,0,0,19082103,Injectable Solution,NEW,poeder voor oplossing voor injectie
+"pulver til injektionsvæske, opløsning",223,0,0,19082103,Injectable Solution,NEW,poeder voor oplossing voor injectie
+"pulver til injektionsvæske, opløsning/suspension",4,0,0,19082103,Injectable Solution,NEW,poeder voor oplossing voor injectie / suspensie
+"pulver til injektionsvæske, opløsning/suspension",4,0,1,19082104,Injectable Suspension,NEW,poeder voor oplossing voor injectie / suspensie
+"pulver til injektionsvæske, suspension",18,0,0,19082104,Injectable Suspension,NEW,poeder voor oplossing voor injectie
+pulver til instillationsvæske,2,0,0,,,NEW,poeder voor instillatievloeistof
+"pulver til koncentrat og opløsning til infusionsvæske, opløsning",1,0,0,19082106,Intravenous Solution,NEW,poeder voor concentraat en oplossing voor oplossing voor infusie
+pulver til koncentrat til infusionsvæske,9,0,0,19082106,Intravenous Solution,NEW,poeder voor concentraat voor oplossing voor infusie
+"pulver til koncentrat til infusionsvæske, dispersion",1,0,0,19082106,Intravenous Solution,NEW,"poeder voor concentraat voor oplossing voor infusie, dispersie"
+"pulver til koncentrat til infusionsvæske, opløsning",109,0,0,19082106,Intravenous Solution,NEW,poeder voor concentraat voor oplossing voor infusie
+"pulver til koncentrat til injektions-/infusionsvæske, opløsning",20,0,0,19082103,Injectable Solution,NEW,poeder voor concentraat voor oplossing voor injectie of infusie
+"pulver til koncentrat til injektions-/infusionsvæske, opløsning",20,0,1,19082106,Intravenous Solution,NEW,poeder voor concentraat voor oplossing voor injectie of infusie
+pulver til mikstur,12,0,0,45775491,Powder for Oral Solution,NEW,poeder voor drank
+pulver til nasal inhalation (kapsler),2,0,0,19082259,Inhalation Powder,NEW,poeder voor neusinhalatie (capsules)
+pulver til opløsning i drikkevand,74,0,0,45775491,Powder for Oral Solution,NEW,poeder om op te lossen in drinkwater
+"pulver til opløsning til intravesikal anvendelse og til injektionsvæske, opløsning",1,0,0,19082103,Injectable Solution,NEW,poeder voor oplossing voor intravesicaal gebruik en voor oplossing voor injectie
+pulver til opløsning til kutan og intrakavernal anvendelse,3,0,0,19082228,Topical Solution,NEW,poeder voor oplossing voor cutaan en intracavernaal gebruik
+pulver til opløsning til lokal anvendelse,1,0,0,,,NEW,poeder voor oplossing voor lokaal gebruik
+pulver til opløsning til nebulisator,11,0,0,19082259,Inhalation Powder,NEW,poeder voor oplossing voor vernevelaar
+"pulver til opløsning, vaccine",1,0,0,19082103,Injectable Solution,NEW,"poeder voor oplossing, vaccin"
+pulver til oral opløsning,84,589,0,45775491,Powder for Oral Solution,NEW,poeder voor drank
+"pulver til oral opløsning, breve",5,0,0,45775491,Powder for Oral Solution,NEW,"poeder voor drank, letters"
+"pulver til oral opløsning, enkeltdosisbeholder",19,1207,0,45775491,Powder for Oral Solution,NEW,"poeder voor drank, verpakking voor eenmalig gebruik"
+pulver til oral suspension,55,0,0,45775492,Powder for Oral Suspension,NEW,poeder voor orale suspensie
+"pulver til oral suspension, enkeltdosisbeholder",14,0,0,45775492,Powder for Oral Suspension,NEW,"poeder voor orale suspensie, verpakking voor eenmalig gebruik"
+"pulver til oral suspension/rektalvæske, suspension",8,0,0,45775492,Powder for Oral Suspension,NEW,"poeder voor orale suspensie / rectale vloeistof, suspensie"
+"pulver til rektalvæske, suspension",3,0,0,44012801,Rectal Powder,NEW,"poeder voor rectale vloeistof, suspensie"
+pulver til suspension,2,0,0,19082191,Oral Suspension,NEW,poeder voor suspensie
+pulver til suspension ventrikel,2,0,0,,,NEW,poeder voor schorsingsventrikel
+pulver til vaskbehandling,1,0,0,,,NEW,poeder voor wasbehandeling
+pulver til øjendråber,1,0,0,19129634,Ophthalmic Solution,NEW,poeder voor oogdruppels
+"pulver, enkeltdosisbeholder",4,0,0,,,NEW,"poeder, verpakking voor éénmalig gebruik"
+"pulver, opløseligt",37,0,0,45775491,Powder for Oral Solution,NEW,"poeder, oplosbaar"
+"pulver, solvens og matrix til matrix til implantation",3,0,0,40033316,Drug Implant,NEW,"poeder, oplosmiddel en matrix naar matrix voor implantatie"
+"pulver, uopløseligt",11,0,0,,,NEW,"poeder, onoplosbaar"
+"pulver, vandopløseligt",16,0,0,19095976,Oral Powder,NEW,"poeder, oplosbaar in water"
+radiofarmaceutisk præparationssæt til infusion,1,0,0,21014173,Radionuclide generator,NEW,radiofarmaceutische bereidingsset voor infusie
+rektalcreme,10,901,0,19082197,Rectal Cream,NEW,rectale crème
+rektalcreme,10,901,1,19082282,Rectal Ointment,NEW,rectale crème
+rektalsalve,8,732,0,19082282,Rectal Ointment,NEW,rectale zalf
+rektalskum,11,0,0,19082574,Rectal Foam,NEW,rectaal schuim
+rektalvæske,5,0,0,19082283,Rectal Solution,NEW,rectale vloeistof
+"rektalvæske, opløsning",32,0,0,19082283,Rectal Solution,NEW,"rectale vloeistof, oplossing"
+"rektalvæske, opløsning, enkeltdosisbeholder",24,0,0,19082283,Rectal Solution,NEW,"rectale vloeistof, oplossing, verpakking voor eenmalig gebruik"
+"rektalvæske, suspension",4,0,0,19082221,Rectal Suspension,NEW,"rectale vloeistof, suspensie"
+"rektalvæske, suspension, enkeltdosisbeholder",12,0,0,19082221,Rectal Suspension,NEW,"rectale vloeistof, suspensie, verpakking voor eenmalig gebruik"
+resoribletter,27,0,0,19082573,Oral Tablet,NEW,resoribletter
+"resoribletter, slimhindeklæbende",2,0,0,,,NEW,"resoriblets, mucosale kleefstof"
+"resoribletter, sublinguale",132,1030,0,19082285,Sublingual Tablet,NEW,"resoriblets, sublinguaal"
+saft,26,0,0,19082170,Oral Solution,NEW,sap
+salve,396,975,0,19129401,Ointment,NEW,zalf
+salve,396,975,1,19082227,Topical Ointment,NEW,
+"salve, steril",2,0,0,19082227,Topical Ointment,NEW,"zalf, steriel"
+salvekompres,1,0,0,19082229,Transdermal System,NEW,zalf kompres
+shampoo,42,1048,0,19008697,Medicated Shampoo,NEW,shampoo
+skyllevæske,88,0,0,19016586,Irrigation Solution,NEW,spoelvloeistof
+smeltetabletter,266,273,0,19082076,Disintegrating Oral Tablet,NEW,orodispergeerbare tabletten
+solubletter,9,0,0,19082573,Oral Tablet,NEW,solubletter
+solvens,3,0,0,19111276,Solution,NEW,solvabiliteit
+solvens til parenteral anvendelse,44,0,0,19082103,Injectable Solution,NEW,solvabiliteit voor parenteraal gebruik
+"solvens til parenteral anvendelse/injektionsvæske, opløsning",1,0,0,19082103,Injectable Solution,NEW,oplosmiddel voor parenteraal gebruik / oplossing voor injectie
+spot-on,14,0,0,,,NEW,perfect
+spot-on opløsning,4,0,0,19082228,Topical Solution,NEW,spot-on resolutie
+"spot-on, opløsning",158,0,0,19082228,Topical Solution,NEW,"perfect, resolutie"
+sprayopløsning,1,0,0,19095899,Spray,NEW,spray oplossing
+sprit,8,0,0,19095973,Topical Gel,NEW,hand gel
+stave,1,0,0,,,NEW,spellen
+sterilt tørstof,1,0,0,,,NEW,steriele droge stof
+sterilt vand,4,0,0,,,NEW,steriel water
+stift,6,0,0,21014170,Stick,NEW,stijf
+sublingualspray,8,300,0,19095900,Mucosal Spray,NEW,sublinguaal bidden
+sublingualspray,8,300,1,19095911,Oral Spray,NEW,sublinguaal bidden
+sugetabletter,117,0,0,19082253,Oral Lozenge,NEW,zuigtabletten
+suppositorier,292,1694,0,19082200,Rectal Suppository,NEW,zetpillen
+suspension,4,0,0,19001144,Suspension,NEW,suspensie
+suspension og brusegranulat til oral suspension,6,0,0,,,NEW,suspensie en bruisgranulaat voor orale suspensie
+"suspension og emulsion til injektionsvæske, emulsion",1,0,0,19082104,Injectable Suspension,NEW,suspensie en emulsie voor oplossing voor injectie
+suspension og opløsning til spray,5,0,0,,,NEW,suspensie en oplossing voor spray
+"suspension og solvens til injektionsvæske, suspension",3,0,0,19082104,Injectable Suspension,NEW,suspensie en oplosmiddel voor suspensie voor injectie
+suspension til anvendelse i drikkevand,3,0,0,19082191,Oral Suspension,NEW,suspensie voor gebruik in drinkwater
+suspension til implantation,1,0,0,,,NEW,suspensie voor implantatie
+suspension til oral administration,8,0,0,19082191,Oral Suspension,NEW,suspensie voor orale toediening
+syrup,18,0,0,19082170,Oral Solution,NEW,siroop
+"sæbe, medicinsk",1,0,0,19082108,Medicated Bar Soap,NEW,"zeep, medicinaal"
+tab,2,0,0,19082573,Oral Tablet,NEW,verlies
+tabletter,8118,173234,0,19082573,Oral Tablet,NEW,tabletten
+tabletter ir (immediate release),1,0,0,19082573,Oral Tablet,NEW,
+tabletter med modificeret udløsning,108,4181,0,19082079,Extended Release Oral Tablet,NEW,tabletten met gereguleerde afgifte
+tabletter og vaginaltabletter,2,0,0,19082573,Oral Tablet,NEW,tabletten en vaginale tabletten
+tabletter og vaginaltabletter,2,0,1,19010962,Vaginal Tablet,NEW,tabletten en vaginale tabletten
+tabletter sr (sustained release),1,0,0,19082079,Extended Release Oral Tablet,NEW,
+"tabletter til rektalvæske, suspension",2,0,0,19082283,Rectal Solution,NEW,"tabletten voor rectale vloeistof, suspensie"
+tandpasta,5,554,0,19009068,Toothpaste,NEW,tandpasta
+tandproteselak,1,0,0,,,NEW,kunstgebit vernis
+tinktur,1,0,0,,,NEW,tinctuur
+transdermal gel,1,0,0,19095973,Topical Gel,NEW,transdermale gel
+transdermalt system,2,0,0,19082229,Transdermal System,NEW,transdermaal systeem
+tyggegummi,1,0,0,19102296,Chewing Gum,NEW,kauwgom
+tyggetabletter,327,1019,0,19135866,Chewable Tablet,NEW,kauwbare tabletten
+tyggetabletter/dispergible tabletter,15,0,0,19135866,Chewable Tablet,NEW,kauwtabletten / dispergeerbare tabletten
+tyggetabletter/dispergible tabletter,15,0,1,19082076,Disintegrating Oral Tablet,NEW,kauwtabletten / dispergeerbare tabletten
+tørstof,3,0,0,19135790,Powder,NEW,Droge materie
+uretral gel,10,0,0,19095974,Urethral Gel,NEW,urethrale gel
+uretralstift,14,0,0,19082575,Urethral Suppository,NEW,urethrale pin
+"urtete/inhalationsdamp, droge",3,0,0,,,NEW,"kruidenthee / inhalatiedamp, droog"
+uteritorier,4,0,0,19082575,Urethral Suppository,NEW,baarmoeders
+"uteritorier, tabletter",17,0,0,19082575,Urethral Suppository,NEW,"baarmoeder, tabletten"
+vaginalcreme,26,0,0,19010878,Vaginal Cream,NEW,vaginale crème
+vaginalgel,11,0,0,19010880,Vaginal Gel,NEW,vaginale gel
+"vaginalgel, enkeltdosisbeholder",2,0,0,19010880,Vaginal Gel,NEW,"vaginale gel, verpakking voor eenmalig gebruik"
+vaginalindlæg,15,302,0,1356079,Vaginal Insert,NEW,vaginale insert
+vaginalkapsler,4,0,0,19093368,Vaginal Suppository,NEW,vaginale capsules
+"vaginalkapsler, bløde",5,0,0,19093368,Vaginal Suppository,NEW,"vaginale capsules, zacht"
+vaginalskyllevæske,1,0,0,19082225,Topical Lotion,NEW,vaginale spoelvloeistof
+vaginaltabletter,28,7898,0,19010962,Vaginal Tablet,NEW,vaginale tabletten
+vaginaltabletter og creme,7,0,0,19010962,Vaginal Tablet,NEW,vaginale tabletten en crème
+vaginaltabletter og creme,7,0,1,19010878,Vaginal Cream,,
+"vaginaltampon, medicinsk",1,0,0,1356079,Vaginal Insert,NEW,"vaginale tampon, medisch"
+vagitorier,47,1211,0,19010962,Vaginal Tablet,NEW,vagitoria
+vandig opløsning,2,0,0,19111276,Solution,NEW,waterige oplossing
+vaselin,1,0,0,19082224,Topical Cream,NEW,Vaseline
+væske til inhalationsdamp,36,0,0,19095898,Inhalation Solution,NEW,vloeistof voor inademing damp
+vævsklæber,18,0,0,19082227,Topical Ointment,NEW,weefsellijm
+vævsklæbermatrix,11,0,0,19082227,Topical Ointment,NEW,weefsel klevende matrix
+"vævskultur, levende",1,0,0,,,NEW,"weefselkweek, leven"
+Øjendråber,,,0,19129634,Ophthalmic Solution,NEW,Oogdruppels
+øjen- og næsesalve,1,0,0,19135925,Ophthalmic Ointment,NEW,oog- en neuszalf
+øjen- og næsesalve,1,0,1,19082164,Nasal Ointment,NEW,oog- en neuszalf
+øjen- og øredråber,5,0,0,19129634,Ophthalmic Solution,NEW,oog- en oordruppels
+øjen- og øredråber,5,0,1,19082195,Otic Solution,NEW,oog- en oordruppels
+"øjen- og øredråber, opløsning",6,430,0,19129634,Ophthalmic Solution,NEW,"oog- en oordruppels, oplossing"
+"øjen- og øredråber, opløsning",6,430,1,19082195,Otic Solution,NEW,"oog- en oordruppels, oplossing"
+"øjen- og øredråber, suspension",3,1044,0,19082167,Ophthalmic Suspension,NEW,"oog- en oordruppels, suspensie"
+"øjen- og øredråber, suspension",3,1044,1,19082196,Otic Suspension,NEW,"oog- en oordruppels, suspensie"
+øjen- og øresalve,3,0,0,19135925,Ophthalmic Ointment,NEW,oog- en oorzalf
+øjen- og øresalve,3,0,1,19082194,Otic Ointment,NEW,oog- en oorzalf
+øjenbadevand,5,0,0,19059413,Ophthalmic Irrigation Solution,NEW,oogbad water
+øjendråber,184,1987,0,19129634,Ophthalmic Solution,NEW,oogdruppels
+"øjendråber, emulsion",2,0,0,19129634,Ophthalmic Solution,NEW,"oogdruppels, emulsie"
+"øjendråber, enkeltdosisbeholder",5,0,0,19129634,Ophthalmic Solution,NEW,"oogdruppels, verpakking voor éénmalig gebruik"
+"øjendråber, opløsning",345,8845,0,19129634,Ophthalmic Solution,NEW,"oogdruppels, oplossing"
+"øjendråber, opløsning, enkeltdosisbeholder",83,293,0,19129634,Ophthalmic Solution,NEW,"oogdruppels, oplossing, verpakking voor eenmalig gebruik"
+"øjendråber, suspension",91,3774,0,19082167,Ophthalmic Suspension,NEW,"oogdruppels, suspensie"
+"øjendråber, suspension, enkeltdosisbeholder",2,0,0,19082167,Ophthalmic Suspension,NEW,"oogdruppels, suspensie, verpakking voor eenmalig gebruik"
+"øjendråber, ukons.",1,0,0,19129634,Ophthalmic Solution,NEW,"oogdruppels, uncons."
+øjendråber/øjensalve,1,0,0,19129634,Ophthalmic Solution,NEW,oogdruppels / oogzalf
+øjendråber/øjensalve,1,0,1,19135925,Ophthalmic Ointment,NEW,oogdruppels / oogzalf
+øjengel,20,2145,0,19082166,Ophthalmic Gel,NEW,oog engel
+"øjengel, enkeltdosisbeholder",7,0,0,19082166,Ophthalmic Gel,NEW,"eye angel, verpakking voor éénmalig gebruik"
+øjenlamel,5,0,0,,,NEW,oog lamel
+øjensalve,44,1824,0,19135925,Ophthalmic Ointment,NEW,oogzalf
+øredråber,21,0,0,19082195,Otic Solution,NEW,oordruppels
+"øredråber, opløsning",12,296,0,19082195,Otic Solution,NEW,"oordruppels, oplossing"
+"øredråber, opløsning i enkeltdosisbeholder",3,0,0,19082195,Otic Solution,NEW,"oordruppels, oplossing in een verpakking voor eenmalig gebruik"
+"øredråber, suspension",19,291,0,19082196,Otic Suspension,NEW,"oordruppels, schorsing"
+"øredråber, suspension og kutansuspension",7,0,0,19082196,Otic Suspension,NEW,"oordruppels, suspensie en cutane suspensie"
+"øredråber, suspension og kutansuspension",7,0,1,46234410,Topical Suspension,NEW,"oordruppels, suspensie en cutane suspensie"
+øregel,3,0,0,19082196,Otic Suspension,NEW,oor regel

@@ -1,7 +1,6 @@
 """Build the public lab snapshot from the checked-out mapping files."""
 import csv
 import json
-import os
 import subprocess
 from html.parser import HTMLParser
 from pathlib import Path
@@ -124,24 +123,13 @@ def main():
         code = record.get("Source code")
         if code in source_details:
             source_details[code]["names"].append(record)
-    # Supply a CONCEPT export filtered to fields and vocabularies cleared for public display.
-    concept_path = os.environ.get("PUBLIC_OMOP_CONCEPTS")
-    if concept_path:
-        for row in rows(Path(concept_path), "\t"):
-            if row["standard_concept"] == "S" and not row["invalid_reason"]:
-                targets[row["concept_id"]] = dict(
-                    id=row["concept_id"], name=row["concept_name"], domain=row["domain_id"],
-                    vocabulary=row["vocabulary_id"], code=row["concept_code"], standard=True,
-                )
     OUT.mkdir(exist_ok=True)
     for path in (SITE / "public").iterdir():
         (OUT / path.name).write_bytes(path.read_bytes())
     data = dict(commit=commit, downloads=downloads, mappings=mappings, units=units,
                 sourceDetails=source_details, terminologyDate="30 Oct 2026",
                 unmapped=sorted(unmapped, key=lambda row: -int(row["occurrences"].lstrip("<"))),
-                targets=targets, omopRelease=os.environ.get("OMOP_RELEASE") if concept_path else None)
-    if concept_path and not data["omopRelease"]:
-        raise SystemExit("Set OMOP_RELEASE for the public concept export.")
+                targets=targets)
     (OUT / "data.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 if __name__ == "__main__":

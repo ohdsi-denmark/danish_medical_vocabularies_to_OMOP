@@ -8,7 +8,7 @@ The national BRUGSNAVN and NPUBEGREB exports dated 30 October 2026 enrich mapped
 
 Run `python website/build.py` from the repository root, then `python -m http.server 8000 --bind 127.0.0.1 --directory website/dist`. Open http://127.0.0.1:8000. This preview supports search, downloads, and proposal previews. The source lab inputs must be committed so downloads and displayed data refer to the same snapshot.
 
-For expanded target search, set `PUBLIC_OMOP_CONCEPTS` to a tab-separated OMOP CONCEPT export filtered to vocabularies cleared for public display, and set `OMOP_RELEASE` to its release identifier. The generated JSON is public. Without this export, the picker searches concepts already recorded in the mapping files. Contributors can use Athena and enter another concept ID. Such targets are flagged for maintainer verification.
+Target search uses only concepts already recorded in the repository's mapping files. Contributors can search Athena on its own website and enter another concept ID. Such targets are flagged for maintainer verification. Athena vocabulary extracts must remain outside the public repository and website assets. The website builder does not import these extracts.
 
 ## Deploy on Cloudflare Workers
 
