@@ -104,6 +104,7 @@ def build_drugs(root, commit):
                         if row["reviewState"] == "Published" and positive_id(row["conceptId"])}
     product_details = defaultdict(list)
     ingredient_details = defaultdict(list)
+    historical_ingredient_only_products = set()
     metadata = {}
     drug_file = reference / "medications/dkma_drug_mapping_details_2021-01-04.csv"
     labels = {
@@ -122,12 +123,17 @@ def build_drugs(root, commit):
     for number, row in read_rows(drug_file, "cp1252"):
         product_code = f"Drug {row['SourceCode']}"
         key = source_key("products", product_code)
+        ingredient_only = row["MappingStatus"] == "Incomplete" and row["concept_class_id"] == "Ingredient"
+        if ingredient_only and positive_id(row["concept_id"]):
+            historical_ingredient_only_products.add(key)
         if key not in sources and row["MappingStatus"] in ("Unmapped", "Incomplete"):
             source = add_source("products", product_code, row["SourceName"])
             source["backlogReason"] = "Gap in the historical DKMA working export; no positive target in the published medication mappings."
         detail = {label: row[field] for field, label in labels.items() if row.get(field) and row[field] != "*"}
         if detail.get("Historical source count") == "-1":
             detail["Historical source count"] = "Unavailable"
+        if ingredient_only:
+            detail["Historical target scope"] = "Ingredient only"
         detail["Source record"] = str(number)
         product_details[product_code].append(detail)
         for ingredient in {row["IngredientCode"].upper(), row["IngredientName"].upper()} - {"", "*"}:
@@ -205,6 +211,8 @@ def build_drugs(root, commit):
     for key, source in sources.items():
         if key in published_mapped or key in proposed:
             continue
+        if key in historical_ingredient_only_products:
+            source["backlogReason"] = "Product target missing. The historical DKMA export contains ingredient targets only."
         source.setdefault("backlogReason", "No usable positive target recorded for this source in the published mapping file.")
         unmapped.append(dict(id=key, sourceKey=key, code=source["code"], category=source["category"]))
 

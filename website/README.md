@@ -22,14 +22,33 @@ Lab data remains in `dist/data.json`. Drug data is loaded separately from `dist/
 
 After building, run `node --test website/test_drugs.mjs` for source-identity, reconciliation, navigation, proposal and Measurements compatibility checks. The UI checks exercise page construction and form previews without a browser.
 
+## Bulk proposals
+
+Use **Download unmapped codes (CSV)** on an unmapped list to export the full backlog for that category. The UTF-8 CSV uses semicolons and ends with an empty `OMOP_concept_id` column. Fill in the targets you want to propose and retain the `source_item_id` column to distinguish source records that share a code.
+
+Open **Upload bulk changes** for NPU, DNK, medication products, medication ingredients, vaccines or administration routes. Upload a CSV, TSV or TXT file of up to 16 MiB with up to 250 filled targets. Rows with blank targets are skipped. The screen detects commas, semicolons and tabs in the first row outside quoted fields, then falls back to spaces. The delimiter and whether the first row contains headers can be changed. Quote values containing spaces when using a space-delimited file. UTF-8 and Windows-1252 files are supported.
+
+Choose the Danish source code and proposed OMOP concept ID columns. Use `source_item_id` for unmapped exports or `mapping_id` for corrections. When a code matches several records, select the intended source record from the validation table. Enter a justification for the batch and preview the issue. The original file is processed in the browser. The site submits only the selected identifiers and justification, and the Worker regenerates a normalized CSV with the current and proposed IDs and mapping provenance. The public issue links to that CSV on the Explorer. The CSV becomes downloadable once GitHub confirms issue creation.
+
+Apply D1 migration `0002_bulk_files.sql` before deploying this version. For the current configuration, run `npx wrangler d1 migrations apply omop_mapping_submissions --remote` from the `website` directory. The migration adds the CSV to the existing submission receipt table. The existing GitHub App permissions, Turnstile checks and rate limits support bulk submissions. Keep the D1 database available for links in existing issues. The test suite covers delimiter parsing, column selection, ambiguous records, bulk issue creation and CSV downloads using simulated services.
+
 ## Automatic deployment from GitHub
+
+**Production deployments use the `website-release` branch.** To publish website
+or mapping changes, merge or commit the intended release to `website-release`
+and push it to GitHub. Pushes to `main` or other branches do not update the live
+site. Routine releases use GitHub Actions; no local Wrangler deployment is needed.
 
 The workflow in `.github/workflows/deploy-website.yml` deploys every push to
 `website-release`. It builds the website from that commit, runs the website checks,
 applies pending D1 migrations, and deploys to the existing `omop-mapping-review`
 Worker. Other branches do not trigger deployment.
 
-In the GitHub repository, open Settings > Secrets and variables > Actions and add
+Check **Actions > Deploy mapping website** for the deployment result. A successful
+run updates https://omop-mapping-review.tsagi-006.workers.dev/.
+
+The deployment credentials are already configured. If they need to be recreated,
+open Settings > Secrets and variables > Actions in the GitHub repository and add
 these repository secrets:
 
 - `CLOUDFLARE_API_TOKEN`: a Cloudflare API token restricted to the deployment
@@ -45,11 +64,15 @@ mapping inputs to `website-release`, then push that branch. Watch the run in
 the repository's Actions tab. Generated `website/dist` files and private keys
 must not be committed. A failed build or check prevents migration and deployment.
 
-## Deploy on Cloudflare Workers
+## Initial Cloudflare setup / manual deployment
+
+The following steps document initial provisioning and manual deployment for a
+new installation. The existing production site is already configured; use the
+`website-release` workflow above for future releases.
 
 1. In the OHDSI Denmark GitHub organization, register a GitHub App with repository Issues read/write permission, install it on this repository only, and generate a private key. The Worker uses installation authentication. Convert the downloaded key to unencrypted PKCS#8 PEM locally if needed using `openssl pkcs8 -topk8 -nocrypt -in app-key.pem -out app-key-pkcs8.pem`.
 2. In Cloudflare, create a D1 database named `danish-omop-submissions` and replace the placeholder database ID in `wrangler.toml`. Create a Turnstile widget authorized for the deployment hostname.
 3. From this directory, run `npx wrangler d1 migrations apply danish-omop-submissions --remote`. Run `python build.py` and `npx wrangler deploy` to bring up the read-only site. Then set `GITHUB_APP_CLIENT_ID`, `GITHUB_INSTALLATION_ID`, `GITHUB_APP_PRIVATE_KEY` (the complete PKCS#8 PEM), `TURNSTILE_SITE_KEY`, and `TURNSTILE_SECRET` using the Cloudflare secrets UI or `npx wrangler secret put NAME`.
-4. Verify search, a sample single proposal, and a small batch on a separate test deployment with its own D1 database, an authorized test repository in `GITHUB_REPOSITORY`, and matching App and Turnstile settings. Add the production credentials after that check. Configure a deployment build on mapping releases once the snapshot and issue flow have been checked.
+4. Verify search, a sample single proposal, and a small batch on a separate test deployment with its own D1 database, an authorized test repository in `GITHUB_REPOSITORY`, and matching App and Turnstile settings. Add the production credentials after that check. For the existing production site, automatic deployments are configured through the `website-release` workflow described above.
 
 The submission endpoint uses Turnstile and a Cloudflare rate limit of five requests per minute per IP at each Cloudflare location. It stores a submission fingerprint and public issue URL in D1. If GitHub's response is ambiguous and the receipt stays pending, search recent issues for the fingerprint in the hidden submission marker. Set the recorded issue URL in D1 if found. Clear the pending entry only after confirming the issue was never created. Proposals are public, and the form does not collect contact details.
