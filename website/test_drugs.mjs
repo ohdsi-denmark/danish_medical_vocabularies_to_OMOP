@@ -29,6 +29,27 @@ test("backlogs exclude positive published mappings and preserve source identitie
   assert.equal(new Set(drugs.mappings.map(row => row.id)).size, drugs.mappings.length);
 });
 
+test("corrected product mappings are reviewable and absent from the unmapped export", () => {
+  for (const catalog of [drugs, submissionData]) {
+    const index = bulk.bulkIndex(catalog, "products");
+    for (const [code, target] of [["Drug 177931", "40233964"], ["Drug 58888", "1539411"]]) {
+      assert(!catalog.unmapped.some(item => item.code === code));
+      assert.equal(index.get(code)?.length, 1);
+      assert.equal(index.get(code)[0].conceptId, target);
+    }
+  }
+  let ingredientOnly = 0;
+  for (const item of drugs.unmapped.filter(item => item.category === "products")) {
+    const source = drugs.sources[item.sourceKey];
+    const details = source.detailIds.map(id => drugs.referenceRecords[id]);
+    if (details.some(row => row["Historical target scope"] === "Ingredient only" && positive(row["Historical target concept ID"]))) {
+      assert.match(source.backlogReason, /ingredient targets only/);
+      ingredientOnly++;
+    }
+  }
+  assert(ingredientOnly > 0);
+});
+
 test("different vaccine preparations sharing a code can be reviewed together", () => {
   const vaccines = drugs.mappings.filter(item => item.category === "vaccines");
   const first = vaccines[0];

@@ -669,7 +669,7 @@ function showDrugSection(category, mode) {
     node("p", {}, backlog
       ? category === "vaccines" ? "Preparations in the historical DDV input without a matched published preparation. Confirm the source identity before suggesting a target. Existing additional proposals are available under Review mappings → Needs review."
         : category === "routes" ? "Source labels without a usable positive target in the route mapping file. Some labels may require clarification."
-          : "Gaps recorded in the published medication file and historical DKMA working export, reconciled against published positive targets. This list covers the available working data."
+          : "Gaps in the published medication file and historical DKMA working export. Products with historical ingredient-only targets are labelled separately."
       : "Each result represents a mapping record. Several targets or preparations can share a source code."),
     controls, ...(backlog ? [node("div", { class: "actions" },
       backlogDownload(drugData, drugData.unmapped.filter(row => row.category === category), category), proceed),
