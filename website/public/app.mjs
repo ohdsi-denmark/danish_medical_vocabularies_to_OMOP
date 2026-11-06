@@ -1,5 +1,5 @@
 import { batchLimit, proposal } from "./proposal.mjs";
-import { bulkFileLimit, bulkIndex, bulkLimit, bulkProposal, bulkTypes, detectDelimiter, parseBulkText } from "./bulk.mjs";
+import { bulkFileLimit, bulkIndex, bulkLimit, bulkProposal, bulkTypes, detectDelimiter, parseBulkText, unmappedCsv } from "./bulk.mjs";
 
 const view = document.querySelector("#view");
 const loadStatus = document.querySelector("#load-status");
@@ -221,6 +221,14 @@ function showMapping(id, commit) {
       link("Suggest a correction", `#correct/${data.commit}/${id}`)));
 }
 
+function backlogDownload(catalog, items, type) {
+  return node("button", { type: "button", onclick: () => {
+    const url = URL.createObjectURL(new Blob([unmappedCsv(catalog, items)], { type: "text/csv;charset=utf-8" }));
+    node("a", { href: url, download: `${type}-unmapped.csv` }).click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  } }, "Download unmapped codes (CSV)");
+}
+
 function showBacklog() {
   const results = node("div");
   const summary = node("p", { role: "status" });
@@ -267,7 +275,9 @@ function showBacklog() {
       filter("National concept status", ["Active", "Inactive", "Unknown"], backlogState.status,
         value => { backlogState.status = value; update(); }),
       filter("Sort", ["Code"], backlogState.sort, value => { backlogState.sort = value; update(); })),
-    summary, proceed, results));
+    node("div", { class: "actions" }, backlogDownload(data, data.unmapped, "npu"), proceed),
+    node("p", {}, "Fill in OMOP_concept_id for the rows you want to propose, then upload the file under Upload bulk changes."),
+    summary, results));
   selection();
   update();
 }
@@ -468,7 +478,7 @@ function showBulkUpload(category, catalog, dataset) {
       };
       const source = columnSelect("Choose a column", ["sourcecode", "sourceid", "danskcode"]);
       const target = columnSelect("Choose a column", ["proposedconceptid", "proposedomopconceptid", "targetconceptid", "targetomopconceptid", "conceptid", "omopconceptid"]);
-      const record = columnSelect("Choose records below if needed", ["mappingid", "mappingrecordid"]);
+      const record = columnSelect("Choose records below if needed", ["mappingid", "mappingrecordid", "sourceitemid"]);
       const validate = node("button", { type: "button", onclick: () => {
         clearValidation();
         if (!source.value || !target.value || source.value === target.value ||
@@ -476,27 +486,28 @@ function showBulkUpload(category, catalog, dataset) {
           status.textContent = "Select different source and target columns, and a separate record column if used.";
           return;
         }
-        const dataRows = rows.slice(start);
+        const dataRows = rows.slice(start).map((row, index) => ({ row, number: index + 1 }))
+          .filter(({ row }) => row[target.value] !== "");
         if (!dataRows.length || dataRows.length > bulkLimit) {
-          status.textContent = `Choose a file with 1 to ${bulkLimit} data rows.`;
+          status.textContent = `Fill in proposed targets for 1 to ${bulkLimit} rows.`;
           return;
         }
         const index = bulkIndex(catalog, category);
         const errors = [];
-        prepared = dataRows.map((row, offset) => {
+        prepared = dataRows.map(({ row, number }) => {
           const code = row[source.value] || "";
           const proposed = row[target.value] || "";
           const candidates = index.get(code) || [];
           const selectedId = record.value ? row[record.value] : "";
           const current = selectedId ? candidates.find(mapping => mapping.id === selectedId) : candidates[0];
           if (!current || !/^[1-9]\d{0,9}$/.test(proposed)) {
-            errors.push(`Data row ${offset + 1}: ${!current ? "No matching published record for the selected code and record ID." : "Enter a positive OMOP concept ID."}`);
+            errors.push(`Data row ${number}: ${!current ? "No matching mapping or unmapped source record for this code and record ID." : "Enter a positive OMOP concept ID."}`);
             return null;
           }
           const choice = !selectedId && candidates.length > 1 ? node("select", {
-            required: "", "aria-label": `Current mapping for data row ${offset + 1}`,
-          }, node("option", { value: "" }, "Choose the current mapping"), ...candidates.map(mapping => node("option", { value: mapping.id },
-            `${mapping.sourceName} · ${mapping.preparation ? mapping.preparation + " · " : ""}${mapping.conceptId} · ${mapping.id}`))) : null;
+            required: "", "aria-label": `Source record for data row ${number}`,
+          }, node("option", { value: "" }, "Choose the source record"), ...candidates.map(mapping => node("option", { value: mapping.id },
+            [mapping.sourceName, mapping.preparation, mapping.conceptId || "Unmapped", mapping.id].filter(Boolean).join(" · ")))) : null;
           return { code, target: proposed, current, choice };
         });
         if (errors.length) {
@@ -504,9 +515,9 @@ function showBulkUpload(category, catalog, dataset) {
             node("ul", {}, ...errors.slice(0, 15).map(error => node("li", {}, error))));
           return;
         }
-        validation.append(node("p", {}, `${prepared.length} rows ready for review. Choose a current mapping wherever several records match.`),
+        validation.append(node("p", {}, `${prepared.length} rows ready for review. Choose a source record wherever several records match.`),
           bulkTable(["Danish source code", "Current mapping", "Proposed OMOP concept ID"], prepared.map(row => [
-            node("span", { class: "code-source" }, row.code), row.choice || `${row.current.conceptId} · ${row.current.id}`,
+            node("span", { class: "code-source" }, row.code), row.choice || `${row.current.conceptId || "Unmapped"} · ${row.current.id}`,
             node("span", { class: "code-target" }, row.target),
           ])));
         submit.disabled = false;
@@ -514,7 +525,7 @@ function showBulkUpload(category, catalog, dataset) {
       columns.append(bulkTable(headings, rows.slice(start, start + 3)),
         node("div", { class: "filters" }, node("label", {}, "Danish source code column", source),
           node("label", {}, "Proposed OMOP concept ID column", target),
-          node("label", {}, "Mapping record ID column (optional)", record), validate));
+          node("label", {}, "Mapping or source record ID column (optional)", record), validate));
     } catch (error) {
       status.textContent = error.message;
     }
@@ -527,7 +538,7 @@ function showBulkUpload(category, catalog, dataset) {
     clearValidation();
     if (!file) return;
     try {
-      if (file.size > bulkFileLimit) throw new Error("Choose a text file of 128 KiB or less.");
+      if (file.size > bulkFileLimit) throw new Error("Choose a text file of 16 MiB or less.");
       const bytes = await file.arrayBuffer();
       if (file !== fileInput.files[0]) return;
       try { content = new TextDecoder("utf-8", { fatal: true }).decode(bytes); }
@@ -565,10 +576,10 @@ function showBulkUpload(category, catalog, dataset) {
     }
   });
   view.append(node("section", {}, node("h2", {}, `${bulkTypes[category]} · Upload bulk changes`),
-    node("p", {}, `Upload a CSV, TSV or TXT file with a Danish code and proposed OMOP concept ID per row. Up to ${bulkLimit} changes per file. Quote codes that contain spaces when using space-separated text.`),
+    node("p", {}, `Upload a CSV, TSV or TXT file with a Danish code and proposed OMOP concept ID per row. Fill in up to ${bulkLimit} targets. Rows with blank targets are skipped. Quote codes that contain spaces when using space-separated text.`),
     node("p", {}, node("a", { download: "bulk-mapping-template.csv",
       href: "data:text/csv;charset=utf-8,source_code%2Cproposed_omop_concept_id%2Cmapping_id%0D%0A" }, "Download a CSV template")),
-    node("p", {}, "Use existing published mappings. Only validated mapping details and your justification will be public. Keep personal or patient information out of the justification."),
+    node("p", {}, "Use published mappings or codes from an unmapped list. Only validated mapping details and your justification will be public. Keep personal or patient information out of the justification."),
     form, preview, status));
 }
 
@@ -660,7 +671,9 @@ function showDrugSection(category, mode) {
         : category === "routes" ? "Source labels without a usable positive target in the route mapping file. Some labels may require clarification."
           : "Gaps recorded in the published medication file and historical DKMA working export, reconciled against published positive targets. This list covers the available working data."
       : "Each result represents a mapping record. Several targets or preparations can share a source code."),
-    controls, ...(backlog ? [selectionStatus, proceed] : []), results));
+    controls, ...(backlog ? [node("div", { class: "actions" },
+      backlogDownload(drugData, drugData.unmapped.filter(row => row.category === category), category), proceed),
+    node("p", {}, "Fill in OMOP_concept_id for the rows you want to propose, then upload the file under Upload bulk changes."), selectionStatus] : []), results));
   updateSelection();
   update();
 }

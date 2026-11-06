@@ -87,7 +87,7 @@ test("bulk proposals require exact published records and generate a normalized C
   const row = { code, target: "123456" };
   const payload = input(undefined);
   payload.bulk = { category: "vaccines", rows: [row], reason: "Review the proposed vaccine target." };
-  assert.throws(() => bulk.bulkProposal(drugs, payload), /choose a published mapping record/);
+  assert.throws(() => bulk.bulkProposal(drugs, payload), /choose a mapping or unmapped source record/);
   row.mapping = candidates[0].id;
   const result = bulk.bulkProposal(drugs, payload);
   assert.deepEqual(bulk.bulkProposal(submissionData, payload), result);
@@ -95,6 +95,31 @@ test("bulk proposals require exact published records and generate a normalized C
   assert(result.csv.includes(`"${candidates[0].id}"`));
   payload.bulk.rows.push(row);
   assert.throws(() => bulk.bulkProposal(drugs, payload), /listed more than once/);
+});
+
+test("every unmapped template fits the upload limit and round-trips its source identities", () => {
+  for (const [catalog, server, category] of [[labs, labs, "npu"],
+    ...Object.keys(drugs.categories).map(category => [drugs, submissionData, category])]) {
+    const items = catalog.unmapped.filter(item => (item.category || "npu") === category);
+    const csv = bulk.unmappedCsv(catalog, items);
+    assert(new TextEncoder().encode(csv).length <= bulk.bulkFileLimit);
+    assert.equal(bulk.detectDelimiter(csv), ";");
+    const [columns, ...rows] = bulk.parseBulkText(csv, ";");
+    assert.equal(columns.at(-1), "OMOP_concept_id");
+    assert.equal(rows.length, items.length);
+    const index = bulk.bulkIndex(server, category);
+    for (const [code, id, ...details] of rows) {
+      assert.equal(details.at(-1), "");
+      assert(index.get(code)?.some(record => record.unmapped && record.id === id), `${category}: ${code}`);
+    }
+    const [[code, mapping]] = rows;
+    const payload = { commit: catalog.commit, bulk: { category, rows: [{ code, mapping, target: "123456" }],
+      reason: "Suggest a target for this unmapped record." } };
+    const proposal = bulk.bulkProposal(server, payload);
+    assert(proposal.body.includes("New mappings: 1"));
+    assert(proposal.csv.includes('"123456"'));
+    assert.equal(proposal.records[0].current.conceptId, undefined);
+  }
 });
 
 test("submission endpoint validates identities, prevents duplicate issues and serves confirmed bulk files", async () => {
@@ -217,6 +242,7 @@ test("navigation, search, detail views and proposal preview use the selected col
   context.location.hash = "#unmapped";
   await vm.runInContext("render()", context);
   assert(text(view).includes("Unmapped NPU codes"));
+  assert(text(view).includes("Download unmapped codes (CSV)"));
   for (const type of ["products", "ingredients", "vaccines", "routes"]) {
     context.location.hash = `#drugs/${type}/bulk`;
     await vm.runInContext("render()", context);
@@ -235,4 +261,11 @@ test("navigation, search, detail views and proposal preview use the selected col
   descendants(view).find(element => element.tag === "textarea").value = "Review the proposed lab mapping.";
   descendants(view).find(element => element.tag === "form").events.submit({ preventDefault() {} });
   assert(text(view).includes("Bulk mapping proposal for NPU measurements (1 change)"));
+  const template = bulk.parseBulkText(bulk.unmappedCsv(labs, labs.unmapped.slice(0, 3)), ";");
+  template[1][template[0].length - 1] = "123456";
+  upload.files = [new Blob([template.map(row => row.map(cell => '"' + cell.replaceAll('"', '""') + '"').join(";")).join("\n")])];
+  await upload.events.change();
+  descendants(view).find(element => element.tag === "button" && text(element).includes("Validate rows")).events.click();
+  descendants(view).find(element => element.tag === "form").events.submit({ preventDefault() {} });
+  assert(text(view).includes("New mappings: 1"));
 });
