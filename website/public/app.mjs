@@ -611,6 +611,8 @@ function showDrugSection(category, mode) {
   drugNavigation(category, mode);
   if (mode === "bulk") { showBulkUpload(category, drugData, "drugs"); return; }
   const backlog = mode === "unmapped";
+  const categoryRows = (backlog ? drugData.unmapped : drugData.mappings).filter(row =>
+    row.category === category && (backlog || category !== "routes" || /^[1-9]\d*$/.test(row.conceptId)));
   const state = drugStates[category + mode] ||= {};
   const results = node("div");
   const selectionStatus = node("p", { role: "status" });
@@ -620,9 +622,9 @@ function showDrugSection(category, mode) {
     proceed.disabled = !drugSelections.size;
   };
   const update = () => {
-    const rows = (backlog ? drugData.unmapped : drugData.mappings).filter(row => {
+    const rows = categoryRows.filter(row => {
       const source = drugData.sources[row.sourceKey];
-      return row.category === category && (!state.status || row.reviewState === state.status) &&
+      return (!state.status || row.reviewState === state.status) &&
         (!state.mappingStatus || row.mappingStatus === state.mappingStatus) &&
         (!state.vocabulary || row.targetVocabulary === state.vocabulary) &&
         (drugMatches(state.query, source) || (!backlog && match(state.query, [row.conceptId, row.conceptName,
@@ -656,7 +658,6 @@ function showDrugSection(category, mode) {
     });
   };
   const change = (key, value) => { state[key] = value; update(); };
-  const categoryRows = drugData.mappings.filter(row => row.category === category);
   const controls = node("div", { class: "filters" },
     searchBox("Source code, name, ingredient, ATC code or target", state.query, value => change("query", value)));
   if (!backlog) controls.append(
@@ -672,7 +673,7 @@ function showDrugSection(category, mode) {
           : "Gaps in the published medication file and historical DKMA working export. Products with historical ingredient-only targets are labelled separately."
       : "Each result represents a mapping record. Several targets or preparations can share a source code."),
     controls, ...(backlog ? [node("div", { class: "actions" },
-      backlogDownload(drugData, drugData.unmapped.filter(row => row.category === category), category), proceed),
+      backlogDownload(drugData, categoryRows, category), proceed),
     node("p", {}, "Fill in OMOP_concept_id for the rows you want to propose, then upload the file under Upload bulk changes."), selectionStatus] : []), results));
   updateSelection();
   update();

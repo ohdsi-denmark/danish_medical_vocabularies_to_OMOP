@@ -236,8 +236,15 @@ test("navigation, search, detail views and proposal preview use the selected col
   context.location.hash = "#drugs/vaccines/review";
   await vm.runInContext("render()", context);
   assert(text(view).includes("Vaccines · Review mappings"));
+  context.location.hash = "#drugs/routes/review";
+  await vm.runInContext("render()", context);
+  const mappedRoutes = drugs.mappings.filter(row => row.category === "routes" && positive(row.conceptId));
+  assert(text(view).includes(`${mappedRoutes.length} results`));
+  assert(!text(view).includes("No usable target recorded"));
+  assert(!text(view).includes("Indgiftandreveje"));
   context.location.hash = "#drugs/routes/unmapped";
   await vm.runInContext("render()", context);
+  assert(text(view).includes("Indgiftandreveje"));
   const checkbox = descendants(view).find(element => element.attributes.type === "checkbox");
   checkbox.checked = true;
   checkbox.events.change();
