@@ -1,5 +1,67 @@
 export const batchLimit = 10;
 
+export const procedureRelationships = {
+  unspecified: "Unspecified",
+  components: "Complementary components",
+  alternatives: "Alternatives depending on context",
+};
+
+export function procedureProposal(data, input) {
+  if (input.commit !== data.commit) throw new Error("The mappings have been updated. Reload before submitting.");
+  const { code, changes, relationship, reason } = input.procedure || {};
+  if (!Object.hasOwn(data.sources, code)) throw new Error("Choose a known SKS source code.");
+  if (!Array.isArray(changes) || !changes.length || changes.length > batchLimit) {
+    throw new Error(`Propose between 1 and ${batchLimit} changes.`);
+  }
+  if (!Object.hasOwn(procedureRelationships, relationship)) throw new Error("Choose how the targets relate.");
+  const justification = typeof reason === "string" ? reason.trim() : "";
+  if (justification.length < 10 || justification.length > 1500) throw new Error("Give a justification of 10 to 1,500 characters.");
+
+  const current = data.mappings.filter(row => row.sourceKey === code);
+  const records = new Map(current.map(row => [row.id, row]));
+  const edited = new Set();
+  const edits = changes.map(change => {
+    if (!change || !["add", "replace", "remove"].includes(change.action)) throw new Error("Choose a valid change.");
+    const row = records.get(change.mapping);
+    if (change.action !== "add") {
+      if (!row || edited.has(row.id)) throw new Error("Choose a distinct mapping record for this source code.");
+      edited.add(row.id);
+    }
+    if (change.action !== "remove" && (typeof change.target !== "string" || !/^[1-9]\d{0,9}$/.test(change.target))) {
+      throw new Error("Enter a positive OMOP concept ID for each added or replaced target.");
+    }
+    if (change.action === "replace" && change.target === row.conceptId) throw new Error("Choose a different replacement target.");
+    return { action: change.action, row, target: change.target };
+  }).sort((a, b) => (a.row?.id || "").localeCompare(b.row?.id || "") || (a.target || "").localeCompare(b.target || ""));
+
+  const resulting = new Set(current.filter(row => !edited.has(row.id) && /^[1-9]\d*$/.test(row.conceptId)).map(row => row.conceptId));
+  for (const edit of edits) {
+    if (edit.action === "remove") continue;
+    if (resulting.has(edit.target)) throw new Error(`OMOP concept ${edit.target} is already in the proposed target set.`);
+    resulting.add(edit.target);
+  }
+  const safe = value => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("@", "&#64;");
+  const targetLink = id => /^[1-9]\d*$/.test(id) ? `[${id}](https://athena.ohdsi.org/search-terms/terms/${id})` : "No usable target";
+  const body = [
+    `Source: ${safe(code)} · ${safe(data.sources[code].name)}`,
+    `Mapping snapshot: \`${data.commit}\``,
+    `SKS catalogue: ${data.release.release}, eligibility checked on ${data.release.asOf}`,
+    "### Current mapping records",
+    current.length ? current.map(row => `- ${targetLink(row.conceptId)} ${safe(row.conceptName)} · ${safe(row.domainId)} · ${safe(row.mappingStatus)} · record ${row.sourceRow} in ${row.sourceFile}`).join("\n") : "No current mapping records.",
+    "### Proposed edits",
+    edits.map(({ action, row, target }) => {
+      if (action === "add") return `- Add ${targetLink(target)}`;
+      const record = `record ${row.sourceRow} (${targetLink(row.conceptId)})`;
+      return action === "remove" ? `- Remove ${record}` : `- Replace ${record} with ${targetLink(target)}`;
+    }).join("\n"),
+    `Proposed target set: ${[...resulting].map(targetLink).join(", ") || "Empty"}`,
+    `Relationship between targets: ${procedureRelationships[relationship]}`,
+    "### Justification",
+    safe(justification).split(/\r?\n/).map(line => `> ${line}`).join("\n"),
+  ].join("\n\n");
+  return { title: `Procedure mapping proposal for ${code}`, body };
+}
+
 export function proposal(data, input) {
   if (input?.commit !== data.commit) throw new Error("The mappings have been updated. Reload before submitting.");
   if (!Array.isArray(input.rows) || input.rows.length < 1 || input.rows.length > batchLimit) {

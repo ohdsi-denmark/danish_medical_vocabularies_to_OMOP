@@ -1,4 +1,4 @@
-import { proposal } from "./public/proposal.mjs";
+import { procedureProposal, proposal } from "./public/proposal.mjs";
 import { bulkProposal } from "./public/bulk.mjs";
 
 const encoder = new TextEncoder();
@@ -75,12 +75,16 @@ async function submit(request, env) {
   if (!verification.success || verification.action !== "mapping_proposal" || verification.hostname !== new URL(origin).hostname) {
     return fail("The spam check expired or failed. Please try again.", 400);
   }
-  if (input.dataset && !["labs", "drugs"].includes(input.dataset)) return fail("Unknown mapping collection.", 400);
-  const filename = input.dataset === "drugs" ? "/drug-proposals.json" : "/data.json";
+  const collections = { labs: "/data.json", drugs: "/drug-proposals.json", procedures: "/procedures.json" };
+  const dataset = input.dataset || "labs";
+  if (!Object.hasOwn(collections, dataset)) return fail("Unknown mapping collection.", 400);
+  const filename = collections[dataset];
   const data = await env.ASSETS.fetch(new URL(filename, origin)).then(response => response.json());
   let issue;
   try {
-    issue = input.bulk === undefined ? proposal(data, input) : bulkProposal(data, input);
+    if (input.bulk !== undefined) issue = bulkProposal(data, input);
+    else if (dataset === "procedures") issue = procedureProposal(data, input);
+    else issue = proposal(data, input);
   } catch (error) {
     return fail(error.message, 400);
   }

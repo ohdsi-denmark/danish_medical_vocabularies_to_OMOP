@@ -1,4 +1,4 @@
-import { batchLimit, proposal } from "./proposal.mjs";
+import { batchLimit, procedureProposal, procedureRelationships, proposal } from "./proposal.mjs";
 import { bulkFileLimit, bulkIndex, bulkLimit, bulkProposal, bulkTypes, detectDelimiter, parseBulkText, unmappedCsv } from "./bulk.mjs";
 
 const view = document.querySelector("#view");
@@ -11,6 +11,9 @@ let searchState = {};
 let backlogState = {};
 let drugData;
 let drugLoad;
+let procedureData;
+let procedureLoad;
+const procedureState = {};
 const drugSelections = new Set();
 const drugStates = {};
 const drugSearchCache = new Map();
@@ -712,6 +715,168 @@ async function loadDrugs() {
   await drugLoad;
 }
 
+function procedureNavigation() {
+  view.append(node("nav", { class: "section-nav", "aria-label": "Procedures" },
+    link("Review mappings", "#procedures/review"), link("Suggest new mappings", "#procedures/unmapped"),
+    link("Upload bulk changes", "#procedures/bulk")));
+}
+
+function showProcedures(mode) {
+  procedureNavigation();
+  if (mode === "bulk") { showBulkUpload("procedures", procedureData, "procedures"); return; }
+  const backlog = mode === "unmapped";
+  const groups = new Map();
+  if (backlog) {
+    for (const item of procedureData.unmapped) groups.set(item.code, []);
+  } else {
+    for (const row of procedureData.mappings) {
+      if (!groups.has(row.sourceCode)) groups.set(row.sourceCode, []);
+      groups.get(row.sourceCode).push(row);
+    }
+  }
+  const state = procedureState[backlog ? "unmapped" : "review"] ||= {};
+  const results = node("div");
+  const targetCount = rows => new Set(rows.map(row => row.conceptId).filter(id => /^[1-9]\d*$/.test(id))).size;
+  const update = () => {
+    const matches = [...groups].filter(([code, rows]) => {
+      const source = procedureData.sources[code];
+      const count = targetCount(rows);
+      return (!state.domain || rows.some(row => row.domainId === state.domain)) &&
+        (!state.status || (state.status === "Needs review") === rows.some(row => row.mappingStatus !== "APPROVED")) &&
+        (!state.count || (state.count === "Multiple targets" ? count > 1 : count === 1)) &&
+        match(state.query, [code, source.name, ...Object.values(source.details[0]),
+          ...rows.flatMap(row => [row.conceptId, row.conceptName, row.sourceName])]);
+    }).sort(([a], [b]) => a.localeCompare(b));
+    renderList(results, matches, ([code, rows]) => {
+      const source = procedureData.sources[code];
+      const count = targetCount(rows);
+      return node("li", {}, link(node("span", { class: "code-source" }, `${code} · ${source.name}`),
+        `#procedure/${procedureData.commit}/${code}`),
+        ...(backlog ? [] : [node("div", {}, `${count} distinct ${count === 1 ? "target" : "targets"} · ${rows.length} mapping records`,
+          rows.some(row => row.mappingStatus !== "APPROVED") ? " · Needs review" : "") ]));
+    });
+  };
+  const change = (key, value) => { state[key] = value; update(); };
+  const filters = node("div", { class: "filters" },
+    searchBox("SKS code, source name or OMOP target", state.query, value => change("query", value)));
+  if (!backlog) filters.append(
+    filter("Target domain", [...new Set(procedureData.mappings.map(row => row.domainId).filter(Boolean))].sort(), state.domain, value => change("domain", value)),
+    filter("Review status", ["Approved", "Needs review"], state.status, value => change("status", value)),
+    filter("Target count", ["One target", "Multiple targets"], state.count, value => change("count", value)));
+  view.append(node("section", {}, node("h2", {}, backlog ? "Unmapped SKS operations" : "Review procedure mappings"),
+    node("p", {}, backlog
+      ? `Active K codes in the SKS and LPR proc.opr release dated ${procedureData.release.release}, evaluated on ${procedureData.release.asOf}. Sorted by code.`
+      : "Each result groups the recorded OMOP targets for one Danish SKS operation code."),
+    filters, ...(backlog ? [backlogDownload(procedureData, procedureData.unmapped, "procedures"),
+      node("p", {}, "Fill in OMOP_concept_id in the CSV, then upload it under Upload bulk changes.")] : []), results));
+  update();
+}
+
+function procedureSourceCard(source) {
+  return facts("Danish source", [["Code", source.code], ...Object.entries(source.details[0])], "source");
+}
+
+function showProcedure(code, commit, edit) {
+  procedureNavigation();
+  const source = commit === procedureData.commit && Object.hasOwn(procedureData.sources, code) && procedureData.sources[code];
+  if (!source) {
+    view.append(node("p", {}, "This link refers to a different snapshot or an unknown SKS code."));
+    return;
+  }
+  const rows = procedureData.mappings.filter(row => row.sourceKey === code);
+  view.append(node("h2", {}, `${code} · ${source.name}`));
+  if (edit) {
+    showProcedureProposal(source, rows);
+    return;
+  }
+  const distinct = new Set(rows.map(row => row.conceptId).filter(id => /^[1-9]\d*$/.test(id))).size;
+  const targets = node("section", { class: "tone-target" }, node("h3", {}, "OMOP targets"),
+    ...(distinct > 1 ? [node("p", {}, "Relationship between targets unspecified. Review the roles and context of each target.")] : []),
+    rows.length ? bulkTable(["Concept ID", "Name and domain", "Review", "Record and notes"], rows.map(row => [
+      /^[1-9]\d*$/.test(row.conceptId) ? link(row.conceptId, `${athena}terms/${row.conceptId}`) : "No usable target",
+      node("div", {}, row.conceptName, node("div", {}, row.domainId)),
+      [row.mappingStatus, row.equivalence].filter(Boolean).join(" · "),
+      node("details", {}, node("summary", {}, `Record ${row.sourceRow}`), facts("Mapping record", [
+        ["Relationship", row.mappingType], ["Match score", row.matchScore], ["Origin or source note", row["ADD_INFO:orig"]],
+        ["Comment", row.comment], ["statusSetBy", row.statusSetBy], ["statusSetOn", row.statusSetOn],
+        ["createdBy", row.createdBy], ["createdOn", row.createdOn], ["assignedReviewer", row.assignedReviewer],
+      ])),
+    ])) : node("p", {}, "No mapping recorded."));
+  view.append(node("div", { class: "grid" }, procedureSourceCard(source), targets),
+    node("div", { class: "actions" }, link(rows.length ? "Propose target changes" : "Suggest a mapping",
+      `#procedure-propose/${commit}/${code}`), link("Download mapping file", procedureData.downloads["SKS procedure mappings"])));
+}
+
+function showProcedureProposal(source, rows) {
+  const preview = node("div");
+  const status = node("p", { role: "status" });
+  const reason = node("textarea", { required: "", minlength: "10", maxlength: "1500" });
+  const relationship = node("select", {}, ...Object.entries(procedureRelationships).map(([value, label]) => node("option", { value }, label)));
+  relationship.value = "unspecified";
+  const fields = node("div");
+  const newTargets = [];
+  const conceptInput = () => node("input", { inputmode: "numeric", pattern: "[1-9][0-9]{0,9}" });
+  function appendTarget() {
+    const input = conceptInput();
+    newTargets.push(input);
+    fields.append(node("fieldset", {}, node("legend", {}, `New target ${newTargets.length}`),
+      targetPicker(input, procedureData), node("label", {}, "OMOP concept ID", input)));
+    addTarget.disabled = newTargets.length >= batchLimit;
+  }
+  const addTarget = node("button", { type: "button", onclick: appendTarget }, "Add another target");
+  const edits = rows.map(row => {
+    const input = conceptInput();
+    const replacement = node("div", {}, targetPicker(input, procedureData), node("label", {}, "Replacement OMOP concept ID", input));
+    replacement.hidden = true;
+    input.disabled = true;
+    const action = node("select", { onchange: () => {
+      const replace = action.value === "replace";
+      replacement.hidden = !replace;
+      input.disabled = !replace;
+      input.required = replace;
+    } }, node("option", { value: "keep" }, "Keep"), node("option", { value: "replace" }, "Replace"), node("option", { value: "remove" }, "Remove"));
+    action.value = "keep";
+    fields.append(node("fieldset", {}, node("legend", {}, `Record ${row.sourceRow} · ${row.conceptId || "No target"}`),
+      node("p", { class: "code-target" }, `${row.conceptName} · ${row.domainId}`), node("label", {}, "Action", action), replacement));
+    return { row, input, action };
+  });
+  if (!rows.length) appendTarget();
+  const form = node("form", { oninput: () => { preview.replaceChildren(); status.textContent = ""; } }, fields, addTarget,
+    node("label", {}, "Relationship between proposed targets", relationship), node("label", {}, "Justification", reason),
+    node("button", { type: "submit" }, "Preview public issue"));
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    const changes = edits.filter(edit => edit.action.value !== "keep").map(({ row, action, input }) => ({
+      action: action.value, mapping: row.id, target: input.value.trim(),
+    }));
+    for (const input of newTargets) {
+      if (input.value.trim()) changes.push({ action: "add", target: input.value.trim() });
+    }
+    const input = { dataset: "procedures", commit: procedureData.commit,
+      procedure: { code: source.code, changes, relationship: relationship.value, reason: reason.value } };
+    try {
+      const issue = procedureProposal(procedureData, input);
+      preview.replaceChildren(node("h3", {}, issue.title), node("pre", {}, issue.body));
+      if (settings.siteKey) mountSubmission(preview, form, input, status);
+      else preview.append(node("p", {}, "Submission is unavailable in this preview."));
+    } catch (error) {
+      preview.replaceChildren();
+      status.textContent = error.message;
+    }
+  });
+  view.append(procedureSourceCard(source), node("section", {}, node("h3", {}, "Propose target changes"),
+    node("p", {}, "Your proposal will appear publicly on GitHub. Keep patient information and personal contact details out of the form."),
+    form, preview, status));
+}
+
+async function loadProcedures() {
+  if (!procedureLoad) procedureLoad = fetch("procedures.json").then(response => {
+    if (!response.ok) throw new Error("Procedure mapping data could not be loaded.");
+    return response.json();
+  }).then(value => { procedureData = value; }).catch(error => { procedureLoad = undefined; throw error; });
+  await procedureLoad;
+}
+
 function measurementNavigation() {
   view.append(node("nav", { class: "section-nav", "aria-label": "Measurements" },
     link("Review mappings", "#search"), link("Suggest new mappings", "#unmapped"),
@@ -722,18 +887,22 @@ async function render() {
   view.replaceChildren();
   const hash = location.hash;
   const [route, commit, id] = hash.slice(1).split("/");
-  if (["drugs", "drug-mapping", "drug-correct", "drug-propose", "downloads"].includes(route)) {
-    loadStatus.textContent = "Loading drug and vaccine mappings…";
+  const needsDrugs = ["drugs", "drug-mapping", "drug-correct", "drug-propose", "downloads"].includes(route);
+  const needsProcedures = ["procedures", "procedure", "procedure-propose", "downloads"].includes(route);
+  if (needsDrugs || needsProcedures) {
+    loadStatus.textContent = "Loading mappings…";
     try {
-      await loadDrugs();
+      await Promise.all([needsDrugs && loadDrugs(), needsProcedures && loadProcedures()]);
     } catch {
-      if (hash === location.hash) loadStatus.textContent = "Drug mappings could not be loaded. Reload or select the section again to retry.";
+      if (hash === location.hash) loadStatus.textContent = "Mappings could not be loaded. Reload or select the section again to retry.";
       return;
     }
     if (hash !== location.hash) return;
     loadStatus.textContent = "";
   } else loadStatus.textContent = "";
   if (route === "drugs") showDrugSection(commit, id);
+  else if (route === "procedures") showProcedures(commit);
+  else if (route === "procedure" || route === "procedure-propose") showProcedure(id, commit, route === "procedure-propose");
   else if (route === "drug-mapping") showDrugMapping(id, commit);
   else if (route === "drug-correct" || route === "drug-propose") showProposal(id, commit, "drugs");
   else if (route === "bulk") {
@@ -752,7 +921,7 @@ async function render() {
   else if (route === "mapping") showMapping(id, commit);
   else if (route === "correct" || route === "propose") showProposal(id, commit);
   else if (route === "downloads") view.append(node("section", {}, node("h2", {}, "Download mapping files"),
-    ...[["Measurements", data.downloads], ["Drugs & vaccines", drugData.downloads]].map(([label, files]) =>
+    ...[["Measurements", data.downloads], ["Drugs & vaccines", drugData.downloads], ["Procedures", procedureData.downloads]].map(([label, files]) =>
       node("div", {}, node("h3", {}, label), node("ul", {}, ...Object.entries(files).map(([name, url]) => node("li", {}, link(name, url))))))));
   else if (route === "about") view.append(node("section", {}, node("h2", {}, "About & contributing"),
     node("p", {}, "The Danish OHDSI Node maintains these mappings. Browse a mapping to propose a correction, or select up to ten source items from a new-mapping list."),
