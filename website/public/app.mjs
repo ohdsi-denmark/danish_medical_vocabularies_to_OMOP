@@ -1,4 +1,5 @@
 import { batchLimit, proposal } from "./proposal.mjs";
+import { bulkFileLimit, bulkIndex, bulkLimit, bulkProposal, bulkTypes, detectDelimiter, parseBulkText } from "./bulk.mjs";
 
 const view = document.querySelector("#view");
 const loadStatus = document.querySelector("#load-status");
@@ -424,6 +425,153 @@ function drugSourceDetails(source) {
   return container;
 }
 
+function bulkTable(headings, rows) {
+  return node("div", { class: "bulk-table" }, node("table", {},
+    node("thead", {}, node("tr", {}, ...headings.map(heading => node("th", { scope: "col" }, heading)))),
+    node("tbody", {}, ...rows.map(row => node("tr", {}, ...row.map(value => node("td", {}, value ?? "")))))));
+}
+
+function showBulkUpload(category, catalog, dataset) {
+  const status = node("p", { role: "status" });
+  const preview = node("div");
+  const columns = node("div");
+  const validation = node("div");
+  const fileInput = node("input", { type: "file", accept: ".csv,.tsv,.txt,text/plain,text/csv,text/tab-separated-values" });
+  const reason = node("textarea", { required: "", minlength: "10", maxlength: "1500" });
+  const submit = node("button", { type: "submit", disabled: "" }, "Preview public issue");
+  const delimiters = [[",", "Comma"], [";", "Semicolon"], ["\t", "Tab"], [" ", "Spaces"]];
+  const delimiter = node("select", {}, ...delimiters.map(([value, label]) => node("option", { value }, label)));
+  const header = node("input", { type: "checkbox" });
+  const options = node("div", { class: "filters" }, node("label", {}, "Delimiter", delimiter),
+    node("label", {}, header, " First row contains column names"));
+  options.hidden = true;
+  let content;
+  let prepared = [];
+  const clearPreview = () => { preview.replaceChildren(); status.textContent = ""; };
+  const clearValidation = () => { prepared = []; submit.disabled = true; validation.replaceChildren(); clearPreview(); };
+
+  function showColumns() {
+    columns.replaceChildren();
+    clearValidation();
+    try {
+      const rows = parseBulkText(content, delimiter.value);
+      const headings = rows[0].map((value, index) => `Column ${index + 1}${header.checked && value ? ` · ${value}` : ""}`);
+      const start = Number(header.checked);
+      const columnSelect = (placeholder, names) => {
+        const select = node("select", { onchange: clearValidation }, node("option", { value: "" }, placeholder),
+          ...headings.map((heading, index) => node("option", { value: String(index) }, heading)));
+        if (header.checked) {
+          const match = rows[0].findIndex(value => names.includes(value.toLowerCase().replace(/[^a-z0-9]/g, "")));
+          if (match >= 0) select.value = String(match);
+        }
+        return select;
+      };
+      const source = columnSelect("Choose a column", ["sourcecode", "sourceid", "danskcode"]);
+      const target = columnSelect("Choose a column", ["proposedconceptid", "proposedomopconceptid", "targetconceptid", "targetomopconceptid", "conceptid", "omopconceptid"]);
+      const record = columnSelect("Choose records below if needed", ["mappingid", "mappingrecordid"]);
+      const validate = node("button", { type: "button", onclick: () => {
+        clearValidation();
+        if (!source.value || !target.value || source.value === target.value ||
+            (record.value && [source.value, target.value].includes(record.value))) {
+          status.textContent = "Select different source and target columns, and a separate record column if used.";
+          return;
+        }
+        const dataRows = rows.slice(start);
+        if (!dataRows.length || dataRows.length > bulkLimit) {
+          status.textContent = `Choose a file with 1 to ${bulkLimit} data rows.`;
+          return;
+        }
+        const index = bulkIndex(catalog, category);
+        const errors = [];
+        prepared = dataRows.map((row, offset) => {
+          const code = row[source.value] || "";
+          const proposed = row[target.value] || "";
+          const candidates = index.get(code) || [];
+          const selectedId = record.value ? row[record.value] : "";
+          const current = selectedId ? candidates.find(mapping => mapping.id === selectedId) : candidates[0];
+          if (!current || !/^[1-9]\d{0,9}$/.test(proposed)) {
+            errors.push(`Data row ${offset + 1}: ${!current ? "No matching published record for the selected code and record ID." : "Enter a positive OMOP concept ID."}`);
+            return null;
+          }
+          const choice = !selectedId && candidates.length > 1 ? node("select", {
+            required: "", "aria-label": `Current mapping for data row ${offset + 1}`,
+          }, node("option", { value: "" }, "Choose the current mapping"), ...candidates.map(mapping => node("option", { value: mapping.id },
+            `${mapping.sourceName} · ${mapping.preparation ? mapping.preparation + " · " : ""}${mapping.conceptId} · ${mapping.id}`))) : null;
+          return { code, target: proposed, current, choice };
+        });
+        if (errors.length) {
+          validation.append(node("p", {}, `Correct ${errors.length} invalid rows before submitting.`),
+            node("ul", {}, ...errors.slice(0, 15).map(error => node("li", {}, error))));
+          return;
+        }
+        validation.append(node("p", {}, `${prepared.length} rows ready for review. Choose a current mapping wherever several records match.`),
+          bulkTable(["Danish source code", "Current mapping", "Proposed OMOP concept ID"], prepared.map(row => [
+            node("span", { class: "code-source" }, row.code), row.choice || `${row.current.conceptId} · ${row.current.id}`,
+            node("span", { class: "code-target" }, row.target),
+          ])));
+        submit.disabled = false;
+      } }, "Validate rows");
+      columns.append(bulkTable(headings, rows.slice(start, start + 3)),
+        node("div", { class: "filters" }, node("label", {}, "Danish source code column", source),
+          node("label", {}, "Proposed OMOP concept ID column", target),
+          node("label", {}, "Mapping record ID column (optional)", record), validate));
+    } catch (error) {
+      status.textContent = error.message;
+    }
+  }
+
+  fileInput.addEventListener("change", async () => {
+    const file = fileInput.files[0];
+    columns.replaceChildren();
+    options.hidden = true;
+    clearValidation();
+    if (!file) return;
+    try {
+      if (file.size > bulkFileLimit) throw new Error("Choose a text file of 128 KiB or less.");
+      const bytes = await file.arrayBuffer();
+      if (file !== fileInput.files[0]) return;
+      try { content = new TextDecoder("utf-8", { fatal: true }).decode(bytes); }
+      catch { content = new TextDecoder("windows-1252").decode(bytes); }
+      delimiter.value = detectDelimiter(content);
+      options.hidden = false;
+      const first = parseBulkText(content, delimiter.value)[0];
+      header.checked = !first.some(value => /^[1-9]\d{0,9}$/.test(value));
+      showColumns();
+    } catch (error) {
+      status.textContent = error.message;
+    }
+  });
+  delimiter.addEventListener("change", showColumns);
+  header.addEventListener("change", showColumns);
+  const form = node("form", { oninput: clearPreview }, node("label", {}, "Text file", fileInput), options, columns,
+    validation, node("label", {}, "Justification for these changes", reason), submit);
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    if (submit.disabled) return;
+    const input = { dataset, commit: catalog.commit, bulk: { category, reason: reason.value,
+      rows: prepared.map(row => ({ code: row.code, target: row.target, mapping: row.choice ? row.choice.value : row.current.id })) } };
+    try {
+      if (new TextEncoder().encode(JSON.stringify(input)).length > 60000) throw new Error("This batch is too large. Split it into smaller files.");
+      const issue = bulkProposal(catalog, input);
+      preview.replaceChildren(node("h3", {}, issue.title), node("pre", {}, issue.body),
+        node("p", {}, `The issue will link to a public CSV with ${issue.records.length} validated changes.`),
+        bulkTable(["Danish source code", "Current OMOP ID", "Proposed OMOP ID", "Mapping record"],
+          issue.records.slice(0, 10).map(({ current, target }) => [current.sourceCode, current.conceptId, target, current.id])));
+      if (settings.siteKey) mountSubmission(preview, form, input, status);
+      else preview.append(node("p", {}, "Submission is unavailable in this preview."));
+    } catch (error) {
+      preview.replaceChildren();
+      status.textContent = error.message;
+    }
+  });
+  view.append(node("section", {}, node("h2", {}, `${bulkTypes[category]} · Upload bulk changes`),
+    node("p", {}, `Upload a CSV, TSV or TXT file with a Danish code and proposed OMOP concept ID per row. Up to ${bulkLimit} changes per file. Quote codes that contain spaces when using space-separated text.`),
+    node("p", {}, node("a", { download: "bulk-mapping-template.csv",
+      href: "data:text/csv;charset=utf-8,source_code%2Cproposed_omop_concept_id%2Cmapping_id%0D%0A" }, "Download a CSV template")),
+    node("p", {}, "Use existing published mappings. Only validated mapping details and your justification will be public. Keep personal or patient information out of the justification."),
+    form, preview, status));
+}
+
 function drugNavigation(category = "products", mode = "review") {
   const medication = ["products", "ingredients"].includes(category);
   const topic = medication ? "products" : category;
@@ -440,7 +588,7 @@ function drugNavigation(category = "products", mode = "review") {
       href: `#drugs/${key}/${mode}`, ...(key === category ? { "aria-current": "location" } : {}),
     }, label))));
   context.append(node("div", { class: "topic-actions" },
-    ...[["review", "Review mappings"], ["unmapped", "Suggest new mappings"]].map(([key, label]) => node("a", {
+    ...[["review", "Review mappings"], ["unmapped", "Suggest new mappings"], ["bulk", "Upload bulk changes"]].map(([key, label]) => node("a", {
       href: `#drugs/${category}/${key}`, ...(key === mode ? { "aria-current": "page" } : {}),
     }, label))));
   navigation.append(context);
@@ -450,6 +598,7 @@ function drugNavigation(category = "products", mode = "review") {
 function showDrugSection(category, mode) {
   if (!drugData.categories[category]) category = "products";
   drugNavigation(category, mode);
+  if (mode === "bulk") { showBulkUpload(category, drugData, "drugs"); return; }
   const backlog = mode === "unmapped";
   const state = drugStates[category + mode] ||= {};
   const results = node("div");
@@ -549,6 +698,12 @@ async function loadDrugs() {
   await drugLoad;
 }
 
+function measurementNavigation() {
+  view.append(node("nav", { class: "section-nav", "aria-label": "Measurements" },
+    link("Review mappings", "#search"), link("Suggest new mappings", "#unmapped"),
+    link("Upload bulk changes", "#bulk/npu")));
+}
+
 async function render() {
   view.replaceChildren();
   const hash = location.hash;
@@ -567,9 +722,17 @@ async function render() {
   if (route === "drugs") showDrugSection(commit, id);
   else if (route === "drug-mapping") showDrugMapping(id, commit);
   else if (route === "drug-correct" || route === "drug-propose") showProposal(id, commit, "drugs");
+  else if (route === "bulk") {
+    measurementNavigation();
+    const type = commit === "dnk" ? "dnk" : "npu";
+    view.append(node("nav", { class: "section-nav", "aria-label": "Measurement vocabulary" },
+      ...["npu", "dnk"].map(key => node("a", {
+        href: `#bulk/${key}`, ...(key === type ? { "aria-current": "page" } : {}),
+      }, bulkTypes[key]))));
+    showBulkUpload(type, data, "labs");
+  }
   else if (route === "unmapped") {
-    view.append(node("nav", { class: "section-nav", "aria-label": "Measurements" },
-      link("Review mappings", "#search"), link("Suggest new mappings", "#unmapped")));
+    measurementNavigation();
     showBacklog();
   }
   else if (route === "mapping") showMapping(id, commit);
@@ -583,8 +746,7 @@ async function render() {
     node("p", {}, "Source counts and historical reference details belong to their original datasets. Maintainers review proposals before updating the published mappings."),
     link("Visit the mapping repository", "https://github.com/ohdsi-denmark/danish_medical_vocabularies_to_OMOP")));
   else {
-    view.append(node("nav", { class: "section-nav", "aria-label": "Measurements" },
-      link("Review mappings", "#search"), link("Suggest new mappings", "#unmapped")));
+    measurementNavigation();
     showSearch();
   }
 }

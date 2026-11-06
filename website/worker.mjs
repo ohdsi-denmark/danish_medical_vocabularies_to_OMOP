@@ -1,4 +1,5 @@
 import { proposal } from "./public/proposal.mjs";
+import { bulkProposal } from "./public/bulk.mjs";
 
 const encoder = new TextEncoder();
 const json = (data, status = 200) => Response.json(data, { status, headers: { "Cache-Control": "no-store" } });
@@ -79,11 +80,12 @@ async function submit(request, env) {
   const data = await env.ASSETS.fetch(new URL(filename, origin)).then(response => response.json());
   let issue;
   try {
-    issue = proposal(data, input);
+    issue = input.bulk === undefined ? proposal(data, input) : bulkProposal(data, input);
   } catch (error) {
     return fail(error.message, 400);
   }
-  const fingerprint = base64url(new Uint8Array(await crypto.subtle.digest("SHA-256", encoder.encode(issue.body))));
+  const fingerprint = base64url(new Uint8Array(await crypto.subtle.digest("SHA-256",
+    encoder.encode(issue.csv ? `${issue.body}\n\n${issue.csv}` : issue.body))));
   const db = env.SUBMISSIONS;
   const existing = () => db.prepare("SELECT issue_url FROM submissions WHERE fingerprint = ?").bind(fingerprint).first();
   const receipt = row => row?.issue_url ? json({ url: row.issue_url }) :
@@ -91,12 +93,15 @@ async function submit(request, env) {
   const previous = await existing();
   if (previous) return receipt(previous);
   const token = await githubToken(env);
-  const claim = await db.prepare("INSERT OR IGNORE INTO submissions (fingerprint) VALUES (?)").bind(fingerprint).run();
+  const claim = issue.csv
+    ? await db.prepare("INSERT OR IGNORE INTO submissions (fingerprint, bulk_csv) VALUES (?, ?)").bind(fingerprint, issue.csv).run()
+    : await db.prepare("INSERT OR IGNORE INTO submissions (fingerprint) VALUES (?)").bind(fingerprint).run();
   if (!claim.meta.changes) return receipt(await existing());
 
   // Keep the claim if GitHub's result is ambiguous so retries cannot open a second issue.
   const response = await github(`repos/${env.GITHUB_REPOSITORY}/issues`, token, {
-    ...issue, body: `${issue.body}\n\n<!-- submission:${fingerprint} -->`,
+    title: issue.title,
+    body: `${issue.body}${issue.csv ? `\n\n[Download mapping-proposal.csv](${origin}/api/bulk-files/${fingerprint}.csv)` : ""}\n\n<!-- submission:${fingerprint} -->`,
   });
   if (!response.ok) {
     if (response.status >= 400 && response.status < 500) {
@@ -115,6 +120,15 @@ async function submit(request, env) {
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
+    const attachment = /^\/api\/bulk-files\/([A-Za-z0-9_-]{43})\.csv$/.exec(pathname);
+    if (attachment && request.method === "GET") {
+      const record = await env.SUBMISSIONS.prepare("SELECT bulk_csv FROM submissions WHERE fingerprint = ? AND issue_url IS NOT NULL")
+        .bind(attachment[1]).first();
+      return record?.bulk_csv ? new Response(record.bulk_csv, { headers: {
+        "Content-Type": "text/csv; charset=utf-8", "Content-Disposition": 'attachment; filename="mapping-proposal.csv"',
+        "X-Content-Type-Options": "nosniff", "Cache-Control": "no-store",
+      } }) : fail("Proposal file not found.", 404);
+    }
     const ready = env.TURNSTILE_SITE_KEY && env.TURNSTILE_SECRET && env.GITHUB_APP_CLIENT_ID &&
       env.GITHUB_APP_PRIVATE_KEY && env.GITHUB_INSTALLATION_ID && env.SUBMISSIONS && env.PROPOSAL_RATE;
     if (pathname === "/api/config" && request.method === "GET") {

@@ -10,6 +10,12 @@ nav, .actions, .filters { display: flex; flex-wrap: wrap; gap: .75rem 1rem; alig
 nav a { color: #fff; }
 .section-nav { margin: 1rem 0; }
 .section-nav a { color: #075c63; }
+.section-nav a[aria-current] { font-weight: 650; text-decoration-thickness: 2px; }
+.filters[hidden] { display: none; }
+.bulk-table { overflow: auto; max-height: 24rem; margin: .8rem 0; }
+.bulk-table table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.bulk-table th, .bulk-table td { padding: .4rem .6rem; text-align: left; border-bottom: 1px solid #d9e2e0; overflow-wrap: anywhere; }
+.bulk-table select { max-width: min(28rem, 55vw); }
 .topic-navigation { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 0 .75rem; margin: 1.25rem 0; }
 .topic-tab { padding: .6rem .75rem; color: #41595d; border-bottom: 3px solid #ccd9d6; text-decoration: none; font-weight: 600; }
 .topic-tab[aria-current] { color: #075c63; background: #e7f2f0; border-color: #075c63; border-radius: .4rem .4rem 0 0; }
