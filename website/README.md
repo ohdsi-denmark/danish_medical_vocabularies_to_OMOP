@@ -22,11 +22,23 @@ Lab data remains in `dist/data.json`. Drug data is loaded separately from `dist/
 
 After building, run `node --test website/test_drugs.mjs` for source-identity, reconciliation, navigation, proposal and Measurements compatibility checks. The UI checks exercise page construction and form previews without a browser.
 
+## Procedures
+
+The Procedures section groups `Procedures/NCSP_SKS_mappings.csv` by Danish SKS code. Each target retains its domain, review status, equivalence, notes and original data record number. The grouped proposal form supports additions, replacements and removals. Reviewers can state whether targets are complementary or alternatives and explain the intended interpretation in the issue.
+
+The unmapped list starts from K operation codes that were active in `SKScomplete.txt` and eligible in `proc.opr` on 6 November 2026. It excludes codes with positive targets in the published mapping file, including targets still marked unchecked. The list is sorted by code. The catalogue records the release and checksums of both inputs. Supplementary Danish and English labels come from `sks_K_codes.csv` in the DNPR catalogue.
+
+To refresh the catalogue, download [SKScomplete.txt](https://filer.sundhedsdata.dk/sks/data/skscomplete/SKScomplete.txt) and the corresponding [versioned SKS code-list ZIP](https://filer.sundhedsdata.dk/sks/data/sks_xml/kodelister/). Run the importer with those files and the desired eligibility date. The original September 2026 release used the following command.
+
+```sh
+python website/import_sks.py SKScomplete.txt 20260917_SKSkodelister.zip 2026-11-06 Procedures/sks_operations.json
+```
+
 ## Bulk proposals
 
 Use **Download unmapped codes (CSV)** on an unmapped list to export the full backlog for that category. The UTF-8 CSV uses semicolons and ends with an empty `OMOP_concept_id` column. Fill in the targets you want to propose and retain the `source_item_id` column to distinguish source records that share a code.
 
-Open **Upload bulk changes** for NPU, DNK, medication products, medication ingredients, vaccines or administration routes. Upload a CSV, TSV or TXT file of up to 16 MiB with up to 250 filled targets. Rows with blank targets are skipped. The screen detects commas, semicolons and tabs in the first row outside quoted fields, then falls back to spaces. The delimiter and whether the first row contains headers can be changed. Quote values containing spaces when using a space-delimited file. UTF-8 and Windows-1252 files are supported.
+Open **Upload bulk changes** for NPU, DNK, medication products, medication ingredients, vaccines, administration routes or SKS operations. Upload a CSV, TSV or TXT file of up to 16 MiB with up to 250 filled targets. Rows with blank targets are skipped. The screen detects commas, semicolons and tabs in the first row outside quoted fields, then falls back to spaces. The delimiter and whether the first row contains headers can be changed. Quote values containing spaces when using a space-delimited file. UTF-8 and Windows-1252 files are supported.
 
 Choose the Danish source code and proposed OMOP concept ID columns. Use `source_item_id` for unmapped exports or `mapping_id` for corrections. When a code matches several records, select the intended source record from the validation table. Enter a justification for the batch and preview the issue. The original file is processed in the browser. The site submits only the selected identifiers and justification, and the Worker regenerates a normalized CSV with the current and proposed IDs and mapping provenance. The public issue links to that CSV on the Explorer. The CSV becomes downloadable once GitHub confirms issue creation.
 

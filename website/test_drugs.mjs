@@ -4,7 +4,7 @@ import vm from "node:vm";
 import { test } from "node:test";
 import { generateKeyPairSync } from "node:crypto";
 import { DatabaseSync } from "node:sqlite";
-import { proposal } from "./public/proposal.mjs";
+import { procedureProposal, procedureRelationships, proposal } from "./public/proposal.mjs";
 import * as bulk from "./public/bulk.mjs";
 import worker from "./worker.mjs";
 
@@ -12,6 +12,7 @@ const readData = name => JSON.parse(readFileSync(new URL(`dist/${name}`, import.
 const drugs = readData("drugs.json");
 const submissionData = readData("drug-proposals.json");
 const labs = readData("data.json");
+const procedures = readData("procedures.json");
 const positive = value => /^[1-9]\d*$/.test(value);
 const suggestion = item => ({ item: item.id, code: item.code, target: "123456", reason: "Proposed target requires clinical review." });
 const input = rows => ({ dataset: "drugs", commit: drugs.commit, rows });
@@ -120,6 +121,7 @@ test("bulk proposals require exact published records and generate a normalized C
 
 test("every unmapped template fits the upload limit and round-trips its source identities", () => {
   for (const [catalog, server, category] of [[labs, labs, "npu"],
+    [procedures, procedures, "procedures"],
     ...Object.keys(drugs.categories).map(category => [drugs, submissionData, category])]) {
     const items = catalog.unmapped.filter(item => (item.category || "npu") === category);
     const csv = bulk.unmappedCsv(catalog, items);
@@ -143,6 +145,39 @@ test("every unmapped template fits the upload limit and round-trips its source i
   }
 });
 
+test("procedure backlog includes only active reportable codes without a target", () => {
+  const release = JSON.parse(readFileSync(new URL("../Procedures/sks_operations.json", import.meta.url), "utf8"));
+  const mapped = new Set(procedures.mappings.filter(row => positive(row.conceptId)).map(row => row.sourceCode));
+  const expected = release.operations.filter(row => row.active && row.reportable && !mapped.has(row.code)).map(row => row.code);
+  assert.deepEqual(procedures.unmapped.map(row => row.code), expected);
+  assert(expected.length > 0);
+  assert(!expected.includes("K"));
+});
+
+test("procedure proposals preserve source groups and identify edited records", () => {
+  const code = "KTNB0H";
+  const [site, procedure] = procedures.mappings.filter(row => row.sourceCode === code);
+  assert.equal(site.domainId, "Spec Anatomic Site");
+  assert.equal(procedure.domainId, "Procedure");
+  const payload = { dataset: "procedures", commit: procedures.commit, procedure: {
+    code, reason: "Clarify the intended procedure and anatomy.", relationship: "components", changes: [
+      { action: "remove", mapping: site.id }, { action: "replace", mapping: procedure.id, target: "123456" },
+      { action: "add", target: "654321" },
+    ],
+  } };
+  const issue = procedureProposal(procedures, payload);
+  assert(issue.body.includes(`Remove record ${site.sourceRow}`));
+  assert(issue.body.includes(`Replace record ${procedure.sourceRow}`));
+  assert(issue.body.includes("Complementary components"));
+  assert(issue.body.includes("Entire ankle and foot"));
+  assert.throws(() => procedureProposal(procedures, { ...payload, procedure: {
+    ...payload.procedure, changes: [{ action: "add", target: site.conceptId }],
+  } }), /already in the proposed target set/);
+  assert.throws(() => procedureProposal(procedures, { ...payload, procedure: {
+    ...payload.procedure, code: procedures.unmapped[0].code,
+  } }), /distinct mapping record/);
+});
+
 test("submission endpoint validates identities, prevents duplicate issues and serves confirmed bulk files", async () => {
   const originalFetch = globalThis.fetch;
   const database = new DatabaseSync(":memory:");
@@ -158,7 +193,9 @@ test("submission endpoint validates identities, prevents duplicate issues and se
     TURNSTILE_SITE_KEY: "test", TURNSTILE_SECRET: "test", GITHUB_APP_CLIENT_ID: "test",
     GITHUB_APP_PRIVATE_KEY: privateKey, GITHUB_INSTALLATION_ID: "1", GITHUB_REPOSITORY: repository,
     PROPOSAL_RATE: { limit: async () => ({ success: rateAllowed }) },
-    ASSETS: { fetch: async url => { assetPath = url.pathname; return Response.json(submissionData); } },
+    ASSETS: { fetch: async url => { assetPath = url.pathname;
+      return Response.json(assetPath === "/procedures.json" ? procedures : submissionData);
+    } },
     SUBMISSIONS: { prepare: query => ({ bind: (...args) => ({
       first: async () => database.prepare(query).get(...args),
       run: async () => ({ meta: database.prepare(query).run(...args) }),
@@ -198,9 +235,16 @@ test("submission endpoint validates identities, prevents duplicate issues and se
     const file = await worker.fetch(new Request(attachment), env);
     assert.match(file.headers.get("Content-Disposition"), /attachment/);
     assert.equal(await file.text(), bulk.bulkProposal(drugs, upload).csv);
+    const procedureInput = { dataset: "procedures", commit: procedures.commit, procedure: {
+      code: procedures.unmapped[0].code, reason: "Propose the first mapping for this procedure.", relationship: "unspecified",
+      changes: [{ action: "add", target: "123456" }, { action: "add", target: "654321" }],
+    } };
+    assert.equal((await send(procedureInput)).status, 201);
+    assert.equal(assetPath, "/procedures.json");
+    assert.equal((await send(procedureInput)).status, 200);
     rateAllowed = false;
     assert.equal((await send(payload)).status, 429);
-    assert.equal(issues, 2);
+    assert.equal(issues, 3);
   } finally {
     globalThis.fetch = originalFetch;
     database.close();
@@ -223,7 +267,8 @@ test("navigation, search, detail views and proposal preview use the selected col
   const context = vm.createContext({
     document: { querySelector: selector => selector === "#view" ? view : new Element("div"), createElement: tag => new Element(tag) },
     location: { hash: "#drugs/products/review" }, snapshot: drugs, labs, proposal, batchLimit: 10,
-    fetch: async () => Response.json(drugs), ...bulk, TextDecoder, TextEncoder,
+    fetch: async file => Response.json(file === "procedures.json" ? procedures : drugs),
+    ...bulk, procedureProposal, procedureRelationships, TextDecoder, TextEncoder,
   });
   const source = readFileSync(new URL("public/app.mjs", import.meta.url), "utf8");
   vm.runInContext(source.slice(source.indexOf('const view ='), source.lastIndexOf('\ntry {')) +
@@ -236,8 +281,15 @@ test("navigation, search, detail views and proposal preview use the selected col
   context.location.hash = "#drugs/vaccines/review";
   await vm.runInContext("render()", context);
   assert(text(view).includes("Vaccines · Review mappings"));
+  context.location.hash = "#drugs/routes/review";
+  await vm.runInContext("render()", context);
+  const mappedRoutes = drugs.mappings.filter(row => row.category === "routes" && positive(row.conceptId));
+  assert(text(view).includes(`${mappedRoutes.length} results`));
+  assert(!text(view).includes("No usable target recorded"));
+  assert(!text(view).includes("Indgiftandreveje"));
   context.location.hash = "#drugs/routes/unmapped";
   await vm.runInContext("render()", context);
+  assert(text(view).includes("Indgiftandreveje"));
   const checkbox = descendants(view).find(element => element.attributes.type === "checkbox");
   checkbox.checked = true;
   checkbox.events.change();
@@ -289,4 +341,24 @@ test("navigation, search, detail views and proposal preview use the selected col
   descendants(view).find(element => element.tag === "button" && text(element).includes("Validate rows")).events.click();
   descendants(view).find(element => element.tag === "form").events.submit({ preventDefault() {} });
   assert(text(view).includes("New mappings: 1"));
+  context.location.hash = "#procedures/review";
+  await vm.runInContext("render()", context);
+  const sourceCount = new Set(procedures.mappings.map(row => row.sourceCode)).size;
+  assert(text(view).includes(`${sourceCount.toLocaleString()} results`));
+  context.location.hash = `#procedure/${procedures.commit}/KTNB0H`;
+  await vm.runInContext("render()", context);
+  assert(text(view).includes("Entire ankle and foot"));
+  assert(text(view).includes("Application of bandage"));
+  assert(text(view).includes("Relationship between targets unspecified"));
+  context.location.hash = "#procedures/unmapped";
+  await vm.runInContext("render()", context);
+  assert(text(view).includes("Unmapped SKS operations"));
+  assert(text(view).includes("Download unmapped codes (CSV)"));
+  context.location.hash = `#procedure-propose/${procedures.commit}/${procedures.unmapped[0].code}`;
+  await vm.runInContext("render()", context);
+  descendants(view).find(element => element.attributes.inputmode === "numeric").value = "123456";
+  descendants(view).find(element => element.tag === "textarea").value = "Suggest the first target for this operation.";
+  descendants(view).find(element => element.tag === "form").events.submit({ preventDefault() {} });
+  assert(text(view).includes("No current mapping records"));
+  assert(text(view).includes("Add [123456]"));
 });

@@ -6,6 +6,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import quote
 from drugs import build_drugs
+from procedures import build_procedures
 
 SITE = Path(__file__).resolve().parent
 ROOT = SITE.parent
@@ -67,6 +68,7 @@ def main():
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     input_paths = [f":(glob){folder.name}/**/*.{extension}"
                    for folder in (LABS, DRUGS) for extension in ("csv", "txt")]
+    input_paths.append("Procedures/NCSP_SKS_mappings.csv")
     if subprocess.check_output(["git", "status", "--porcelain", "--", *input_paths], cwd=ROOT):
         raise SystemExit("Commit the mapping inputs before building a versioned snapshot.")
     files = {
@@ -145,6 +147,8 @@ def main():
     }
     (OUT / "drug-proposals.json").write_text(json.dumps(proposal_data, ensure_ascii=False,
                                                       separators=(",", ":")), encoding="utf-8")
+    (OUT / "procedures.json").write_text(json.dumps(build_procedures(ROOT, commit), ensure_ascii=False,
+                                                  separators=(",", ":")), encoding="utf-8")
 
 if __name__ == "__main__":
     main()
