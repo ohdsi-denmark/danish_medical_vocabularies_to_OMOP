@@ -76,7 +76,7 @@ async function submit(request, env) {
   if (!verification.success || verification.action !== "mapping_proposal" || verification.hostname !== new URL(origin).hostname) {
     return fail("The spam check expired or failed. Please try again.", 400);
   }
-  const collections = { labs: "/data.json", drugs: "/drug-proposals.json", procedures: "/procedures.json" };
+  const collections = { labs: "/data.json", drugs: "/drug-proposals.json", procedures: "/procedures.json", conditions: "/conditions.json" };
   const dataset = input.dataset || "labs";
   if (!Object.hasOwn(collections, dataset)) return fail("Unknown mapping collection.", 400);
   const filename = collections[dataset];
@@ -84,7 +84,7 @@ async function submit(request, env) {
   let issue;
   try {
     if (input.bulk !== undefined) issue = bulkProposal(data, input);
-    else if (dataset === "procedures") issue = procedureProposal(data, input);
+    else if (["procedures", "conditions"].includes(dataset)) issue = procedureProposal(data, input);
     else issue = proposal(data, input);
   } catch (error) {
     return fail(error.message, 400);

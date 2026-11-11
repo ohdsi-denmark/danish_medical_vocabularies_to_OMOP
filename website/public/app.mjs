@@ -17,6 +17,12 @@ let procedureLoad;
 const procedureDetailLoads = new Map();
 const procedureDetails = new Map();
 let procedureExportLoad;
+let conditionData;
+let conditionLoad;
+let conditionExportLoad;
+const conditionDetails = new Map();
+const conditionDetailLoads = new Map();
+const conditionState = {};
 const procedureState = {};
 const drugSelections = new Set();
 const drugStates = {};
@@ -228,20 +234,20 @@ function showMapping(id, commit) {
       link("Suggest a correction", `#correct/${data.commit}/${id}`)));
 }
 
-function backlogDownload(catalog, items, type, loadCatalog) {
+function backlogDownload(catalog, items, type, loadCatalog, label = "Download unmapped codes (CSV)", filename = `${type}-unmapped.csv`) {
   const button = node("button", { type: "button", onclick: async () => {
     button.disabled = true;
     if (loadCatalog) button.textContent = "Preparing download…";
     try {
       const full = loadCatalog ? await loadCatalog() : catalog;
       const url = URL.createObjectURL(new Blob([unmappedCsv(full, items)], { type: "text/csv;charset=utf-8" }));
-      node("a", { href: url, download: `${type}-unmapped.csv` }).click();
+      node("a", { href: url, download: filename }).click();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
-      button.textContent = "Download unmapped codes (CSV)";
+      button.textContent = label;
     } catch {
       button.textContent = "Download failed. Select to retry.";
     } finally { button.disabled = false; }
-  } }, "Download unmapped codes (CSV)");
+  } }, label);
   return button;
 }
 
@@ -728,6 +734,101 @@ async function loadDrugs() {
   await drugLoad;
 }
 
+function conditionNavigation() {
+  view.append(node("nav", { class: "section-nav", "aria-label": "Conditions" },
+    link("Review mappings", "#conditions/review"), link("Suggest new mappings", "#conditions/unmapped"),
+    link("Upload bulk changes", "#conditions/bulk")));
+}
+
+function showConditions(mode) {
+  conditionNavigation();
+  const catalog = conditionData;
+  if (mode === "bulk") { showBulkUpload("conditions", catalog, "conditions"); return; }
+  const candidates = mode === "unmapped";
+  const state = conditionState[candidates ? "candidates" : "review"] ||= {};
+  const uncovered = new Set(catalog.uncovered);
+  const results = node("div");
+  const groups = new Map();
+  const download = node("div");
+  const items = new Map(catalog.unmapped.map(item => [item.code, item]));
+  if (candidates) for (const item of catalog.unmapped) groups.set(item.code, []);
+  else for (const row of catalog.mappings) {
+    if (!groups.has(row.sourceCode)) groups.set(row.sourceCode, []);
+    groups.get(row.sourceCode).push(row);
+  }
+  if (!candidates) for (const code of catalog.referenceCodes) if (!groups.has(code)) groups.set(code, []);
+  const update = () => {
+    const rank = code => {
+      const value = catalog.sources[code].occurrences;
+      return value == null ? -2 : value.startsWith("<") ? -1 : Number(value);
+    };
+    const rows = [...groups].filter(([code, custom]) => {
+      if (!candidates && (state.origin || "Custom mappings") !== "All mappings" &&
+          ((state.origin || "Custom mappings") === "Custom mappings" ? !custom.length : custom.length > 0)) return false;
+      const records = [...custom, ...(catalog.referenceTargets[code] || []).map(([conceptId, conceptName, vocabularyId]) => ({ conceptId, conceptName, vocabularyId }))];
+      const source = catalog.sources[code];
+      return (!candidates || (state.coverage === "All candidates" || (state.coverage === "Standard reference available" ? !uncovered.has(code) : uncovered.has(code)))) &&
+        (!state.vocabulary || records.some(row => row.vocabularyId === state.vocabulary)) &&
+        (!state.count || (state.count === "Multiple targets" ? new Set(records.map(row => row.conceptId)).size > 1 : new Set(records.map(row => row.conceptId)).size === 1)) &&
+        match(state.query, [code, source.name, source.searchText, ...records.flatMap(row => [row.conceptId, row.conceptName, row.sourceName, row.vocabularyId])]);
+    }).sort(([a], [b]) => (state.sort === "Code" ? 0 : rank(b) - rank(a)) || a.localeCompare(b));
+    if (candidates) download.replaceChildren(backlogDownload(catalog, rows.map(([code]) => items.get(code)), "conditions", loadConditionExport,
+      "Download listed coverage candidates (CSV)", "condition-coverage-candidates.csv"));
+    renderList(results, rows, ([code, records]) => {
+      const source = catalog.sources[code];
+      return node("li", {}, link(node("span", { class: "code-source" }, `${code} · ${source.name}`), `#condition/${catalog.commit}/${code}`),
+        node("div", {}, source.occurrences == null ? "Source frequency unavailable" : `${source.occurrences.startsWith("<") ? source.occurrences : Number(source.occurrences).toLocaleString()} diagnosis source rows`),
+        node("div", {}, candidates ? (uncovered.has(code) ? "No custom mapping or exact standard reference match" : "Standard reference available · No custom mapping") :
+          `${records.length} custom mapping records${catalog.referenceTargets[code] ? " · Standard reference available" : ""}`));
+    });
+  };
+  const change = (key, value) => { state[key] = value; update(); };
+  const sort = node("select", { onchange: event => change("sort", event.target.value) },
+    ...["Source frequency", "Code"].map(value => node("option", { value }, value)));
+  sort.value = state.sort || "Source frequency";
+  const filters = node("div", { class: "filters" }, searchBox("Danish diagnosis code, name or OMOP target ID", state.query, value => change("query", value)), node("label", {}, "Sort by", sort));
+  if (candidates) {
+    const coverage = node("select", { onchange: event => change("coverage", event.target.value) },
+      ...["No supplied mapping", "Standard reference available", "All candidates"].map(value => node("option", { value }, value)));
+    coverage.value = state.coverage || "No supplied mapping";
+    filters.append(node("label", {}, "Coverage", coverage));
+  }
+  if (!candidates) {
+    const origin = node("select", { onchange: event => change("origin", event.target.value) },
+      ...["Custom mappings", "Standard reference only", "All mappings"].map(value => node("option", { value }, value)));
+    origin.value = state.origin || "Custom mappings";
+    filters.append(node("label", {}, "Mapping origin", origin),
+      filter("Target vocabulary", [...new Set([...catalog.mappings.map(row => row.vocabularyId), ...Object.values(catalog.referenceTargets).flatMap(rows => rows.map(row => row[2]))])].sort(), state.vocabulary, value => change("vocabulary", value)),
+      filter("Target count", ["One target", "Multiple targets"], state.count, value => change("count", value)));
+  }
+  view.append(node("section", {}, node("h2", {}, candidates ? "Condition mapping coverage candidates" : "Review condition mappings"),
+    node("p", {}, catalog.coverageNote),
+    node("p", {}, candidates ? "Observed diagnosis codes without an active custom mapping. The default view excludes exact matches in the supplied standard reference. Change Coverage to review standard mappings and propose overrides. Historical and unrecognized source values remain visible." :
+      "Review custom mappings and supplied standard reference targets by Danish diagnosis code. Domains and review status are unavailable in the supplied files; concept IDs link to Athena."),
+    node("p", {}, "Frequencies count diagnosis source rows, not distinct patients. <5 is preserved; unavailable counts do not mean zero."), filters,
+    ...(candidates ? [download] : []), results));
+  update();
+}
+
+async function loadConditions() {
+  if (!conditionLoad) conditionLoad = fetch("conditions.json").then(response => {
+    if (!response.ok) throw new Error("Condition mappings could not be loaded.");
+    return response.json();
+  }).then(value => { conditionData = expandProcedures(value); }).catch(error => { conditionLoad = undefined; throw error; });
+  await conditionLoad;
+}
+
+async function loadConditionExport() {
+  if (!conditionExportLoad) conditionExportLoad = fetch(conditionData.exportFile).then(response => {
+    if (!response.ok) throw new Error("Condition export could not be loaded.");
+    return response.json();
+  }).then(value => {
+    if (value.commit !== conditionData.commit || !value.sources) throw new Error("Condition export refers to a different snapshot.");
+    return value;
+  }).catch(error => { conditionExportLoad = undefined; throw error; });
+  return conditionExportLoad;
+}
+
 function procedureNavigation() {
   view.append(node("nav", { class: "section-nav", "aria-label": "Procedures" },
     link("Review mappings", "#procedures/review"), link("Suggest new mappings", "#procedures/unmapped"),
@@ -804,17 +905,20 @@ function procedureSourceCard(source) {
     ...Object.entries(source.details[0])], "source");
 }
 
-function showProcedure(code, commit, edit) {
-  procedureNavigation();
-  const source = commit === procedureData.commit && procedureDetails.get(code);
+function showProcedure(code, commit, edit, config = {}) {
+  const catalog = config.data || procedureData;
+  const details = config.details || procedureDetails;
+  const route = config.route || "procedure";
+  (config.navigation || procedureNavigation)();
+  const source = commit === catalog.commit && details.get(code);
   if (!source) {
     view.append(node("p", {}, "This link refers to a different snapshot or an unknown SKS code."));
     return;
   }
-  const rows = procedureData.mappings.filter(row => row.sourceKey === code);
+  const rows = catalog.mappings.filter(row => row.sourceKey === code);
   view.append(node("h2", {}, `${code} · ${source.name}`));
   if (edit) {
-    showProcedureProposal(source, rows);
+    showProcedureProposal(source, rows, catalog, config.dataset || "procedures", route);
     return;
   }
   const distinct = new Set(rows.map(row => row.conceptId).filter(id => /^[1-9]\d*$/.test(id))).size;
@@ -822,20 +926,34 @@ function showProcedure(code, commit, edit) {
     ...(distinct > 1 ? [node("p", {}, "Relationship between targets unspecified. Review the roles and context of each target.")] : []),
     rows.length ? bulkTable(["Concept ID", "Name and domain", "Review", "Record and notes"], rows.map(row => [
       /^[1-9]\d*$/.test(row.conceptId) ? link(row.conceptId, `${athena}terms/${row.conceptId}`) : "No usable target",
-      node("div", {}, row.conceptName, node("div", {}, row.domainId)),
+      node("div", {}, row.conceptName, node("div", {}, [row.vocabularyId, row.domainId].filter(Boolean).join(" · "))),
       [row.mappingStatus, row.equivalence].filter(Boolean).join(" · "),
       node("details", {}, node("summary", {}, `Record ${row.sourceRow}`), facts("Mapping record", [
         ["Relationship", row.mappingType], ["Match score", row.matchScore], ["Origin or source note", row["ADD_INFO:orig"]],
         ["Comment", row.comment], ["statusSetBy", row.statusSetBy], ["statusSetOn", row.statusSetOn],
         ["createdBy", row.createdBy], ["createdOn", row.createdOn], ["assignedReviewer", row.assignedReviewer],
+        ["Source vocabulary", row.source_vocabulary_id], ["Source concept ID", row.source_concept_id],
+        ["Published source description", row.source_code_description], ["Target vocabulary", row.target_vocabulary_id],
+        ["Mapping valid from", row.valid_start_date], ["Mapping valid until", row.valid_end_date],
+        ["Invalid reason", row.invalid_reason],
       ])),
-    ])) : node("p", {}, "No mapping recorded."));
+    ])) : node("p", {}, config.dataset === "conditions" ? "No custom mapping recorded. See the standard reference targets below, where available." : "No mapping recorded."));
+  if (config.dataset === "conditions") {
+    targets.append(node("h3", {}, "Supplied standard reference targets"),
+      node("p", {}, catalog.coverageNote),
+      ...(source.references?.length ? [bulkTable(["Concept ID", "Name", "Vocabulary", "Reference source"], source.references.map(row => [
+        link(row.target_concept_id, `${athena}terms/${row.target_concept_id}`), row.standard_concept_name, row.vocabulary_id,
+        node("details", {}, node("summary", {}, `Record ${row.sourceRow}`), facts("Reference metadata", [
+          ["Source concept ID", row.icd10_concept_id], ["Source concept name", row.icd10_concept_name], ["Source file", row.sourceFile],
+        ])),
+      ]))] : [node("p", {}, "No exact match in the supplied standard mapping reference.") ]));
+  }
   view.append(node("div", { class: "grid" }, procedureSourceCard(source), targets),
     node("div", { class: "actions" }, link(rows.length ? "Propose target changes" : "Suggest a mapping",
-      `#procedure-propose/${commit}/${code}`), link("Download mapping file", procedureData.downloads["SKS procedure mappings"])));
+      `#${route}-propose/${commit}/${code}`), link("Download mapping file", Object.values(catalog.downloads)[0])));
 }
 
-function showProcedureProposal(source, rows) {
+function showProcedureProposal(source, rows, catalog = procedureData, dataset = "procedures", route = "procedure") {
   const preview = node("div");
   const status = node("p", { role: "status" });
   const reason = node("textarea", { required: "", minlength: "10", maxlength: "1500" });
@@ -848,13 +966,13 @@ function showProcedureProposal(source, rows) {
     const input = conceptInput();
     newTargets.push(input);
     fields.append(node("fieldset", {}, node("legend", {}, `New target ${newTargets.length}`),
-      targetPicker(input, procedureData), node("label", {}, "OMOP concept ID", input)));
+      targetPicker(input, catalog), node("label", {}, "OMOP concept ID", input)));
     addTarget.disabled = newTargets.length >= batchLimit;
   }
   const addTarget = node("button", { type: "button", onclick: appendTarget }, "Add another target");
   const edits = rows.map(row => {
     const input = conceptInput();
-    const replacement = node("div", {}, targetPicker(input, procedureData), node("label", {}, "Replacement OMOP concept ID", input));
+    const replacement = node("div", {}, targetPicker(input, catalog), node("label", {}, "Replacement OMOP concept ID", input));
     replacement.hidden = true;
     input.disabled = true;
     const action = node("select", { onchange: () => {
@@ -880,10 +998,10 @@ function showProcedureProposal(source, rows) {
     for (const input of newTargets) {
       if (input.value.trim()) changes.push({ action: "add", target: input.value.trim() });
     }
-    const input = { dataset: "procedures", commit: procedureData.commit,
-      procedure: { code: source.code, changes, relationship: relationship.value, reason: reason.value } };
+    const input = { dataset, commit: catalog.commit,
+      [route]: { code: source.code, changes, relationship: relationship.value, reason: reason.value } };
     try {
-      const issue = procedureProposal(procedureData, input);
+      const issue = procedureProposal(catalog, input);
       preview.replaceChildren(node("h3", {}, issue.title), node("pre", {}, issue.body));
       if (settings.siteKey) mountSubmission(preview, form, input, status);
       else preview.append(node("p", {}, "Submission is unavailable in this preview."));
@@ -893,6 +1011,7 @@ function showProcedureProposal(source, rows) {
     }
   });
   view.append(procedureSourceCard(source), node("section", {}, node("h3", {}, "Propose target changes"),
+    ...(catalog.coverageNote ? [node("p", {}, catalog.coverageNote)] : []),
     node("p", {}, "Your proposal will appear publicly on GitHub. Keep patient information and personal contact details out of the form."),
     form, preview, status));
 }
@@ -905,20 +1024,20 @@ async function loadProcedures() {
   await procedureLoad;
 }
 
-async function loadProcedureDetails(code) {
-  const source = Object.hasOwn(procedureData.sources, code) && procedureData.sources[code];
+async function loadProcedureDetails(code, catalog = procedureData, loads = procedureDetailLoads, details = procedureDetails) {
+  const source = Object.hasOwn(catalog.sources, code) && catalog.sources[code];
   if (!source) return;
   const filename = source.detailFile;
-  if (!procedureDetailLoads.has(filename)) {
-    procedureDetailLoads.set(filename, fetch(filename).then(response => {
+  if (!loads.has(filename)) {
+    loads.set(filename, fetch(filename).then(response => {
       if (!response.ok) throw new Error("Procedure details could not be loaded.");
       return response.json();
     }).then(value => {
-      if (value.commit !== procedureData.commit || !value.sources?.[code]) throw new Error("Procedure details refer to a different snapshot.");
-      for (const [key, detail] of Object.entries(value.sources)) procedureDetails.set(key, detail);
-    }).catch(error => { procedureDetailLoads.delete(filename); throw error; }));
+      if (value.commit !== catalog.commit || !value.sources?.[code]) throw new Error("Details refer to a different snapshot.");
+      for (const [key, detail] of Object.entries(value.sources)) details.set(key, detail);
+    }).catch(error => { loads.delete(filename); throw error; }));
   }
-  await procedureDetailLoads.get(filename);
+  await loads.get(filename);
 }
 
 async function loadProcedureExport() {
@@ -944,12 +1063,14 @@ async function render() {
   const [route, commit, id] = hash.slice(1).split("/");
   const needsDrugs = ["drugs", "drug-mapping", "drug-correct", "drug-propose", "downloads"].includes(route);
   const needsProcedures = ["procedures", "procedure", "procedure-propose", "downloads"].includes(route);
-  if (needsDrugs || needsProcedures) {
+  const needsConditions = ["conditions", "condition", "condition-propose", "downloads"].includes(route);
+  if (needsDrugs || needsProcedures || needsConditions) {
     loadStatus.textContent = "Loading mappings…";
     try {
-      await Promise.all([needsDrugs && loadDrugs(), needsProcedures && loadProcedures()]);
+      await Promise.all([needsDrugs && loadDrugs(), needsProcedures && loadProcedures(), needsConditions && loadConditions()]);
       if (hash !== location.hash) return;
       if (["procedure", "procedure-propose"].includes(route) && commit === procedureData.commit) await loadProcedureDetails(id);
+      if (["condition", "condition-propose"].includes(route) && commit === conditionData.commit) await loadProcedureDetails(id, conditionData, conditionDetailLoads, conditionDetails);
     } catch {
       if (hash === location.hash) loadStatus.textContent = "Mappings could not be loaded. Reload or select the section again to retry.";
       return;
@@ -959,6 +1080,9 @@ async function render() {
   } else loadStatus.textContent = "";
   if (route === "drugs") showDrugSection(commit, id);
   else if (route === "procedures") showProcedures(commit);
+  else if (route === "conditions") showConditions(commit);
+  else if (route === "condition" || route === "condition-propose") showProcedure(id, commit, route === "condition-propose",
+    { data: conditionData, details: conditionDetails, route: "condition", dataset: "conditions", navigation: conditionNavigation });
   else if (route === "procedure" || route === "procedure-propose") showProcedure(id, commit, route === "procedure-propose");
   else if (route === "drug-mapping") showDrugMapping(id, commit);
   else if (route === "drug-correct" || route === "drug-propose") showProposal(id, commit, "drugs");
@@ -978,7 +1102,7 @@ async function render() {
   else if (route === "mapping") showMapping(id, commit);
   else if (route === "correct" || route === "propose") showProposal(id, commit);
   else if (route === "downloads") view.append(node("section", {}, node("h2", {}, "Download mapping files"),
-    ...[["Measurements", data.downloads], ["Drugs & vaccines", drugData.downloads], ["Procedures", procedureData.downloads]].map(([label, files]) =>
+    ...[["Measurements", data.downloads], ["Drugs & vaccines", drugData.downloads], ["Procedures", procedureData.downloads], ["Conditions", conditionData.downloads]].map(([label, files]) =>
       node("div", {}, node("h3", {}, label), node("ul", {}, ...Object.entries(files).map(([name, url]) => node("li", {}, link(name, url))))))));
   else if (route === "about") view.append(node("section", {}, node("h2", {}, "About & contributing"),
     node("p", {}, "The Danish OHDSI Node maintains these mappings. Browse a mapping to propose a correction, or select up to ten source items from a new-mapping list."),

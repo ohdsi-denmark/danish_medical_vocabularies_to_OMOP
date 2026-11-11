@@ -3,7 +3,7 @@ export const bulkFileLimit = 16 * 1024 * 1024;
 
 export const bulkTypes = {
   npu: "NPU measurements", dnk: "DNK measurements", products: "Medication products",
-  ingredients: "Medication ingredients", vaccines: "Vaccines", routes: "Administration routes", procedures: "Procedure codes",
+  ingredients: "Medication ingredients", vaccines: "Vaccines", routes: "Administration routes", procedures: "Procedure codes", conditions: "Condition codes",
 };
 
 export function detectDelimiter(text) {
@@ -169,10 +169,11 @@ export function bulkProposal(data, input) {
   }).sort((a, b) => a.current.id.localeCompare(b.current.id));
 
   const columns = ["source_code", "current_omop_concept_id", "proposed_omop_concept_id", "mapping_id",
-    "source_name", "preparation", "source_file", "source_record"];
+    "source_name", "preparation", "source_file", "source_record", ...(category === "conditions" ? ["standard_reference_target_ids"] : [])];
   const csv = [columns, ...records.map(({ current, target }) => [
     current.sourceCode, current.conceptId, target, current.id, current.sourceName, current.preparation,
     current.sourceFile, current.sourceRow,
+    ...(category === "conditions" ? [(data.referenceTargets[current.sourceCode] || []).map(row => row[0]).join(" | ")] : []),
   ])].map(row => row.map(csvCell).join(",")).join("\r\n") + "\r\n";
   if (new TextEncoder().encode(csv).length > 256 * 1024) throw new Error("The prepared CSV is too large. Split the changes into smaller files.");
   const safeReason = justification.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("@", "&#64;");
@@ -181,6 +182,7 @@ export function bulkProposal(data, input) {
     "Submitted via the Danish OMOP Mapping Explorer.",
     `Mapping snapshot: \`${data.commit}\``,
     `Mapping type: ${bulkTypes[category]}`,
+    ...(data.coverageNote ? [data.coverageNote] : []),
     `Proposed changes: ${records.length}`,
     ...(records.some(({ current }) => current.unmapped) ?
       [`New mappings: ${records.filter(({ current }) => current.unmapped).length}`] : []),

@@ -8,7 +8,8 @@ export const procedureRelationships = {
 
 export function procedureProposal(data, input) {
   if (input.commit !== data.commit) throw new Error("The mappings have been updated. Reload before submitting.");
-  const { code, changes, relationship, reason } = input.procedure || {};
+  const condition = input.dataset === "conditions";
+  const { code, changes, relationship, reason } = (condition ? input.condition : input.procedure) || {};
   if (!Object.hasOwn(data.sources, code)) throw new Error("Choose a known SKS source code.");
   if (!Array.isArray(changes) || !changes.length || changes.length > batchLimit) {
     throw new Error(`Propose between 1 and ${batchLimit} changes.`);
@@ -46,6 +47,9 @@ export function procedureProposal(data, input) {
     `Source: ${safe(code)} · ${safe(data.sources[code].name)}`,
     `Mapping snapshot: \`${data.commit}\``,
     `SKS catalogue: ${data.release.release}, eligibility checked on ${data.release.asOf}`,
+    ...(data.coverageNote ? [data.coverageNote] : []),
+    ...(condition ? ["### Supplied standard reference targets", ...(data.referenceTargets[code] || []).map(([id, name, vocabulary]) =>
+      `- ${targetLink(id)} ${safe(name)} · ${safe(vocabulary)}`), "Changes below apply to the Danish custom mapping file; reference targets are context for reviewing an override."] : []),
     "### Current mapping records",
     current.length ? current.map(row => `- ${targetLink(row.conceptId)} ${safe(row.conceptName)} · ${safe(row.domainId)} · ${safe(row.mappingStatus)} · record ${row.sourceRow} in ${row.sourceFile}`).join("\n") : "No current mapping records.",
     "### Proposed edits",
@@ -54,12 +58,12 @@ export function procedureProposal(data, input) {
       const record = `record ${row.sourceRow} (${targetLink(row.conceptId)})`;
       return action === "remove" ? `- Remove ${record}` : `- Replace ${record} with ${targetLink(target)}`;
     }).join("\n"),
-    `Proposed target set: ${[...resulting].map(targetLink).join(", ") || "Empty"}`,
+    `Proposed ${condition ? "custom " : ""}target set: ${[...resulting].map(targetLink).join(", ") || "Empty"}`,
     `Relationship between targets: ${procedureRelationships[relationship]}`,
     "### Justification",
     safe(justification).split(/\r?\n/).map(line => `> ${line}`).join("\n"),
   ].join("\n\n");
-  return { title: `Procedure mapping proposal for ${code}`, body };
+  return { title: `${condition ? "Condition" : "Procedure"} mapping proposal for ${code}`, body };
 }
 
 export function proposal(data, input) {

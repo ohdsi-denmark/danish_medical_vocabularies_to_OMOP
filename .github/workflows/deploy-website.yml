@@ -34,7 +34,7 @@ jobs:
 
       - name: Check mapping website
         run: |
-          python -m unittest discover -s website -p test_procedures.py
+          python -m unittest discover -s website -p 'test_*.py'
           node --test website/test_drugs.mjs
 
       - name: Apply database migrations and deploy

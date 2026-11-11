@@ -1,0 +1,244 @@
+target_concept_id,target_name,target_vocabulary_id
+132392,Staphylococcal scalded skin syndrome,SNOMED
+133283,Pyoderma gangrenosum,SNOMED
+133424,Primary malignant neoplasm of thyroid gland,SNOMED
+134057,Disorder of cardiovascular system,SNOMED
+134765,Cachexia,SNOMED
+135214,Polycythemia vera (clinical),SNOMED
+137785,Verruca plantaris,SNOMED
+138102,Benign neoplasm of skin,SNOMED
+138346,Erysipelas,SNOMED
+138502,Vitiligo,SNOMED
+140176,Erythema nodosum,SNOMED
+140214,Eruption,SNOMED
+140641,Verruca vulgaris,SNOMED
+141213,Scarlet fever,SNOMED
+141249,Benign neoplasm of thyroid gland,SNOMED
+141371,Pityriasis rosea,SNOMED
+192359,Renal failure syndrome,SNOMED
+192450,Retention of urine,SNOMED
+192855,Carcinoma in situ of urinary bladder,SNOMED
+193874,Nocturnal enuresis,SNOMED
+194100,Obstructed labor due to fetal malposition,SNOMED
+194419,Infertility due to oligospermia,SNOMED
+195480,Primary malignant neoplasm of renal pelvis,SNOMED
+196048,Primary malignant neoplasm of vagina,SNOMED
+196359,Primary malignant neoplasm of uterine cervix,SNOMED
+196738,Disorder of male genital organ,SNOMED
+197223,Enterobiasis,SNOMED
+197230,Malignant neoplasm of uterus,SNOMED
+197304,Ulcer of lower extremity,SNOMED
+197602,Tubo-ovarian inflammatory disease,SNOMED
+197672,Urinary incontinence,SNOMED
+197675,Incontinence of feces,SNOMED
+197806,Primary malignant neoplasm of gallbladder,SNOMED
+198197,Male infertility,SNOMED
+198488,Placental abruption,SNOMED
+198985,Primary malignant neoplasm of kidney,SNOMED
+199764,Benign neoplasm of ovary,SNOMED
+199837,Portal vein thrombosis,SNOMED
+200051,Primary malignant neoplasm of ovary,SNOMED
+200054,Primary malignant neoplasm of ureter,SNOMED
+200164,Diaper rash,SNOMED
+200219,Abdominal pain,SNOMED
+200528,Ascites,SNOMED
+200962,Primary malignant neoplasm of prostate,SNOMED
+201136,Omphalitis of newborn,SNOMED
+201690,Renal colic,SNOMED
+201957,Necrotizing enterocolitis in fetus OR newborn,SNOMED
+23325,Heartburn,SNOMED
+254061,Pleural effusion,SNOMED
+254761,Cough,SNOMED
+255841,Chronic bronchitis,SNOMED
+256449,Bronchiectasis,SNOMED
+256450,Asbestosis,SNOMED
+256451,Bronchitis,SNOMED
+256633,Primary malignant neoplasm of base of tongue,SNOMED
+259044,Pneumoconiosis,SNOMED
+260427,Common cold,SNOMED
+260754,Haemophilus influenzae pneumonia,SNOMED
+261324,Pneumonia caused by Streptococcus,SNOMED
+27674,Nausea and vomiting,SNOMED
+27918,Eosinophilic esophagitis,SNOMED
+30437,Gastro-esophageal reflux disease with esophagitis,SNOMED
+30753,Esophagitis,SNOMED
+31317,Dysphagia,SNOMED
+313459,Sleep apnea,SNOMED
+313792,Paroxysmal tachycardia,SNOMED
+31967,Nausea,SNOMED
+320128,Essential hypertension,SNOMED
+36712845,Isolated proteinuria,SNOMED
+37108741,Partial placenta previa with hemorrhage,SNOMED
+37110409,Hypnotic dependence,SNOMED
+37116845,Acute severe refractory exacerbation of asthma,SNOMED
+37162782,Functional disorder of polymorphonuclear neutrophil,SNOMED
+37164389,Abuse of steroid hormone,SNOMED
+37164566,Psychostimulant dependence in remission,SNOMED
+37165528,Substance dependence in remission,SNOMED
+37165875,Toxic effect of soap,SNOMED
+37171349,Nocturnal polyuria,SNOMED
+372547,Viral encephalitis,SNOMED
+37311319,Hypovolemia,SNOMED
+37312520,Ischemic foot ulcer due to atherosclerosis of artery of lower limb,SNOMED
+373176,Organic mood disorder,SNOMED
+373489,Congenital nystagmus,SNOMED
+373764,Toxic encephalopathy,SNOMED
+374009,Organic mental disorder,SNOMED
+374013,Secondary parkinsonism,SNOMED
+374341,Huntington's chorea,SNOMED
+374801,Foreign body in ear,SNOMED
+374919,Multiple sclerosis,SNOMED
+374954,Optic neuritis,SNOMED
+376337,Disorder of nervous system,SNOMED
+377091,Seizure,SNOMED
+377802,Late effects of poliomyelitis,SNOMED
+378253,Headache,SNOMED
+381270,Parkinson's disease,SNOMED
+381585,Cholesteatoma of middle ear,SNOMED
+4000167,Collagenous colitis,SNOMED
+4011615,Recurrent miscarriage,SNOMED
+4014295,Single live birth,SNOMED
+4024659,Gestational diabetes mellitus,SNOMED
+4028998,Paraphimosis,SNOMED
+40483172,Stimulant dependence,SNOMED
+4048809,Brainstem death,SNOMED
+40490888,Herniation of rectum into vagina,SNOMED
+4050747,Fracture of upper limb,SNOMED
+4054067,Open wound of foot,SNOMED
+40568467,Seborrheic keratosis,SNOMED
+4057044,Injury of muscle and tendon at neck level,SNOMED
+4060037,Obstructed labor due to brow presentation,SNOMED
+4066378,Umbilical granuloma,SNOMED
+4067069,Callosity,SNOMED
+4078925,Pulmonary edema,SNOMED
+4080762,Psychoactive substance dependence,SNOMED
+4085340,Injury caused by ionizing radiation,SNOMED
+4092411,Self-injurious behavior,SNOMED
+4096201,Dietary calcium deficiency,SNOMED
+4096313,Multiple injuries,SNOMED
+4098618,Sequelae of hyperalimentation,SNOMED
+4101149,Non-organic psychosis,SNOMED
+4101283,Dietary zinc deficiency,SNOMED
+4102318,Puerperal sepsis,SNOMED
+4102986,Disorder of psychological development,SNOMED
+4110933,Sequelae of inflammatory diseases of the central nervous system,SNOMED
+4129408,Open wound of ankle,SNOMED
+4138617,Psychophysiologic insomnia,SNOMED
+4143698,Streptococcus agalactiae infection,SNOMED
+4146116,Nystagmus and other irregular eye movements,SNOMED
+4148091,Developmental disorder of motor function,SNOMED
+4150511,Post poliomyelitis syndrome,SNOMED
+4152376,Intentional self poisoning,SNOMED
+4156515,Malnutrition (calorie),SNOMED
+4163851,Multiple birth,SNOMED
+4167217,Family history of clinical finding,SNOMED
+4167493,Pregnancy-induced hypertension,SNOMED
+4175154,Disorder of the peripheral nervous system,SNOMED
+4182210,Dementia,SNOMED
+4189538,Agoraphobia without history of panic disorder,SNOMED
+4193702,At increased risk of disease,SNOMED
+4194672,Specialized medical examination,SNOMED
+4195694,Acute respiratory distress syndrome,SNOMED
+4206148,Syncope and collapse,SNOMED
+4219484,Suicide attempt,SNOMED
+4223659,Fatigue,SNOMED
+4241530,Asymptomatic human immunodeficiency virus infection,SNOMED
+4247238,Primary malignant neoplasm of endometrium,SNOMED
+42534833,Complication of artificial fertilization,SNOMED
+4270887,Erythroderma,SNOMED
+42709954,Phimosis,SNOMED
+4271013,Melanocytic nevus,SNOMED
+4272240,Malaise,SNOMED
+4279309,Substance abuse,SNOMED
+4279553,Pulmonary eosinophilia,SNOMED
+4284028,Placenta previa,SNOMED
+4289526,Nonulcer dyspepsia,SNOMED
+4297400,Mild neurocognitive disorder,SNOMED
+43022069,Primary central sleep apnea,SNOMED
+4307774,Acute lower respiratory tract infection,SNOMED
+432250,Infectious disease,SNOMED
+432262,Primary malignant neoplasm of trachea,SNOMED
+432297,Cyclical neutropenia,SNOMED
+432301,Opioid dependence in remission,SNOMED
+432302,Cocaine dependence in remission,SNOMED
+432586,Mental disorder,SNOMED
+432695,Post-term pregnancy,SNOMED
+433031,Hallucinations,SNOMED
+4333000,Behavioral syndrome associated with physiological disturbance and physical factors,SNOMED
+433316,Dizziness and giddiness,SNOMED
+433701,Mycosis,SNOMED
+434007,Hereditary factor VIII deficiency disease,SNOMED
+434010,Schizotypal personality disorder,SNOMED
+4340799,Microscopic colitis,SNOMED
+434164,Glycosuria,SNOMED
+434238,Exposed to noise,SNOMED
+434567,Q fever,SNOMED
+434588,Primary malignant neoplasm of parotid gland,SNOMED
+434894,Acute posthemorrhagic anemia,SNOMED
+434895,Congenital neutropenia,SNOMED
+435190,Primary malignant neoplasm of pyriform sinus,SNOMED
+435243,Alcohol dependence,SNOMED
+435315,Torsion of testis,SNOMED
+435371,Hypothermia,SNOMED
+435524,Sleep disorder,SNOMED
+435796,Dehydration,SNOMED
+436073,Psychotic disorder,SNOMED
+436093,Disseminated intravascular coagulation,SNOMED
+436389,Cocaine dependence,SNOMED
+436605,Attempted suicide - jumping from a high place,SNOMED
+436677,Adjustment disorder,SNOMED
+436678,Hereditary factor IX deficiency disease,SNOMED
+437082,Ankylosing spondylitis,SNOMED
+437158,Poisoning by analgesic drug,SNOMED
+437312,Bleeding,SNOMED
+437492,Glanders,SNOMED
+437623,Polyhydramnios,SNOMED
+437854,Cataplexy and narcolepsy,SNOMED
+438028,Poisoning by drug AND/OR medicinal substance,SNOMED
+438067,Malaria,SNOMED
+438120,Opioid dependence,SNOMED
+438350,Pneumocystosis,SNOMED
+438368,Primary malignant neoplasm of thymus,SNOMED
+438638,Inhalation and ingestion of food causing obstruction of respiratory tract or suffocation,SNOMED
+438699,Primary malignant neoplasm of rectosigmoid junction,SNOMED
+438731,Localized adiposity,SNOMED
+438941,Hydantoin derivative poisoning,SNOMED
+438946,Accidental poisoning by hallucinogens,SNOMED
+439007,REM sleep behavior disorder,SNOMED
+439013,Insomnia disorder related to another mental disorder,SNOMED
+440022,Dengue,SNOMED
+440268,Toxic effect of carbon monoxide,SNOMED
+440370,Nutritional marasmus,SNOMED
+440735,Rheumatic fever without heart involvement,SNOMED
+440751,Peritonsillar abscess,SNOMED
+440921,Traumatic injury,SNOMED
+440996,Cannabis dependence in remission,SNOMED
+441408,Vomiting,SNOMED
+441413,Death of unknown cause,SNOMED
+441589,Endocarditis,SNOMED
+441838,Personality disorder,SNOMED
+442588,Obstructive sleep apnea syndrome,SNOMED
+442781,Disorder of uterine cervix,SNOMED
+444078,Inflammation of cervix,SNOMED
+444100,Mood disorder,SNOMED
+444297,Vertiginous syndrome,SNOMED
+44783028,Injury of shoulder and upper arm,SNOMED
+44784550,Preterm spontaneous labor with preterm delivery,SNOMED
+44789863,Diagnostic imaging of breast,SNOMED
+45757113,False labor before 37 completed weeks of gestation,SNOMED
+45757149,Preterm premature rupture of membranes with onset of labor unknown,SNOMED
+45765728,Supervision of high risk pregnancy,SNOMED
+46269810,Obstructed labor due to abnormality of maternal pelvis,SNOMED
+46271739,Contracted kidney,SNOMED
+606878,Microcephaly,SNOMED
+72576,Benign tumor of breast,SNOMED
+73754,Restless legs,SNOMED
+74582,Primary malignant neoplasm of rectum,SNOMED
+75004,Frank hematuria,SNOMED
+76744,Azoospermia,SNOMED
+77670,Chest pain,SNOMED
+78472,Microscopic hematuria,SNOMED
+78474,Hypertrophy of breast,SNOMED
+79072,Inflammatory disorder of breast,SNOMED
+79936,Polyuria,SNOMED
+80767,Breast lump,SNOMED

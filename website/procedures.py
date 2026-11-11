@@ -161,7 +161,7 @@ def build_procedures(root, commit):
                 mappings=mappings, targets=targets, unmapped=unmapped, downloads={"SKS procedure mappings": download})
 
 
-def write_procedure_assets(data, out):
+def write_procedure_assets(data, out, dataset="procedures"):
     """Keep the browsing index small; full details and export load on demand."""
     def write(path, value):
         content = json.dumps(value, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
@@ -171,9 +171,9 @@ def write_procedure_assets(data, out):
         path.write_bytes(content)
     # Content-addressed paths prevent details from different deployments being mixed.
     digest = hashlib.sha256(json.dumps(data, sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()[:20]
-    folder = f"procedure-details/{digest}"
+    folder = f"{dataset[:-1]}-details/{digest}"
     index = {key: value for key, value in data.items() if key != "sources"}
-    index.update(sourceRows=[], detailRoot=folder, detailChunkSize=128, exportFile=f"{folder}/export.json")
+    index.update(sourceRows=[], sourceCategory=dataset, detailRoot=folder, detailChunkSize=128, exportFile=f"{folder}/export.json")
     sources = list(data["sources"].items())
     for offset in range(0, len(sources), 128):
         chunk = dict(sources[offset:offset + 128])
@@ -183,7 +183,12 @@ def write_procedure_assets(data, out):
             # Search labels and classification without downloading table counts or provenance.
             details = source["details"][0]
             search = " ".join(str(details.get(key, "")) for key in
-                ("English name", "Other recorded labels", "Classification", "Terminology matches")).strip()
+                ("English name", "Other recorded labels", "Classification", "Terminology matches", "SKS lookup code", "Observed source codes", "Standard reference target IDs", "Standard reference target names")).strip()
             index["sourceRows"].append([code, source["name"], source["occurrences"], source["currentOperation"], search])
-    write(out / index["exportFile"], data)
-    write(out / "procedures.json", index)
+    export = data
+    if dataset == "conditions":
+        # Full reference rows are available in detail groups; CSV already includes their summaries.
+        export = {**data, "sources": {code: {key: value for key, value in source.items() if key != "references"}
+                                       for code, source in data["sources"].items()}}
+    write(out / index["exportFile"], export)
+    write(out / f"{dataset}.json", index)

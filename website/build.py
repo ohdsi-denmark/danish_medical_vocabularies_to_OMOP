@@ -7,6 +7,7 @@ from pathlib import Path
 from urllib.parse import quote
 from drugs import build_drugs
 from procedures import build_procedures, write_procedure_assets
+from conditions import build_conditions
 
 SITE = Path(__file__).resolve().parent
 ROOT = SITE.parent
@@ -69,6 +70,7 @@ def main():
     input_paths = [f":(glob){folder.name}/**/*.{extension}"
                    for folder in (LABS, DRUGS) for extension in ("csv", "txt")]
     input_paths.extend([":(glob)Procedures/*.csv", ":(glob)Procedures/*.json"])
+    input_paths.append(":(glob)Conditions/*.csv")
     if subprocess.check_output(["git", "status", "--porcelain", "--", *input_paths], cwd=ROOT):
         raise SystemExit("Commit the mapping inputs before building a versioned snapshot.")
     files = {
@@ -148,6 +150,7 @@ def main():
     (OUT / "drug-proposals.json").write_text(json.dumps(proposal_data, ensure_ascii=False,
                                                       separators=(",", ":")), encoding="utf-8")
     write_procedure_assets(build_procedures(ROOT, commit), OUT)
+    write_procedure_assets(build_conditions(ROOT, commit), OUT, "conditions")
 
 if __name__ == "__main__":
     main()

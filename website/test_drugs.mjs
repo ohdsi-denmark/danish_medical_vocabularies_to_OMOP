@@ -16,6 +16,9 @@ const labs = readData("data.json");
 const procedureWire = readData("procedures.json");
 const procedureIndex = expandProcedures(procedureWire);
 const procedures = readData(procedureIndex.exportFile);
+const conditionWire = readData("conditions.json");
+const conditionIndex = expandProcedures(conditionWire);
+const conditions = readData(conditionIndex.exportFile);
 const positive = value => /^[1-9]\d*$/.test(value);
 const suggestion = item => ({ item: item.id, code: item.code, target: "123456", reason: "Proposed target requires clinical review." });
 const input = rows => ({ dataset: "drugs", commit: drugs.commit, rows });
@@ -125,6 +128,7 @@ test("bulk proposals require exact published records and generate a normalized C
 test("every unmapped template fits the upload limit and round-trips its source identities", () => {
   for (const [catalog, server, category] of [[labs, labs, "npu"],
     [procedures, procedures, "procedures"],
+    [conditions, conditionIndex, "conditions"],
     ...Object.keys(drugs.categories).map(category => [drugs, submissionData, category])]) {
     const items = catalog.unmapped.filter(item => (item.category || "npu") === category);
     const csv = bulk.unmappedCsv(catalog, items);
@@ -219,6 +223,35 @@ test("compact procedure index and on-demand details preserve catalogue and submi
   assert.deepEqual(bulk.bulkProposal(procedureIndex, bulkInput), bulk.bulkProposal(procedures, bulkInput));
 });
 
+test("conditions preserve every custom row and separate standard references from coverage gaps", () => {
+  const original = bulk.parseBulkText(readFileSync(new URL("../Conditions/stcm_dacICD10.csv", import.meta.url), "utf8"), ",").slice(1);
+  assert.equal(conditions.mappings.length, original.length);
+  assert.equal(new Set(conditions.mappings.map(row => row.sourceCode)).size, 454);
+  for (const [index, row] of original.entries()) {
+    assert.equal(conditions.mappings[index].sourceCode, row[0]);
+    assert.equal(conditions.mappings[index].conceptId, row[4]);
+    assert.equal(conditions.mappings[index].target_vocabulary_id, row[5]);
+  }
+  assert.equal(conditions.sources["C20.9M"].details[0]["SKS lookup code"], "DC209M");
+  const custom = new Set(conditions.mappings.map(row => row.sourceCode));
+  const standard = new Set(conditions.referenceCodes);
+  assert(conditions.unmapped.every(row => !custom.has(row.code)));
+  assert.deepEqual(conditions.uncovered, conditions.unmapped.filter(row => !standard.has(row.code)).map(row => row.code));
+  assert(conditions.unmapped.some(row => standard.has(row.code)));
+  assert.equal(conditions.sources["999"].occurrences, null);
+  assert.equal(conditions.sources["999"].details[0]["Observed source code counts"], "999: <5, <5");
+  const rows = conditions.mappings.filter(row => row.sourceCode === "S91.8");
+  assert(rows.length > 1);
+  const payload = { dataset: "conditions", commit: conditions.commit, condition: { code: "S91.8", relationship: "unspecified",
+    reason: "Review a replacement while retaining the other targets.", changes: [{ action: "replace", mapping: rows[0].id, target: "123456" }] } };
+  const issue = procedureProposal(conditionIndex, payload);
+  assert(issue.title.includes("Condition mapping proposal"));
+  assert(issue.body.includes(rows[1].conceptId));
+  assert(issue.body.includes("supplied standard mapping reference"));
+  assert.throws(() => procedureProposal(conditionIndex, { ...payload, condition: { ...payload.condition,
+    changes: [{ action: "remove", mapping: "sks-1" }] } }), /distinct mapping record/);
+});
+
 test("submission endpoint validates identities, prevents duplicate issues and serves confirmed bulk files", async () => {
   const originalFetch = globalThis.fetch;
   const database = new DatabaseSync(":memory:");
@@ -235,7 +268,7 @@ test("submission endpoint validates identities, prevents duplicate issues and se
     GITHUB_APP_PRIVATE_KEY: privateKey, GITHUB_INSTALLATION_ID: "1", GITHUB_REPOSITORY: repository,
     PROPOSAL_RATE: { limit: async () => ({ success: rateAllowed }) },
     ASSETS: { fetch: async url => { assetPath = url.pathname;
-      return Response.json(assetPath === "/procedures.json" ? procedureWire : submissionData);
+      return Response.json(assetPath === "/conditions.json" ? conditionWire : assetPath === "/procedures.json" ? procedureWire : submissionData);
     } },
     SUBMISSIONS: { prepare: query => ({ bind: (...args) => ({
       first: async () => database.prepare(query).get(...args),
@@ -283,9 +316,20 @@ test("submission endpoint validates identities, prevents duplicate issues and se
     assert.equal((await send(procedureInput)).status, 201);
     assert.equal(assetPath, "/procedures.json");
     assert.equal((await send(procedureInput)).status, 200);
+    const conditionInput = { dataset: "conditions", commit: conditions.commit, condition: {
+      code: conditions.uncovered[0], reason: "Propose a custom mapping for this diagnosis.", relationship: "unspecified",
+      changes: [{ action: "add", target: "123456" }],
+    } };
+    assert.equal((await send(conditionInput)).status, 201);
+    assert.equal(assetPath, "/conditions.json");
+    assert.equal((await send(conditionInput)).status, 200);
+    const conditionBulk = { dataset: "conditions", commit: conditions.commit, bulk: { category: "conditions",
+      reason: "Propose a custom target using the condition template.", rows: [{ code: conditions.uncovered[1], mapping: conditions.uncovered[1], target: "123456" }] } };
+    assert.equal((await send(conditionBulk)).status, 201);
+    assert((await (await worker.fetch(new Request(attachment), env)).text()).includes("standard_reference_target_ids"));
     rateAllowed = false;
     assert.equal((await send(payload)).status, 429);
-    assert.equal(issues, 3);
+    assert.equal(issues, 5);
   } finally {
     globalThis.fetch = originalFetch;
     database.close();
@@ -315,7 +359,7 @@ test("navigation, search, detail views and proposal preview use the selected col
     fetch: async file => {
       requested.push(file);
       if (file === failFile) return new Response("Temporarily unavailable", { status: 503 });
-      return Response.json(file === "procedures.json" ? procedureWire : file.startsWith("procedure-details/") ? readData(file) : drugs);
+      return Response.json(file === "conditions.json" ? conditionWire : file === "procedures.json" ? procedureWire : /^(procedure|condition)-details\//.test(file) ? readData(file) : drugs);
     },
     expandProcedures,
     Blob, URL: { createObjectURL: blob => { downloads.push(blob); return "blob:download"; }, revokeObjectURL() {} },
@@ -397,7 +441,7 @@ test("navigation, search, detail views and proposal preview use the selected col
   await vm.runInContext("render()", context);
   const sourceCount = new Set(procedures.mappings.map(row => row.sourceCode)).size;
   assert(text(view).includes(`${sourceCount.toLocaleString()} results`));
-  assert.deepEqual(requested, ["drugs.json", "procedures.json"]);
+  assert.deepEqual(requested, ["drugs.json", "procedures.json", "conditions.json"]);
   context.location.hash = `#procedure/${procedures.commit}/KTNB0H`;
   await vm.runInContext("render()", context);
   assert(text(view).includes("Entire ankle and foot"));
@@ -462,4 +506,33 @@ test("navigation, search, detail views and proposal preview use the selected col
   await download.events.click();
   assert.equal(downloads.length, 2);
   assert.equal(requested.filter(file => file === procedureIndex.exportFile).length, 2);
+  context.location.hash = "#conditions/review";
+  await vm.runInContext("render()", context);
+  assert(text(view).includes("Review condition mappings"));
+  assert(text(view).includes("454 results"));
+  context.location.hash = `#condition/${conditions.commit}/S91.8`;
+  await vm.runInContext("render()", context);
+  assert(text(view).includes("4129408"));
+  assert(text(view).includes("4054067"));
+  assert(text(view).includes("Supplied standard reference targets"));
+  assert(text(view).includes("Mapping valid from"));
+  context.location.hash = "#conditions/unmapped";
+  await vm.runInContext("render()", context);
+  assert(text(view).includes(`${conditions.uncovered.length.toLocaleString()} results`));
+  const listed = descendants(view).filter(element => element.tag === "a" && element.attributes.href?.startsWith("#condition/"));
+  assert(listed.length > 0);
+  for (const item of listed) assert(conditions.uncovered.includes(item.attributes.href.split("/").at(-1)));
+  const conditionDownload = descendants(view).find(element => element.tag === "button" && text(element).includes("Download listed coverage"));
+  await conditionDownload.events.click();
+  const conditionCsv = bulk.parseBulkText(await downloads.at(-1).text(), ";");
+  assert.equal(conditionCsv.length, conditions.uncovered.length + 1);
+  assert(conditionCsv[0].includes("Standard mapping coverage"));
+  assert(conditionCsv.every((row, index) => index === 0 || conditions.uncovered.includes(row[0])));
+  context.location.hash = `#condition-propose/${conditions.commit}/${conditions.uncovered[0]}`;
+  await vm.runInContext("render()", context);
+  descendants(view).find(element => element.attributes.inputmode === "numeric").value = "123456";
+  descendants(view).find(element => element.tag === "textarea").value = "Suggest a custom target for this diagnosis.";
+  descendants(view).find(element => element.tag === "form").events.submit({ preventDefault() {} });
+  assert(text(view).includes("Condition mapping proposal"));
+  assert(text(view).includes("supplied standard mapping reference"));
 });
