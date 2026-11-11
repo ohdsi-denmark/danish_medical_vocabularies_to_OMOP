@@ -6,7 +6,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import quote
 from drugs import build_drugs
-from procedures import build_procedures
+from procedures import build_procedures, write_procedure_assets
 
 SITE = Path(__file__).resolve().parent
 ROOT = SITE.parent
@@ -147,8 +147,7 @@ def main():
     }
     (OUT / "drug-proposals.json").write_text(json.dumps(proposal_data, ensure_ascii=False,
                                                       separators=(",", ":")), encoding="utf-8")
-    (OUT / "procedures.json").write_text(json.dumps(build_procedures(ROOT, commit), ensure_ascii=False,
-                                                  separators=(",", ":")), encoding="utf-8")
+    write_procedure_assets(build_procedures(ROOT, commit), OUT)
 
 if __name__ == "__main__":
     main()

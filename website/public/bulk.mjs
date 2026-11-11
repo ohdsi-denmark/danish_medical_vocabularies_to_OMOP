@@ -3,7 +3,7 @@ export const bulkFileLimit = 16 * 1024 * 1024;
 
 export const bulkTypes = {
   npu: "NPU measurements", dnk: "DNK measurements", products: "Medication products",
-  ingredients: "Medication ingredients", vaccines: "Vaccines", routes: "Administration routes", procedures: "SKS operations",
+  ingredients: "Medication ingredients", vaccines: "Vaccines", routes: "Administration routes", procedures: "Procedure codes",
 };
 
 export function detectDelimiter(text) {

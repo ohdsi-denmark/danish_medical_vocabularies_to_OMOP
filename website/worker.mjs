@@ -1,5 +1,6 @@
 import { procedureProposal, proposal } from "./public/proposal.mjs";
 import { bulkProposal } from "./public/bulk.mjs";
+import { expandProcedures } from "./public/procedure_data.mjs";
 
 const encoder = new TextEncoder();
 const json = (data, status = 200) => Response.json(data, { status, headers: { "Cache-Control": "no-store" } });
@@ -79,7 +80,7 @@ async function submit(request, env) {
   const dataset = input.dataset || "labs";
   if (!Object.hasOwn(collections, dataset)) return fail("Unknown mapping collection.", 400);
   const filename = collections[dataset];
-  const data = await env.ASSETS.fetch(new URL(filename, origin)).then(response => response.json());
+  const data = expandProcedures(await env.ASSETS.fetch(new URL(filename, origin)).then(response => response.json()));
   let issue;
   try {
     if (input.bulk !== undefined) issue = bulkProposal(data, input);
