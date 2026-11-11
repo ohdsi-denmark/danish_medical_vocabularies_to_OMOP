@@ -1,5 +1,6 @@
 import { batchLimit, procedureProposal, procedureRelationships, proposal } from "./proposal.mjs";
 import { bulkFileLimit, bulkIndex, bulkLimit, bulkProposal, bulkTypes, detectDelimiter, parseBulkText, unmappedCsv } from "./bulk.mjs";
+import { expandProcedures } from "./procedure_data.mjs";
 
 const view = document.querySelector("#view");
 const loadStatus = document.querySelector("#load-status");
@@ -13,6 +14,9 @@ let drugData;
 let drugLoad;
 let procedureData;
 let procedureLoad;
+const procedureDetailLoads = new Map();
+const procedureDetails = new Map();
+let procedureExportLoad;
 const procedureState = {};
 const drugSelections = new Set();
 const drugStates = {};
@@ -224,12 +228,21 @@ function showMapping(id, commit) {
       link("Suggest a correction", `#correct/${data.commit}/${id}`)));
 }
 
-function backlogDownload(catalog, items, type) {
-  return node("button", { type: "button", onclick: () => {
-    const url = URL.createObjectURL(new Blob([unmappedCsv(catalog, items)], { type: "text/csv;charset=utf-8" }));
-    node("a", { href: url, download: `${type}-unmapped.csv` }).click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+function backlogDownload(catalog, items, type, loadCatalog) {
+  const button = node("button", { type: "button", onclick: async () => {
+    button.disabled = true;
+    if (loadCatalog) button.textContent = "Preparing download…";
+    try {
+      const full = loadCatalog ? await loadCatalog() : catalog;
+      const url = URL.createObjectURL(new Blob([unmappedCsv(full, items)], { type: "text/csv;charset=utf-8" }));
+      node("a", { href: url, download: `${type}-unmapped.csv` }).click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      button.textContent = "Download unmapped codes (CSV)";
+    } catch {
+      button.textContent = "Download failed. Select to retry.";
+    } finally { button.disabled = false; }
   } }, "Download unmapped codes (CSV)");
+  return button;
 }
 
 function showBacklog() {
@@ -737,48 +750,63 @@ function showProcedures(mode) {
   const state = procedureState[backlog ? "unmapped" : "review"] ||= {};
   const results = node("div");
   const targetCount = rows => new Set(rows.map(row => row.conceptId).filter(id => /^[1-9]\d*$/.test(id))).size;
+  const frequencyRank = code => {
+    const value = procedureData.sources[code].occurrences;
+    return value == null ? -2 : value.startsWith("<") ? -1 : Number(value);
+  };
   const update = () => {
     const matches = [...groups].filter(([code, rows]) => {
       const source = procedureData.sources[code];
       const count = targetCount(rows);
       return (!state.domain || rows.some(row => row.domainId === state.domain)) &&
+        (!backlog || !state.scope || (state.scope === "Current SKS operations" ? source.currentOperation : !source.currentOperation)) &&
         (!state.status || (state.status === "Needs review") === rows.some(row => row.mappingStatus !== "APPROVED")) &&
         (!state.count || (state.count === "Multiple targets" ? count > 1 : count === 1)) &&
-        match(state.query, [code, source.name, ...Object.values(source.details[0]),
+        match(state.query, [code, source.name, source.searchText,
           ...rows.flatMap(row => [row.conceptId, row.conceptName, row.sourceName])]);
-    }).sort(([a], [b]) => a.localeCompare(b));
+    }).sort(([a], [b]) => (state.sort === "Code" ? 0 : frequencyRank(b) - frequencyRank(a)) || a.localeCompare(b));
     renderList(results, matches, ([code, rows]) => {
       const source = procedureData.sources[code];
       const count = targetCount(rows);
       return node("li", {}, link(node("span", { class: "code-source" }, `${code} · ${source.name}`),
         `#procedure/${procedureData.commit}/${code}`),
+        node("div", {}, source.occurrences == null ? "Source frequency unavailable" :
+          `${source.occurrences.startsWith("<") ? source.occurrences : Number(source.occurrences).toLocaleString()} source rows`,
+          backlog && !source.currentOperation ? " · Outside the current SKS operation list" : ""),
         ...(backlog ? [] : [node("div", {}, `${count} distinct ${count === 1 ? "target" : "targets"} · ${rows.length} mapping records`,
           rows.some(row => row.mappingStatus !== "APPROVED") ? " · Needs review" : "") ]));
     });
   };
   const change = (key, value) => { state[key] = value; update(); };
+  const sortSelect = node("select", { onchange: event => change("sort", event.target.value) },
+    ...["Source frequency", "Code"].map(value => node("option", { value }, value)));
+  sortSelect.value = state.sort || "Source frequency";
   const filters = node("div", { class: "filters" },
-    searchBox("SKS code, source name or OMOP target", state.query, value => change("query", value)));
+    searchBox("Danish code, source name or OMOP target", state.query, value => change("query", value)),
+    node("label", {}, "Sort by", sortSelect));
+  if (backlog) filters.append(filter("Code scope", ["Current SKS operations", "Observed outside current operations"], state.scope, value => change("scope", value)));
   if (!backlog) filters.append(
     filter("Target domain", [...new Set(procedureData.mappings.map(row => row.domainId).filter(Boolean))].sort(), state.domain, value => change("domain", value)),
     filter("Review status", ["Approved", "Needs review"], state.status, value => change("status", value)),
     filter("Target count", ["One target", "Multiple targets"], state.count, value => change("count", value)));
-  view.append(node("section", {}, node("h2", {}, backlog ? "Unmapped SKS operations" : "Review procedure mappings"),
+  view.append(node("section", {}, node("h2", {}, backlog ? "Unmapped procedure codes" : "Review procedure mappings"),
     node("p", {}, backlog
-      ? `Active K codes in the SKS and LPR proc.opr release dated ${procedureData.release.release}, evaluated on ${procedureData.release.asOf}. Sorted by code.`
+      ? `Current SKS operations (release ${procedureData.release.release}, evaluated on ${procedureData.release.asOf}) and additional codes observed in the procedure tables. Labels and validity come from the complete SKS and historical classifications where an exact match exists. Diagnosis-only counts are excluded.`
       : "Each result groups the recorded OMOP targets for one Danish SKS operation code."),
-    filters, ...(backlog ? [backlogDownload(procedureData, procedureData.unmapped, "procedures"),
+    node("p", {}, "Sorted by source frequency by default. Counts are source rows before patient, visit and date linkage; overlapping extracts may count an event more than once. <5 means a suppressed count; a missing count does not mean zero."),
+    filters, ...(backlog ? [backlogDownload(procedureData, procedureData.unmapped, "procedures", loadProcedureExport),
       node("p", {}, "Fill in OMOP_concept_id in the CSV, then upload it under Upload bulk changes.")] : []), results));
   update();
 }
 
 function procedureSourceCard(source) {
-  return facts("Danish source", [["Code", source.code], ...Object.entries(source.details[0])], "source");
+  return facts("Danish source", [["Code", source.code], ["Source frequency", source.occurrences ?? "Unavailable"],
+    ...Object.entries(source.details[0])], "source");
 }
 
 function showProcedure(code, commit, edit) {
   procedureNavigation();
-  const source = commit === procedureData.commit && Object.hasOwn(procedureData.sources, code) && procedureData.sources[code];
+  const source = commit === procedureData.commit && procedureDetails.get(code);
   if (!source) {
     view.append(node("p", {}, "This link refers to a different snapshot or an unknown SKS code."));
     return;
@@ -873,8 +901,35 @@ async function loadProcedures() {
   if (!procedureLoad) procedureLoad = fetch("procedures.json").then(response => {
     if (!response.ok) throw new Error("Procedure mapping data could not be loaded.");
     return response.json();
-  }).then(value => { procedureData = value; }).catch(error => { procedureLoad = undefined; throw error; });
+  }).then(value => { procedureData = expandProcedures(value); }).catch(error => { procedureLoad = undefined; throw error; });
   await procedureLoad;
+}
+
+async function loadProcedureDetails(code) {
+  const source = Object.hasOwn(procedureData.sources, code) && procedureData.sources[code];
+  if (!source) return;
+  const filename = source.detailFile;
+  if (!procedureDetailLoads.has(filename)) {
+    procedureDetailLoads.set(filename, fetch(filename).then(response => {
+      if (!response.ok) throw new Error("Procedure details could not be loaded.");
+      return response.json();
+    }).then(value => {
+      if (value.commit !== procedureData.commit || !value.sources?.[code]) throw new Error("Procedure details refer to a different snapshot.");
+      for (const [key, detail] of Object.entries(value.sources)) procedureDetails.set(key, detail);
+    }).catch(error => { procedureDetailLoads.delete(filename); throw error; }));
+  }
+  await procedureDetailLoads.get(filename);
+}
+
+async function loadProcedureExport() {
+  if (!procedureExportLoad) procedureExportLoad = fetch(procedureData.exportFile).then(response => {
+    if (!response.ok) throw new Error("Procedure export could not be loaded.");
+    return response.json();
+  }).then(value => {
+    if (value.commit !== procedureData.commit || !value.sources) throw new Error("Procedure export refers to a different snapshot.");
+    return value;
+  }).catch(error => { procedureExportLoad = undefined; throw error; });
+  return procedureExportLoad;
 }
 
 function measurementNavigation() {
@@ -893,6 +948,8 @@ async function render() {
     loadStatus.textContent = "Loading mappings…";
     try {
       await Promise.all([needsDrugs && loadDrugs(), needsProcedures && loadProcedures()]);
+      if (hash !== location.hash) return;
+      if (["procedure", "procedure-propose"].includes(route) && commit === procedureData.commit) await loadProcedureDetails(id);
     } catch {
       if (hash === location.hash) loadStatus.textContent = "Mappings could not be loaded. Reload or select the section again to retry.";
       return;

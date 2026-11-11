@@ -7,12 +7,15 @@ import { DatabaseSync } from "node:sqlite";
 import { procedureProposal, procedureRelationships, proposal } from "./public/proposal.mjs";
 import * as bulk from "./public/bulk.mjs";
 import worker from "./worker.mjs";
+import { expandProcedures } from "./public/procedure_data.mjs";
 
 const readData = name => JSON.parse(readFileSync(new URL(`dist/${name}`, import.meta.url), "utf8"));
 const drugs = readData("drugs.json");
 const submissionData = readData("drug-proposals.json");
 const labs = readData("data.json");
-const procedures = readData("procedures.json");
+const procedureWire = readData("procedures.json");
+const procedureIndex = expandProcedures(procedureWire);
+const procedures = readData(procedureIndex.exportFile);
 const positive = value => /^[1-9]\d*$/.test(value);
 const suggestion = item => ({ item: item.id, code: item.code, target: "123456", reason: "Proposed target requires clinical review." });
 const input = rows => ({ dataset: "drugs", commit: drugs.commit, rows });
@@ -145,13 +148,26 @@ test("every unmapped template fits the upload limit and round-trips its source i
   }
 });
 
-test("procedure backlog includes only active reportable codes without a target", () => {
+test("procedure backlog includes current operations and all observed procedure codes without a target", () => {
   const release = JSON.parse(readFileSync(new URL("../Procedures/sks_operations.json", import.meta.url), "utf8"));
+  const counts = bulk.parseBulkText(readFileSync(new URL("../Procedures/procedure_source_code_counts.csv", import.meta.url), "utf8"), ";").slice(1);
   const mapped = new Set(procedures.mappings.filter(row => positive(row.conceptId)).map(row => row.sourceCode));
-  const expected = release.operations.filter(row => row.active && row.reportable && !mapped.has(row.code)).map(row => row.code);
+  const expected = [...new Set([...release.operations.filter(row => row.active && row.reportable).map(row => row.code),
+    ...counts.map(row => row[0])])].filter(code => !mapped.has(code)).sort();
   assert.deepEqual(procedures.unmapped.map(row => row.code), expected);
   assert(expected.length > 0);
   assert(!expected.includes("K"));
+  for (const [code, frequency] of counts) assert.equal(procedures.sources[code].occurrences, frequency);
+  const suppressed = procedures.unmapped.find(row => row.occurrences?.startsWith("<"));
+  const missing = procedures.unmapped.find(row => row.occurrences == null);
+  const observed = procedures.unmapped.find(row => !procedures.sources[row.code].currentOperation);
+  assert(suppressed && missing && observed);
+  const csv = bulk.parseBulkText(bulk.unmappedCsv(procedures, [suppressed, missing, observed]), ";");
+  const frequencyColumn = csv[0].indexOf("source_frequency");
+  assert.equal(csv[1][frequencyColumn], suppressed.occurrences);
+  assert.equal(csv[2][frequencyColumn], "");
+  assert(csv[0].some(column => column.startsWith("Source rows · ")));
+  assert.equal(csv[0].at(-1), "OMOP_concept_id");
 });
 
 test("procedure proposals preserve source groups and identify edited records", () => {
@@ -178,6 +194,31 @@ test("procedure proposals preserve source groups and identify edited records", (
   } }), /distinct mapping record/);
 });
 
+test("compact procedure index and on-demand details preserve catalogue and submission identities", () => {
+  assert(!procedureWire.sources);
+  const details = new Map();
+  for (const source of Object.values(procedureIndex.sources)) {
+    assert(!source.details);
+    if (!details.has(source.detailFile)) details.set(source.detailFile, readData(source.detailFile));
+    const chunk = details.get(source.detailFile);
+    assert.equal(chunk.commit, procedures.commit);
+    assert.deepEqual(chunk.sources[source.code], procedures.sources[source.code]);
+    assert.equal(source.name, procedures.sources[source.code].name);
+  }
+  assert.equal(Object.keys(procedureIndex.sources).length, Object.keys(procedures.sources).length);
+  assert.equal(procedures.sources.ZZ3160.name, "Blodtryksmåling");
+  assert.equal(procedures.sources.BVAA33A.name, "Telefonkonsultation");
+  assert.equal(procedures.sources.KZYQ00.details[0].Classification, "Supplementary");
+  assert.equal(procedures.sources.KTNB0H.details[0]["Terminology status"], "Historical / inactive");
+  const item = procedures.unmapped[0];
+  const input = { dataset: "procedures", commit: procedures.commit, procedure: { code: item.code,
+    reason: "Suggest a target for this procedure.", relationship: "unspecified", changes: [{ action: "add", target: "123456" }] } };
+  assert.deepEqual(procedureProposal(procedureIndex, input), procedureProposal(procedures, input));
+  const bulkInput = { dataset: "procedures", commit: procedures.commit, bulk: { category: "procedures",
+    rows: [{ code: item.code, mapping: item.id, target: "123456" }], reason: "Suggest a target for this procedure." } };
+  assert.deepEqual(bulk.bulkProposal(procedureIndex, bulkInput), bulk.bulkProposal(procedures, bulkInput));
+});
+
 test("submission endpoint validates identities, prevents duplicate issues and serves confirmed bulk files", async () => {
   const originalFetch = globalThis.fetch;
   const database = new DatabaseSync(":memory:");
@@ -194,7 +235,7 @@ test("submission endpoint validates identities, prevents duplicate issues and se
     GITHUB_APP_PRIVATE_KEY: privateKey, GITHUB_INSTALLATION_ID: "1", GITHUB_REPOSITORY: repository,
     PROPOSAL_RATE: { limit: async () => ({ success: rateAllowed }) },
     ASSETS: { fetch: async url => { assetPath = url.pathname;
-      return Response.json(assetPath === "/procedures.json" ? procedures : submissionData);
+      return Response.json(assetPath === "/procedures.json" ? procedureWire : submissionData);
     } },
     SUBMISSIONS: { prepare: query => ({ bind: (...args) => ({
       first: async () => database.prepare(query).get(...args),
@@ -257,6 +298,7 @@ class Element {
   replaceChildren(...children) { this.children = children; }
   setAttribute(key, value) { this.attributes[key] = value; }
   addEventListener(key, callback) { this.events[key] = callback; }
+  click() { this.events.click?.({ currentTarget: this }); }
 }
 const text = element => typeof element === "string" ? element :
   [element.textContent || "", ...element.children.map(text)].join(" ");
@@ -264,10 +306,20 @@ const descendants = element => [element, ...element.children.filter(child => typ
 
 test("navigation, search, detail views and proposal preview use the selected collection", async () => {
   const view = new Element("main");
+  const requested = [];
+  let failFile;
+  const downloads = [];
   const context = vm.createContext({
     document: { querySelector: selector => selector === "#view" ? view : new Element("div"), createElement: tag => new Element(tag) },
     location: { hash: "#drugs/products/review" }, snapshot: drugs, labs, proposal, batchLimit: 10,
-    fetch: async file => Response.json(file === "procedures.json" ? procedures : drugs),
+    fetch: async file => {
+      requested.push(file);
+      if (file === failFile) return new Response("Temporarily unavailable", { status: 503 });
+      return Response.json(file === "procedures.json" ? procedureWire : file.startsWith("procedure-details/") ? readData(file) : drugs);
+    },
+    expandProcedures,
+    Blob, URL: { createObjectURL: blob => { downloads.push(blob); return "blob:download"; }, revokeObjectURL() {} },
+    setTimeout: callback => callback(),
     ...bulk, procedureProposal, procedureRelationships, TextDecoder, TextEncoder,
   });
   const source = readFileSync(new URL("public/app.mjs", import.meta.url), "utf8");
@@ -345,15 +397,32 @@ test("navigation, search, detail views and proposal preview use the selected col
   await vm.runInContext("render()", context);
   const sourceCount = new Set(procedures.mappings.map(row => row.sourceCode)).size;
   assert(text(view).includes(`${sourceCount.toLocaleString()} results`));
+  assert.deepEqual(requested, ["drugs.json", "procedures.json"]);
   context.location.hash = `#procedure/${procedures.commit}/KTNB0H`;
   await vm.runInContext("render()", context);
   assert(text(view).includes("Entire ankle and foot"));
   assert(text(view).includes("Application of bandage"));
   assert(text(view).includes("Relationship between targets unspecified"));
+  assert.equal(requested.filter(file => file.startsWith("procedure-details/")).length, 1);
   context.location.hash = "#procedures/unmapped";
   await vm.runInContext("render()", context);
-  assert(text(view).includes("Unmapped SKS operations"));
+  assert(text(view).includes("Unmapped procedure codes"));
   assert(text(view).includes("Download unmapped codes (CSV)"));
+  assert.equal(requested.filter(file => file.startsWith("procedure-details/")).length, 1);
+  const rank = item => item.occurrences == null ? -2 : item.occurrences.startsWith("<") ? -1 : Number(item.occurrences);
+  const ranked = [...procedures.unmapped].sort((a, b) => rank(b) - rank(a) || a.code.localeCompare(b.code));
+  let procedureLinks = descendants(view).filter(element => element.tag === "a" && element.attributes.href?.startsWith("#procedure/"));
+  assert(procedureLinks[0].attributes.href.endsWith(`/${ranked[0].code}`));
+  const scope = descendants(view).find(element => element.tag === "label" && text(element).trim().startsWith("Code scope"));
+  descendants(scope).find(element => element.tag === "select").events.change({ target: { value: "Current SKS operations" } });
+  procedureLinks = descendants(view).filter(element => element.tag === "a" && element.attributes.href?.startsWith("#procedure/"));
+  assert(procedureLinks.length > 0);
+  for (const item of procedureLinks) assert(procedures.sources[item.attributes.href.split("/").at(-1)].currentOperation);
+  const sorter = descendants(view).find(element => element.tag === "label" && text(element).trim().startsWith("Sort by"));
+  descendants(sorter).find(element => element.tag === "select").events.change({ target: { value: "Code" } });
+  procedureLinks = descendants(view).filter(element => element.tag === "a" && element.attributes.href?.startsWith("#procedure/"));
+  const alphabetical = procedures.unmapped.filter(item => procedures.sources[item.code].currentOperation).sort((a, b) => a.code.localeCompare(b.code));
+  assert(procedureLinks[0].attributes.href.endsWith(`/${alphabetical[0].code}`));
   context.location.hash = `#procedure-propose/${procedures.commit}/${procedures.unmapped[0].code}`;
   await vm.runInContext("render()", context);
   descendants(view).find(element => element.attributes.inputmode === "numeric").value = "123456";
@@ -361,4 +430,36 @@ test("navigation, search, detail views and proposal preview use the selected col
   descendants(view).find(element => element.tag === "form").events.submit({ preventDefault() {} });
   assert(text(view).includes("No current mapping records"));
   assert(text(view).includes("Add [123456]"));
+  const requestedFiles = new Set(requested);
+  const retrySource = Object.values(procedureIndex.sources).find(source => !requestedFiles.has(source.detailFile));
+  context.location.hash = `#procedure/${procedures.commit}/${retrySource.code}`;
+  failFile = retrySource.detailFile;
+  await vm.runInContext("render()", context);
+  assert(vm.runInContext("loadStatus.textContent", context).includes("Mappings could not be loaded"));
+  failFile = undefined;
+  await vm.runInContext("render()", context);
+  assert(text(view).includes(retrySource.name));
+  assert.equal(requested.filter(file => file === retrySource.detailFile).length, 2);
+  await vm.runInContext("render()", context);
+  assert.equal(requested.filter(file => file === retrySource.detailFile).length, 2);
+  context.location.hash = "#procedures/unmapped";
+  await vm.runInContext("render()", context);
+  const download = descendants(view).find(element => element.tag === "button" && text(element).includes("Download unmapped codes"));
+  failFile = procedureIndex.exportFile;
+  await download.events.click();
+  assert.equal(download.disabled, false);
+  assert(download.textContent.includes("retry"));
+  assert.equal(downloads.length, 0);
+  failFile = undefined;
+  await download.events.click();
+  assert.equal(downloads.length, 1);
+  const csv = bulk.parseBulkText(await downloads[0].text(), ";");
+  assert.equal(csv.length, procedures.unmapped.length + 1);
+  assert(csv[0].includes("Official terminology label"));
+  assert(csv[0].includes("Terminology file"));
+  assert.equal(csv[0].at(-1), "OMOP_concept_id");
+  assert.equal(requested.filter(file => file === procedureIndex.exportFile).length, 2);
+  await download.events.click();
+  assert.equal(downloads.length, 2);
+  assert.equal(requested.filter(file => file === procedureIndex.exportFile).length, 2);
 });

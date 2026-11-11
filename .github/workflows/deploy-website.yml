@@ -33,7 +33,9 @@ jobs:
         run: python website/build.py
 
       - name: Check mapping website
-        run: node --test website/test_drugs.mjs
+        run: |
+          python -m unittest discover -s website -p test_procedures.py
+          node --test website/test_drugs.mjs
 
       - name: Apply database migrations and deploy
         uses: cloudflare/wrangler-action@v4
