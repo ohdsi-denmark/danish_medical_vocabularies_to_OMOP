@@ -145,13 +145,26 @@ test("every unmapped template fits the upload limit and round-trips its source i
   }
 });
 
-test("procedure backlog includes only active reportable codes without a target", () => {
+test("procedure backlog includes current operations and all observed procedure codes without a target", () => {
   const release = JSON.parse(readFileSync(new URL("../Procedures/sks_operations.json", import.meta.url), "utf8"));
+  const counts = bulk.parseBulkText(readFileSync(new URL("../Procedures/procedure_source_code_counts.csv", import.meta.url), "utf8"), ";").slice(1);
   const mapped = new Set(procedures.mappings.filter(row => positive(row.conceptId)).map(row => row.sourceCode));
-  const expected = release.operations.filter(row => row.active && row.reportable && !mapped.has(row.code)).map(row => row.code);
+  const expected = [...new Set([...release.operations.filter(row => row.active && row.reportable).map(row => row.code),
+    ...counts.map(row => row[0])])].filter(code => !mapped.has(code)).sort();
   assert.deepEqual(procedures.unmapped.map(row => row.code), expected);
   assert(expected.length > 0);
   assert(!expected.includes("K"));
+  for (const [code, frequency] of counts) assert.equal(procedures.sources[code].occurrences, frequency);
+  const suppressed = procedures.unmapped.find(row => row.occurrences?.startsWith("<"));
+  const missing = procedures.unmapped.find(row => row.occurrences == null);
+  const observed = procedures.unmapped.find(row => !procedures.sources[row.code].currentOperation);
+  assert(suppressed && missing && observed);
+  const csv = bulk.parseBulkText(bulk.unmappedCsv(procedures, [suppressed, missing, observed]), ";");
+  const frequencyColumn = csv[0].indexOf("source_frequency");
+  assert.equal(csv[1][frequencyColumn], suppressed.occurrences);
+  assert.equal(csv[2][frequencyColumn], "");
+  assert(csv[0].some(column => column.startsWith("Source rows · ")));
+  assert.equal(csv[0].at(-1), "OMOP_concept_id");
 });
 
 test("procedure proposals preserve source groups and identify edited records", () => {
@@ -352,8 +365,22 @@ test("navigation, search, detail views and proposal preview use the selected col
   assert(text(view).includes("Relationship between targets unspecified"));
   context.location.hash = "#procedures/unmapped";
   await vm.runInContext("render()", context);
-  assert(text(view).includes("Unmapped SKS operations"));
+  assert(text(view).includes("Unmapped procedure codes"));
   assert(text(view).includes("Download unmapped codes (CSV)"));
+  const rank = item => item.occurrences == null ? -2 : item.occurrences.startsWith("<") ? -1 : Number(item.occurrences);
+  const ranked = [...procedures.unmapped].sort((a, b) => rank(b) - rank(a) || a.code.localeCompare(b.code));
+  let procedureLinks = descendants(view).filter(element => element.tag === "a" && element.attributes.href?.startsWith("#procedure/"));
+  assert(procedureLinks[0].attributes.href.endsWith(`/${ranked[0].code}`));
+  const scope = descendants(view).find(element => element.tag === "label" && text(element).trim().startsWith("Code scope"));
+  descendants(scope).find(element => element.tag === "select").events.change({ target: { value: "Current SKS operations" } });
+  procedureLinks = descendants(view).filter(element => element.tag === "a" && element.attributes.href?.startsWith("#procedure/"));
+  assert(procedureLinks.length > 0);
+  for (const item of procedureLinks) assert(procedures.sources[item.attributes.href.split("/").at(-1)].currentOperation);
+  const sorter = descendants(view).find(element => element.tag === "label" && text(element).trim().startsWith("Sort by"));
+  descendants(sorter).find(element => element.tag === "select").events.change({ target: { value: "Code" } });
+  procedureLinks = descendants(view).filter(element => element.tag === "a" && element.attributes.href?.startsWith("#procedure/"));
+  const alphabetical = procedures.unmapped.filter(item => procedures.sources[item.code].currentOperation).sort((a, b) => a.code.localeCompare(b.code));
+  assert(procedureLinks[0].attributes.href.endsWith(`/${alphabetical[0].code}`));
   context.location.hash = `#procedure-propose/${procedures.commit}/${procedures.unmapped[0].code}`;
   await vm.runInContext("render()", context);
   descendants(view).find(element => element.attributes.inputmode === "numeric").value = "123456";

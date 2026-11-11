@@ -68,7 +68,7 @@ def main():
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     input_paths = [f":(glob){folder.name}/**/*.{extension}"
                    for folder in (LABS, DRUGS) for extension in ("csv", "txt")]
-    input_paths.append("Procedures/NCSP_SKS_mappings.csv")
+    input_paths.extend([":(glob)Procedures/*.csv", ":(glob)Procedures/*.json"])
     if subprocess.check_output(["git", "status", "--porcelain", "--", *input_paths], cwd=ROOT):
         raise SystemExit("Commit the mapping inputs before building a versioned snapshot.")
     files = {

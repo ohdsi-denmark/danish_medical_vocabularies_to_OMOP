@@ -737,43 +737,58 @@ function showProcedures(mode) {
   const state = procedureState[backlog ? "unmapped" : "review"] ||= {};
   const results = node("div");
   const targetCount = rows => new Set(rows.map(row => row.conceptId).filter(id => /^[1-9]\d*$/.test(id))).size;
+  const frequencyRank = code => {
+    const value = procedureData.sources[code].occurrences;
+    return value == null ? -2 : value.startsWith("<") ? -1 : Number(value);
+  };
   const update = () => {
     const matches = [...groups].filter(([code, rows]) => {
       const source = procedureData.sources[code];
       const count = targetCount(rows);
       return (!state.domain || rows.some(row => row.domainId === state.domain)) &&
+        (!backlog || !state.scope || (state.scope === "Current SKS operations" ? source.currentOperation : !source.currentOperation)) &&
         (!state.status || (state.status === "Needs review") === rows.some(row => row.mappingStatus !== "APPROVED")) &&
         (!state.count || (state.count === "Multiple targets" ? count > 1 : count === 1)) &&
         match(state.query, [code, source.name, ...Object.values(source.details[0]),
           ...rows.flatMap(row => [row.conceptId, row.conceptName, row.sourceName])]);
-    }).sort(([a], [b]) => a.localeCompare(b));
+    }).sort(([a], [b]) => (state.sort === "Code" ? 0 : frequencyRank(b) - frequencyRank(a)) || a.localeCompare(b));
     renderList(results, matches, ([code, rows]) => {
       const source = procedureData.sources[code];
       const count = targetCount(rows);
       return node("li", {}, link(node("span", { class: "code-source" }, `${code} · ${source.name}`),
         `#procedure/${procedureData.commit}/${code}`),
+        node("div", {}, source.occurrences == null ? "Source frequency unavailable" :
+          `${source.occurrences.startsWith("<") ? source.occurrences : Number(source.occurrences).toLocaleString()} source rows`,
+          backlog && !source.currentOperation ? " · Outside the current SKS operation list" : ""),
         ...(backlog ? [] : [node("div", {}, `${count} distinct ${count === 1 ? "target" : "targets"} · ${rows.length} mapping records`,
           rows.some(row => row.mappingStatus !== "APPROVED") ? " · Needs review" : "") ]));
     });
   };
   const change = (key, value) => { state[key] = value; update(); };
+  const sortSelect = node("select", { onchange: event => change("sort", event.target.value) },
+    ...["Source frequency", "Code"].map(value => node("option", { value }, value)));
+  sortSelect.value = state.sort || "Source frequency";
   const filters = node("div", { class: "filters" },
-    searchBox("SKS code, source name or OMOP target", state.query, value => change("query", value)));
+    searchBox("Danish code, source name or OMOP target", state.query, value => change("query", value)),
+    node("label", {}, "Sort by", sortSelect));
+  if (backlog) filters.append(filter("Code scope", ["Current SKS operations", "Observed outside current operations"], state.scope, value => change("scope", value)));
   if (!backlog) filters.append(
     filter("Target domain", [...new Set(procedureData.mappings.map(row => row.domainId).filter(Boolean))].sort(), state.domain, value => change("domain", value)),
     filter("Review status", ["Approved", "Needs review"], state.status, value => change("status", value)),
     filter("Target count", ["One target", "Multiple targets"], state.count, value => change("count", value)));
-  view.append(node("section", {}, node("h2", {}, backlog ? "Unmapped SKS operations" : "Review procedure mappings"),
+  view.append(node("section", {}, node("h2", {}, backlog ? "Unmapped procedure codes" : "Review procedure mappings"),
     node("p", {}, backlog
-      ? `Active K codes in the SKS and LPR proc.opr release dated ${procedureData.release.release}, evaluated on ${procedureData.release.asOf}. Sorted by code.`
+      ? `Current SKS operations (release ${procedureData.release.release}, evaluated on ${procedureData.release.asOf}) and additional codes observed in the procedure tables. Names and validity are available for codes in the operation catalogue. Diagnosis-only counts are excluded.`
       : "Each result groups the recorded OMOP targets for one Danish SKS operation code."),
+    node("p", {}, "Sorted by source frequency by default. Counts are source rows before patient, visit and date linkage; overlapping extracts may count an event more than once. <5 means a suppressed count; a missing count does not mean zero."),
     filters, ...(backlog ? [backlogDownload(procedureData, procedureData.unmapped, "procedures"),
       node("p", {}, "Fill in OMOP_concept_id in the CSV, then upload it under Upload bulk changes.")] : []), results));
   update();
 }
 
 function procedureSourceCard(source) {
-  return facts("Danish source", [["Code", source.code], ...Object.entries(source.details[0])], "source");
+  return facts("Danish source", [["Code", source.code], ["Source frequency", source.occurrences ?? "Unavailable"],
+    ...Object.entries(source.details[0])], "source");
 }
 
 function showProcedure(code, commit, edit) {
