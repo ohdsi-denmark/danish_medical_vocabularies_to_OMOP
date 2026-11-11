@@ -1,6 +1,7 @@
 import { batchLimit, procedureProposal, procedureRelationships, proposal } from "./proposal.mjs";
 import { bulkFileLimit, bulkIndex, bulkLimit, bulkProposal, bulkTypes, detectDelimiter, parseBulkText, unmappedCsv } from "./bulk.mjs";
 import { expandProcedures } from "./procedure_data.mjs";
+import { createCarePages } from "./care_ui.mjs";
 
 const view = document.querySelector("#view");
 const loadStatus = document.querySelector("#load-status");
@@ -27,6 +28,8 @@ const procedureState = {};
 const drugSelections = new Set();
 const drugStates = {};
 const drugSearchCache = new Map();
+const carePages = createCarePages({ node, link, facts, bulkTable, view, searchBox, filter, match, renderList,
+  showGrouped: showProcedure, showBulkUpload, backlogDownload, request: path => fetch(path), getHash: () => location.hash });
 
 function node(tag, attributes = {}, ...children) {
   const element = document.createElement(tag);
@@ -464,6 +467,9 @@ function bulkTable(headings, rows) {
 }
 
 function showBulkUpload(category, catalog, dataset) {
+  const loadCandidates = catalog.loadBulkCandidates;
+  const sourceLabel = category === "visittypes" ? "OMOP place-of-service ID" : "Danish source code";
+  let validationVersion = 0;
   const status = node("p", { role: "status" });
   const preview = node("div");
   const columns = node("div");
@@ -480,7 +486,7 @@ function showBulkUpload(category, catalog, dataset) {
   let content;
   let prepared = [];
   const clearPreview = () => { preview.replaceChildren(); status.textContent = ""; };
-  const clearValidation = () => { prepared = []; submit.disabled = true; validation.replaceChildren(); clearPreview(); };
+  const clearValidation = () => { validationVersion++; prepared = []; submit.disabled = true; validation.replaceChildren(); clearPreview(); };
 
   function showColumns() {
     columns.replaceChildren();
@@ -501,7 +507,7 @@ function showBulkUpload(category, catalog, dataset) {
       const source = columnSelect("Choose a column", ["sourcecode", "sourceid", "danskcode"]);
       const target = columnSelect("Choose a column", ["proposedconceptid", "proposedomopconceptid", "targetconceptid", "targetomopconceptid", "conceptid", "omopconceptid"]);
       const record = columnSelect("Choose records below if needed", ["mappingid", "mappingrecordid", "sourceitemid"]);
-      const validate = node("button", { type: "button", onclick: () => {
+      const validate = node("button", { type: "button", onclick: async () => {
         clearValidation();
         if (!source.value || !target.value || source.value === target.value ||
             (record.value && [source.value, target.value].includes(record.value))) {
@@ -514,7 +520,22 @@ function showBulkUpload(category, catalog, dataset) {
           status.textContent = `Fill in proposed targets for 1 to ${bulkLimit} rows.`;
           return;
         }
-        const index = bulkIndex(catalog, category);
+        let index;
+        const version = validationVersion;
+        try {
+          if (loadCandidates) {
+            validate.disabled = true;
+            status.textContent = "Loading source records…";
+            const loaded = await loadCandidates(dataRows.map(({ row }) => row[source.value] || ""));
+            if (version !== validationVersion) return;
+            catalog = loaded;
+            status.textContent = "";
+          }
+          index = bulkIndex(catalog, category);
+        } catch {
+          if (version === validationVersion) status.textContent = "Source records could not be loaded. Select Validate rows to retry.";
+          return;
+        } finally { validate.disabled = false; }
         const errors = [];
         prepared = dataRows.map(({ row, number }) => {
           const code = row[source.value] || "";
@@ -538,14 +559,14 @@ function showBulkUpload(category, catalog, dataset) {
           return;
         }
         validation.append(node("p", {}, `${prepared.length} rows ready for review. Choose a source record wherever several records match.`),
-          bulkTable(["Danish source code", "Current mapping", "Proposed OMOP concept ID"], prepared.map(row => [
-            node("span", { class: "code-source" }, row.code), row.choice || `${row.current.conceptId || "Unmapped"} · ${row.current.id}`,
+          bulkTable([sourceLabel, "Current mapping", "Proposed OMOP concept ID"], prepared.map(row => [
+            node("span", { class: category === "visittypes" ? "code-target" : "code-source" }, row.code), row.choice || `${row.current.conceptId || "Unmapped"} · ${row.current.id}`,
             node("span", { class: "code-target" }, row.target),
           ])));
         submit.disabled = false;
       } }, "Validate rows");
       columns.append(bulkTable(headings, rows.slice(start, start + 3)),
-        node("div", { class: "filters" }, node("label", {}, "Danish source code column", source),
+        node("div", { class: "filters" }, node("label", {}, `${sourceLabel} column`, source),
           node("label", {}, "Proposed OMOP concept ID column", target),
           node("label", {}, "Mapping or source record ID column (optional)", record), validate));
     } catch (error) {
@@ -588,7 +609,7 @@ function showBulkUpload(category, catalog, dataset) {
       const issue = bulkProposal(catalog, input);
       preview.replaceChildren(node("h3", {}, issue.title), node("pre", {}, issue.body),
         node("p", {}, `The issue will link to a public CSV with ${issue.records.length} validated changes.`),
-        bulkTable(["Danish source code", "Current OMOP ID", "Proposed OMOP ID", "Mapping record"],
+        bulkTable([sourceLabel, "Current OMOP ID", "Proposed OMOP ID", "Mapping record"],
           issue.records.slice(0, 10).map(({ current, target }) => [current.sourceCode, current.conceptId, target, current.id])));
       if (settings.siteKey) mountSubmission(preview, form, input, status);
       else preview.append(node("p", {}, "Submission is unavailable in this preview."));
@@ -598,7 +619,7 @@ function showBulkUpload(category, catalog, dataset) {
     }
   });
   view.append(node("section", {}, node("h2", {}, `${bulkTypes[category]} · Upload bulk changes`),
-    node("p", {}, `Upload a CSV, TSV or TXT file with a Danish code and proposed OMOP concept ID per row. Fill in up to ${bulkLimit} targets. Rows with blank targets are skipped. Quote codes that contain spaces when using space-separated text.`),
+    node("p", {}, `Upload a CSV, TSV or TXT file with a ${sourceLabel.toLowerCase()} and proposed OMOP concept ID per row. Fill in up to ${bulkLimit} targets. Rows with blank targets are skipped. Quote codes that contain spaces when using space-separated text.`),
     node("p", {}, node("a", { download: "bulk-mapping-template.csv",
       href: "data:text/csv;charset=utf-8,source_code%2Cproposed_omop_concept_id%2Cmapping_id%0D%0A" }, "Download a CSV template")),
     node("p", {}, "Use published mappings or codes from an unmapped list. Only validated mapping details and your justification will be public. Keep personal or patient information out of the justification."),
@@ -901,8 +922,10 @@ function showProcedures(mode) {
 }
 
 function procedureSourceCard(source) {
-  return facts("Danish source", [["Code", source.code], ["Source frequency", source.occurrences ?? "Unavailable"],
-    ...Object.entries(source.details[0])], "source");
+  return facts(source.category === "visittypes" ? "OMOP place-of-service source" : "Danish source", [["Code",
+    source.category === "visittypes" ? link(source.code, `${athena}terms/${source.code}`) : source.code],
+    ...(["sor", "legacy", "visittypes"].includes(source.category) ? [] : [["Source frequency", source.occurrences ?? "Unavailable"]]),
+    ...Object.entries(source.details[0])], source.category === "visittypes" ? "target" : "source");
 }
 
 function showProcedure(code, commit, edit, config = {}) {
@@ -936,6 +959,8 @@ function showProcedure(code, commit, edit, config = {}) {
         ["Published source description", row.source_code_description], ["Target vocabulary", row.target_vocabulary_id],
         ["Mapping valid from", row.valid_start_date], ["Mapping valid until", row.valid_end_date],
         ["Invalid reason", row.invalid_reason],
+        ["Mapping method", row.method], ["Recorded classification", row.recordedClassification],
+        ["Recorded source name", row.recordedSourceName], ["Recorded Danish description", row.recordedDanishName],
       ])),
     ])) : node("p", {}, config.dataset === "conditions" ? "No custom mapping recorded. See the standard reference targets below, where available." : "No mapping recorded."));
   if (config.dataset === "conditions") {
@@ -950,7 +975,8 @@ function showProcedure(code, commit, edit, config = {}) {
   }
   view.append(node("div", { class: "grid" }, procedureSourceCard(source), targets),
     node("div", { class: "actions" }, link(rows.length ? "Propose target changes" : "Suggest a mapping",
-      `#${route}-propose/${commit}/${code}`), link("Download mapping file", Object.values(catalog.downloads)[0])));
+      `#${route}-propose/${commit}/${encodeURIComponent(code)}`), link("Download mapping file",
+        config.dataset === "caresites" ? catalog.downloads[rows[0]?.sourceFile || source.classificationFile || source.referenceFile] : Object.values(catalog.downloads)[0])));
 }
 
 function showProcedureProposal(source, rows, catalog = procedureData, dataset = "procedures", route = "procedure") {
@@ -999,7 +1025,7 @@ function showProcedureProposal(source, rows, catalog = procedureData, dataset = 
       if (input.value.trim()) changes.push({ action: "add", target: input.value.trim() });
     }
     const input = { dataset, commit: catalog.commit,
-      [route]: { code: source.code, changes, relationship: relationship.value, reason: reason.value } };
+      [dataset === "caresites" ? "caresite" : route]: { code: dataset === "caresites" ? source.id : source.code, changes, relationship: relationship.value, reason: reason.value } };
     try {
       const issue = procedureProposal(catalog, input);
       preview.replaceChildren(node("h3", {}, issue.title), node("pre", {}, issue.body));
@@ -1061,13 +1087,24 @@ async function render() {
   view.replaceChildren();
   const hash = location.hash;
   const [route, commit, id] = hash.slice(1).split("/");
+  if (["caresites", "care-site", "care-site-propose"].includes(route)) {
+    loadStatus.textContent = "Loading care-site mappings…";
+    try {
+      await carePages.render({ route, category: commit, mode: id, commit, key: id, hash });
+      if (hash === location.hash) loadStatus.textContent = "";
+    } catch {
+      if (hash === location.hash) loadStatus.textContent = "Care-site mappings could not be loaded. Select the section again to retry.";
+    }
+    return;
+  }
   const needsDrugs = ["drugs", "drug-mapping", "drug-correct", "drug-propose", "downloads"].includes(route);
   const needsProcedures = ["procedures", "procedure", "procedure-propose", "downloads"].includes(route);
   const needsConditions = ["conditions", "condition", "condition-propose", "downloads"].includes(route);
+  const needsCare = route === "downloads";
   if (needsDrugs || needsProcedures || needsConditions) {
     loadStatus.textContent = "Loading mappings…";
     try {
-      await Promise.all([needsDrugs && loadDrugs(), needsProcedures && loadProcedures(), needsConditions && loadConditions()]);
+      await Promise.all([needsDrugs && loadDrugs(), needsProcedures && loadProcedures(), needsConditions && loadConditions(), needsCare && carePages.loadManifest()]);
       if (hash !== location.hash) return;
       if (["procedure", "procedure-propose"].includes(route) && commit === procedureData.commit) await loadProcedureDetails(id);
       if (["condition", "condition-propose"].includes(route) && commit === conditionData.commit) await loadProcedureDetails(id, conditionData, conditionDetailLoads, conditionDetails);
@@ -1102,7 +1139,7 @@ async function render() {
   else if (route === "mapping") showMapping(id, commit);
   else if (route === "correct" || route === "propose") showProposal(id, commit);
   else if (route === "downloads") view.append(node("section", {}, node("h2", {}, "Download mapping files"),
-    ...[["Measurements", data.downloads], ["Drugs & vaccines", drugData.downloads], ["Procedures", procedureData.downloads], ["Conditions", conditionData.downloads]].map(([label, files]) =>
+    ...[["Measurements", data.downloads], ["Drugs & vaccines", drugData.downloads], ["Procedures", procedureData.downloads], ["Conditions", conditionData.downloads], ["Care sites", carePages.manifest.downloads]].map(([label, files]) =>
       node("div", {}, node("h3", {}, label), node("ul", {}, ...Object.entries(files).map(([name, url]) => node("li", {}, link(name, url))))))));
   else if (route === "about") view.append(node("section", {}, node("h2", {}, "About & contributing"),
     node("p", {}, "The Danish OHDSI Node maintains these mappings. Browse a mapping to propose a correction, or select up to ten source items from a new-mapping list."),

@@ -1,6 +1,7 @@
 import { procedureProposal, proposal } from "./public/proposal.mjs";
 import { bulkProposal } from "./public/bulk.mjs";
 import { expandProcedures } from "./public/procedure_data.mjs";
+import { careSubmissionData } from "./public/care_data.mjs";
 
 const encoder = new TextEncoder();
 const json = (data, status = 200) => Response.json(data, { status, headers: { "Cache-Control": "no-store" } });
@@ -76,15 +77,20 @@ async function submit(request, env) {
   if (!verification.success || verification.action !== "mapping_proposal" || verification.hostname !== new URL(origin).hostname) {
     return fail("The spam check expired or failed. Please try again.", 400);
   }
-  const collections = { labs: "/data.json", drugs: "/drug-proposals.json", procedures: "/procedures.json", conditions: "/conditions.json" };
+  const collections = { labs: "/data.json", drugs: "/drug-proposals.json", procedures: "/procedures.json", conditions: "/conditions.json", caresites: "/caresites.json" };
   const dataset = input.dataset || "labs";
   if (!Object.hasOwn(collections, dataset)) return fail("Unknown mapping collection.", 400);
   const filename = collections[dataset];
-  const data = expandProcedures(await env.ASSETS.fetch(new URL(filename, origin)).then(response => response.json()));
+  let data = expandProcedures(await env.ASSETS.fetch(new URL(filename, origin)).then(response => response.json()));
   let issue;
   try {
+    if (dataset === "caresites") data = await careSubmissionData(data, input, async path => {
+      const response = await env.ASSETS.fetch(new URL(path, origin));
+      if (!response.ok) throw new Error("Care-site source records could not be loaded.");
+      return response.json();
+    });
     if (input.bulk !== undefined) issue = bulkProposal(data, input);
-    else if (["procedures", "conditions"].includes(dataset)) issue = procedureProposal(data, input);
+    else if (["procedures", "conditions", "caresites"].includes(dataset)) issue = procedureProposal(data, input);
     else issue = proposal(data, input);
   } catch (error) {
     return fail(error.message, 400);

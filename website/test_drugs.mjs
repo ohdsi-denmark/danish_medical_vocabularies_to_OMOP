@@ -8,6 +8,7 @@ import { procedureProposal, procedureRelationships, proposal } from "./public/pr
 import * as bulk from "./public/bulk.mjs";
 import worker from "./worker.mjs";
 import { expandProcedures } from "./public/procedure_data.mjs";
+import { createCarePages } from "./public/care_ui.mjs";
 
 const readData = name => JSON.parse(readFileSync(new URL(`dist/${name}`, import.meta.url), "utf8"));
 const drugs = readData("drugs.json");
@@ -19,6 +20,7 @@ const procedures = readData(procedureIndex.exportFile);
 const conditionWire = readData("conditions.json");
 const conditionIndex = expandProcedures(conditionWire);
 const conditions = readData(conditionIndex.exportFile);
+const careManifest = readData("caresites.json");
 const positive = value => /^[1-9]\d*$/.test(value);
 const suggestion = item => ({ item: item.id, code: item.code, target: "123456", reason: "Proposed target requires clinical review." });
 const input = rows => ({ dataset: "drugs", commit: drugs.commit, rows });
@@ -268,6 +270,7 @@ test("submission endpoint validates identities, prevents duplicate issues and se
     GITHUB_APP_PRIVATE_KEY: privateKey, GITHUB_INSTALLATION_ID: "1", GITHUB_REPOSITORY: repository,
     PROPOSAL_RATE: { limit: async () => ({ success: rateAllowed }) },
     ASSETS: { fetch: async url => { assetPath = url.pathname;
+      if (assetPath === "/caresites.json" || assetPath.startsWith("/" + careManifest.assetRoot + "/")) return Response.json(readData(assetPath.slice(1)));
       return Response.json(assetPath === "/conditions.json" ? conditionWire : assetPath === "/procedures.json" ? procedureWire : submissionData);
     } },
     SUBMISSIONS: { prepare: query => ({ bind: (...args) => ({
@@ -327,9 +330,25 @@ test("submission endpoint validates identities, prevents duplicate issues and se
       reason: "Propose a custom target using the condition template.", rows: [{ code: conditions.uncovered[1], mapping: conditions.uncovered[1], target: "123456" }] } };
     assert.equal((await send(conditionBulk)).status, 201);
     assert((await (await worker.fetch(new Request(attachment), env)).text()).includes("standard_reference_target_ids"));
+    const missingCare = readData(careManifest.unmappedFile).unmapped[0];
+    const careInput = { dataset: "caresites", commit: careManifest.commit, caresite: {
+      code: missingCare.id, reason: "Propose a resolved classification for this organisation.", relationship: "unspecified",
+      changes: [{ action: "add", target: "123456" }],
+    } };
+    assert.equal((await send(careInput)).status, 201);
+    assert(assetPath.includes("/details/"));
+    assert.equal((await send(careInput)).status, 200);
+    assert.equal((await send({ ...careInput, caresite: { ...careInput.caresite, code: "sor-unknown" } })).status, 400);
+    const careUpload = { dataset: "caresites", commit: careManifest.commit, bulk: { category: "sor",
+      reason: "Propose a care-site target in bulk.", rows: [{ code: missingCare.code, mapping: missingCare.id, target: "123456" }] } };
+    assert.equal((await send(careUpload)).status, 201);
+    assert(assetPath.includes("/validation/sor/"));
+    const careFile = await (await worker.fetch(new Request(attachment), env)).text();
+    assert(careFile.includes("mapping_method"));
+    assert(careFile.includes(missingCare.code));
     rateAllowed = false;
     assert.equal((await send(payload)).status, 429);
-    assert.equal(issues, 5);
+    assert.equal(issues, 7);
   } finally {
     globalThis.fetch = originalFetch;
     database.close();
@@ -359,9 +378,9 @@ test("navigation, search, detail views and proposal preview use the selected col
     fetch: async file => {
       requested.push(file);
       if (file === failFile) return new Response("Temporarily unavailable", { status: 503 });
-      return Response.json(file === "conditions.json" ? conditionWire : file === "procedures.json" ? procedureWire : /^(procedure|condition)-details\//.test(file) ? readData(file) : drugs);
+      return Response.json(file === "caresites.json" ? careManifest : file === "conditions.json" ? conditionWire : file === "procedures.json" ? procedureWire : /^(procedure|condition)-details\//.test(file) ? readData(file) : drugs);
     },
-    expandProcedures,
+    expandProcedures, createCarePages,
     Blob, URL: { createObjectURL: blob => { downloads.push(blob); return "blob:download"; }, revokeObjectURL() {} },
     setTimeout: callback => callback(),
     ...bulk, procedureProposal, procedureRelationships, TextDecoder, TextEncoder,
@@ -441,7 +460,7 @@ test("navigation, search, detail views and proposal preview use the selected col
   await vm.runInContext("render()", context);
   const sourceCount = new Set(procedures.mappings.map(row => row.sourceCode)).size;
   assert(text(view).includes(`${sourceCount.toLocaleString()} results`));
-  assert.deepEqual(requested, ["drugs.json", "procedures.json", "conditions.json"]);
+  assert.deepEqual(requested, ["drugs.json", "procedures.json", "conditions.json", "caresites.json"]);
   context.location.hash = `#procedure/${procedures.commit}/KTNB0H`;
   await vm.runInContext("render()", context);
   assert(text(view).includes("Entire ankle and foot"));

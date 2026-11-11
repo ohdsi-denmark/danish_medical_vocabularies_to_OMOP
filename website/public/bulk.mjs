@@ -4,6 +4,7 @@ export const bulkFileLimit = 16 * 1024 * 1024;
 export const bulkTypes = {
   npu: "NPU measurements", dnk: "DNK measurements", products: "Medication products",
   ingredients: "Medication ingredients", vaccines: "Vaccines", routes: "Administration routes", procedures: "Procedure codes", conditions: "Condition codes",
+  sor: "SOR organisations", legacy: "Legacy care-site departments", visittypes: "Place-of-service to Visit type",
 };
 
 export function detectDelimiter(text) {
@@ -79,7 +80,8 @@ export function bulkIndex(data, type) {
     if ((item.category || "npu") !== type) continue;
     const source = data.sources?.[item.sourceKey];
     const entry = { id: item.id || `unmapped-${item.code}`, sourceCode: item.code,
-      sourceName: source?.name, preparation: source?.preparation, unmapped: true };
+      sourceName: source?.name, preparation: source?.preparation, method: source?.method, mappingStatus: "No resolved target",
+      sourceFile: source?.proposalFile, unmapped: true };
     add(item.code, entry);
     const prefix = type === "products" ? "Drug " : type === "ingredients" ? "Ingredient " : "";
     if (prefix && item.code.startsWith(prefix)) add(item.code.slice(prefix.length), entry);
@@ -168,12 +170,15 @@ export function bulkProposal(data, input) {
     return { current, target: row.target };
   }).sort((a, b) => a.current.id.localeCompare(b.current.id));
 
+  const care = ["sor", "legacy", "visittypes"].includes(category);
   const columns = ["source_code", "current_omop_concept_id", "proposed_omop_concept_id", "mapping_id",
-    "source_name", "preparation", "source_file", "source_record", ...(category === "conditions" ? ["standard_reference_target_ids"] : [])];
+    "source_name", "preparation", "source_file", "source_record", ...(category === "conditions" ? ["standard_reference_target_ids"] : []),
+    ...(care ? ["mapping_method", "review_status"] : [])];
   const csv = [columns, ...records.map(({ current, target }) => [
     current.sourceCode, current.conceptId, target, current.id, current.sourceName, current.preparation,
     current.sourceFile, current.sourceRow,
     ...(category === "conditions" ? [(data.referenceTargets[current.sourceCode] || []).map(row => row[0]).join(" | ")] : []),
+    ...(care ? [current.method, current.mappingStatus] : []),
   ])].map(row => row.map(csvCell).join(",")).join("\r\n") + "\r\n";
   if (new TextEncoder().encode(csv).length > 256 * 1024) throw new Error("The prepared CSV is too large. Split the changes into smaller files.");
   const safeReason = justification.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("@", "&#64;");

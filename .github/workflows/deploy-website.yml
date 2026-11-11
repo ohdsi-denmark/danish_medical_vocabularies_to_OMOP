@@ -35,7 +35,7 @@ jobs:
       - name: Check mapping website
         run: |
           python -m unittest discover -s website -p 'test_*.py'
-          node --test website/test_drugs.mjs
+          node --test website/test_drugs.mjs website/test_caresites.mjs
 
       - name: Apply database migrations and deploy
         uses: cloudflare/wrangler-action@v4

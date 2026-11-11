@@ -1,6 +1,6 @@
 # Danish OMOP Mapping Explorer
 
-The explorer uses the lab, medication, vaccine and administration route mapping files in this repository. It builds versioned search snapshots and links to the corresponding original GitHub downloads. Public submissions open issues in the same repository.
+The explorer uses the lab, medication, vaccine, administration route, procedure and condition mapping files in this repository. It builds versioned search snapshots and links to the corresponding original GitHub downloads. Public submissions open issues in the same repository.
 
 The national BRUGSNAVN and NPUBEGREB exports dated 30 October 2026 enrich mapped and backlog codes by exact DNK/NPU code. The importer preserves every national name, both abbreviated and full concept properties, inactive status, and replacement references. Danish names and definitions are searchable. The existing frequency report determines the backlog membership. Missing terminology entries remain visible with an explicit fallback. Source definition markup is converted to plain text, with superscripts represented as `^(...)` and subscripts as `_(...)`. National terminology dates retain the source's date and time without assuming a time zone.
 
@@ -8,7 +8,7 @@ The national BRUGSNAVN and NPUBEGREB exports dated 30 October 2026 enrich mapped
 
 Run `python website/build.py` from the repository root, then `python -m http.server 8000 --bind 127.0.0.1 --directory website/dist`. Open http://127.0.0.1:8000. This preview supports search, downloads, and proposal previews. The source lab inputs must be committed so downloads and displayed data refer to the same snapshot.
 
-Target search uses only concepts already recorded in the repository's mapping files. Contributors can search Athena on its own website and enter another concept ID. Such targets are flagged for maintainer verification. Athena vocabulary extracts must remain outside the public repository and website assets. The website builder does not import these extracts.
+Target search uses concepts recorded in the repository's mappings and the approved Danish-specific reference subsets. Contributors can search Athena on its own website and enter another concept ID. Such targets are flagged for maintainer verification. Full Athena vocabulary extracts must remain outside the public repository and website assets. The Conditions reference is restricted to codes evidenced in the Danish inputs and labels for targets used by the Danish custom mappings; the full local reference is excluded from Git and deployment.
 
 ## Drugs and vaccines
 
@@ -20,7 +20,7 @@ Source enrichment and supporting dose form, unit and ingredient decisions come f
 
 Lab data remains in `dist/data.json`. Drug data is loaded separately from `dist/drugs.json` when needed. The server validates drug submissions using the smaller `dist/drug-proposals.json`, generated from the same records. Drug proposals carry a source item identifier, source name, preparation, and original file/record identity. Existing Measurements links and submissions remain supported.
 
-After building, run `python -m unittest discover -s website -p test_procedures.py` and `node --test website/test_drugs.mjs` for terminology history, source-identity, reconciliation, navigation, proposal and Measurements compatibility checks. The UI checks exercise page construction and form previews without a browser.
+After building, run `python -m unittest discover -s website -p 'test_*.py'` and `node --test website/test_drugs.mjs website/test_caresites.mjs` for terminology history, reference publication boundaries, source-identity, reconciliation, navigation, proposal and Measurements compatibility checks. The UI checks exercise page construction and form previews without a browser.
 
 ## Procedures
 
@@ -39,6 +39,32 @@ To refresh the catalogue, download [SKScomplete.txt](https://filer.sundhedsdata.
 ```sh
 python website/import_sks.py SKScomplete.txt 20260917_SKSkodelister.zip 2026-11-06 Procedures/sks_operations.json
 ```
+
+## Conditions
+
+Conditions groups all 525 original `Conditions/stcm_dacICD10.csv` rows by their 454 Danish ICD-10 codes, retaining duplicate rows, multiple targets, non-SNOMED vocabularies, mapping validity and source-to-concept metadata. The default review view shows custom mappings; the origin filter also exposes standard-reference-only codes. Details separate custom targets from standard reference targets. Proposals add, replace or remove custom mapping rows and include the standard reference as context for an override. No review status or target domain is inferred from a positive ID. Names unavailable in the supplied files are explicitly marked; all positive IDs link to Athena.
+
+SKS diagnosis identifiers such as `DC209M` join to dotted custom codes such as `C20.9M` by removing the SKS diagnosis prefix and inserting the ICD decimal after three characters. Lookup details retain the SKS identifier and observed raw spellings. Other observed spellings remain unchanged. Diagnosis terminology matches are restricted to diagnosis records. Frequencies come from `Procedures/diagnosis_source_code_counts.csv`, preserve suppressed values, and count source rows rather than patients. Duplicate report rows containing suppression have no invented combined frequency.
+
+The private original `icd10_to_standard.csv` is copied to the ignored `Conditions/private_reference/` directory. To regenerate the publishable references, run:
+
+```sh
+python website/filter_condition_reference.py Conditions/private_reference/icd10_to_standard.csv
+```
+
+Commit the resulting `Conditions/reference_data/icd10_standard_for_danish_codes.csv` and `custom_target_labels.csv`. The first contains only exact source-code matches to valid SKS-style diagnosis codes observed in the Danish counts or codes in the Danish custom mapping file. The second contains only target IDs, names and vocabularies for concepts used by the custom mappings, without unrelated source rows. The build checks these boundaries and records checksums. It uses only these committed subsets, so CI does not need the private original. The supplied reference has neither a source-vocabulary column nor release/validity metadata and includes ICD10-CM-style codes. Coverage therefore means an exact match in this supplied reference, not verified current ICD10-only coverage.
+
+**Suggest new mappings** defaults to observed codes without an active custom mapping or an exact reference match. Other coverage options expose standard-reference matches for proposing custom overrides. CSV downloads follow the current search and coverage filters, retain the coverage context and end with an empty `OMOP_concept_id`. Bulk and individual issues state that changes apply to the custom mappings. The compact conditions index, content-addressed detail groups, on-demand export and caching follow the procedure design; full reference rows are loaded only with a detail group. Full private extracts are never deployed.
+
+## Care sites
+
+Care sites has contextual navigation for SOR organisations, legacy departments, and the place-of-service-to-Visit crosswalk. Review filters separate mapping method, human verification and data-quality flags. Manual SOR classifications are `Verified_By=Tomer`, keyword rules are `Keyword`, and LLM results have blank verification (confirmed against the ETL pipeline). Unchecked Usagi rows are kept under legacy departments with unspecified origin. The legacy file is retained because the ETL consumes it and it contains approved mappings. No positive target or `<auto>` creator is treated as evidence of human or LLM review.
+
+The importer joins the classification and resolved target files by exact SOR ID, preserving the 1,026 unresolved organisations for new proposals. Separately, the crosswalk suggestion list includes 118 observed SOR/legacy target concepts without a downstream Visit mapping and cites where each was used. It flags disagreement between predicted categories and recorded IDs, conflicting crosswalk labels and downstream Visit types, and scientific-notation legacy codes. It does not repair or collapse those source records. Target labels are identified as recorded metadata; absent labels stay explicitly unknown. SOR / department sources are tinted red, OMOP targets blue; the OMOP-to-OMOP crosswalk uses blue for both sides. Supporting SHAK history retains duplicate and unnamed columns and labels prefix matches rather than asserting exact department locations.
+
+`caresites.json` contains a small manifest, provenance checksums, target metadata and download links. Compact search indexes load only for the selected coding context. On-demand details use 1,024 snapshot-addressed groups. The SOR list is approximately 2.5 MB with gzip; full LLM justifications do not load with search. A separate unresolved-only export supplies the semicolon CSV template. For bulk submissions, 32 small validation groups per coding context are read in batches of four so the Worker does not parse the entire SOR catalogue. A single proposal needs only one detail group. The normal spam controls, rate limit, deduplication and public CSV-attachment workflow apply without a new migration.
+
+Run `python -m unittest discover -s website -p 'test_*.py'` and `node --test website/test_drugs.mjs website/test_caresites.mjs` after building. The care-site checks cover provenance, source-system identity, unresolved membership, original row selection, scientific notation, crosswalk conflicts, source histories, detail retries, single proposals and bulk previews/submissions. CI runs both suites before deployment. Include the new care-site importer, browser modules and tests when committing; generated assets stay ignored.
 
 ## Bulk proposals
 

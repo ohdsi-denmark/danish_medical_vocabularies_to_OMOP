@@ -9,7 +9,8 @@ export const procedureRelationships = {
 export function procedureProposal(data, input) {
   if (input.commit !== data.commit) throw new Error("The mappings have been updated. Reload before submitting.");
   const condition = input.dataset === "conditions";
-  const { code, changes, relationship, reason } = (condition ? input.condition : input.procedure) || {};
+  const care = input.dataset === "caresites";
+  const { code, changes, relationship, reason } = (care ? input.caresite : condition ? input.condition : input.procedure) || {};
   if (!Object.hasOwn(data.sources, code)) throw new Error("Choose a known SKS source code.");
   if (!Array.isArray(changes) || !changes.length || changes.length > batchLimit) {
     throw new Error(`Propose between 1 and ${batchLimit} changes.`);
@@ -43,15 +44,27 @@ export function procedureProposal(data, input) {
   }
   const safe = value => String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("@", "&#64;");
   const targetLink = id => /^[1-9]\d*$/.test(id) ? `[${id}](https://athena.ohdsi.org/search-terms/terms/${id})` : "No usable target";
+  const source = data.sources[code];
+  const displayCode = source.code || code;
   const body = [
-    `Source: ${safe(code)} · ${safe(data.sources[code].name)}`,
+    `Source: ${safe(displayCode)} · ${safe(source.name)}`,
     `Mapping snapshot: \`${data.commit}\``,
-    `SKS catalogue: ${data.release.release}, eligibility checked on ${data.release.asOf}`,
+    ...(care ? [
+      `Care-site source system: ${safe(data.categories[source.category])}`,
+      `Proposed mapping file: ${safe(data.mappingFiles[source.category])}`,
+      `Recorded mapping origin: ${safe(source.method)}`,
+      ...(source.verifiedBy ? [`Verified by: ${safe(source.verifiedBy)}`] : []),
+      ...(source.predictedCategory ? [`Recorded predicted category: ${safe(source.predictedCategory)}`] : []),
+      ...(source.classificationFile ? [`Classification record: ${safe(source.classificationRow)} in ${safe(source.classificationFile)}`] : []),
+      ...(source.referenceFile ? [`Observed source reference: record ${safe(source.referenceRow)} in ${safe(source.referenceFile)}`] : []),
+      ...(source.justification ? [`Recorded classification justification:\n${safe(source.justification).split(/\r?\n/).map(line => `> ${line}`).join("\n")}`] : []),
+      `Review flags: ${(data.flags || []).filter((_, index) => source.flags & (1 << index)).map(safe).join("; ") || "None recorded"}`,
+    ] : [`SKS catalogue: ${data.release.release}, eligibility checked on ${data.release.asOf}`]),
     ...(data.coverageNote ? [data.coverageNote] : []),
     ...(condition ? ["### Supplied standard reference targets", ...(data.referenceTargets[code] || []).map(([id, name, vocabulary]) =>
       `- ${targetLink(id)} ${safe(name)} · ${safe(vocabulary)}`), "Changes below apply to the Danish custom mapping file; reference targets are context for reviewing an override."] : []),
     "### Current mapping records",
-    current.length ? current.map(row => `- ${targetLink(row.conceptId)} ${safe(row.conceptName)} · ${safe(row.domainId)} · ${safe(row.mappingStatus)} · record ${row.sourceRow} in ${row.sourceFile}`).join("\n") : "No current mapping records.",
+    current.length ? current.map(row => `- ${targetLink(row.conceptId)} ${safe(row.conceptName)} · ${safe(row.domainId || "Domain not supplied")} · ${safe(row.mappingStatus)}${care ? ` · ${safe(row.method)}` : ""} · record ${row.sourceRow} in ${row.sourceFile}`).join("\n") : "No current mapping records.",
     "### Proposed edits",
     edits.map(({ action, row, target }) => {
       if (action === "add") return `- Add ${targetLink(target)}`;
@@ -63,7 +76,7 @@ export function procedureProposal(data, input) {
     "### Justification",
     safe(justification).split(/\r?\n/).map(line => `> ${line}`).join("\n"),
   ].join("\n\n");
-  return { title: `${condition ? "Condition" : "Procedure"} mapping proposal for ${code}`, body };
+  return { title: `${care ? "Care-site" : condition ? "Condition" : "Procedure"} mapping proposal for ${displayCode}`, body };
 }
 
 export function proposal(data, input) {
