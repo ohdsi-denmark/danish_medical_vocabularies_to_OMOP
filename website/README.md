@@ -10,6 +10,16 @@ Run `python website/build.py` from the repository root, then `python -m http.ser
 
 Target search uses concepts recorded in the repository's mappings and the approved Danish-specific reference subsets. Contributors can search Athena on its own website and enter another concept ID. Such targets are flagged for maintainer verification. Full Athena vocabulary extracts must remain outside the public repository and website assets. The Conditions reference is restricted to codes evidenced in the Danish inputs and labels for targets used by the Danish custom mappings; the full local reference is excluded from Git and deployment.
 
+## Dashboard
+
+The root URL and `#dashboard` open the coverage dashboard. It shows absolute mapped, without-target and known-total counts with percentages for each topic and mapping table, plus coverage for the six DNPR procedure tables and `t_diag`. Topic filtering and links lead to the existing review and suggestion screens. The landing page downloads only the small precomputed `dashboard.json` summary; the Measurements catalogue now loads when a Measurements page is opened, rather than on every visit. Existing deep links remain supported.
+
+Counts use distinct source identities with at least one positive published OMOP target, regardless of human review status. Multiple targets do not multiply the code count. Vaccine code/name/preparation identities are separate entries, consistent with the review catalogue. Pending proposals are not counted as mapped, and entries awaiting publication are identified in the table. Conditions combine active custom mappings and exact matches in the supplied standard reference without double-counting overlaps; reference coverage is not a guarantee of current ICD10-only vocabulary coverage.
+
+Every table states its denominator scope. A mapping-file-only inventory can show 100% even though no complete unmapped inventory is available. Related unit mappings, the OMOP Visit type lookup and the custom/standard condition file breakdowns are auxiliary or overlapping rows and are excluded from topic totals. Procedure source-table cohorts overlap, so their counts must not be added. Percentages describe distinct codes, not frequency-weighted activity, patients or clinical validity. The build derives all dashboard counts from the same versioned catalogues used by the review pages.
+
+Dashboard tests cover multiple targets, mixed source systems, vaccine preparations, pending proposals, condition-reference overlaps, unavailable inventories, source-table overlaps, topic filtering, default landing behaviour, deep links, retry behaviour and the small initial download. Run `python -m unittest discover -s website -p 'test_*.py'` and `node --test website/test_drugs.mjs website/test_caresites.mjs website/test_dashboard.mjs` after building. No database migration is required.
+
 ## Drugs and vaccines
 
 The Drugs & vaccines navigation provides medication product and ingredient review, vaccine preparation review, and administration route review. Each section supports source search, target search, review filters, detail pages, corrections, and proposals for source items without usable published targets. Medication search includes ATC codes, formulations and ingredient details from the copied DKMA working export. Vaccine details retain original code/preparation combinations, Danish and English names, and historical frequencies. Multiple targets for a source remain separate mapping records.
@@ -20,7 +30,7 @@ Source enrichment and supporting dose form, unit and ingredient decisions come f
 
 Lab data remains in `dist/data.json`. Drug data is loaded separately from `dist/drugs.json` when needed. The server validates drug submissions using the smaller `dist/drug-proposals.json`, generated from the same records. Drug proposals carry a source item identifier, source name, preparation, and original file/record identity. Existing Measurements links and submissions remain supported.
 
-After building, run `python -m unittest discover -s website -p 'test_*.py'` and `node --test website/test_drugs.mjs website/test_caresites.mjs` for terminology history, reference publication boundaries, source-identity, reconciliation, navigation, proposal and Measurements compatibility checks. The UI checks exercise page construction and form previews without a browser.
+After building, run `python -m unittest discover -s website -p 'test_*.py'` and `node --test website/test_drugs.mjs website/test_caresites.mjs website/test_dashboard.mjs` for terminology history, reference publication boundaries, source-identity, reconciliation, navigation, proposal and Measurements compatibility checks. The UI checks exercise page construction and form previews without a browser.
 
 ## Procedures
 
@@ -66,7 +76,7 @@ The 11 November 2026 Athena review corrected all 21 duplicated lookup IDs and co
 
 `caresites.json` contains a small manifest, provenance checksums, target metadata and download links. Compact search indexes load only for the selected coding context. On-demand details use 1,024 snapshot-addressed groups. The SOR list is approximately 2.5 MB with gzip; full LLM justifications do not load with search. A separate unresolved-only export supplies the semicolon CSV template. For bulk submissions, 32 small validation groups per coding context are read in batches of four so the Worker does not parse the entire SOR catalogue. A single proposal needs only one detail group. The normal spam controls, rate limit, deduplication and public CSV-attachment workflow apply without a new migration.
 
-Run `python -m unittest discover -s website -p 'test_*.py'` and `node --test website/test_drugs.mjs website/test_caresites.mjs` after building. The care-site checks cover provenance, source-system identity, unresolved membership, original row selection, scientific notation, crosswalk conflicts, source histories, detail retries, single proposals and bulk previews/submissions. CI runs both suites before deployment. Include the new care-site importer, browser modules and tests when committing; generated assets stay ignored.
+Run `python -m unittest discover -s website -p 'test_*.py'` and `node --test website/test_drugs.mjs website/test_caresites.mjs website/test_dashboard.mjs` after building. The care-site checks cover provenance, source-system identity, unresolved membership, original row selection, scientific notation, crosswalk conflicts, source histories, detail retries, single proposals and bulk previews/submissions. CI runs both suites before deployment. Include the new care-site importer, browser modules and tests when committing; generated assets stay ignored.
 
 ## Bulk proposals
 

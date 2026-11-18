@@ -65,3 +65,31 @@ dd { margin: 0; overflow-wrap: anywhere; }
 pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #edf4f1; padding: .8rem; }
 .choice { margin: .4rem 0; }
 fieldset label { margin-top: .5rem; }
+.dashboard-intro { background: #e7f2f0; }
+.dashboard-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.dashboard-card { padding: 1rem; border: 1px solid #ccd9d6; border-radius: .65rem; background: #fff; }
+.dashboard-card h3 { margin: 0; font-size: 1.1rem; }
+.dashboard-percentage { font-size: 2.3rem; font-weight: 700; line-height: 1.2; color: #075c63; margin: .7rem 0; }
+.coverage-meter { height: .6rem; background: #dfe8e6; border-radius: 1rem; overflow: hidden; margin: .4rem 0; }
+.coverage-meter > span { display: block; height: 100%; background: #087c80; }
+.dashboard-counts > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .3rem; }
+.dashboard-counts dt { font-weight: 400; }
+.dashboard-counts dd { font-weight: 650; font-variant-numeric: tabular-nums; }
+.dashboard-muted { font-size: .85rem; color: #41595d; }
+.dashboard-card > p:last-child { margin-bottom: 0; }
+.dashboard-table-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; align-items: center; }
+.dashboard-table-heading h3 { margin: 0; }
+.dashboard-table { overflow-x: auto; margin-top: 1rem; }
+.dashboard-table table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.dashboard-table th, .dashboard-table td { padding: .8rem .65rem; border-bottom: 1px solid #d9e2e0; text-align: left; vertical-align: top; }
+.dashboard-table thead th { background: #edf4f1; }
+.dashboard-table tbody th { min-width: 10rem; font-weight: 600; }
+.dashboard-table tbody th small, .dashboard-table tbody th > a { display: block; }
+.dashboard-table tbody th > a + a { font-size: .8rem; font-weight: 400; margin-top: .4rem; }
+.dashboard-topic { font-size: .75rem; color: #41595d; font-weight: 400; }
+.dashboard-number { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dashboard-coverage { min-width: 7rem; }
+.dashboard-scope { min-width: 14rem; max-width: 23rem; overflow-wrap: anywhere; }
+.dashboard-scope p { margin: .4rem 0; }
+.dashboard-scope details { margin-top: .4rem; font-size: .8rem; }
+.dashboard-scope ul { padding-left: 1rem; }

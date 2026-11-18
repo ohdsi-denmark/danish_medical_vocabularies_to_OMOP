@@ -2,11 +2,15 @@ import { batchLimit, procedureProposal, procedureRelationships, proposal } from 
 import { bulkFileLimit, bulkIndex, bulkLimit, bulkProposal, bulkTypes, detectDelimiter, parseBulkText, unmappedCsv } from "./bulk.mjs";
 import { expandProcedures } from "./procedure_data.mjs";
 import { createCarePages } from "./care_ui.mjs";
+import { renderDashboard } from "./dashboard.mjs";
 
 const view = document.querySelector("#view");
 const loadStatus = document.querySelector("#load-status");
 const athena = "https://athena.ohdsi.org/search-terms/";
 let data;
+let labLoad;
+let dashboardData;
+let dashboardLoad;
 let settings = {};
 let selected = new Set();
 let searchState = {};
@@ -344,13 +348,13 @@ function showProposal(id, commit, dataset = "labs") {
     const code = drugSource?.code || item;
     const target = node("input", { required: "", inputmode: "numeric", pattern: "[1-9][0-9]{0,9}" });
     const reason = node("textarea", { required: "", minlength: "10", maxlength: "1500" });
-    const source = current || data.mappings.find(row => row.sourceCode === code);
-    const unitDescription = data.units[code]?.[0]?.description;
+    const source = current || (dataset === "labs" ? data.mappings.find(row => row.sourceCode === code) : undefined);
+    const unitDescription = dataset === "labs" ? data.units[code]?.[0]?.description : undefined;
     form.append(node("fieldset", {}, node("legend", { class: "code-source" }, code),
       node("div", { class: "source-summary tone-source" },
-        node("p", {}, drugSource?.name || sourceName(code) || source?.sourceName || unitDescription || "Source description unavailable in this snapshot."),
+        node("p", {}, drugSource?.name || (dataset === "labs" ? sourceName(code) : undefined) || source?.sourceName || unitDescription || "Source description unavailable in this snapshot."),
         ...(drugSource?.preparation ? [node("p", {}, drugSource.preparation)] : []),
-        node("details", {}, node("summary", {}, "Code details"), drugSource ? drugSourceDetails(drugSource) : sourceDetails(code))),
+        node("details", {}, node("summary", {}, "Code details"), drugSource ? drugSourceDetails(drugSource) : dataset === "labs" ? sourceDetails(code) : "Source details unavailable")),
       ...(current ? [node("p", { class: "code-target" }, `${current.reviewState === "Needs review" ? "Existing proposal" : "Current target"}: ${current.conceptName || "Name unavailable"} (${current.conceptId || "no ID"})`)] : []),
       targetPicker(target, catalog, drugSource ? (drugSource.category === "routes" ? "Route" : "Drug") : undefined),
       node("label", { class: "target-picker tone-target" }, "Proposed OMOP concept ID", target),
@@ -1085,15 +1089,50 @@ function measurementNavigation() {
     link("Upload bulk changes", "#bulk/npu")));
 }
 
+function showVersion(commit) {
+  document.querySelector("#version").replaceChildren("Mapping snapshot ", link(commit.slice(0, 12),
+    `https://github.com/ohdsi-denmark/danish_medical_vocabularies_to_OMOP/tree/${commit}`));
+}
+
+async function loadLabs() {
+  if (data) return;
+  if (!labLoad) labLoad = fetch("data.json").then(response => {
+    if (!response.ok) throw new Error("Measurement data could not be loaded.");
+    return response.json();
+  }).then(value => { data = value; }).catch(error => { labLoad = undefined; throw error; });
+  await labLoad;
+}
+
+async function loadDashboard() {
+  if (!dashboardLoad) dashboardLoad = fetch("dashboard.json").then(response => {
+    if (!response.ok) throw new Error("Coverage summary could not be loaded.");
+    return response.json();
+  }).then(value => { dashboardData = value; }).catch(error => { dashboardLoad = undefined; throw error; });
+  await dashboardLoad;
+}
+
 async function render() {
   view.replaceChildren();
   const hash = location.hash;
   const [route, commit, id] = hash.slice(1).split("/");
+  if (!route || route === "dashboard") {
+    loadStatus.textContent = "Loading mapping coverage…";
+    try {
+      await loadDashboard();
+      if (hash !== location.hash) return;
+      renderDashboard({ node, link, view }, dashboardData);
+      showVersion(dashboardData.commit);
+      loadStatus.textContent = "";
+    } catch {
+      if (hash === location.hash) loadStatus.textContent = "Mapping coverage could not be loaded. Select Dashboard to retry.";
+    }
+    return;
+  }
   if (["caresites", "care-site", "care-site-propose"].includes(route)) {
     loadStatus.textContent = "Loading care-site mappings…";
     try {
       await carePages.render({ route, category: commit, mode: id, commit, key: id, hash });
-      if (hash === location.hash) loadStatus.textContent = "";
+      if (hash === location.hash) { loadStatus.textContent = ""; showVersion(carePages.manifest.commit); }
     } catch {
       if (hash === location.hash) loadStatus.textContent = "Care-site mappings could not be loaded. Select the section again to retry.";
     }
@@ -1103,10 +1142,11 @@ async function render() {
   const needsProcedures = ["procedures", "procedure", "procedure-propose", "downloads"].includes(route);
   const needsConditions = ["conditions", "condition", "condition-propose", "downloads"].includes(route);
   const needsCare = route === "downloads";
-  if (needsDrugs || needsProcedures || needsConditions) {
+  const needsLabs = route === "downloads" || !(needsDrugs || needsProcedures || needsConditions || route === "about");
+  if (needsDrugs || needsProcedures || needsConditions || needsLabs || route === "about") {
     loadStatus.textContent = "Loading mappings…";
     try {
-      await Promise.all([needsDrugs && loadDrugs(), needsProcedures && loadProcedures(), needsConditions && loadConditions(), needsCare && carePages.loadManifest()]);
+      await Promise.all([needsDrugs && loadDrugs(), needsProcedures && loadProcedures(), needsConditions && loadConditions(), needsCare && carePages.loadManifest(), needsLabs && loadLabs(), route === "about" && loadDashboard()]);
       if (hash !== location.hash) return;
       if (["procedure", "procedure-propose"].includes(route) && commit === procedureData.commit) await loadProcedureDetails(id);
       if (["condition", "condition-propose"].includes(route) && commit === conditionData.commit) await loadProcedureDetails(id, conditionData, conditionDetailLoads, conditionDetails);
@@ -1115,6 +1155,7 @@ async function render() {
       return;
     }
     if (hash !== location.hash) return;
+    showVersion((needsLabs ? data : needsDrugs ? drugData : needsProcedures ? procedureData : needsConditions ? conditionData : dashboardData).commit);
     loadStatus.textContent = "";
   } else loadStatus.textContent = "";
   if (route === "drugs") showDrugSection(commit, id);
@@ -1155,15 +1196,8 @@ async function render() {
 }
 
 try {
-  const response = await fetch("data.json");
-  if (!response.ok) throw new Error();
-  data = await response.json();
-  loadStatus.textContent = "";
-  document.querySelector("#version").append("Mapping snapshot ", link(data.commit.slice(0, 12),
-    `https://github.com/ohdsi-denmark/danish_medical_vocabularies_to_OMOP/tree/${data.commit}`),
-    data.omopRelease ? ` · OMOP vocabulary ${data.omopRelease}` : " · Target search uses concepts from the mapping files");
   addEventListener("hashchange", render);
-  render();
+  await render();
   const config = await fetch("api/config").then(response => response.json()).catch(() => ({}));
   if (config.siteKey) {
     settings = { ...config, turnstile: new Promise((resolve, reject) => {

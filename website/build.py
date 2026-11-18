@@ -9,6 +9,7 @@ from drugs import build_drugs
 from procedures import build_procedures, write_procedure_assets
 from conditions import build_conditions
 from caresites import build_caresites
+from dashboard import build_dashboard
 
 SITE = Path(__file__).resolve().parent
 ROOT = SITE.parent
@@ -152,9 +153,13 @@ def main():
     }
     (OUT / "drug-proposals.json").write_text(json.dumps(proposal_data, ensure_ascii=False,
                                                       separators=(",", ":")), encoding="utf-8")
-    write_procedure_assets(build_procedures(ROOT, commit), OUT)
-    write_procedure_assets(build_conditions(ROOT, commit), OUT, "conditions")
-    build_caresites(ROOT, commit, OUT)
+    procedure_data = build_procedures(ROOT, commit)
+    condition_data = build_conditions(ROOT, commit)
+    write_procedure_assets(procedure_data, OUT)
+    write_procedure_assets(condition_data, OUT, "conditions")
+    care_data = build_caresites(ROOT, commit, OUT)
+    dashboard = build_dashboard(ROOT, OUT, data, drug_data, procedure_data, condition_data, care_data)
+    (OUT / "dashboard.json").write_text(json.dumps(dashboard, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 if __name__ == "__main__":
     main()
