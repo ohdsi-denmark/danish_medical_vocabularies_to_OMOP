@@ -89,7 +89,12 @@ fieldset label { margin-top: .5rem; }
 .dashboard-topic { font-size: .75rem; color: #41595d; font-weight: 400; }
 .dashboard-number { white-space: nowrap; font-variant-numeric: tabular-nums; }
 .dashboard-coverage { min-width: 7rem; }
-.dashboard-scope { min-width: 14rem; max-width: 23rem; overflow-wrap: anywhere; }
+.dashboard-scope { min-width: 8rem; max-width: 12rem; overflow-wrap: anywhere; }
 .dashboard-scope p { margin: .4rem 0; }
 .dashboard-scope details { margin-top: .4rem; font-size: .8rem; }
 .dashboard-scope ul { padding-left: 1rem; }
+.dashboard-caveat { display: inline-block; }
+.dashboard-caveat-trigger { background: none; color: #41595d; border: 0; border-radius: .15rem; padding: 0; font-size: .75rem; font-weight: 400; line-height: 1.5; text-decoration: underline dotted; text-underline-offset: .2em; cursor: help; }
+.dashboard-tooltip { display: block; position: fixed; z-index: 30; width: min(28rem, calc(100vw - 2rem)); max-height: min(20rem, calc(100vh - 2rem)); overflow: auto; padding: .75rem 1rem; background: #fff; color: #152b32; border: 1px solid #708686; border-radius: .4rem; box-shadow: 0 .3rem 1rem #152b3226; font-size: .85rem; font-weight: 400; line-height: 1.5; text-align: left; white-space: pre-line; visibility: hidden; pointer-events: none; }
+.dashboard-caveat:hover > .dashboard-tooltip, .dashboard-caveat:focus-within > .dashboard-tooltip, .dashboard-caveat[data-open="true"] > .dashboard-tooltip { visibility: visible; pointer-events: auto; }
+.dashboard-caveat[data-dismissed="true"] > .dashboard-tooltip { visibility: hidden; pointer-events: none; }

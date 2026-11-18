@@ -20,6 +20,8 @@ Every table states its denominator scope. A mapping-file-only inventory can show
 
 Dashboard tests cover multiple targets, mixed source systems, vaccine preparations, pending proposals, condition-reference overlaps, unavailable inventories, source-table overlaps, topic filtering, default landing behaviour, deep links, retry behaviour and the small initial download. Run `python -m unittest discover -s website -p 'test_*.py'` and `node --test website/test_drugs.mjs website/test_caresites.mjs website/test_dashboard.mjs` after building. No database migration is required.
 
+Visible dashboard descriptions are concise. Definitions, denominator scopes, overlapping counts, review status and other qualifications are available through fine-print **caveats limitations** tooltips beside the relevant sections, cards and table rows. Tooltips open on hover or keyboard focus, support tapping, stay within the viewport and can be dismissed with Escape. Source-file disclosures remain available separately.
+
 ## Drugs and vaccines
 
 The Drugs & vaccines navigation provides medication product and ingredient review, vaccine preparation review, and administration route review. Each section supports source search, target search, review filters, detail pages, corrections, and proposals for source items without usable published targets. Medication search includes ATC codes, formulations and ingredient details from the copied DKMA working export. Vaccine details retain original code/preparation combinations, Danish and English names, and historical frequencies. Multiple targets for a source remain separate mapping records.

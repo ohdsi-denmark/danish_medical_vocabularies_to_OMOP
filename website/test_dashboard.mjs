@@ -54,6 +54,8 @@ class Element {
   addEventListener(key, callback) { this.events[key] = callback; }
 }
 const text = element => typeof element === "string" ? element : [element.textContent || "", ...element.children.map(text)].join(" ");
+const visibleText = element => typeof element === "string" ? element : element.hidden || element.attributes.role === "tooltip" ? "" :
+  [element.textContent || "", ...element.children.map(visibleText)].join(" ");
 const descendants = element => [element, ...element.children.filter(child => typeof child !== "string").flatMap(descendants)];
 
 async function bootstrap(hash, failure) {
@@ -84,6 +86,36 @@ test("the landing page loads only a small coverage summary and filters tables by
   assert(text(page.view).includes("Coverage by mapping table"));
   assert(text(page.view).includes("DNPR source tables"));
   assert(text(page.view).includes("Mapping file only; no separate DNK unmapped inventory supplied"));
+  assert(visibleText(page.view).includes("Mapped code counts and coverage by topic and table."));
+  assert(visibleText(page.view).includes("November 2024 extract"));
+  assert(!visibleText(page.view).includes(report.definition));
+  assert(!visibleText(page.view).includes(report.countingNote));
+  for (const row of report.tables) assert(!visibleText(page.view).includes(row.scope));
+  const tooltips = descendants(page.view).filter(element => element.attributes.role === "tooltip");
+  const triggers = descendants(page.view).filter(element => element.attributes.class === "dashboard-caveat-trigger");
+  assert(triggers.length > 5);
+  assert.equal(new Set(tooltips.map(element => element.attributes.id)).size, tooltips.length);
+  for (const trigger of triggers) {
+    assert.equal(text(trigger).trim(), "caveats limitations");
+    assert(tooltips.some(tooltip => tooltip.attributes.id === trigger.attributes["aria-describedby"]));
+  }
+  const tooltip = tooltips.find(element => text(element).includes("no separate DNK unmapped inventory"));
+  const trigger = triggers.find(element => element.attributes["aria-describedby"] === tooltip.attributes.id);
+  const wrapper = descendants(page.view).find(element => element.children.includes(trigger));
+  trigger.ownerDocument = { defaultView: { innerWidth: 360, innerHeight: 640 } };
+  trigger.getBoundingClientRect = () => ({ left: 330, top: 600, bottom: 620 });
+  tooltip.scrollHeight = 500;
+  trigger.events.focus();
+  assert.equal(wrapper.attributes["data-dismissed"], "false");
+  assert(tooltip.attributes.style.includes("left:16px"));
+  assert(tooltip.attributes.style.includes("top:280px"));
+  trigger.events.click();
+  assert.equal(wrapper.attributes["data-open"], "true");
+  wrapper.events.keydown({ key: "Escape" });
+  assert.equal(wrapper.attributes["data-dismissed"], "true");
+  assert.equal(wrapper.attributes["data-open"], "false");
+  wrapper.events.pointerenter();
+  assert.equal(wrapper.attributes["data-dismissed"], "false");
   assert(text(page.version).includes(report.commit.slice(0, 12)));
   assert.equal(descendants(page.view).filter(element => element.tag === "article").length, 5);
   const meters = descendants(page.view).filter(element => element.attributes.role === "meter");
