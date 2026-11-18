@@ -1,0 +1,837 @@
+{
+  "checkedOn": "2026-11-11",
+  "source": "Athena concept detail pages",
+  "originalLookupSha256": "787ae4164b56253237dff15f293067dbc5febf0862ce74b6347bef062976dbc8",
+  "scope": "All 21 duplicated concept IDs; only this care-site-specific metadata is included.",
+  "originalRowCount": 160,
+  "concepts": [
+    {
+      "conceptId": "38004247",
+      "conceptName": "Primary Care Clinic/Center",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "261QP2300X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004247",
+      "visitConceptId": "9202",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "1",
+          "Classification Code": "38004247",
+          "Classification Name": "Ambulatory Primary Care Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "14",
+          "Classification Code": "38004247",
+          "Classification Name": "Ambulatory Physical Therapy Clinic / Center",
+          "visit_concept_id": "9202"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004339",
+      "conceptName": "Clinic Pharmacy",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "3336C0002X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004339",
+      "visitConceptId": "581458",
+      "decision": "Athena Is a hierarchy to the Visit vocabulary",
+      "visitHierarchy": [
+        "38004339",
+        "38004338",
+        "581458"
+      ],
+      "hierarchySources": [
+        "https://athena.ohdsi.org/search-terms/terms/38004339",
+        "https://athena.ohdsi.org/search-terms/terms/38004338"
+      ],
+      "originalRows": [
+        {
+          "record": "2",
+          "Classification Code": "38004339",
+          "Classification Name": "Clinic Pharmacy",
+          "visit_concept_id": "581458"
+        },
+        {
+          "record": "67",
+          "Classification Code": "38004339",
+          "Classification Name": "Inpatient Hospital",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "69",
+          "Classification Code": "38004339",
+          "Classification Name": "Prosthetic / Orthotic Supplier",
+          "visit_concept_id": "33004"
+        },
+        {
+          "record": "146",
+          "Classification Code": "38004339",
+          "Classification Name": "Procthetic / Orthotic Supplier",
+          "visit_concept_id": "33004"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004280",
+      "conceptName": "Critical Access Hospital",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "282NC0060X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004280",
+      "visitConceptId": "9201",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "15",
+          "Classification Code": "38004280",
+          "Classification Name": "General Acute Care Hospital",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "50",
+          "Classification Code": "38004280",
+          "Classification Name": "General Acute Care Critical Access Hospital",
+          "visit_concept_id": "9201"
+        }
+      ]
+    },
+    {
+      "conceptId": "8809",
+      "conceptName": "Independent Laboratory",
+      "vocabularyId": "CMS Place of Service",
+      "domainId": "Visit",
+      "conceptCode": "81",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/8809",
+      "visitConceptId": "32036",
+      "decision": "Athena Is a hierarchy to the Visit vocabulary",
+      "visitHierarchy": [
+        "8809",
+        "32036"
+      ],
+      "hierarchySources": [
+        "https://athena.ohdsi.org/search-terms/terms/8809"
+      ],
+      "originalRows": [
+        {
+          "record": "16",
+          "Classification Code": "8809",
+          "Classification Name": "Inpatient Hospital",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "48",
+          "Classification Code": "8809",
+          "Classification Name": "General Acute Care Hospital",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "79",
+          "Classification Code": "8809",
+          "Classification Name": "Independent Laboratory",
+          "visit_concept_id": "32036"
+        },
+        {
+          "record": "111",
+          "Classification Code": "8809",
+          "Classification Name": "Emergency Room - Hospital",
+          "visit_concept_id": "9203"
+        },
+        {
+          "record": "140",
+          "Classification Code": "8809",
+          "Classification Name": "Military Hospital",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "147",
+          "Classification Code": "8809",
+          "Classification Name": "Military Treatment Facility",
+          "visit_concept_id": "9202"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004338",
+      "conceptName": "Pharmacy",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "333600000X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004338",
+      "visitConceptId": "581458",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "18",
+          "Classification Code": "38004338",
+          "Classification Name": "Pharmacy",
+          "visit_concept_id": "581458"
+        },
+        {
+          "record": "63",
+          "Classification Code": "38004338",
+          "Classification Name": "Clinic Pharmacy",
+          "visit_concept_id": "581458"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004283",
+      "conceptName": "Women's Hospital",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "282NW0100X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004283",
+      "visitConceptId": "9201",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "20",
+          "Classification Code": "38004283",
+          "Classification Name": "General Acute Care Women Hospital",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "142",
+          "Classification Code": "38004283",
+          "Classification Name": "General Rural Acute Care Hospital",
+          "visit_concept_id": "9201"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004260",
+      "conceptName": "Rural Health Clinic/Center",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "261QR1300X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004260",
+      "visitConceptId": "9202",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "21",
+          "Classification Code": "38004260",
+          "Classification Name": "Ambulatory Community Health Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "47",
+          "Classification Code": "38004260",
+          "Classification Name": "Ambulatory Rural Health Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "52",
+          "Classification Code": "38004260",
+          "Classification Name": "Ambulatory Cardiac Rehabilitation Facility",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "80",
+          "Classification Code": "38004260",
+          "Classification Name": "Ambulatory VA Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "104",
+          "Classification Code": "38004260",
+          "Classification Name": "Ambulatory Research Clinic / Center",
+          "visit_concept_id": "9202"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004286",
+      "conceptName": "Children's Rehabilitation Hospital",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "283XC2000X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004286",
+      "visitConceptId": "581479",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "22",
+          "Classification Code": "38004286",
+          "Classification Name": "Rehabilitation Hospital",
+          "visit_concept_id": "581479"
+        },
+        {
+          "record": "59",
+          "Classification Code": "38004286",
+          "Classification Name": "Rehabilitation Children Hospital",
+          "visit_concept_id": "581479"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004248",
+      "conceptName": "Prison Health Clinic/Center",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "261QP2400X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004248",
+      "visitConceptId": "9202",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "25",
+          "Classification Code": "38004248",
+          "Classification Name": "Ambulatory Prison Health Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "27",
+          "Classification Code": "38004248",
+          "Classification Name": "Ambulatory Family Planning Facility",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "61",
+          "Classification Code": "38004248",
+          "Classification Name": "Ambulatory Dental Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "73",
+          "Classification Code": "38004248",
+          "Classification Name": "Ambulatory Radiology Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "74",
+          "Classification Code": "38004248",
+          "Classification Name": "Ambulatory Family Practice",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "77",
+          "Classification Code": "38004248",
+          "Classification Name": "Ambulatory Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "131",
+          "Classification Code": "38004248",
+          "Classification Name": "Ambulatory Ophthalmologic Surgery Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "149",
+          "Classification Code": "38004248",
+          "Classification Name": "Ambulatory Oral and Maxillofacial Surgery Clinic / Center",
+          "visit_concept_id": "9202"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004220",
+      "conceptName": "Emergency Care Clinic/Center",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "261QE0002X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004220",
+      "visitConceptId": "9202",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "29",
+          "Classification Code": "38004220",
+          "Classification Name": "Ambulatory Community Health Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "93",
+          "Classification Code": "38004220",
+          "Classification Name": "Ambulatory Emergency Care Clinic / Center",
+          "visit_concept_id": "9202"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004232",
+      "conceptName": "Adolescent and Children Mental Health Clinic/Center",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "261QM0855X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004232",
+      "visitConceptId": "9202",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "31",
+          "Classification Code": "38004232",
+          "Classification Name": "Ambulatory Adolescent and Children Mental Health Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "45",
+          "Classification Code": "38004232",
+          "Classification Name": "Ambulatory Adult Mental Health Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "84",
+          "Classification Code": "38004232",
+          "Classification Name": "Ambulatory Child and Adolescent Mental Health Clinic / Center",
+          "visit_concept_id": "9202"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004384",
+      "conceptName": "Perinatal Nurse Practitioner",
+      "vocabularyId": "NUCC",
+      "domainId": "Provider",
+      "conceptCode": "363LP1700X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004384",
+      "visitConceptId": "",
+      "decision": "No Visit mapping: the verified source concept is in the Provider domain",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "32",
+          "Classification Code": "38004384",
+          "Classification Name": "General Acute Care Hospital",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "40",
+          "Classification Code": "38004384",
+          "Classification Name": "Outpatient Hospital",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "56",
+          "Classification Code": "38004384",
+          "Classification Name": "Inpatient Hospital",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "118",
+          "Classification Code": "38004384",
+          "Classification Name": "Plastic Surgery Hospital",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "121",
+          "Classification Code": "38004384",
+          "Classification Name": "Intensive Care",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "127",
+          "Classification Code": "38004384",
+          "Classification Name": "Orthopedic Hospital",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "128",
+          "Classification Code": "38004384",
+          "Classification Name": "Emergency Room - Hospital",
+          "visit_concept_id": "9203"
+        },
+        {
+          "record": "130",
+          "Classification Code": "38004384",
+          "Classification Name": "Ophthalmology Hospital Unit",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "132",
+          "Classification Code": "38004384",
+          "Classification Name": "Orthopedic Surgery Hospital",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "134",
+          "Classification Code": "38004384",
+          "Classification Name": "Ambulatory Surgical Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "136",
+          "Classification Code": "38004384",
+          "Classification Name": "Sleep Disorder Diagnostic Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "137",
+          "Classification Code": "38004384",
+          "Classification Name": "Ophthalmology Hospital",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "138",
+          "Classification Code": "38004384",
+          "Classification Name": "Geriatrisk Daghospital",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "145",
+          "Classification Code": "38004384",
+          "Classification Name": "Plastic Surgery Clinic / Center",
+          "visit_concept_id": "9202"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004254",
+      "conceptName": "Rehabilitation Clinic/Center",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "261QR0400X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004254",
+      "visitConceptId": "9202",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "34",
+          "Classification Code": "38004254",
+          "Classification Name": "Ambulatory Rehabilitation Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "76",
+          "Classification Code": "38004254",
+          "Classification Name": "Ambulatory Radiology Clinic / Center",
+          "visit_concept_id": "9202"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004263",
+      "conceptName": "Student Health Clinic/Center",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "261QS1000X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004263",
+      "visitConceptId": "9202",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "37",
+          "Classification Code": "38004263",
+          "Classification Name": "Ambulatory Student Health Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "46",
+          "Classification Code": "38004263",
+          "Classification Name": "Ambulatory Ophthalmologic Surgery Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "148",
+          "Classification Code": "38004263",
+          "Classification Name": "Ambulatory Epilepsy Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "151",
+          "Classification Code": "38004263",
+          "Classification Name": "Ambulatory Dental Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "155",
+          "Classification Code": "38004263",
+          "Classification Name": "Ambulatory Oral and Maxillofacial Surgery Clinic / Center",
+          "visit_concept_id": "9202"
+        }
+      ]
+    },
+    {
+      "conceptId": "8716",
+      "conceptName": "Independent Clinic",
+      "vocabularyId": "CMS Place of Service",
+      "domainId": "Visit",
+      "conceptCode": "49",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/8716",
+      "visitConceptId": "9202",
+      "decision": "Athena Is a hierarchy to the Visit vocabulary",
+      "visitHierarchy": [
+        "8716",
+        "9202"
+      ],
+      "hierarchySources": [
+        "https://athena.ohdsi.org/search-terms/terms/8716"
+      ],
+      "originalRows": [
+        {
+          "record": "43",
+          "Classification Code": "8716",
+          "Classification Name": "Inpatient Hospital",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "160",
+          "Classification Code": "8716",
+          "Classification Name": "Ambulance - Land",
+          "visit_concept_id": "581478"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004233",
+      "conceptName": "Migrant Health Clinic/Center",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "261QM1000X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004233",
+      "visitConceptId": "9202",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "51",
+          "Classification Code": "38004233",
+          "Classification Name": "Ambulatory Family Planning Facility",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "60",
+          "Classification Code": "38004233",
+          "Classification Name": "Ambulatory Mental Health Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "83",
+          "Classification Code": "38004233",
+          "Classification Name": "Ambulatory Child and Adolescent Mental Health Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "92",
+          "Classification Code": "38004233",
+          "Classification Name": "Ambulatory Migrant Health Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "97",
+          "Classification Code": "38004233",
+          "Classification Name": "Ambulatory Maternity Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "107",
+          "Classification Code": "38004233",
+          "Classification Name": "Ambulatory Obstetric Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "109",
+          "Classification Code": "38004233",
+          "Classification Name": "Ambulatory Child Mental Health Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "120",
+          "Classification Code": "38004233",
+          "Classification Name": "Ambulatory Obstetric and Gynecologic Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "126",
+          "Classification Code": "38004233",
+          "Classification Name": "Ambulatory Child Mental Illness Respite Care",
+          "visit_concept_id": "9202"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004267",
+      "conceptName": "Occupational Medicine Clinic/Center",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "261QX0100X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004267",
+      "visitConceptId": "9202",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "71",
+          "Classification Code": "38004267",
+          "Classification Name": "Ambulatory Occupational Medicine Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "114",
+          "Classification Code": "38004267",
+          "Classification Name": "Ambulatory Vaccination Clinic / Center",
+          "visit_concept_id": "9202"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004278",
+      "conceptName": "Religious Nonmedical Health Care Institution",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "282J00000X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004278",
+      "visitConceptId": "9201",
+      "decision": "Athena Is a hierarchy to the Visit vocabulary",
+      "visitHierarchy": [
+        "38004278",
+        "8717",
+        "9201"
+      ],
+      "hierarchySources": [
+        "https://athena.ohdsi.org/search-terms/terms/38004278",
+        "https://athena.ohdsi.org/search-terms/terms/8717"
+      ],
+      "originalRows": [
+        {
+          "record": "75",
+          "Classification Code": "38004278",
+          "Classification Name": "General Acute Care Hospital",
+          "visit_concept_id": "9201"
+        },
+        {
+          "record": "124",
+          "Classification Code": "38004278",
+          "Classification Name": "Religious Nonmedical Health Care Institution",
+          "visit_concept_id": "581476"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004258",
+      "conceptName": "Recovery Care Clinic/Center",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "261QR0800X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004258",
+      "visitConceptId": "9202",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "99",
+          "Classification Code": "38004258",
+          "Classification Name": "Ambulatory Recovery Care Clinic / Center",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "123",
+          "Classification Code": "38004258",
+          "Classification Name": "Ambulatory Cardiac Rehabilitation Facility",
+          "visit_concept_id": "9202"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004348",
+      "conceptName": "Specialty Pharmacy",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "3336S0011X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004348",
+      "visitConceptId": "581458",
+      "decision": "Athena Is a hierarchy to the Visit vocabulary",
+      "visitHierarchy": [
+        "38004348",
+        "38004338",
+        "581458"
+      ],
+      "hierarchySources": [
+        "https://athena.ohdsi.org/search-terms/terms/38004348",
+        "https://athena.ohdsi.org/search-terms/terms/38004338"
+      ],
+      "originalRows": [
+        {
+          "record": "129",
+          "Classification Code": "38004348",
+          "Classification Name": "Sleep Disorder Clinic",
+          "visit_concept_id": "9202"
+        },
+        {
+          "record": "154",
+          "Classification Code": "38004348",
+          "Classification Name": "Ambulance",
+          "visit_concept_id": "581478"
+        }
+      ]
+    },
+    {
+      "conceptId": "38004354",
+      "conceptName": "Air Ambulance",
+      "vocabularyId": "NUCC",
+      "domainId": "Visit",
+      "conceptCode": "3416A0800X",
+      "validity": "Valid",
+      "url": "https://athena.ohdsi.org/search-terms/terms/38004354",
+      "visitConceptId": "581478",
+      "decision": "Existing single Visit target retained; this review verifies the concept name",
+      "visitHierarchy": [],
+      "hierarchySources": [],
+      "originalRows": [
+        {
+          "record": "144",
+          "Classification Code": "38004354",
+          "Classification Name": "Air Transport Ambulance",
+          "visit_concept_id": "581478"
+        },
+        {
+          "record": "150",
+          "Classification Code": "38004354",
+          "Classification Name": "Ambulance",
+          "visit_concept_id": "581478"
+        }
+      ]
+    }
+  ],
+  "originalLookupCommit": "1a392b70b68a9cd699fc8a846b14449d97472e4e",
+  "originalLookupPath": "Caresites/care_site_to_visit_type_map.csv"
+}

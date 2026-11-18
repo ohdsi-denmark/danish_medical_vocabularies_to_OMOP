@@ -39,17 +39,29 @@ is supporting context; a hospital-prefix match is labelled as such. Both
 `speciale4` columns and the unnamed column are retained by position.
 
 Place-of-service classifications and downstream OMOP Visit concepts are
-different mapping layers. The crosswalk's 160 original rows, including
-conflicting labels and targets, remain individually reviewable across 101
-source concepts. Its labels are recorded labels, not verified canonical
-vocabulary metadata. Proposals identify the exact source file and row and
-never silently choose among conflicting crosswalk rows.
+different mapping layers. The lookup now has 101 unique source concepts.
+On 11 November 2026, all 21 duplicated IDs were checked against their Athena
+detail pages. Names were corrected and 59 redundant rows removed. The review,
+Athena links, original affected rows and original Git commit are recorded in
+`athena_lookup_review_2026-11-11.json`. Names for the other 80 concepts remain
+as supplied; this is not a complete vocabulary revalidation.
+
+Five conflicting Visit targets were resolved using Athena's `Is a` hierarchy:
+Clinic Pharmacy and Specialty Pharmacy to Pharmacy visit (581458), Independent
+Laboratory to Laboratory Visit (32036), Independent Clinic to Outpatient Visit
+(9202), and Religious Nonmedical Health Care Institution to Inpatient Visit
+(9201). The sixth conflicting ID, 38004384, is Perinatal Nurse Practitioner in
+the Provider domain, not a hospital concept. Its unsupported Visit target is
+blank and flagged for review. Individual SOR and legacy target IDs were not
+rewritten. Website concept names prefer the reviewed Athena metadata, while
+organisation mapping origin and human-verification status remain unchanged.
 
 An additional 118 concepts are used as targets by the supplied SOR or legacy
 department mappings but have no row in this crosswalk. They are shown on its
 suggestion screen with a reference to the original care-site mapping. This
 does not establish that the original classification is correct. Their CSV
-template is separate from the 1,026 unresolved SOR organisations.
+template is separate from the 1,026 unresolved SOR organisations. Together
+with the Provider-domain placeholder, the lookup suggestion list has 119 rows.
 
 Search loads a compact index for the selected coding context. Full records
 load on demand; the large classification CSV is not served as a website asset.

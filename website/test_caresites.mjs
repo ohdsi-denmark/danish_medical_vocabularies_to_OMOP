@@ -18,12 +18,42 @@ const singleInput = (row, category = "sor", action = "replace") => ({ dataset: "
   caresite: { code: careKey(category, row[0]), changes: [{ action, mapping: `${category}-row-${row[3][0]?.[0]}`, target: "123456" }],
     relationship: "unspecified", reason: "Review the care-site classification and proposed target." } });
 
+test("Athena-reviewed lookup has unique codes and canonical labels without upgrading organisation review", () => {
+  const rows = bulk.parseBulkText(readFileSync(new URL("../Caresites/care_site_to_visit_type_map.csv", import.meta.url), "utf8"), "\t").slice(1);
+  const review = JSON.parse(readFileSync(new URL("../Caresites/athena_lookup_review_2026-11-11.json", import.meta.url), "utf8"));
+  assert.equal(rows.length, 101);
+  assert.equal(new Set(rows.map(row => row[0])).size, rows.length);
+  assert.equal(review.concepts.length, 21);
+  for (const concept of review.concepts) {
+    const row = rows.find(row => row[0] === concept.conceptId);
+    assert.equal(row[1], concept.conceptName);
+    assert.equal(row[2], concept.visitConceptId);
+    assert.equal(manifest.targets[concept.conceptId].name, concept.conceptName);
+    assert.equal(manifest.targets[concept.conceptId].domain, concept.domainId);
+    assert(concept.originalRows.length > 1);
+  }
+  assert.equal(rows.find(row => row[0] === "8716")[2], "9202");
+  assert.equal(rows.find(row => row[0] === "8809")[2], "32036");
+  assert.equal(rows.find(row => row[0] === "38004384")[2], "");
+  const key = "sor-100001000016006";
+  const group = read(careDetailFile(manifest, key));
+  assert.equal(group.sources[key].method, "LLM");
+  assert(!(group.sources[key].flags & ((1 << 2) | (1 << 6))));
+  const mapping = group.mappings.find(row => row.sourceKey === key);
+  assert.equal(mapping.conceptId, "38004247");
+  assert.equal(mapping.conceptName, "Primary Care Clinic/Center");
+  assert.equal(mapping.mappingStatus, "Not human verified");
+  const providerKey = "visittypes-38004384";
+  const provider = read(careDetailFile(manifest, providerKey)).sources[providerKey];
+  assert(provider.flags & (1 << 8));
+});
+
 test("care-site indexes preserve coding systems, provenance, and unresolved SOR membership", () => {
   const actual = Object.fromEntries(manifest.methods.slice(0, 3).map((method, index) => [method, indexes.sor.filter(row => row[2] === index).length]));
   assert.deepEqual(actual, { Manual: 81, "Rule-based": 37028, LLM: 122504 });
   assert.equal(indexes.sor.length, 159613);
   assert.equal(indexes.legacy.length, 4092);
-  assert.equal(indexes.visittypes.reduce((sum, row) => sum + row[3].length, 0), 160);
+  assert.equal(indexes.visittypes.reduce((sum, row) => sum + row[3].length, 0), 100);
   const missing = indexes.sor.filter(row => !row[3].length);
   assert.equal(missing.length, 1026);
   assert.deepEqual(new Set(unresolved.unmapped.map(row => row.code)), new Set(missing.map(row => row[0])));
@@ -101,7 +131,7 @@ test("unresolved care-site templates contain only unresolved codes and round-tri
   for (const [code, id] of rows) assert(index.get(code).some(row => row.unmapped && row.id === id));
   const visits = read(manifest.unmappedFiles.visittypes);
   assert.equal(visits.unmapped.length, manifest.stats.visittypes.unresolved);
-  assert.equal(visits.unmapped.length, 118);
+  assert.equal(visits.unmapped.length, 119);
   const visitIndex = bulk.bulkIndex(careSummary(manifest, "visittypes", indexes.visittypes), "visittypes");
   for (const item of visits.unmapped) assert(visitIndex.get(item.code).some(row => row.unmapped && row.id === item.id));
 });
@@ -169,13 +199,14 @@ test("care-site pages filter origins, expose provenance, and load details and bu
   await render(`#care-site/${manifest.commit}/${encodeURIComponent(careKey("legacy", scientific[0]))}`);
   assert(text(view).includes(scientific[0]));
   assert(text(view).includes("Source code stored in scientific notation"));
-  const visit = indexes.visittypes.find(row => row[3].length > 1);
+  const visit = indexes.visittypes.find(row => row[3].length);
   await render(`#care-site/${manifest.commit}/${careKey("visittypes", visit[0])}`);
-  const sourceCard = descendants(view).find(element => element.tag === "section" && text(element).includes("OMOP place-of-service source"));
+  const sourceCard = descendants(view).find(element => element.tag === "section" && text(element).includes("OMOP source concept"));
   assert(sourceCard.attributes.class.includes("tone-target"));
   await render("#caresites/visittypes/unmapped");
-  assert(text(view).includes("118 results"));
-  const visitGap = read(manifest.unmappedFiles.visittypes).unmapped[0];
+  assert(text(view).includes("119 results"));
+  const visitExport = read(manifest.unmappedFiles.visittypes);
+  const visitGap = visitExport.unmapped.find(item => !(visitExport.sources[item.id].flags & (1 << 8)));
   await render(`#care-site-propose/${manifest.commit}/${visitGap.id}`);
   descendants(view).find(element => element.attributes.inputmode === "numeric").value = "9202";
   descendants(view).find(element => element.tag === "textarea").value = "Propose a downstream Visit concept for this classification.";

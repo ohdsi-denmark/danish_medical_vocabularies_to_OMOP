@@ -32,6 +32,7 @@ export function careSummary(manifest, category, rows, codes) {
     for (const [number, conceptId, mappingStatus, recordMethod] of records) mappings.push({
       id: `${category}-row-${number}`, sourceKey: key, sourceCode: code, sourceName: name, category, conceptId,
       conceptName: manifest.targets[conceptId]?.name || "Target name not supplied", sourceFile: files[category], sourceRow: number,
+      domainId: manifest.targets[conceptId]?.domain || "", vocabularyId: manifest.targets[conceptId]?.vocabulary || "",
       method: recordMethod, mappingStatus, reviewState: "Published",
     });
     if (!records.length) unmapped.push({ id: key, code, sourceKey: key, category });

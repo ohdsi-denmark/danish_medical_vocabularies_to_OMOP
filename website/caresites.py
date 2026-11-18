@@ -12,10 +12,17 @@ CATEGORIES = {"sor": "SOR organisations", "legacy": "Legacy departments", "visit
 METHODS = ["Manual", "Rule-based", "LLM", "Usagi (origin unspecified)", "Recorded crosswalk"]
 FLAGS = ["No resolved target ID", "Prediction and recorded target disagree", "Conflicting labels in the visit crosswalk",
          "Multiple downstream visit types", "No downstream visit type recorded", "Unreviewed Usagi suggestion",
-         "Predicted category not listed in the crosswalk", "Source code stored in scientific notation"]
+         "Predicted category not listed in the crosswalk", "Source code stored in scientific notation",
+         "Athena concept is outside the Visit domain"]
 FILES = ("SOR_to_OMOP_visit_mappings_complete.csv", "SOR_to_visit_concept.csv", "sor_to_nucc_USAGI.csv",
          "care_site_to_visit_type_map.csv", "shak_location_map.csv")
 SHARDS = 1024
+REVIEW_FILE = "athena_lookup_review_2026-11-11.json"
+
+
+def category_key(name):
+    """Ignore only the legacy Ambulatory prefix and typography, not clinical words."""
+    return re.sub(r"[^a-z0-9]", "", re.sub(r"^Ambulatory\s+", "", name, flags=re.IGNORECASE).casefold())
 
 
 def care_bucket(key):
@@ -49,6 +56,12 @@ def location_rows(path):
 def build_caresites(root, commit, out):
     folder = root / "Caresites"
     hashes = {name: hashlib.sha256((folder / name).read_bytes()).hexdigest() for name in FILES}
+    review_path = folder / REVIEW_FILE
+    verified = {}
+    if review_path.exists():
+        review = json.loads(review_path.read_text(encoding="utf-8"))
+        verified = {row["conceptId"]: row for row in review["concepts"]}
+        hashes[REVIEW_FILE] = hashlib.sha256(review_path.read_bytes()).hexdigest()
     digest = hashlib.sha256((commit + json.dumps(hashes, sort_keys=True)).encode()).hexdigest()[:20]
     asset_root = f"care-site-data/{digest}"
     sources = {}
@@ -66,7 +79,10 @@ def build_caresites(root, commit, out):
             code, name, target = row["Classification Code"].strip(), row["Classification Name"].strip(), row["visit_concept_id"].strip()
             crosswalk[code].append(dict(name=name, conceptId=target, sourceRow=str(number)))
             labels[code].add(name)
-            category_ids[name].add(code)
+            category_ids[category_key(name)].add(code)
+    for code, metadata in verified.items():
+        if labels.get(code) != {metadata["conceptName"]}:
+            raise ValueError(f"Lookup name differs from the Athena review for {code}")
     legacy = list(read_rows(folder / "sor_to_nucc_USAGI.csv"))
     for _, row in legacy:
         if positive_id(row["conceptId"]):
@@ -75,12 +91,18 @@ def build_caresites(root, commit, out):
     targets = {}
     for code in sorted(all_ids):
         names = sorted(usagi_labels.get(code) or labels[code])
-        targets[code] = dict(id=code, name=names[0] if len(names) == 1 else "Multiple recorded labels — review needed",
-                             domain="", recordedLabels=names)
+        metadata = verified.get(code)
+        targets[code] = dict(id=code, name=metadata["conceptName"] if metadata else names[0] if len(names) == 1 else "Multiple recorded labels — review needed",
+                             domain=metadata["domainId"] if metadata else "", kinds=["classification"], recordedLabels=[metadata["conceptName"]] if metadata else names,
+                             **({"vocabulary": metadata["vocabularyId"], "conceptCode": metadata["conceptCode"],
+                                 "verifiedOn": review["checkedOn"], "verificationUrl": metadata["url"]} if metadata else {}))
     # These are the Visit concepts actually used in the supplied crosswalk, not an Athena extract.
     for rows in crosswalk.values():
         for row in rows:
-            targets.setdefault(row["conceptId"], dict(id=row["conceptId"], name="Visit concept name not supplied", domain="Visit"))
+            if positive_id(row["conceptId"]):
+                visit = targets.setdefault(row["conceptId"], dict(id=row["conceptId"], name="Visit concept name not supplied", domain="Visit", kinds=[]))
+                if "visit" not in visit["kinds"]:
+                    visit["kinds"].append("visit")
 
     def target_name(code):
         return targets.get(code, {}).get("name", "Target name not supplied")
@@ -95,7 +117,10 @@ def build_caresites(root, commit, out):
     def mapping(source, number, target, filename, **extra):
         row = dict(id=f'{source["category"]}-row-{number}', sourceKey=source["id"], sourceCode=source["code"],
                    sourceName=source["name"], category=source["category"], conceptId=target, conceptName=target_name(target),
-                   sourceFile=filename, sourceRow=str(number), reviewState="Published", domainId="",
+                   sourceFile=filename, sourceRow=str(number), reviewState="Published", domainId=targets.get(target, {}).get("domain", ""),
+                   vocabularyId=targets.get(target, {}).get("vocabulary", ""),
+                   targetConceptCode=targets.get(target, {}).get("conceptCode", ""),
+                   targetNameCheckedOn=targets.get(target, {}).get("verifiedOn", ""),
                    mappingStatus="Human verified" if source["methodIndex"] == 0 else
                        "Review status not supplied" if source["methodIndex"] == 4 else "Not human verified",
                    mappingType="Maps to", method=source["method"])
@@ -122,7 +147,7 @@ def build_caresites(root, commit, out):
         if not positive_id(target):
             flags.append(0)
         else:
-            if row["Predicted_Category"] in category_ids and target not in category_ids[row["Predicted_Category"]]:
+            if category_key(row["Predicted_Category"]) in category_ids and target not in category_ids[category_key(row["Predicted_Category"])]:
                 flags.append(1)
             if len(labels.get(target, [])) > 1:
                 flags.append(2)
@@ -131,7 +156,7 @@ def build_caresites(root, commit, out):
                 flags.append(3)
             if not visits:
                 flags.append(4)
-        if row["Predicted_Category"] not in category_ids:
+        if category_key(row["Predicted_Category"]) not in category_ids:
             flags.append(6)
         source = common_source("sor", code, row["EntityName"], method, flag_bits(flags),
             predictedCategory=row["Predicted_Category"], justification=row["Justification"], verifiedBy=row["Verified_By"],
@@ -168,7 +193,12 @@ def build_caresites(root, commit, out):
         mapping(source, number, row["conceptId"], "sor_to_nucc_USAGI.csv", method=METHODS[method],
                 recordedSourceName=row["sourceName"], recordedDanishName=row.get("ADD_INFO:to_translate", ""),
                 **{k: v for k, v in row.items() if k not in {"sourceCode", "sourceName", "conceptId", "conceptName"}})
-        mappings[key][-1]["conceptName"] = row["conceptName"]
+        mapped = mappings[key][-1]
+        mapped["recordedConceptName"] = row["conceptName"]
+        mapped["conceptName"] = verified.get(row["conceptId"], {}).get("conceptName", row["conceptName"])
+        if row["conceptId"] in verified:
+            mapped["recordedDomainId"] = row.get("domainId", "")
+            mapped["domainId"] = verified[row["conceptId"]]["domainId"]
 
     for code, rows in crosswalk.items():
         flags = flag_bits(([2] if len(labels[code]) > 1 else []) + ([3] if len({r["conceptId"] for r in rows}) > 1 else []))
@@ -195,6 +225,12 @@ def build_caresites(root, commit, out):
     # Sources remain separate even when the numeric code occurs in another coding system.
     for key, source in sorted(sources.items()):
         records = [row for row in mappings[key] if positive_id(row["conceptId"])]
+        checked_ids = [source["code"]] if source["category"] == "visittypes" else [row["conceptId"] for row in records]
+        if any(verified.get(code, {}).get("domainId", "Visit") != "Visit" for code in checked_ids):
+            source["flags"] |= 1 << 8
+        if source["category"] == "visittypes" and source["code"] in verified:
+            source["details"][0].update({"Verified concept name": verified[source["code"]]["conceptName"],
+                "Verified domain": verified[source["code"]]["domainId"], "Athena checked on": review["checkedOn"]})
         if not records:
             source["flags"] |= 1 << 0
         indexes[source["category"]].append([source["code"], source["name"], source["methodIndex"],
@@ -231,6 +267,8 @@ def build_caresites(root, commit, out):
         release=dict(release="Supplied care-site files", asOf="Source snapshot date not provided"),
         downloads={name: base_url + quote("Caresites/" + name) for name in FILES},
         coverageNote="Recorded place-of-service targets and downstream Visit concepts are separate mappings. Conflicting recorded labels and visit types require review; automated classifications are not human approval.")
+    if verified:
+        manifest["downloads"]["Athena lookup review (21 concepts)"] = base_url + quote("Caresites/" + REVIEW_FILE)
     export_sources = defaultdict(dict)
     export_items = defaultdict(list)
     for key, source in sources.items():

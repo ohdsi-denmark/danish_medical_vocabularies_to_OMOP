@@ -106,7 +106,8 @@ export function createCarePages(ui) {
     const source = Object.hasOwn(group.sources, key) && group.sources[key];
     if (!source) { view.append(node("p", {}, "Unknown care-site source.")); return; }
     const catalog = { ...manifest, sources: { [key]: source }, mappings: group.mappings.filter(row => row.sourceKey === key), unmapped: [],
-      targets: Object.fromEntries(Object.entries(manifest.targets).filter(([, target]) => source.category === "visittypes" ? target.domain === "Visit" : target.domain !== "Visit")) };
+      targets: Object.fromEntries(Object.entries(manifest.targets).filter(([, target]) => source.category === "visittypes" ?
+        target.kinds.includes("visit") : target.kinds.includes("classification") && (!target.domain || target.domain === "Visit"))) };
     const edit = route === "care-site-propose";
     ui.showGrouped(key, commit, edit, { data: catalog, details: new Map([[key, source]]), route: "care-site", dataset: "caresites",
       navigation: () => {

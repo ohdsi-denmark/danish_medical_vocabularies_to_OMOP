@@ -73,6 +73,7 @@ def main():
     input_paths.extend([":(glob)Procedures/*.csv", ":(glob)Procedures/*.json"])
     input_paths.append(":(glob)Conditions/*.csv")
     input_paths.append(":(glob)Caresites/*.csv")
+    input_paths.append(":(glob)Caresites/*.json")
     if subprocess.check_output(["git", "status", "--porcelain", "--", *input_paths], cwd=ROOT):
         raise SystemExit("Commit the mapping inputs before building a versioned snapshot.")
     files = {

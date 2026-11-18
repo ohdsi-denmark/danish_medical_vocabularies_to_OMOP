@@ -922,7 +922,7 @@ function showProcedures(mode) {
 }
 
 function procedureSourceCard(source) {
-  return facts(source.category === "visittypes" ? "OMOP place-of-service source" : "Danish source", [["Code",
+  return facts(source.category === "visittypes" ? "OMOP source concept" : "Danish source", [["Code",
     source.category === "visittypes" ? link(source.code, `${athena}terms/${source.code}`) : source.code],
     ...(["sor", "legacy", "visittypes"].includes(source.category) ? [] : [["Source frequency", source.occurrences ?? "Unavailable"]]),
     ...Object.entries(source.details[0])], source.category === "visittypes" ? "target" : "source");
@@ -961,6 +961,8 @@ function showProcedure(code, commit, edit, config = {}) {
         ["Invalid reason", row.invalid_reason],
         ["Mapping method", row.method], ["Recorded classification", row.recordedClassification],
         ["Recorded source name", row.recordedSourceName], ["Recorded Danish description", row.recordedDanishName],
+        ["Originally recorded target name", row.recordedConceptName], ["Originally recorded domain", row.recordedDomainId],
+        ["Target concept code", row.targetConceptCode], ["Target name checked in Athena", row.targetNameCheckedOn],
       ])),
     ])) : node("p", {}, config.dataset === "conditions" ? "No custom mapping recorded. See the standard reference targets below, where available." : "No mapping recorded."));
   if (config.dataset === "conditions") {
