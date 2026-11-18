@@ -24,7 +24,7 @@ export function renderDashboard({ node, link, view }, report) {
   const mappingTables = node("div", { class: "dashboard-table" });
   const sourceTables = node("div", { class: "dashboard-table" });
   const sourceSection = node("section", {}, node("h3", {}, "DNPR source tables"),
-    node("p", {}, "These counts use the procedure and diagnosis reports you supplied. A code can occur in several tables; these rows overlap and should not be added together. Frequencies are not used to weight the percentages."), sourceTables);
+    node("p", {}, "The counts are based on a count of codes over a 11/2024 extract of Danish Health repositories. A code can occur in several tables; these rows overlap and should not be added together. Frequencies are not used to weight the percentages."), sourceTables);
   const table = (rows, files) => node("table", {},
     node("thead", {}, node("tr", {}, ...["Topic / table", "Mapped", "Without target", "Known total", "Mapped %", "Inventory covered"].map(label => node("th", { scope: "col" }, label)))),
     node("tbody", {}, ...rows.map(row => node("tr", {},
